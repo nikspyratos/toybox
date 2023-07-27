@@ -46,4 +46,5 @@ Windows users: follow Linux instructions on WSL2. Not sure all of it will work p
 - Get something working with this
 - GH actions for Pest
 - Livewire + Filament v3
+- Filament: Get vite/tailwind config setup for colour customisation
 - Consider Folio + Volt
