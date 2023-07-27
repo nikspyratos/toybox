@@ -5,6 +5,7 @@ My boilerplate for Laravel micro-SaaS.
 - **Be as self-contained as possible**: With minimal extra commands, you should be able to clone this repo and get something running.
 - **Use the simplest form of each tool**: SQLite seems to annoy a lot of people, but it's highly portable and clearly can scale (just look at any of Pieter Levels' projects). Caddy is simpler than nginx and easier to use. Octane speeds things up over fpm and runs simply. Deployer has decent defaults for Laravel apps so you don't need to get Envoyer or start from 0 with Envoy. Livewire+Alpine are a different paradigm but still closer to staying with PHP & simple tools rather than React/Vue/etc.
 - **Customisable**: Don't like my tech choices? Shouldn't be too hard to sub the important ones out, e.g. SQLite -> MySQL.
+- **Flexible, but sturdy**: Strict types. Automated linting.
 
 ## Installation/Usage
 
@@ -36,6 +37,7 @@ Windows users: follow Linux instructions on WSL2. Not sure all of it will work p
 - Caddy usage here may be of limited use for you if you use Forge/Ploi/etc.
 - Redis is a part of this stack, but filesystem cache & `php artisan queue:work` can probably do just fine for quite a while. However the Horizon integration for visibility is really nice.
 - NativePHP might be a good fit here for those who want to do that?
+- Should tests run as pre-commit hooks too? On larger test bases and for atomised commits probably a bad idea, so for now no.
 
 ## TODO
 
