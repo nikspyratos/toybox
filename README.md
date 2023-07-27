@@ -12,6 +12,7 @@ This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer
 
 ```shell
 // [TODO]
+./setup.sh
 ```
 
 ### Local Development
@@ -42,6 +43,5 @@ Windows users: follow Linux instructions on WSL2. Not sure all of it will work p
 - Installation docs
 - Get something working with this
 - GH actions for Pest
-- Duster pre-commit hook
 - Livewire + Filament v3
 - Consider Folio + Volt
