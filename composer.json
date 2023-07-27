@@ -11,6 +11,7 @@
         "laravel/framework": "^10.10",
         "laravel/octane": "^2.0",
         "laravel/sanctum": "^3.2",
+        "laravel/telescope": "^4.15",
         "laravel/tinker": "^2.8",
         "spiral/roadrunner-cli": "^2.5.0",
         "spiral/roadrunner-http": "^3.0.1"
