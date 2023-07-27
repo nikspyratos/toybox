@@ -14,6 +14,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/telescope": "^4.15",
         "laravel/tinker": "^2.8",
+        "livewire/livewire": "^2.12",
         "spiral/roadrunner-cli": "^2.5.0",
         "spiral/roadrunner-http": "^3.0.1"
     },
