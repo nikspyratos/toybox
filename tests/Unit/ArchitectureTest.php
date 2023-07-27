@@ -1,15 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Basic architecture quality tests
  * https://github.com/JonPurvis/pest-snippets/blob/main/arch-testing.md
  */
-
 uses()->group('architecture');
 
 test('Application files use strict types')
-->expect('App')
-->toUseStrictTypes();
+    ->expect('App')
+    ->toUseStrictTypes();
 
 test('the codebase does not reference env variables outside of config files')
     ->expect('env')
