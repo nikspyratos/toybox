@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "nikspyratos/toybox-laravel",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Laravel micro-SaaS all-in-one boilerplate",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
@@ -54,7 +54,11 @@
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-            "@php artisan filament:upgrade"
+            "@php artisan filament:upgrade",
+            "@php artisan ide-helper:eloquent -n",
+            "@php artisan ide-helper:meta -n",
+            "@php artisan ide-helper:generate -n",
+            "@php artisan ide-helper:models -n --reset"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
