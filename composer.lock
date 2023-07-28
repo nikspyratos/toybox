@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "485f1c20100b8af236f53d64b9fdebb9",
+    "content-hash": "e78b388185967263cd5332893137315b",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -8405,6 +8405,49 @@
                 }
             ],
             "time": "2022-11-17T09:50:14+00:00"
+        },
+        {
+            "name": "deployer/deployer",
+            "version": "v7.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/deployphp/deployer.git",
+                "reference": "c5c5e79d4e57445918ed24a9cdd3d85b0f261de3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/deployphp/deployer/zipball/c5c5e79d4e57445918ed24a9cdd3d85b0f261de3",
+                "reference": "c5c5e79d4e57445918ed24a9cdd3d85b0f261de3",
+                "shasum": ""
+            },
+            "bin": [
+                "dep"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Medvedev",
+                    "email": "anton@medv.io"
+                }
+            ],
+            "description": "Deployment Tool",
+            "homepage": "https://deployer.org",
+            "support": {
+                "docs": "https://deployer.org/docs",
+                "issues": "https://github.com/deployphp/deployer/issues",
+                "source": "https://github.com/deployphp/deployer"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/antonmedv",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-04-05T09:24:30+00:00"
         },
         {
             "name": "doctrine/cache",

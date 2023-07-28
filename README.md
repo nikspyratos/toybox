@@ -2,7 +2,7 @@ My boilerplate for Laravel micro-SaaS/indie hackers.
 
 Works best for solo developers or small teams.
 
-The toybox has a bit of everything. 
+The toybox has a bit of everything.
 
 ## Principles
 
@@ -70,5 +70,6 @@ Windows users: follow Linux instructions on WSL2. Not sure all of it will work p
 - Get something working with this
 - Livewire + Filament v3
 - Filament: Get vite/tailwind config setup for colour customisation
-- Deployer: Set up for deployment without storing credentials/IPs in the repo
-- Docker: Setting up one Dockerfile to act as an application bundler here might not be the worst idea.
+- Deployer: Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
+- Docker: Setting up one Dockerfile to act as an application bundler here might not be the worst idea. But would need to figure out the best way to separate parts like queues.
+- Test multi-server version of this
