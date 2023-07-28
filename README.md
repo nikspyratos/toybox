@@ -1,3 +1,16 @@
+<!-- TOC -->
+  * [Support](#support)
+  * [Principles](#principles)
+  * [Components](#components)
+  * [Installation/Usage](#installationusage)
+  * [Next Steps](#next-steps)
+  * [Local Development](#local-development)
+    * [macOS](#macos)
+    * [Linux](#linux)
+  * [Notes/Ideas](#notesideas)
+  * [TODO](#todo)
+<!-- TOC -->
+
 My boilerplate for Laravel micro-SaaS/indie hackers.
 
 Works best for solo developers or small teams.
@@ -46,7 +59,7 @@ This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer
 ./setup.sh
 ```
 
-### Next Steps
+## Next Steps
 
 These are the next steps you will have to implement yourself for your project.
 
@@ -56,7 +69,7 @@ Services
 - **Event tracking/notifications**: I recommend [LogSnag](https://logsnag.com/).
 - **Uptime & Monitoring**: I recommend [OhDear](https://ohdear.app/?via=nikspyratos).
 - **Infrastructure/Server Management**: [Laravel Forge](https://forge.laravel.com/) and [Ploi](https://ploi.io/) are good options (I prefer Ploi) and support many cloud providers. I lean towards AWS, but only because they have a Cape Town region.
-  - **Serverless**: Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/) While this boilerplate is untested with Serverless, I still wanted to provide some links.
+  - **Serverless**: Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). While this boilerplate is untested with Serverless, I still wanted to provide some links.
 - **Desktop**: While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a very promising option if you'd like to add desktop apps to your toolkit.
 
 Other Tools
@@ -65,23 +78,23 @@ Other Tools
   - **OpenAPI/Swagger**: [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger) is great here - must-use for writing great APIs.
   - **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) keeps things simple. 
 - **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient.
-- **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), 
+- **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport). 
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 
 What else should be added here?
 
-### Local Development
+## Local Development
 
 In keeping with the spirit of this project, try using native solutions.
 Windows users: follow Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
 
-#### macOS
+### macOS
 
 - ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
 - [DBngin](https://dbngin.com/)
 
-#### Linux
+### Linux
 
 - [Valet Linux](https://cpriego.github.io/valet-linux/) OR install PHP manually.
 - Install your DB of choice locally
