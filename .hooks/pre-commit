@@ -1,2 +1,5 @@
 #!/bin/sh
+#https://laraveldaily.com/post/laravel-pint-pre-commit-hooks-github-actions
+files=$(git diff --cached --name-only --diff-filter=ACM -- '*.php');
 vendor/bin/duster fix --dirty
+git add $files
