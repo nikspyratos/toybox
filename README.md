@@ -3,7 +3,19 @@
   * [Principles](#principles)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
-  * [Next Steps](#next-steps)
+  * [Next Steps - DIY](#next-steps---diy)
+    * [Services](#services)
+      * [Mail Provider](#mail-provider-)
+      * [Payment Provider](#payment-provider)
+      * [Event tracking/system notifications](#event-trackingsystem-notifications)
+      * [Uptime & Monitoring](#uptime--monitoring)
+      * [Analytics](#analytics)
+      * [Search](#search)
+      * [Websockets](#websockets)
+      * [Infrastructure/Server Management](#infrastructureserver-management)
+        * [Serverless](#serverless)
+        * [Desktop](#desktop)
+    * [Other Tools](#other-tools)
   * [Local Development](#local-development)
     * [macOS](#macos)
     * [Linux](#linux)
@@ -59,26 +71,63 @@ This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer
 ./setup.sh
 ```
 
-## Next Steps
+## Next Steps - DIY
 
 These are the next steps you will have to implement yourself for your project.
 
-Services
-- **Mail Provider**: [Laravel recommends](https://laravel.com/docs/10.x/mail#introduction) [Mailgun](https://www.mailgun.com/), [Postmark](https://postmarkapp.com/) and [SES](https://aws.amazon.com/ses/). Another option that integrates well, and works for newsletters/marketing campaigns too, is [Mailcoach](https://mailcoach.app/).
-- **Payment Provider**: There are a few options here, depending on your region. For many countries, Stripe with [Laravel Cashier](https://laravel.com/docs/10.x/billing#introduction) will be fine. Otherwise, have a look at [Paddle](https://www.paddle.com/) (also has a [Cashier plugin](https://laravel.com/docs/10.x/cashier-paddle)) or [Lemon Squeezy](https://lemonsqueezy.com) (Laravel package [here](https://github.com/lmsqueezy/laravel)) for a Merchant of Record. If you're in Africa, [Paystack](https://paystack.com/) is a solid option. For more options, and whether or not you need an MoR, and taxation info see [here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
-- **Event tracking/notifications**: I recommend [LogSnag](https://logsnag.com/).
-- **Uptime & Monitoring**: I recommend [OhDear](https://ohdear.app/?via=nikspyratos).
-- **Infrastructure/Server Management**: [Laravel Forge](https://forge.laravel.com/) and [Ploi](https://ploi.io/) are good options (I prefer Ploi) and support many cloud providers. I lean towards AWS, but only because they have a Cape Town region.
-  - **Serverless**: Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). While this boilerplate is untested with Serverless, I still wanted to provide some links.
-- **Desktop**: While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a very promising option if you'd like to add desktop apps to your toolkit.
+### Services
 
-Other Tools
+#### Mail Provider 
+
+[Laravel recommends](https://laravel.com/docs/10.x/mail#introduction) [Mailgun](https://www.mailgun.com/), [Postmark](https://postmarkapp.com/) and [SES](https://aws.amazon.com/ses/). Another option that integrates well, and works for newsletters/marketing campaigns too, is [Mailcoach](https://mailcoach.app/).
+ 
+#### Payment Provider
+
+There are a few options here, depending on your region. For many countries, Stripe with [Laravel Cashier](https://laravel.com/docs/10.x/billing#introduction) will be fine. Otherwise, have a look at [Paddle](https://www.paddle.com/) (also has a [Cashier plugin](https://laravel.com/docs/10.x/cashier-paddle)) or [Lemon Squeezy](https://lemonsqueezy.com) (Laravel package [here](https://github.com/lmsqueezy/laravel)) for a Merchant of Record. 
+
+If you're in Africa, [Paystack](https://paystack.com/) is a solid option (affiliate signup: [here](https://nik-software.paystack.com/#/signup). 
+
+For more options, and whether or not you need an MoR, and taxation info see [here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
+
+#### Event tracking/system notifications
+
+I recommend [LogSnag](https://logsnag.com/).
+#### Uptime & Monitoring
+
+I recommend [OhDear](https://ohdear.app/?via=nikspyratos).
+
+#### Analytics
+
+[Fathom](https://usefathom.com) and [Plausible](https://plausible.io) are great options. If I had to choose: Fathom has more accessible pricing, and is made with Laravel!
+
+#### Search
+
+[Algolia](https://www.algolia.com/) and [Meilisearch](https://www.meilisearch.com) are the ones supported by [Laravel Scout](https://laravel.com/docs/10.x/scout). Meilisearch can be self-hosted, but can be a handful to manage and would still cost a fair bit in storage/RAM requirements, so you might not save much over using cloud.
+
+#### Websockets
+
+[Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options in this space, which will be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation).
+
+#### Infrastructure/Server Management
+
+[Laravel Forge](https://forge.laravel.com/) and [Ploi](https://ploi.io/) are good options (I prefer Ploi) and support many cloud providers. I lean towards AWS, but only because they have a Cape Town region.
+
+##### Serverless
+
+Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). While this boilerplate is untested with Serverless, I still wanted to provide some links.
+
+##### Desktop
+
+While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a very promising option if you'd like to add desktop apps to your toolkit.
+
+### Other Tools
+
 - **APIs**
   - **Consuming APIs**: I recommend [Saloon](https://docs.saloon.dev/) - it can be a bit overkill for small APIs, but it really helps with structuring logic with larger APIs and OAuth. I use it as the base for my [Investec Banking API SDK](https://github.com/nikspyratos/investec-sdk-php). 
   - **OpenAPI/Swagger**: [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger) is great here - must-use for writing great APIs.
   - **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) keeps things simple. 
 - **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient.
-- **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport). 
+- **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout), [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) (and [client](https://laravel.com/docs/10.x/broadcasting#client-side-installation)). 
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 
