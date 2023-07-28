@@ -1,0 +1,11 @@
+{
+  "include": [
+    "bin",
+    "scripts",
+    "src",
+    "tests"
+  ],
+  "exclude": [
+    "tests/fixtures"
+  ]
+}
