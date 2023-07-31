@@ -26,9 +26,9 @@
 
 My boilerplate for Laravel micro-SaaS/indie hackers.
 
-Works best for solo developers or small teams.
+The toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak.
 
-The toybox has a bit of everything - a grand tour of the Laravel & PHP world, so to speak.
+> This project is intended mostly for use as a solo developer who wants to rapidly develop and deploy indie SaaS projects. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
 
 ## Support
 
@@ -84,6 +84,19 @@ Then, run the setup script to set up pre-commit linting, composer & npm, SQLite 
 
 ```shell
 ./setup.sh
+```
+
+From there modify your .env file as needed.
+
+Now, setting up Supervisor to run all the services:
+```shell
+# TODO
+```
+
+Next, setting up the Caddy server:
+
+```shell
+# TODO
 ```
 
 ## Next Steps - DIY
@@ -198,7 +211,6 @@ Windows users: follow Linux instructions on WSL2. Not sure all of it will work p
 
 ## TODO
 
-- Write more on the thinking of each tech choice
 - Installation docs
 - Get something working with this
 - Livewire + Filament v3
