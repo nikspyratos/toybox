@@ -1,8 +1,15 @@
+# Toybox Laravel
+
 <!-- TOC -->
+* [Toybox Laravel](#toybox-laravel)
   * [Support](#support)
   * [Principles](#principles)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
+  * [Local Development](#local-development)
+    * [macOS](#macos)
+    * [Linux](#linux)
+    * [Windows](#windows)
   * [Next Steps - DIY](#next-steps---diy)
     * [Services](#services)
       * [Mail Provider](#mail-provider-)
@@ -16,10 +23,8 @@
         * [Serverless](#serverless)
         * [Desktop](#desktop)
     * [Other Tools](#other-tools)
-    * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
-  * [Local Development](#local-development)
-    * [macOS](#macos)
-    * [Linux](#linux)
+      * [Laravel Octane](#laravel-octane)
+        * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
   * [Notes/Ideas](#notesideas)
   * [TODO](#todo)
 <!-- TOC -->
@@ -28,7 +33,7 @@ My boilerplate for Laravel micro-SaaS/indie hackers.
 
 The toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak.
 
-> This project is intended mostly for use as a solo developer who wants to rapidly develop and deploy indie SaaS projects. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
+> This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
 
 ## Support
 
@@ -99,6 +104,24 @@ Next, setting up the Caddy server:
 # TODO
 ```
 
+## Local Development
+
+In keeping with the spirit of this project, try using native solutions. One drawback here is that Valet and Herd don't use Octane.
+
+### macOS
+
+- ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
+- [DBngin](https://dbngin.com/)
+
+### Linux
+
+- [Valet Linux](https://cpriego.github.io/valet-linux/) OR install PHP manually.
+- Install your DB of choice locally
+
+### Windows
+
+Follow Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
+
 ## Next Steps - DIY
 
 These are the next steps you will have to implement yourself for your project.
@@ -111,9 +134,9 @@ These are the next steps you will have to implement yourself for your project.
  
 #### Payment Provider
 
-There are a few options here, depending on your region. For many countries, Stripe with [Laravel Cashier](https://laravel.com/docs/10.x/billing#introduction) will be fine. Otherwise, have a look at [Paddle](https://www.paddle.com/) (also has a [Cashier plugin](https://laravel.com/docs/10.x/cashier-paddle)) or [Lemon Squeezy](https://lemonsqueezy.com) (Laravel package [here](https://github.com/lmsqueezy/laravel)) for a Merchant of Record. 
+There are a few options here, depending on your region. For many countries, [Stripe](https://stripe.com) with [Laravel Cashier](https://laravel.com/docs/10.x/billing#introduction) will be fine. Otherwise, have a look at [Paddle](https://www.paddle.com/) (also has a [Cashier plugin](https://laravel.com/docs/10.x/cashier-paddle)) or [Lemon Squeezy](https://lemonsqueezy.com) (Laravel package [here](https://github.com/lmsqueezy/laravel)) for a Merchant of Record. 
 
-If you're in Africa, [Paystack](https://paystack.com/) is a solid option (affiliate signup: [here](https://nik-software.paystack.com/#/signup). 
+If you're in Africa, [Paystack](https://paystack.com/) is a solid option (affiliate signup: [here](https://nik-software.paystack.com/#/signup)). 
 
 For more options, and whether or not you need an MoR, and taxation info see [here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
 
@@ -130,11 +153,11 @@ I recommend [OhDear](https://ohdear.app/?via=nikspyratos).
 
 #### Search
 
-[Algolia](https://www.algolia.com/) and [Meilisearch](https://www.meilisearch.com) are the ones supported by [Laravel Scout](https://laravel.com/docs/10.x/scout). Meilisearch can be self-hosted, but can be a handful to manage and would still cost a fair bit in storage/RAM requirements, so you might not save much over using cloud.
+[Algolia](https://www.algolia.com/) and [Meilisearch](https://www.meilisearch.com) are the ones supported by [Laravel Scout](https://laravel.com/docs/10.x/scout). Meilisearch can be self-hosted, but can be a handful to manage and would still cost a fair bit in storage/RAM requirements, so you might not save much in time & headaches over using cloud.
 
 #### Websockets
 
-[Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options in this space, which will be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation).
+[Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options in this space, which will be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation). If you want to DIY, see [below](#other-tools).
 
 #### Infrastructure/Server Management
 
@@ -148,20 +171,41 @@ Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for fr
 
 While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a very promising option if you'd like to add desktop apps to your toolkit.
 
+---
+
 ### Other Tools
 
 - **APIs**
   - **Consuming APIs**: I recommend [Saloon](https://docs.saloon.dev/) - it can be a bit overkill for small APIs, but it really helps with structuring logic with larger APIs and OAuth. I use it as the base for my [Investec Banking API SDK](https://github.com/nikspyratos/investec-sdk-php). 
   - **OpenAPI/Swagger**: [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger) is great here - must-use for writing great APIs.
-  - **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) keeps things simple. 
+  - **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) does the job without much overhead. 
 - **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient.
 - **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout), [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) (and [client](https://laravel.com/docs/10.x/broadcasting#client-side-installation)). 
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 
-What else should be added here?
+#### Laravel Octane
 
-### Roadrunner vs Swoole
+By default, this project runs with Laravel Octane using Roadrunner. This lets the application run faster than traditionally with php-fpm. 
+There is one main drawback however, in that many packages in the ecosystem are not made with a concurrent/shared-memory model in mind. This opens up the potential for memory leaks. At the same time, the purported speed boost offered I think is not to be ignored.
+
+The longer we hold back from using these tools because of dependencies, the longer it will take for them to become viable. Stay vigilant of your app's memory usage, and submit PRs to your dependencies if you find leaks.
+
+If you instead want to remove Octane:
+1. Remove the package, config file, and Roadrunner:
+```shell
+composer remove laravel/octane
+rm config/octane.php
+rm rr
+rm .rr.yaml
+```
+2. Install PHP-FPM
+```shell
+sudo apt install php8.2-fpm
+```
+3. Switch Caddy to use FPM: Replace the `reverse_proxy` line in your Caddyfile with `php_fastcgi unix//run/php/php8.2-fpm.sock`
+
+##### Roadrunner vs Swoole
 
 In short:
 - Roadrunner is a Go-based PHP application server
@@ -170,10 +214,14 @@ In short:
 
 I haven't been able to find more recent [benchmarks](https://github.com/morozovsk/webserver-performance-comparison), but it seems the general implication is that Swoole is faster than Roadrunner.
 
-Roadrunner is simpler, but Swoole provides a lot more functionality to your Octane with [concurrent tasks](https://laravel.com/docs/10.x/octane#concurrent-tasks), [ticks & intervals](https://laravel.com/docs/10.x/octane#ticks-and-intervals), the [octane cache](https://laravel.com/docs/10.x/octane#the-octane-cache), and [tables](https://laravel.com/docs/10.x/octane#tables). Additionally, it seems Swoole doesn't play well with debug extensions and monitoring applications (hopefully that's changed since 2021). So in order to reduce potential risk here, this boilerplate starts with Roadrunner.
+Roadrunner is simpler, but Swoole provides a lot more functionality to your Octane with [concurrent tasks](https://laravel.com/docs/10.x/octane#concurrent-tasks), [ticks & intervals](https://laravel.com/docs/10.x/octane#ticks-and-intervals), the [octane cache](https://laravel.com/docs/10.x/octane#the-octane-cache), and [tables](https://laravel.com/docs/10.x/octane#tables). Additionally, it seems Swoole doesn't play well with debug extensions and monitoring applications (hopefully that's changed since 2021).
 
-Switching to Swoole is easy. Firstly, install your flavour of Swoole:
+Installing Octane with Roadrunner:
+1. Select `roadrunner` when running `php artisan octane:install`
+2. Roadrunner will be downloaded and run when you run Octane. No further action needed past that selection.
 
+Installing Octane with Swoole:
+1. Run the following
 ```shell
 # Swoole is available in the Ondřej Surý PPA
 sudo apt install php8.2-swoole
@@ -181,23 +229,11 @@ sudo apt install php8.2-swoole
 sudo add-apt-repository ppa:openswoole/ppa -y
 sudo apt install -y php8.2-openswoole
 ```
+2. Select `swoole` when running `php artisan octane:install`.
 
-Then, update your `OCTANE_SERVER` env or your `config/octane.php`'s `server` key to `swoole`, and restart Octane.
-
-## Local Development
-
-In keeping with the spirit of this project, try using native solutions. One drawback here is that Valet and Herd don't use Octane.
-Windows users: follow Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
-
-### macOS
-
-- ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
-- [DBngin](https://dbngin.com/)
-
-### Linux
-
-- [Valet Linux](https://cpriego.github.io/valet-linux/) OR install PHP manually.
-- Install your DB of choice locally
+Switching between Roadrunner and Swoole is simple:
+1. Follow the Swoole steps above.
+2. Update your `OCTANE_SERVER` env or your `config/octane.php`'s `server` key to `swoole`, and restart Octane.
 
 ## Notes/Ideas
 
