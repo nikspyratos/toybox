@@ -83,7 +83,7 @@ sudo apt install php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite
 Then, run the setup script to set up pre-commit linting, composer & npm, SQLite database init, create the .env file and application key.
 
 ```shell
-./setup-local.sh
+./setup.sh
 ```
 
 ## Next Steps - DIY
