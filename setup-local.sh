@@ -5,3 +5,4 @@ npm install
 php artisan ide-helper:eloquent
 touch database/database.sqlite
 cp .env.example .env
+php artisan key:generate

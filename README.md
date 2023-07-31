@@ -16,6 +16,7 @@
         * [Serverless](#serverless)
         * [Desktop](#desktop)
     * [Other Tools](#other-tools)
+    * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
   * [Local Development](#local-development)
     * [macOS](#macos)
     * [Linux](#linux)
@@ -58,7 +59,7 @@ The toybox has a bit of everything - a grand tour of the Laravel & PHP world, so
   - **Admin panel**: [Filament](https://filamentphp.com/)
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
-  - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) 
+  - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
   - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope) and [Horizon](https://laravel.com/docs/10.x/horizon)
 - **CI/CD**: [Deployer](https://deployer.org/)
 
@@ -66,9 +67,23 @@ The toybox has a bit of everything - a grand tour of the Laravel & PHP world, so
 
 This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
 
+Why Ubuntu? It's a popular OS and a relatively stable target for most use cases.
+
+First, update apt, then install some dependencies, and install PHP 8.2 using the Ondrej PPA, and then the required extensions.
+
 ```shell
-// [TODO]
-./setup.sh
+sudo apt update
+sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+sudo apt install php8.2
+sudo apt install php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql
+```
+
+Then, run the setup script to set up pre-commit linting, composer & npm, SQLite database init, create the .env file and application key.
+
+```shell
+./setup-local.sh
 ```
 
 ## Next Steps - DIY
@@ -133,9 +148,32 @@ For more niche suggestions and general Laravel resources, check out my [Laravel 
 
 What else should be added here?
 
+### Roadrunner vs Swoole
+
+In short:
+- Roadrunner is a Go-based PHP application server
+- Swoole is a PHP _extension_ that adds functionality to PHP in the form of concurrent tasks.
+  - Swoole itself is split between [OG Swoole](https://www.swoole.com/) and [OpenSwoole](https://openswoole.com) after [some drama](https://github.com/swoole/swoole-src/issues/4450). Going by commit history, it seems Swoole is more active than OpenSwoole.
+
+I haven't been able to find more recent [benchmarks](https://github.com/morozovsk/webserver-performance-comparison), but it seems the general implication is that Swoole is faster than Roadrunner.
+
+Roadrunner is simpler, but Swoole provides a lot more functionality to your Octane with [concurrent tasks](https://laravel.com/docs/10.x/octane#concurrent-tasks), [ticks & intervals](https://laravel.com/docs/10.x/octane#ticks-and-intervals), the [octane cache](https://laravel.com/docs/10.x/octane#the-octane-cache), and [tables](https://laravel.com/docs/10.x/octane#tables). Additionally, it seems Swoole doesn't play well with debug extensions and monitoring applications (hopefully that's changed since 2021). So in order to reduce potential risk here, this boilerplate starts with Roadrunner.
+
+Switching to Swoole is easy. Firstly, install your flavour of Swoole:
+
+```shell
+# Swoole is available in the Ondřej Surý PPA
+sudo apt install php8.2-swoole
+# OpenSwoole
+sudo add-apt-repository ppa:openswoole/ppa -y
+sudo apt install -y php8.2-openswoole
+```
+
+Then, update your `OCTANE_SERVER` env or your `config/octane.php`'s `server` key to `swoole`, and restart Octane.
+
 ## Local Development
 
-In keeping with the spirit of this project, try using native solutions.
+In keeping with the spirit of this project, try using native solutions. One drawback here is that Valet and Herd don't use Octane.
 Windows users: follow Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
 
 ### macOS
@@ -150,14 +188,13 @@ Windows users: follow Linux instructions on WSL2. Not sure all of it will work p
 
 ## Notes/Ideas
 
-- Not including a particular payment provider right now as everyone's use case can be different. For most scenarios however I'd recommend a Merchant of Record like LemonSqueezy or Paddle. This is also why Cashier is not used.
 - Caddy usage here may be of limited use for you if you use Forge/Ploi/etc.
 - Redis is a part of this stack, but filesystem cache & `php artisan queue:work` can probably do just fine for quite a while. However the Horizon integration for visibility is really nice.
-- NativePHP might be a good fit here for those who want to do that?
 - Should tests run as pre-commit hooks too? On larger test bases and for atomised commits probably a bad idea, so for now no.
 - Laravel Folio for non-application pages? E.g. landing page
 - More general Filament component usage outside of admin panel
 - CI/CD: Github Actions could be used for testing on PRs/main pushes. For a more local alternative, perhaps a pre-push hook to prevent push if tests fail?
+- Docker: Support not yet planned. One big issue is Deployer doesn't play very well with it - you'd have to enable SSH access directly into the container to do anything. I also think the most ideal version would be a multi-service container.
 
 ## TODO
 
@@ -166,6 +203,8 @@ Windows users: follow Linux instructions on WSL2. Not sure all of it will work p
 - Get something working with this
 - Livewire + Filament v3
 - Filament: Get vite/tailwind config setup for colour customisation
-- Deployer: Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
-- Docker: Setting up one Dockerfile to act as an application bundler here might not be the worst idea. But would need to figure out the best way to separate parts like queues.
+- Deployer: 
+  - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
+  - Rolling release setup
+- Supervisor for managing all the different pieces?
 - Test multi-server version of this
