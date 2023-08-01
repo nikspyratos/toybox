@@ -20,6 +20,7 @@
       * [Search](#search)
       * [Websockets](#websockets)
       * [Infrastructure/Server Management](#infrastructureserver-management)
+        * [Backups](#backups)
         * [Serverless](#serverless)
         * [Desktop](#desktop)
     * [Other Tools](#other-tools)
@@ -163,6 +164,11 @@ I recommend [OhDear](https://ohdear.app/?via=nikspyratos).
 
 [Laravel Forge](https://forge.laravel.com/) and [Ploi](https://ploi.io/) are good options (I prefer Ploi) and support many cloud providers. I lean towards AWS, but only because they have a Cape Town region.
 
+##### Backups
+
+- SQLite: [LiteStream](https://litestream.io/)
+- MySQL, volumes, servers, and more: [SnapShooter](https://snapshooter.com/)
+
 ##### Serverless
 
 Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). While this boilerplate is untested with Serverless, I still wanted to provide some links.
@@ -232,7 +238,9 @@ Switching between Roadrunner and Swoole is simple:
 ## Notes/Ideas
 
 - Caddy usage here may be of limited use for you if you use Forge/Ploi/etc.
-- Redis is a part of this stack, but filesystem cache & `php artisan queue:work` can probably do just fine for quite a while. However the Horizon integration for visibility is really nice.
+- There's a bit of admitted hypocrisy here: Using SQLite for simplicity over running MySQL, but at the same time using Redis for queue & cache. Should Redis be removed, or should MySQL be added?
+  - Filesystem cache & `php artisan queue:work` can probably do just fine for quite a while. 
+  - The Horizon integration for visibility into queues is really nice.
 - Should tests run as pre-commit hooks too? On larger test bases and for atomised commits probably a bad idea, so for now no.
 - Laravel Folio for non-application pages? E.g. landing page
 - More general Filament component usage outside of admin panel
