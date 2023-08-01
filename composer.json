@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
-        "filament/filament": "^2.0",
+        "filament/filament": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/breeze": "^1.21",
         "laravel/framework": "^10.10",
@@ -14,7 +14,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/telescope": "^4.15",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^2.12",
+        "livewire/livewire": "^3.0.0-beta.4",
         "spiral/roadrunner-cli": "^2.5.0",
         "spiral/roadrunner-http": "^3.0.1"
     },
