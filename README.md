@@ -33,7 +33,7 @@ My boilerplate for Laravel micro-SaaS/indie hackers.
 
 The toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak.
 
-> This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
+> This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
 
 ## Support
 
@@ -55,7 +55,7 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 ## Components
 
 - **OS**: Your choice, but the main target here is [Ubuntu](https://ubuntu.com/).
-- **Webserver**: [Caddy](https://caddyserver.com/) - with the Laravel application running with [Octane](https://laravel.com/docs/10.x/octane)
+- **Webserver**: [Caddy](https://caddyserver.com/)
 - **Database**: Your choice. Default setup is for [SQLite](https://www.sqlite.org/index.html)
 - **Cache & Queues**: [Redis](https://redis.io)
 - **Application**: [Laravel](https://laravel.com) (duh)
@@ -82,7 +82,7 @@ sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https softw
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install php8.2
-sudo apt install php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql
+sudo apt install php8.2-fpm php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql
 ```
 
 Then, run the setup script to set up pre-commit linting, composer & npm, SQLite database init, create the .env file and application key.
@@ -106,7 +106,7 @@ Next, setting up the Caddy server:
 
 ## Local Development
 
-In keeping with the spirit of this project, try using native solutions. One drawback here is that Valet and Herd don't use Octane.
+In keeping with the spirit of this project, try using native solutions. One drawback here is that Valet and Herd don't use Octane, if you use that.
 
 ### macOS
 
@@ -186,24 +186,18 @@ For more niche suggestions and general Laravel resources, check out my [Laravel 
 
 #### Laravel Octane
 
-By default, this project runs with Laravel Octane using Roadrunner. This lets the application run faster than traditionally with php-fpm. 
-There is one main drawback however, in that many packages in the ecosystem are not made with a concurrent/shared-memory model in mind. This opens up the potential for memory leaks. At the same time, the purported speed boost offered I think is not to be ignored.
+Initially, this project included Laravel Octane. I love the idea of it - an almost free speed boost, and with Swoole even a free cache! 
+
+After some consideration and discussion on the topic, I've decided not to include it. The shared-memory model introduced with the Octane paradigm is a footgun - even if your own code is clean, you can't always trust your dependencies to not introduce memory leaks.
+
+If you need to speed up or scale your application workload, consider horizontal & vertical scaling of your server(s) first. Then when you want to squeeze some extra juice, consider Octane.
 
 The longer we hold back from using these tools because of dependencies, the longer it will take for them to become viable. Stay vigilant of your app's memory usage, and submit PRs to your dependencies if you find leaks.
 
-If you instead want to remove Octane:
-1. Remove the package, config file, and Roadrunner:
-```shell
-composer remove laravel/octane
-rm config/octane.php
-rm rr
-rm .rr.yaml
-```
-2. Install PHP-FPM
-```shell
-sudo apt install php8.2-fpm
-```
-3. Switch Caddy to use FPM: Replace the `reverse_proxy` line in your Caddyfile with `php_fastcgi unix//run/php/php8.2-fpm.sock`
+Switching to using Octane is fairly simple. 
+1. Follow the [setup instructions](laravel.com/docs/10.x/octane), 
+2. Set up Octane to run as a service or with supervisor on your server.
+3. Replace the `reverse_proxy` line in your Caddyfile with `reverse_proxy 127.0.0.1:8000` (or whichever port you run it on).
 
 ##### Roadrunner vs Swoole
 

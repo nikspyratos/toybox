@@ -12,11 +12,11 @@ test('Application files use strict types')
     ->expect('App')
     ->toUseStrictTypes();
 
-test('the codebase does not reference env variables outside of config files')
+test('The codebase does not reference env variables outside of config files')
     ->expect('env')
     ->not->toBeUsed();
 
-test('the codebase does not contain any debugging code')
+test('The codebase does not contain any debugging code')
     ->expect(['dd', 'dump', 'ray', 'var_dump', 'print_r'])
     ->not->toBeUsed();
 
