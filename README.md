@@ -283,7 +283,6 @@ Switching between Roadrunner and Swoole is simple:
   - Get vite/tailwind config setup for customisation
   - https://filamentphp.com/plugins/pxlrbt-activity-log
   - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup
-  - https://filamentphp.com/plugins/cheesegrits-google-maps
   - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health
   - https://filamentphp.com/plugins/ralphjsmit-seo
   - https://filamentphp.com/plugins/jeffgreco-breezy
