@@ -19372,6 +19372,81 @@
      
 }
 
+    namespace Spatie\Health\Facades { 
+            /**
+     * 
+     *
+     * @mixin \Spatie\Health\Health
+     */ 
+        class Health {
+                    /**
+         * 
+         *
+         * @param array<int, Check> $checks
+         * @static 
+         */ 
+        public static function checks($checks)
+        {
+                        /** @var \Spatie\Health\Health $instance */
+                        return $instance->checks($checks);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function clearChecks()
+        {
+                        /** @var \Spatie\Health\Health $instance */
+                        return $instance->clearChecks();
+        }
+                    /**
+         * 
+         *
+         * @return \Spatie\Health\Collection<int, Check> 
+         * @static 
+         */ 
+        public static function registeredChecks()
+        {
+                        /** @var \Spatie\Health\Health $instance */
+                        return $instance->registeredChecks();
+        }
+                    /**
+         * 
+         *
+         * @return \Spatie\Health\Collection<int, ResultStore> 
+         * @static 
+         */ 
+        public static function resultStores()
+        {
+                        /** @var \Spatie\Health\Health $instance */
+                        return $instance->resultStores();
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function inlineStylesheet($stylesheet)
+        {
+                        /** @var \Spatie\Health\Health $instance */
+                        return $instance->inlineStylesheet($stylesheet);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function assets()
+        {
+                        /** @var \Spatie\Health\Health $instance */
+                        return $instance->assets();
+        }
+         
+    }
+     
+}
+
     namespace Spatie\LaravelIgnition\Facades { 
             /**
      * 
@@ -26270,6 +26345,7 @@ namespace  {
             class Horizon extends \Laravel\Horizon\Horizon {}
             class Livewire extends \Livewire\Livewire {}
             class SEOManager extends \RalphJSmit\Laravel\SEO\Facades\SEOManager {}
+            class Health extends \Spatie\Health\Facades\Health {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
      
 }

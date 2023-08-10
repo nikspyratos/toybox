@@ -19,6 +19,10 @@
         "pxlrbt/filament-environment-indicator": "^2.0",
         "ralphjsmit/laravel-filament-seo": "^1.2",
         "ralphjsmit/laravel-seo": "^1.4",
+        "shuvroroy/filament-spatie-laravel-health": "^2.0",
+        "spatie/cpu-load-health-check": "^1.0",
+        "spatie/laravel-health": "^1.23",
+        "spatie/security-advisories-health-check": "^1.0",
         "spiral/roadrunner-cli": "^2.5.0",
         "spiral/roadrunner-http": "^3.0.1"
     },
@@ -62,7 +66,13 @@
             "@php artisan ide-helper:eloquent -n",
             "@php artisan ide-helper:meta -n",
             "@php artisan ide-helper:generate -n",
-            "@php artisan ide-helper:models -n --reset"
+            "@php artisan ide-helper:models -n --reset",
+            "@php artisan optimize:clear",
+            "@php artisan schedule:clear-cache",
+            "@php artisan optimize",
+            "@php artisan event:cache",
+            "@php artisan icons:cache",
+            "@php artisan view:cache"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

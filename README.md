@@ -70,6 +70,7 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
     - [Filament Versions Widget](https://filamentphp.com/plugins/awcodes-versions)
     - [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
+    - [Filament Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health)
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
@@ -171,7 +172,7 @@ For more options, and whether or not you need an MoR, and taxation info see [her
 I recommend [LogSnag](https://logsnag.com/).
 #### Uptime & Monitoring
 
-I recommend [OhDear](https://ohdear.app/?via=nikspyratos).
+I recommend [OhDear](https://ohdear.app/?via=nikspyratos). For error monitoring, [Flare](https://flareapp.io) is also good.
 
 #### Analytics
 
@@ -207,6 +208,14 @@ While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a ve
 ### Included Packages/tools
 
 - **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
+- **Laravel Health**: 
+  - If using MySQL or Postgres, consider adding the [Database Connections](https://spatie.be/docs/laravel-health/v1/available-checks/db-connection-count), [Database Size](https://spatie.be/docs/laravel-health/v1/available-checks/db-size-check), and [Database table size](https://spatie.be/docs/laravel-health/v1/available-checks/db-table-size-check) healthchecks. 
+  - If using Flare, consider adding the [Flare Error Count](https://spatie.be/docs/laravel-health/v1/available-checks/flare-error-count) healthcheck.
+  - If using Meilisearch, consider adding the [Meilisearch](https://spatie.be/docs/laravel-health/v1/available-checks/meilisearch) healthcheck.
+  - For pinging any other services (e.g. to test network or other services for health), you can add the [Ping](https://spatie.be/docs/laravel-health/v1/available-checks/ping) healthcheck.
+  - If you have multiple queues, you can modify the [Queue](https://spatie.be/docs/laravel-health/v1/available-checks/queue) healthcheck accordingly.
+  - To monitor a specific Redis connection, [you can specify the name](https://spatie.be/docs/laravel-health/v1/available-checks/redis#content-customizing-the-thresholds).
+  - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
 
 ### Other Tools not included
 
@@ -289,8 +298,9 @@ Switching between Roadrunner and Swoole is simple:
   - Get vite/tailwind config setup for customisation
   - https://filamentphp.com/plugins/pxlrbt-activity-log
   - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup
-  - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health
   - https://filamentphp.com/plugins/jeffgreco-breezy
+  - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health
+    - Add extra utility actions in `Filament\Pages\HealthCheckResults`
   - https://filamentphp.com/plugins/awcodes-versions
     - Update when [widget fix PR](https://github.com/awcodes/filament-versions/pull/15/) is merged
 - Investigate [Lara Zeus](https://larazeus.com/) for more sensible inclusions
