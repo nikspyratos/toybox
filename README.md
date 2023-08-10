@@ -82,7 +82,9 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 
 Deployer has its own [provisioning recipe](https://deployer.org/docs/7.x/getting-started#provision) that will set up your Ubuntu server with sensible defaults and your DB of choice and using Caddy.
 
-**NOTE:** The default provision recipe doesn't support SQLite too well. It is doable, but requires some extra config.
+**NOTE:** The default provision recipe doesn't support Laravel's SQLite default well. If you add the `database` directory to the `shared_dirs` and `writable_dirs`, then migrations will no longer be updated. If using `storage`, you will also likely have issues with permissions and writable database files. Instead, what has worked for me is having the database file in a completely new directory. Thus, in this repo, the default setup & config creates and looks for `sqlite/database.sqlite` instead.
+
+---
 
 #### Manually 
 This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
