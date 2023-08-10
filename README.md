@@ -280,9 +280,14 @@ Switching between Roadrunner and Swoole is simple:
 - Livewire + Filament v3
 - Filament: 
   - Get vite/tailwind config setup for customisation
-  - laravel-seo plugin
-  - laravel-health plugin
-  - Breezy plugin (?)
+  - https://filamentphp.com/plugins/pxlrbt-environment-indicator
+  - https://filamentphp.com/plugins/pxlrbt-activity-log
+  - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup
+  - https://filamentphp.com/plugins/cheesegrits-google-maps
+  - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health
+  - https://filamentphp.com/plugins/ralphjsmit-seo
+  - https://filamentphp.com/plugins/jeffgreco-breezy
+  - https://filamentphp.com/plugins/awcodes-versions
 - Investigate [Lara Zeus](https://larazeus.com/) for more sensible inclusions
 - Deployer: 
   - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
