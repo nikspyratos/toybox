@@ -10,6 +10,7 @@ export default {
         './resources/views/**/*.blade.php',
         './vendor/filament/**/*.blade.php',
         './vendor/awcodes/filament-versions/resources/**/*.blade.php',
+        './vendor/pxlrbt/filament-activity-log/resources/**/*.blade.php',
     ],
 
     darkMode: 'class',

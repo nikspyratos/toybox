@@ -71,10 +71,11 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
     - [Filament Versions Widget](https://filamentphp.com/plugins/awcodes-versions)
     - [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
     - [Filament Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health)
+    - [Activity Log](https://filamentphp.com/plugins/pxlrbt-activity-log)
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
-  - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope) and [Horizon](https://laravel.com/docs/10.x/horizon)
+  - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope), [Horizon](https://laravel.com/docs/10.x/horizon), and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
 - **CI/CD**: [Deployer](https://deployer.org/)
 
 ## Installation/Usage
@@ -178,6 +179,10 @@ I recommend [OhDear](https://ohdear.app/?via=nikspyratos). For error monitoring,
 
 [Fathom](https://usefathom.com) and [Plausible](https://plausible.io) are great options. If I had to choose: Fathom has more accessible pricing, and is made with Laravel!
 
+#### Data Analysis
+
+I highly recommend checking out [Metabase](https://metabase.com) for this. While it's fairly simple to make graphs/dashboards and track database metrics with Laravel/Filament, Metabase is more specialised for the task and separates concerns nicely. It can also be self-hosted!.
+
 #### Search
 
 [Algolia](https://www.algolia.com/) and [Meilisearch](https://www.meilisearch.com) are the ones supported by [Laravel Scout](https://laravel.com/docs/10.x/scout). Meilisearch can be self-hosted, but can be a handful to manage and would still cost a fair bit in storage/RAM requirements, so you might not save much in time & headaches over using cloud.
@@ -216,6 +221,7 @@ While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a ve
   - If you have multiple queues, you can modify the [Queue](https://spatie.be/docs/laravel-health/v1/available-checks/queue) healthcheck accordingly.
   - To monitor a specific Redis connection, [you can specify the name](https://spatie.be/docs/laravel-health/v1/available-checks/redis#content-customizing-the-thresholds).
   - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
+- **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics. 
 
 ### Other Tools not included
 
@@ -224,7 +230,9 @@ While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a ve
   - **OpenAPI/Swagger**: [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger) is great here - must-use for writing great APIs.
   - **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) does the job without much overhead. 
 - **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient.
-- **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout), [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) (and [client](https://laravel.com/docs/10.x/broadcasting#client-side-installation)). 
+- **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout), [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) (and [client](https://laravel.com/docs/10.x/broadcasting#client-side-installation)).
+- **Manual backups**: [Laravel Backup](https://github.com/spatie/laravel-backup) (with [Filament plugin](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup)).
+- **2FA, Password reset, token management**: For more secure access to admin panels, consider adding [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy). Especially useful if you have a customer-facing Filament panel. 
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 
@@ -233,6 +241,11 @@ For more niche suggestions and general Laravel resources, check out my [Laravel 
 This boilerplate relies heavily on FilamentPHP for the admin panel building. This also means there are plenty of extra resources to augment either your UI or admin panel:
 - [Plugins](https://filamentphp.com/plugins)
 - [Community Articles](https://filamentphp.com/community)
+
+#### Switching to MySQL/Postgres
+
+If you prefer to use MySQL/Postgres, there are some things to be aware of:
+- The Database download action in `Filament\Pages\HealthCheckResults` will need to be modified to do a dump of the database. It may be preferrable to delete this action and use [Laravel backup Filament](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup) instead.
 
 #### Laravel Octane
 
@@ -279,15 +292,14 @@ Switching between Roadrunner and Swoole is simple:
 1. Follow the Swoole steps above.
 2. Update your `OCTANE_SERVER` env or your `config/octane.php`'s `server` key to `swoole`, and restart Octane.
 
-## Notes/Ideas
+## Notes
 
+- Many of the Filament packages used are nascent and subject to breakage. I'll try and keep everything up to date on a best-effort basis, or remove packages that refuse to update/end up abandoned.
 - Caddy usage here may be of limited use for you if you use Forge/Ploi/etc.
 - There's a bit of admitted hypocrisy here: Using SQLite for simplicity over running MySQL, but at the same time using Redis for queue & cache. Should Redis be removed, or should MySQL be added?
   - Filesystem cache & `php artisan queue:work` can probably do just fine for quite a while. 
   - The Horizon integration for visibility into queues is really nice.
 - Should tests run as pre-commit hooks too? On larger test bases and for atomised commits probably a bad idea, so for now no.
-- Laravel Folio for non-application pages? E.g. landing page
-- More general Filament component usage outside of admin panel
 - CI/CD: Github Actions could be used for testing on PRs/main pushes. For a more local alternative, perhaps a pre-push hook to prevent push if tests fail?
 - Docker: Support not yet planned. One big issue is Deployer doesn't play very well with it - you'd have to enable SSH access directly into the container to do anything. I also think the most ideal version would be a multi-service container.
 
@@ -295,15 +307,16 @@ Switching between Roadrunner and Swoole is simple:
 
 - Get something working with this
 - Filament: 
-  - Get vite/tailwind config setup for customisation
   - https://filamentphp.com/plugins/pxlrbt-activity-log
-  - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup
-  - https://filamentphp.com/plugins/jeffgreco-breezy
+    - Still need a custom resource for non-model CRUD actions
+    - [Lack of navigation actions](https://github.com/pxlrbt/filament-activity-log/issues/15)
   - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health
     - Add extra utility actions in `Filament\Pages\HealthCheckResults`
   - https://filamentphp.com/plugins/awcodes-versions
     - Update when [widget fix PR](https://github.com/awcodes/filament-versions/pull/15/) is merged
-- Investigate [Lara Zeus](https://larazeus.com/) for more sensible inclusions
+- Landing page/marketing/content
+  - Folio
+  - Investigate [Lara Zeus](https://larazeus.com/) for more sensible inclusions, e.g. contact form
 - Deployer: 
   - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
   - [Update default Caddyfile](https://github.com/deployphp/deployer/discussions/3666)
