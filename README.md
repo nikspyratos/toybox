@@ -65,10 +65,11 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 - **Cache & Queues**: [Redis](https://redis.io)
 - **Application**: [Laravel](https://laravel.com) (duh)
   - **Authentication**: [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) 
-  - **Frontend**: [Livewire](https://livewire.laravel.com), including [Alpine.js](https://alpinejs.dev/).
+  - **Frontend**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)), and [Laravel SEO](https://github.com/ralphjsmit/laravel-seo).
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
     - [Filament Versions Widget](https://filamentphp.com/plugins/awcodes-versions)
+    - [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
@@ -203,7 +204,11 @@ While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a ve
 
 ---
 
-### Other Tools
+### Included Packages/tools
+
+- **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
+
+### Other Tools not included
 
 - **APIs**
   - **Consuming APIs**: I recommend [Saloon](https://docs.saloon.dev/) - it can be a bit overkill for small APIs, but it really helps with structuring logic with larger APIs and OAuth. I use it as the base for my [Investec Banking API SDK](https://github.com/nikspyratos/investec-sdk-php). 
@@ -285,7 +290,6 @@ Switching between Roadrunner and Swoole is simple:
   - https://filamentphp.com/plugins/pxlrbt-activity-log
   - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup
   - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health
-  - https://filamentphp.com/plugins/ralphjsmit-seo
   - https://filamentphp.com/plugins/jeffgreco-breezy
   - https://filamentphp.com/plugins/awcodes-versions
     - Update when [widget fix PR](https://github.com/awcodes/filament-versions/pull/15/) is merged

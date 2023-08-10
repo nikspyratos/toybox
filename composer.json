@@ -17,6 +17,8 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0.0-beta.4",
         "pxlrbt/filament-environment-indicator": "^2.0",
+        "ralphjsmit/laravel-filament-seo": "^1.2",
+        "ralphjsmit/laravel-seo": "^1.4",
         "spiral/roadrunner-cli": "^2.5.0",
         "spiral/roadrunner-http": "^3.0.1"
     },
