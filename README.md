@@ -68,6 +68,7 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
   - **Frontend**: [Livewire](https://livewire.laravel.com), including [Alpine.js](https://alpinejs.dev/).
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
+    - [Filament Versions Widget](https://filamentphp.com/plugins/awcodes-versions)
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
@@ -287,6 +288,7 @@ Switching between Roadrunner and Swoole is simple:
   - https://filamentphp.com/plugins/ralphjsmit-seo
   - https://filamentphp.com/plugins/jeffgreco-breezy
   - https://filamentphp.com/plugins/awcodes-versions
+    - Update when [widget fix PR](https://github.com/awcodes/filament-versions/pull/15/) is merged
 - Investigate [Lara Zeus](https://larazeus.com/) for more sensible inclusions
 - Deployer: 
   - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
