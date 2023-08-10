@@ -67,7 +67,7 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
   - **Authentication**: [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) 
   - **Frontend**: [Livewire](https://livewire.laravel.com), including [Alpine.js](https://alpinejs.dev/).
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
-    - 
+    - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
@@ -279,10 +279,8 @@ Switching between Roadrunner and Swoole is simple:
 ## TODO
 
 - Get something working with this
-- Livewire + Filament v3
 - Filament: 
   - Get vite/tailwind config setup for customisation
-  - https://filamentphp.com/plugins/pxlrbt-environment-indicator
   - https://filamentphp.com/plugins/pxlrbt-activity-log
   - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup
   - https://filamentphp.com/plugins/cheesegrits-google-maps
@@ -293,8 +291,6 @@ Switching between Roadrunner and Swoole is simple:
 - Investigate [Lara Zeus](https://larazeus.com/) for more sensible inclusions
 - Deployer: 
   - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
-  - Rolling release setup
   - [Update default Caddyfile](https://github.com/deployphp/deployer/discussions/3666)
-  - Port SQLite notes from my other repo
 - Supervisor for managing all the different pieces?
 - Test multi-server version of this
