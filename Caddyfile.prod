@@ -2,5 +2,5 @@ toybox-laravel.test {
     root * ./
     encode zstd gzip
     file_server
-    reverse_proxy 127.0.0.1:8000
+    php_fastcgi unix//run/php/php8.2-fpm.sock
 }

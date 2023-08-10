@@ -6,10 +6,13 @@
   * [Principles](#principles)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
-  * [Local Development](#local-development)
-    * [macOS](#macos)
-    * [Linux](#linux)
-    * [Windows](#windows)
+    * [Production](#production)
+      * [Using Deployer](#using-deployer)
+      * [Manually](#manually-)
+    * [Local Development](#local-development)
+      * [macOS](#macos)
+      * [Linux](#linux)
+      * [Windows](#windows)
   * [Next Steps - DIY](#next-steps---diy)
     * [Services](#services)
       * [Mail Provider](#mail-provider-)
@@ -24,13 +27,14 @@
         * [Serverless](#serverless)
         * [Desktop](#desktop)
     * [Other Tools](#other-tools)
+      * [Filament Plugins & Tricks](#filament-plugins--tricks)
       * [Laravel Octane](#laravel-octane)
         * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
   * [Notes/Ideas](#notesideas)
   * [TODO](#todo)
 <!-- TOC -->
 
-My boilerplate for Laravel micro-SaaS/indie hackers.
+My TALL stack boilerplate for Laravel micro-SaaS/indie hackers.
 
 The toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak.
 
@@ -62,7 +66,8 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 - **Application**: [Laravel](https://laravel.com) (duh)
   - **Authentication**: [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) 
   - **Frontend**: [Livewire](https://livewire.laravel.com), including [Alpine.js](https://alpinejs.dev/).
-  - **Admin panel**: [Filament](https://filamentphp.com/)
+  - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
+    - 
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
@@ -71,19 +76,35 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 
 ## Installation/Usage
 
+### Production
+
+#### Using Deployer
+
+Deployer has its own [provisioning recipe](https://deployer.org/docs/7.x/getting-started#provision) that will set up your Ubuntu server with sensible defaults and your DB of choice and using Caddy.
+
+**NOTE:** The default provision recipe doesn't support SQLite too well. It is doable, but requires some extra config.
+
+#### Manually 
 This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
 
 Why Ubuntu? It's a popular OS and a relatively stable target for most use cases.
 
 First, update apt, then install some dependencies, and install PHP 8.2 using the Ondrej PPA, and then the required extensions.
-
 ```shell
 sudo apt update
 sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo apt install php8.2
-sudo apt install php8.2-fpm php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql
+sudo apt install -y php8.2 php8.2-fpm php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql
+```
+
+Then, [set up Caddy](https://caddyserver.com/docs/install#debian-ubuntu-raspbian).
+```shell
+sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
+sudo apt update
+sudo apt install caddy
 ```
 
 Then, run the setup script to set up pre-commit linting, composer & npm, SQLite database init, create the .env file and application key.
@@ -105,21 +126,21 @@ Next, setting up the Caddy server:
 # TODO
 ```
 
-## Local Development
+### Local Development
 
 In keeping with the spirit of this project, try using native solutions. One drawback here is that Valet and Herd don't use Octane, if you use that.
 
-### macOS
+#### macOS
 
 - ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
 - [DBngin](https://dbngin.com/)
 
-### Linux
+#### Linux
 
 - [Valet Linux](https://cpriego.github.io/valet-linux/) OR install PHP manually.
 - Install your DB of choice locally
 
-### Windows
+#### Windows
 
 Follow Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
 
@@ -190,6 +211,12 @@ While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a ve
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 
+#### Filament Plugins & Tricks
+
+This boilerplate relies heavily on FilamentPHP for the admin panel building. This also means there are plenty of extra resources to augment either your UI or admin panel:
+- [Plugins](https://filamentphp.com/plugins)
+- [Community Articles](https://filamentphp.com/community)
+
 #### Laravel Octane
 
 Initially, this project included Laravel Octane. I love the idea of it - an almost free speed boost, and with Swoole even a free cache! 
@@ -249,12 +276,18 @@ Switching between Roadrunner and Swoole is simple:
 
 ## TODO
 
-- Installation docs
 - Get something working with this
 - Livewire + Filament v3
-- Filament: Get vite/tailwind config setup for colour customisation
+- Filament: 
+  - Get vite/tailwind config setup for customisation
+  - laravel-seo plugin
+  - laravel-health plugin
+  - Breezy plugin (?)
+- Investigate [Lara Zeus](https://larazeus.com/) for more sensible inclusions
 - Deployer: 
   - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
   - Rolling release setup
+  - [Update default Caddyfile](https://github.com/deployphp/deployer/discussions/3666)
+  - Port SQLite notes from my other repo
 - Supervisor for managing all the different pieces?
 - Test multi-server version of this
