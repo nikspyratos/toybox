@@ -14,23 +14,27 @@
       * [Linux](#linux)
       * [Windows](#windows)
   * [Next Steps - DIY](#next-steps---diy)
-    * [Services](#services)
+    * [Paid Services/Tools](#paid-servicestools)
+      * [Media Library](#media-library)
       * [Mail Provider](#mail-provider-)
       * [Payment Provider](#payment-provider)
       * [Event tracking/system notifications](#event-trackingsystem-notifications)
       * [Uptime & Monitoring](#uptime--monitoring)
       * [Analytics](#analytics)
+      * [Data Analysis](#data-analysis)
       * [Search](#search)
       * [Websockets](#websockets)
       * [Infrastructure/Server Management](#infrastructureserver-management)
         * [Backups](#backups)
         * [Serverless](#serverless)
         * [Desktop](#desktop)
-    * [Other Tools](#other-tools)
+    * [Included Packages/tools](#included-packagestools)
+    * [Other Tools not included](#other-tools-not-included)
       * [Filament Plugins & Tricks](#filament-plugins--tricks)
+      * [Switching to MySQL/Postgres](#switching-to-mysqlpostgres)
       * [Laravel Octane](#laravel-octane)
         * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
-  * [Notes/Ideas](#notesideas)
+  * [Notes](#notes)
   * [TODO](#todo)
 <!-- TOC -->
 
@@ -154,7 +158,11 @@ Follow Linux instructions on WSL2. Not sure all of it will work properly though,
 
 These are the next steps you will have to implement yourself for your project.
 
-### Services
+### Paid Services/Tools
+
+#### Media Library
+
+Spatie's [Media Library Pro](https://medialibrary.pro/) is excellent. See [below](#included-packagestools) for free version details.
 
 #### Mail Provider 
 
@@ -171,6 +179,7 @@ For more options, and whether or not you need an MoR, and taxation info see [her
 #### Event tracking/system notifications
 
 I recommend [LogSnag](https://logsnag.com/).
+
 #### Uptime & Monitoring
 
 I recommend [OhDear](https://ohdear.app/?via=nikspyratos). For error monitoring, [Flare](https://flareapp.io) is also good.
@@ -232,7 +241,8 @@ While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a ve
 - **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient.
 - **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout), [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) (and [client](https://laravel.com/docs/10.x/broadcasting#client-side-installation)).
 - **Manual backups**: [Laravel Backup](https://github.com/spatie/laravel-backup) (with [Filament plugin](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup)).
-- **2FA, Password reset, token management**: For more secure access to admin panels, consider adding [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy). Especially useful if you have a customer-facing Filament panel. 
+- **2FA, Password reset, token management**: For more secure access to admin panels, consider adding [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy). Especially useful if you have a customer-facing Filament panel.
+- **Media Management**: Try out [Spatie Media Library](https://spatie.be/docs/laravel-medialibrary/v10/introduction) alongside [Filament's plugin](https://filamentphp.com/plugins/filament-spatie-media-library).
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 
@@ -307,6 +317,7 @@ Switching between Roadrunner and Swoole is simple:
 
 - Get something working with this
 - Filament: 
+  - https://github.com/spatie/laravel-settings +  https://filamentphp.com/plugins/filament-spatie-settings 
   - https://filamentphp.com/plugins/pxlrbt-activity-log
     - Still need a custom resource for non-model CRUD actions
     - [Lack of navigation actions](https://github.com/pxlrbt/filament-activity-log/issues/15)
