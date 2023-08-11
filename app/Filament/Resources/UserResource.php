@@ -10,13 +10,14 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\Action;
 use Filament\Tables\Table;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form
     {
@@ -60,6 +61,9 @@ class UserResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Action::make('activities')
+                    ->icon('heroicon-o-chart-bar-square')
+                    ->url(fn (User $record) => self::getUrl('activities', ['record' => $record])),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
