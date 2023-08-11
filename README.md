@@ -343,7 +343,6 @@ Switching between Roadrunner and Swoole is simple:
 ## Notes
 
 - Many of the Filament packages used are nascent and subject to breakage. I'll try and keep everything up to date on a best-effort basis, or remove packages that refuse to update/end up abandoned.
-- Caddy usage here may be of limited use for you if you use Forge/Ploi/etc.
 - There's a bit of admitted hypocrisy here: Using SQLite for simplicity over running MySQL, but at the same time using Redis for queue & cache. Should Redis be removed, or should MySQL be added?
   - Filesystem cache & `php artisan queue:work` can probably do just fine for quite a while. 
   - The Horizon integration for visibility into queues is really nice.
@@ -366,7 +365,7 @@ You can do all of what is described below with the [infrastructure](#infrastruct
 
 If you need _even more_ than that:
 - **Splitting into services**: You can split portions of your app into new services, and scale those servers in particular. It's the same as `Separation of concerns`, but for your actual codebase. Note: `service` doesn't have to mean `microservice`.
-- **Auto-scaling**: Here be dragons. Take time to learn the tools you need and understand them, or hire professional help. Keywords: Containerisation, orchestration.
+- **Auto-scaling**: Here be dragons. Take time to learn the tools you need and understand them, or hire professional help. Keywords: Containerisation, orchestration. Or, YOLO and experiment with the [Spatie Dynamic Servers](https://spatie.be/docs/laravel-dynamic-servers/v1/introduction) package.
 If you're at the point of needing these and more, congrats! You (hopefully) have a profitable & successful startup. You need to start hiring people. If you're still using this README, you're trying to melt steel with a lighter.
 
 ## Other recommendations for business operations, launching, etc.
