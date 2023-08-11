@@ -52,7 +52,7 @@ While this is an opinionated setup, it's not difficult to mold it as you please.
 ## Support
 
 - [Buy me a coffee](https://tip-jar.co.za/@thecapegreek)
-- Sign up to services like OhDear and Paystack with my affiliate links in the [Next Steps](#next-steps) section.
+- Sign up to services like OhDear and Paystack with my affiliate links in the [Next Steps](#next-steps---diy) section.
 - I also [consult in the Laravel & payments space](https://nik.software)
 
 ## Principles
@@ -207,7 +207,7 @@ I highly recommend checking out [Metabase](https://metabase.com) for this. While
 
 #### Websockets
 
-[Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options in this space, which will be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation). If you want to DIY, see [below](#other-tools).
+[Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options in this space, which will be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation). If you want to DIY, see [below](#other-tools-not-included).
 
 #### Infrastructure/Server Management
 
@@ -247,7 +247,7 @@ While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a ve
   - **Consuming APIs**: I recommend [Saloon](https://docs.saloon.dev/) - it can be a bit overkill for small APIs, but it really helps with structuring logic with larger APIs and OAuth. I use it as the base for my [Investec Banking API SDK](https://github.com/nikspyratos/investec-sdk-php). 
   - **OpenAPI/Swagger**: [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger) is great here - must-use for writing great APIs.
   - **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) does the job without much overhead. 
-- **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient.
+- **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient. For exports from Filament tables, there's also [Filament Excel](https://github.com/pxlrbt/filament-excel) which uses Laravel Excel under the hood.
 - **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout), [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) (and [client](https://laravel.com/docs/10.x/broadcasting#client-side-installation)).
 - **Manual backups**: [Laravel Backup](https://github.com/spatie/laravel-backup) (with [Filament plugin](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup)). If using SQLite you can just do a file download of your database with the `Storage` facade.
 - **2FA, Password reset, token management**: For more secure access to admin panels, consider adding [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy). Especially useful if you have a customer-facing Filament panel.
@@ -278,7 +278,7 @@ If you need to speed up or scale your application workload, consider horizontal 
 The longer we hold back from using these tools because of dependencies, the longer it will take for them to become viable. Stay vigilant of your app's memory usage, and submit PRs to your dependencies if you find leaks.
 
 Switching to using Octane is fairly simple on your own server. I'm not sure how easy this is to do on Forge/Ploi and have them manage it properly, so it may be smarter to just provision a new server entirely.
-1. Follow the [setup instructions](laravel.com/docs/10.x/octane), 
+1. Follow the [setup instructions](https://laravel.com/docs/10.x/octane), 
 2. Set up Octane to run as a service or with supervisor on your server.
 3. Replace the `reverse_proxy` line in your Caddyfile with `reverse_proxy 127.0.0.1:8000` (or whichever port you run it on).
 
@@ -298,7 +298,7 @@ Installing Octane with Roadrunner:
 2. Roadrunner will be downloaded and run when you run Octane. No further action needed past that selection.
 
 Installing Octane with Swoole:
-1. Run the following
+1. Run the following:
 ```shell
 # Swoole is available in the Ondřej Surý PPA
 sudo apt install php8.2-swoole
