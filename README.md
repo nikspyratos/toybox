@@ -218,7 +218,7 @@ I highly recommend checking out [Metabase](https://metabase.com) for this. While
 
 ##### Serverless
 
-Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). While this boilerplate is untested with Serverless, I still wanted to provide some links.
+Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). **Note**: this project is untested with serverless. If you get it working with any modifications, make a PR for adding your setup or instructions!
 
 ##### Desktop
 
@@ -275,7 +275,7 @@ If you need to speed up or scale your application workload, consider horizontal 
 
 The longer we hold back from using these tools because of dependencies, the longer it will take for them to become viable. Stay vigilant of your app's memory usage, and submit PRs to your dependencies if you find leaks.
 
-Switching to using Octane is fairly simple. 
+Switching to using Octane is fairly simple on your own server. I'm not sure how easy this is to do on Forge/Ploi and have them manage it properly, so it may be smarter to just provision a new server entirely.
 1. Follow the [setup instructions](laravel.com/docs/10.x/octane), 
 2. Set up Octane to run as a service or with supervisor on your server.
 3. Replace the `reverse_proxy` line in your Caddyfile with `reverse_proxy 127.0.0.1:8000` (or whichever port you run it on).
@@ -335,7 +335,10 @@ Switching between Roadrunner and Swoole is simple:
     - Update when [widget fix PR](https://github.com/awcodes/filament-versions/pull/15/) is merged
 - Landing page/marketing/content
   - Folio
-  - Investigate [Lara Zeus](https://larazeus.com/) for more sensible inclusions, e.g. contact form
+  - Laravel analytics?
+  - Find a nice usable starter template for landing pages
+  - Contact form
+    - Investigate [Lara Zeus](https://larazeus.com/)
 - Deployer: 
   - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
   - [Update default Caddyfile](https://github.com/deployphp/deployer/discussions/3666)
