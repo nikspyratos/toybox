@@ -2,7 +2,7 @@
 
 <!-- TOC -->
 * [Toybox Laravel](#toybox-laravel)
-  * [Support](#support)
+  * [Support this project](#support-this-project)
   * [Principles](#principles)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
@@ -38,6 +38,13 @@
     * [Laravel Octane](#laravel-octane)
       * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
   * [Notes](#notes)
+  * [What to do when you need to scale](#what-to-do-when-you-need-to-scale)
+  * [Other recommendations for business operations, launching, etc.](#other-recommendations-for-business-operations-launching-etc)
+    * [Helpdesk/Support](#helpdesksupport)
+    * [Live Chat](#live-chat)
+    * [Knowledgebase](#knowledgebase)
+    * [Accounting](#accounting)
+    * [Terms & Conditions](#terms--conditions)
   * [TODO](#todo)
 <!-- TOC -->
 
@@ -51,7 +58,7 @@ While this is an opinionated setup, it's not difficult to mold it as you please.
 
 > This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
 
-## Support
+## Support this project
 
 - [Buy me a coffee](https://tip-jar.co.za/@thecapegreek)
 - Sign up to services like OhDear and Paystack with my affiliate links in the [Next Steps](#next-steps---diy) section.
@@ -182,6 +189,8 @@ These are the next steps you will have to implement yourself for your project as
 ---
 
 ### 3rd-party Services/Tools
+
+**Remember: this is a list of options, not requirements. You can likely run your SaaS perfectly fine without many of these.**
 
 #### CMS
 
@@ -342,6 +351,64 @@ Switching between Roadrunner and Swoole is simple:
 - CI/CD: Github Actions could be used for testing on PRs/main pushes. For a more local alternative, perhaps a pre-push hook to prevent push if tests fail?
 - Docker: Support not yet planned. One big issue is Deployer doesn't play very well with it - you'd have to enable SSH access directly into the container to do anything. I also think the most ideal version would be a multi-service container.
 
+## What to do when you need to scale
+
+This package is a starting point, but as your project scales, you may need to add some more pieces to keep it stable & safe.
+
+You can do all of what is described below with the [infrastructure](#infrastructure) tools recommended.
+
+- **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows.
+- **Content Delivery Network (CDN)**: Sign up for a service like [Cloudflare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/) to take the edge off of some of your traffic and protect from DDoS attacks.
+- **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
+- **Horizontal scale**: Spin more servers up, and stick a load balancer in front of them. Again managed services for this exist, or you can spin up a generic server with Forge/Ploi and use that for it. Just remember to [modify your scheduled tasks to only run on one server](https://laravel.com/docs/10.x/scheduling#running-tasks-on-one-server).
+- **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
+- **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.
+
+If you need _even more_ than that:
+- **Splitting into services**: You can split portions of your app into new services, and scale those servers in particular. It's the same as `Separation of concerns`, but for your actual codebase. Note: `service` doesn't have to mean `microservice`.
+- **Auto-scaling**: Here be dragons. Take time to learn the tools you need and understand them, or hire professional help. Keywords: Containerisation, orchestration.
+If you're at the point of needing these and more, congrats! You (hopefully) have a profitable & successful startup. You need to start hiring people. If you're still using this README, you're trying to melt steel with a lighter.
+
+## Other recommendations for business operations, launching, etc.
+
+While this isn't really within the scope of this project, I think it's still valuable to provide some starting recommendations for other entrepreneurs.
+
+The following is a non-exhaustive, and potentially outdated list of recommendations. 
+
+For more resources, such as for launching, advertising, sales, marketing, communities, and incorporating a business, [see here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Indie+Hacking+-+Solopreneurship+-+Startups+-+Founders).
+
+### Helpdesk/Support
+
+Honestly, using a `support@example.com` email address will be most of what you need. 
+
+Helpdesk systems are only really needed as you need to start building support teams and processes.
+
+Nevertheless, some options are: [Crisp.chat](https://crisp.chat), [GrooveHQ](https://www.groovehq.com/), [HelpScout](https://www.helpscout.com), and [HelpSpace](https://helpspace.com).
+
+### Live Chat
+
+Many of the [Support](#helpdesksupport) recommendations will already have a live chat feature. Otherwise, have a look at [Tawk.to](https://www.tawk.to/) and [Intercom](https://www.intercom.com/).
+
+### Knowledgebase
+
+While you're solo, I'd recommend one of the following:
+- [VS Code](https://code.visualstudio.com/) with the [Markdown All In One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) extension.
+- [Obsidian](https://obsidian.md/) ($50/yr for commercial use, cheaper than Notion)
+
+Once you need to start having the knowledgebase available to others, [Notion](https://notion.so) is my go-to. Notion also supports making public pages, so you can also have your customer knowledgebase there.
+
+### Accounting
+
+I don't know too much in this space other than [Xero](https://www.xero.com).
+
+### Terms & Conditions
+
+- [Avodocs](https://www.avodocs.com/)
+- [All sorts of policies available for free by Basecamp](https://github.com/basecamp/policies)
+- [GetTerms](https://getterms.io/)
+
+---
+
 ## TODO
 
 - Get something working with this
@@ -368,6 +435,4 @@ Switching between Roadrunner and Swoole is simple:
   - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
   - [Update default Caddyfile](https://github.com/deployphp/deployer/discussions/3666)
 - Supervisor for managing all the different pieces?
-- Test multi-server version of this
 - Toybox Website - Jigsaw? Or the default welcome page?
-- Support/helpdesk and (maybe) CRM recommendations

@@ -26,7 +26,7 @@ host('')
 // Hooks
 
 task('composer', function () {
-    run('cd ~/toybox-laravel/current && composer install');
+    run('cd ~/toybox-laravel/current && composer install --optimize-autoloader --no-dev');
 });
 
 task('npm', function () {
