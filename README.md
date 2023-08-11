@@ -8,7 +8,7 @@
   * [Installation/Usage](#installationusage)
     * [Production](#production)
       * [Using Deployer](#using-deployer)
-      * [Manually](#manually-)
+      * [Manually](#manually)
     * [Local Development](#local-development)
       * [macOS](#macos)
       * [Linux](#linux)
@@ -25,10 +25,11 @@
       * [Data Analysis](#data-analysis)
       * [Search](#search)
       * [Websockets](#websockets)
-      * [Infrastructure/Server Management](#infrastructureserver-management)
-        * [Backups](#backups)
-        * [Serverless](#serverless)
-        * [Desktop](#desktop)
+      * [Infrastructure](#infrastructure)
+      * [Backups](#backups)
+      * [Serverless](#serverless)
+      * [Desktop](#desktop)
+      * [Mobile](#mobile)
     * [Included Packages/tools](#included-packagestools)
     * [Other Tools not included](#other-tools-not-included)
       * [Filament Plugins & Tricks](#filament-plugins--tricks)
@@ -99,7 +100,7 @@ Deployer has its own [provisioning recipe](https://deployer.org/docs/7.x/getting
 
 ---
 
-#### Manually 
+#### Manually
 This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
 
 Why Ubuntu? It's a popular OS and a relatively stable target for most use cases.
@@ -209,22 +210,26 @@ I highly recommend checking out [Metabase](https://metabase.com) for this. While
 
 [Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options in this space, which will be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation). If you want to DIY, see [below](#other-tools-not-included).
 
-#### Infrastructure/Server Management
+#### Infrastructure
 
 [Laravel Forge](https://forge.laravel.com/) and [Ploi](https://ploi.io/) are good options (I prefer Ploi) and support many cloud providers. I lean towards AWS, but only because they have a Cape Town region.
 
-##### Backups
+#### Backups
 
 - SQLite: [LiteStream](https://litestream.io/)
 - MySQL, volumes, servers, and more: [SnapShooter](https://snapshooter.com/)
 
-##### Serverless
+#### Serverless
 
 Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). **Note**: this project is untested with serverless. If you get it working with any modifications, make a PR for adding your setup or instructions!
 
-##### Desktop
+#### Desktop
 
 While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a very promising option if you'd like to add desktop apps to your toolkit.
+
+#### Mobile
+
+Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend sticking to "normal" mobile tech.
 
 ---
 
