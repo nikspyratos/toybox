@@ -45,6 +45,8 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 
 Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward.
 
+While this is an opinionated setup, it's not difficult to mold it as you please.
+
 > This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
 
 ## Support
@@ -57,8 +59,8 @@ Even if you don't need another boilerplate, perhaps the list of [recommended ser
 
 - **Be as self-contained as possible**: With minimal extra commands, you should be able to clone this repo and get something running.
 - **Use the simplest form of each tool**: Minimising the different languages used, using simpler alternatives to common tools.
-- **Verticality**: Use as much of the official Laravel ecosystem where applicable.
-- **Customisable**: Don't like my tech choices? Shouldn't be too hard to sub the important ones out, e.g. SQLite -> MySQL.
+- **Verticality**: Use as much of the official & unofficial Laravel ecosystem where applicable.
+- **Customisable**: Don't like my tech choices? Shouldn't be too hard to sub the important ones out, e.g. SQLite -> MySQL, PHP-FPM -> Octane, `queue:work` -> Redis.
 - **Flexible, but sturdy**: Strict types. Automated linting.
 - **Scaling should be simple**: It's cheaper to scale with load balancing & bigger servers than paying dev/ops salaries to overcomplicate your life with Docker, Kubernetes, etc. If your business needs all that, you should be able to afford it instead of using this.
 - **Local is lekker**: Reducing reliance on third-party services for managing infrastructure, CI/CD, etc. while not reducing capabilities.
@@ -339,8 +341,12 @@ Switching between Roadrunner and Swoole is simple:
   - Find a nice usable starter template for landing pages
   - Contact form
     - Investigate [Lara Zeus](https://larazeus.com/)
+- Redis:
+  - For project consistency I think Redis & Horizon should not be included by default, but should be easy to add with some minor instructions.
+  - Redo default setup to use default queue driver & filesystem cache.
 - Deployer: 
   - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
   - [Update default Caddyfile](https://github.com/deployphp/deployer/discussions/3666)
 - Supervisor for managing all the different pieces?
 - Test multi-server version of this
+- Website - Jigsaw? Or the default welcome page?
