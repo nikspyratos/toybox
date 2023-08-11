@@ -14,7 +14,9 @@
       * [Linux](#linux)
       * [Windows](#windows)
   * [Next Steps - DIY](#next-steps---diy)
-    * [Paid Services/Tools](#paid-servicestools)
+    * [Post-Setup](#post-setup)
+    * [3rd-party Services/Tools](#3rd-party-servicestools)
+      * [CMS](#cms)
       * [Media Library](#media-library)
       * [File Storage](#file-storage)
       * [Mail Provider](#mail-provider-)
@@ -30,12 +32,11 @@
       * [Serverless](#serverless)
       * [Desktop](#desktop)
       * [Mobile](#mobile)
-    * [Included Packages/tools](#included-packagestools)
     * [Other Tools not included](#other-tools-not-included)
       * [Filament Plugins & Tricks](#filament-plugins--tricks)
-      * [Switching to MySQL/Postgres](#switching-to-mysqlpostgres)
-      * [Laravel Octane](#laravel-octane)
-        * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
+    * [Switching to MySQL/Postgres](#switching-to-mysqlpostgres)
+    * [Laravel Octane](#laravel-octane)
+      * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
   * [Notes](#notes)
   * [TODO](#todo)
 <!-- TOC -->
@@ -164,11 +165,35 @@ Follow Linux instructions on WSL2. Not sure all of it will work properly though,
 
 These are the next steps you will have to implement yourself for your project as your needs change & scale.
 
-### Paid Services/Tools
+### Post-Setup
+
+- **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
+- **Laravel Health**: 
+  - If using MySQL or Postgres, consider adding the [Database Connections](https://spatie.be/docs/laravel-health/v1/available-checks/db-connection-count), [Database Size](https://spatie.be/docs/laravel-health/v1/available-checks/db-size-check), and [Database table size](https://spatie.be/docs/laravel-health/v1/available-checks/db-table-size-check) healthchecks. 
+  - If using Flare, consider adding the [Flare Error Count](https://spatie.be/docs/laravel-health/v1/available-checks/flare-error-count) healthcheck.
+  - If using Meilisearch, consider adding the [Meilisearch](https://spatie.be/docs/laravel-health/v1/available-checks/meilisearch) healthcheck.
+  - For pinging any other services (e.g. to test network or other services for health), you can add the [Ping](https://spatie.be/docs/laravel-health/v1/available-checks/ping) healthcheck.
+  - If you have multiple queues, you can modify the [Queue](https://spatie.be/docs/laravel-health/v1/available-checks/queue) healthcheck accordingly.
+  - To monitor a specific Redis connection, [you can specify the name](https://spatie.be/docs/laravel-health/v1/available-checks/redis#content-customizing-the-thresholds).
+  - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
+- **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
+- **Landing page/CMS**: Assuming these pages are static, make sure they are heavily cached.
+
+---
+
+### 3rd-party Services/Tools
+
+#### CMS
+
+[Statamic](https://statamic.com/) has excellent integration directly into Laravel apps.
+
+Alternatively, there are plenty of other blog/content site providers out there, e.g. [Wordpress](https://wordpress.org/). The CMS space is too huge to make any more specific recommendations.
+
+If you want something free & simple for creating content for your app, consider using [Jigsaw](https://jigsaw.tighten.com/) - a static site generator that uses Markdown & Blade. It's free and easy to use. If hosting it with Github Pages, have a look [here](https://github.com/nikspyratos/thecapegreek-site/blob/master/bin/deploy) on how to remove build artifacts from your main branch.
 
 #### Media Library
 
-Spatie's [Media Library Pro](https://medialibrary.pro/) is excellent. See [below](#included-packagestools) for free version details.
+Spatie's [Media Library Pro](https://medialibrary.pro/) is excellent. See [below](#other-tools-not-included) for free version details.
 
 #### File Storage
 
@@ -233,19 +258,6 @@ Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend
 
 ---
 
-### Included Packages/tools
-
-- **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
-- **Laravel Health**: 
-  - If using MySQL or Postgres, consider adding the [Database Connections](https://spatie.be/docs/laravel-health/v1/available-checks/db-connection-count), [Database Size](https://spatie.be/docs/laravel-health/v1/available-checks/db-size-check), and [Database table size](https://spatie.be/docs/laravel-health/v1/available-checks/db-table-size-check) healthchecks. 
-  - If using Flare, consider adding the [Flare Error Count](https://spatie.be/docs/laravel-health/v1/available-checks/flare-error-count) healthcheck.
-  - If using Meilisearch, consider adding the [Meilisearch](https://spatie.be/docs/laravel-health/v1/available-checks/meilisearch) healthcheck.
-  - For pinging any other services (e.g. to test network or other services for health), you can add the [Ping](https://spatie.be/docs/laravel-health/v1/available-checks/ping) healthcheck.
-  - If you have multiple queues, you can modify the [Queue](https://spatie.be/docs/laravel-health/v1/available-checks/queue) healthcheck accordingly.
-  - To monitor a specific Redis connection, [you can specify the name](https://spatie.be/docs/laravel-health/v1/available-checks/redis#content-customizing-the-thresholds).
-  - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
-- **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics. 
-
 ### Other Tools not included
 
 - **APIs**
@@ -267,12 +279,14 @@ This boilerplate relies heavily on FilamentPHP for the admin panel building. Thi
 - [Plugins](https://filamentphp.com/plugins)
 - [Community Articles](https://filamentphp.com/community)
 
-#### Switching to MySQL/Postgres
+---
+
+### Switching to MySQL/Postgres
 
 If you prefer to use MySQL/Postgres, there are some things to be aware of:
 - The Database download action in `Filament\Pages\HealthCheckResults` will need to be modified to do a dump of the database. It may be preferrable to delete this action and use [Laravel backup Filament](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup) instead.
 
-#### Laravel Octane
+### Laravel Octane
 
 Initially, this project included Laravel Octane. I love the idea of it - an almost free speed boost, and with Swoole even a free cache! 
 
@@ -287,7 +301,7 @@ Switching to using Octane is fairly simple on your own server. I'm not sure how 
 2. Set up Octane to run as a service or with supervisor on your server.
 3. Replace the `reverse_proxy` line in your Caddyfile with `reverse_proxy 127.0.0.1:8000` (or whichever port you run it on).
 
-##### Roadrunner vs Swoole
+#### Roadrunner vs Swoole
 
 In short:
 - Roadrunner is a Go-based PHP application server
@@ -346,6 +360,7 @@ Switching between Roadrunner and Swoole is simple:
   - Find a nice usable starter template for landing pages
   - Contact form
     - Investigate [Lara Zeus](https://larazeus.com/)
+  - Investigate if it's feasible to create something like or integrate [Jigsaw](https://jigsaw.tighten.com/) into this repo
 - Redis:
   - For project consistency I think Redis & Horizon should not be included by default, but should be easy to add with some minor instructions.
   - Redo default setup to use default queue driver & filesystem cache.
@@ -354,4 +369,5 @@ Switching between Roadrunner and Swoole is simple:
   - [Update default Caddyfile](https://github.com/deployphp/deployer/discussions/3666)
 - Supervisor for managing all the different pieces?
 - Test multi-server version of this
-- Website - Jigsaw? Or the default welcome page?
+- Toybox Website - Jigsaw? Or the default welcome page?
+- Support/helpdesk and (maybe) CRM recommendations
