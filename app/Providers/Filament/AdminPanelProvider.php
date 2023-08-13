@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Dashboard;
 use App\Filament\Pages\HealthCheckResults;
-use Awcodes\FilamentVersions\VersionsPlugin;
-use Awcodes\FilamentVersions\VersionsWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
@@ -56,15 +54,11 @@ class AdminPanelProvider extends PanelProvider
                 EnvironmentIndicatorPlugin::make(),
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->usingPage(HealthCheckResults::class),
-                VersionsPlugin::make()
-                    ->hasNavigationView(false)
-                    ->widgetColumnSpan('1'),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
-                VersionsWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
