@@ -7,8 +7,6 @@
   * [Components](#components)
   * [Installation/Usage](#installationusage)
     * [Production](#production)
-      * [Using Deployer](#using-deployer)
-      * [Manually](#manually)
     * [Local Development](#local-development)
       * [macOS](#macos)
       * [Linux](#linux)
@@ -94,21 +92,12 @@ While this is an opinionated setup, it's not difficult to mold it as you please.
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
   - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope), [Horizon](https://laravel.com/docs/10.x/horizon), and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
-- **CI/CD**: [Deployer](https://deployer.org/)
+- **CI/CD**: Good old Bash scripts.
 
 ## Installation/Usage
 
 ### Production
 
-#### Using Deployer
-
-Deployer has its own [provisioning recipe](https://deployer.org/docs/7.x/getting-started#provision) that will set up your Ubuntu server with sensible defaults and your DB of choice and using Caddy.
-
-**NOTE:** The default provision recipe doesn't support Laravel's SQLite default well. If you add the `database` directory to the `shared_dirs` and `writable_dirs`, then migrations will no longer be updated. If using `storage`, you will also likely have issues with permissions and writable database files. Instead, what has worked for me is having the database file in a completely new directory. Thus, in this repo, the default setup & config creates and looks for `sqlite/database.sqlite` instead.
-
----
-
-#### Manually
 This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
 
 Why Ubuntu? It's a popular OS and a relatively stable target for most use cases.
@@ -279,8 +268,11 @@ Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend
 - **2FA, Password reset, token management**: For more secure access to admin panels, consider adding [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy). Especially useful if you have a customer-facing Filament panel.
 - **Media Management**: Try out [Spatie Media Library](https://spatie.be/docs/laravel-medialibrary/v10/introduction) alongside [Filament's plugin](https://filamentphp.com/plugins/filament-spatie-media-library).
 - **Alternative Eloquent Drivers**: [Sushi](https://github.com/calebporzio/sushi) is an array driver, while [Orbit](https://github.com/ryangjchandler/orbit) is a flat file driver. These can be useful for things like CMSes, or loading data into Filament tables (which rely on the Eloquent query builder) without needing a database-driven model.
+- **Provisioning & Deployment**: [Deployer](https://deployer.org/).
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
+
+For more tutorials, packages and more, make sure to look at [Laravel News](https://laravel-news.com/).
 
 #### Filament Plugins & Tricks
 
@@ -348,7 +340,7 @@ Switching between Roadrunner and Swoole is simple:
   - The Horizon integration for visibility into queues is really nice.
 - Should tests run as pre-commit hooks too? On larger test bases and for atomised commits probably a bad idea, so for now no.
 - CI/CD: Github Actions could be used for testing on PRs/main pushes. For a more local alternative, perhaps a pre-push hook to prevent push if tests fail?
-- Docker: Support not yet planned. One big issue is Deployer doesn't play very well with it - you'd have to enable SSH access directly into the container to do anything. I also think the most ideal version would be a multi-service container.
+- Docker: Support not yet planned.
 
 ## What to do when you need to scale
 
@@ -422,6 +414,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
     - Update when [widget fix PR](https://github.com/awcodes/filament-versions/pull/15/) is merged
 - Landing page/marketing/content
   - Folio
+    - https://github.com/snellingio/folio-markdown
   - Laravel analytics?
   - Find a nice usable starter template for landing pages
   - Contact form
@@ -430,8 +423,8 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Redis:
   - For project consistency I think Redis & Horizon should not be included by default, but should be easy to add with some minor instructions.
   - Redo default setup to use default queue driver & filesystem cache.
-- Deployer: 
-  - Set up for deployment without storing credentials/IPs in the repo. Also would like to use the yaml style more but the doc examples are focused on the PHP version too much.
-  - [Update default Caddyfile](https://github.com/deployphp/deployer/discussions/3666)
 - Supervisor for managing all the different pieces?
 - Toybox Website - Jigsaw? Or the default welcome page?
+- UI recommendations
+  - https://devdojo.com/pines
+- Deploy script
