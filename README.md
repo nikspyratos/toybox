@@ -6,11 +6,11 @@
   * [Principles](#principles)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
-    * [Production](#production)
     * [Local Development](#local-development)
       * [macOS](#macos)
       * [Linux](#linux)
       * [Windows](#windows)
+    * [Production](#production)
   * [Next Steps - DIY](#next-steps---diy)
     * [Post-Setup](#post-setup)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
@@ -52,7 +52,7 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 
 Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward.
 
-While this is an opinionated setup, it's not difficult to mold it as you please.
+While this is an opinionated setup, it's easy to change it as you please.
 
 > This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
 
@@ -67,7 +67,7 @@ While this is an opinionated setup, it's not difficult to mold it as you please.
 - **Be as self-contained as possible**: With minimal extra commands, you should be able to clone this repo and get something running.
 - **Use the simplest form of each tool**: Minimising the different languages used, using simpler alternatives to common tools.
 - **Verticality**: Use as much of the official & unofficial Laravel ecosystem where applicable.
-- **Customisable**: Don't like my tech choices? Shouldn't be too hard to sub the important ones out, e.g. SQLite -> MySQL, PHP-FPM -> Octane, `queue:work` -> Redis.
+- **Customisable**: Don't like my tech choices? Shouldn't be too hard to sub the important ones out, e.g. SQLite -> MySQL, PHP-FPM -> Octane.
 - **Flexible, but sturdy**: Strict types. Automated linting.
 - **Scaling should be simple**: It's cheaper to scale with load balancing & bigger servers than paying dev/ops salaries to overcomplicate your life with Docker, Kubernetes, etc. If your business needs all that, you should be able to afford it instead of using this.
 - **Local is lekker**: Reducing reliance on third-party services for managing infrastructure, CI/CD, etc. while not reducing capabilities.
@@ -77,14 +77,13 @@ While this is an opinionated setup, it's not difficult to mold it as you please.
 
 - **OS**: Your choice, but the main target here is [Ubuntu](https://ubuntu.com/).
 - **Webserver**: [Caddy](https://caddyserver.com/)
-- **Database**: Your choice. Default setup is for [SQLite](https://www.sqlite.org/index.html)
-- **Cache & Queues**: [Redis](https://redis.io)
+- **Database**: Your choice. The default setup is for [SQLite](https://www.sqlite.org/index.html)
+- **Cache, Queues, Session, Websockets**: [Redis](https://redis.io).
 - **Application**: [Laravel](https://laravel.com) (duh)
   - **Authentication**: [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) 
   - **Frontend**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)), and [Laravel SEO](https://github.com/ralphjsmit/laravel-seo).
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
-    - [Filament Versions Widget](https://filamentphp.com/plugins/awcodes-versions)
     - [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
     - [Filament Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health)
     - [Activity Log](https://filamentphp.com/plugins/pxlrbt-activity-log)
@@ -96,52 +95,13 @@ While this is an opinionated setup, it's not difficult to mold it as you please.
 
 ## Installation/Usage
 
-### Production
-
-This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
-
-Why Ubuntu? It's a popular OS and a relatively stable target for most use cases.
-
-First, update apt, then install some dependencies, and install PHP 8.2 using the Ondrej PPA, and then the required extensions.
-```shell
-sudo apt update
-sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update
-sudo apt install -y php8.2 php8.2-fpm php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql
-```
-
-Then, [set up Caddy](https://caddyserver.com/docs/install#debian-ubuntu-raspbian).
-```shell
-sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg
-curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/caddy-stable.list
-sudo apt update
-sudo apt install caddy
-```
-
-Then, run the setup script to set up pre-commit linting, composer & npm, SQLite database init, create the .env file and application key.
-
-```shell
-./setup.sh
-```
-
-From there modify your .env file as needed.
-
-Now, setting up Supervisor to run all the services:
-```shell
-# TODO
-```
-
-Next, setting up the Caddy server:
-
-```shell
-# TODO
-```
-
 ### Local Development
 
 In keeping with the spirit of this project, try using native solutions. One drawback here is that Valet and Herd don't use Octane, if you use that.
+
+Once you've set up one of the methods below, run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). All you need to do is modify your `.env` as needed.
+
+For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
 #### macOS
 
@@ -156,6 +116,20 @@ In keeping with the spirit of this project, try using native solutions. One draw
 #### Windows
 
 Follow Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
+
+### Production
+
+This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
+
+Why Ubuntu? It's a popular OS and a relatively stable target for most use cases.
+
+Your first step is to download your project repository from your VCS. Then, run `./bin/setup_prod.sh` from the project directory. It will:
+- Install PHP (and extensions), Caddy, Redis, and Supervisor
+- Setup Caddy to run your Caddyfile
+- Install the Horizon config for Supervisor
+- Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
+
+For details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
 
 ## Next Steps - DIY
 
@@ -174,6 +148,7 @@ These are the next steps you will have to implement yourself for your project as
   - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
 - **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
 - **Landing page/CMS**: Assuming these pages are static, make sure they are heavily cached.
+- **Queues**: Consult the [Horizon](https://laravel.com/docs/10.x/horizon) documentation on how best to use it for your queues.
 
 ---
 
@@ -260,7 +235,7 @@ Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend
 
 - **APIs**
   - **Consuming APIs**: I recommend [Saloon](https://docs.saloon.dev/) - it can be a bit overkill for small APIs, but it really helps with structuring logic with larger APIs and OAuth. I use it as the base for my [Investec Banking API SDK](https://github.com/nikspyratos/investec-sdk-php). 
-  - **OpenAPI/Swagger**: [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger) is great here - must-use for writing great APIs.
+  - **OpenAPI/Swagger**: [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger) is great here - must-use for writing great APIs. Otherwise, [Scramble](https://scramble.dedoc.co/) is a new entry in the scene.
   - **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) does the job without much overhead. 
 - **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient. For exports from Filament tables, there's also [Filament Excel](https://github.com/pxlrbt/filament-excel) which uses Laravel Excel under the hood.
 - **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout), [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) (and [client](https://laravel.com/docs/10.x/broadcasting#client-side-installation)).
@@ -407,11 +382,8 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
   - https://github.com/spatie/laravel-settings +  https://filamentphp.com/plugins/filament-spatie-settings 
   - https://filamentphp.com/plugins/pxlrbt-activity-log
     - Still need a custom resource for non-model CRUD actions
-    - [Lack of navigation actions](https://github.com/pxlrbt/filament-activity-log/issues/15)
   - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health
     - Add extra utility actions in `Filament\Pages\HealthCheckResults`
-  - https://filamentphp.com/plugins/awcodes-versions
-    - Update when [widget fix PR](https://github.com/awcodes/filament-versions/pull/15/) is merged
 - Landing page/marketing/content
   - Folio
     - https://github.com/snellingio/folio-markdown
@@ -420,11 +392,9 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
   - Contact form
     - Investigate [Lara Zeus](https://larazeus.com/)
   - Investigate if it's feasible to create something like or integrate [Jigsaw](https://jigsaw.tighten.com/) into this repo
-- Redis:
-  - For project consistency I think Redis & Horizon should not be included by default, but should be easy to add with some minor instructions.
-  - Redo default setup to use default queue driver & filesystem cache.
-- Supervisor for managing all the different pieces?
 - Toybox Website - Jigsaw? Or the default welcome page?
 - UI recommendations
   - https://devdojo.com/pines
 - Deploy script
+  - `php artisan horizon:terminate` to get new code changes
+- FPM auto restarter

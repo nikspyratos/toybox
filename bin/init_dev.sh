@@ -7,3 +7,4 @@ php artisan ide-helper:eloquent
 touch sqlite/database.sqlite
 cp .env.example .env
 php artisan key:generate
+php artisan migrate --seed
