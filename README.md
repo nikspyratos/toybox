@@ -3,7 +3,6 @@
 <!-- TOC -->
 * [Toybox Laravel](#toybox-laravel)
   * [Support this project](#support-this-project)
-  * [Principles](#principles)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
     * [Local Development](#local-development)
@@ -32,10 +31,6 @@
       * [Mobile](#mobile)
     * [Other Tools not included](#other-tools-not-included)
       * [Filament Plugins & Tricks](#filament-plugins--tricks)
-    * [Switching to MySQL/Postgres](#switching-to-mysqlpostgres)
-    * [Laravel Octane](#laravel-octane)
-      * [Roadrunner vs Swoole](#roadrunner-vs-swoole)
-  * [Notes](#notes)
   * [What to do when you need to scale](#what-to-do-when-you-need-to-scale)
   * [Other recommendations for business operations, launching, etc.](#other-recommendations-for-business-operations-launching-etc)
     * [Helpdesk/Support](#helpdesksupport)
@@ -50,11 +45,18 @@ My TALL stack boilerplate for Laravel micro-SaaS/indie hackers.
 
 The toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak.
 
-Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward.
-
-While this is an opinionated setup, it's easy to change it as you please.
+Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward, or the [scripts](bin) will give you something to work with.
 
 > This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
+ 
+Principles
+- **Self-containment**: With minimal extra commands, you should be able to clone this repo and get something running.
+- **Tiny but mighty**: Minimising the different languages used, using simpler & standardised alternatives to common tools.
+- **Don't reinvent the wheel**: Use as much of the official & unofficial Laravel ecosystem where applicable. Use popular (i.e. sustainable, gets regular updates) tools & packages where applicable instead of rewriting boilerplate logic from scratch. We're in Laravel, not JS!
+- **Customisation**: Don't like my tech choices? It's easy to sub them out.
+- **Stability**: Strict types. Automated linting.
+- **Simplified Scaling**: It's cheaper to scale with load balancing & bigger servers, and with minor manual input instead of full automation.
+- **Local is lekker**: Reducing reliance on third-party services while not reducing capabilities.
 
 ## Support this project
 
@@ -62,23 +64,12 @@ While this is an opinionated setup, it's easy to change it as you please.
 - Sign up to services like OhDear and Paystack with my affiliate links in the [Next Steps](#next-steps---diy) section.
 - I also [consult in the Laravel & payments space](https://nik.software)
 
-## Principles
-
-- **Be as self-contained as possible**: With minimal extra commands, you should be able to clone this repo and get something running.
-- **Use the simplest form of each tool**: Minimising the different languages used, using simpler alternatives to common tools.
-- **Verticality**: Use as much of the official & unofficial Laravel ecosystem where applicable.
-- **Customisable**: Don't like my tech choices? Shouldn't be too hard to sub the important ones out, e.g. SQLite -> MySQL, PHP-FPM -> Octane.
-- **Flexible, but sturdy**: Strict types. Automated linting.
-- **Scaling should be simple**: It's cheaper to scale with load balancing & bigger servers than paying dev/ops salaries to overcomplicate your life with Docker, Kubernetes, etc. If your business needs all that, you should be able to afford it instead of using this.
-- **Local is lekker**: Reducing reliance on third-party services for managing infrastructure, CI/CD, etc. while not reducing capabilities.
-- **Don't reinvent the wheel**: More "performant" language ecosystems insist on having you write the same code for every standard feature. We don't do that here. At the same time we don't want to build an oversized swiss-army-knife of a system, or go too insane relying on third-party packages, so it's ideal to stick to well-used and understood packages that you will most likely need.
-
 ## Components
 
-- **OS**: Your choice, but the main target here is [Ubuntu](https://ubuntu.com/).
+- **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
 - **Webserver**: [Caddy](https://caddyserver.com/)
-- **Database**: Your choice. The default setup is for [SQLite](https://www.sqlite.org/index.html)
-- **Cache, Queues, Session, Websockets**: [Redis](https://redis.io).
+- **Database**: [MariaDB](https://mariadb.org/)
+- **Cache, Queues, Session, Websockets**: [Redis](https://redis.io)
 - **Application**: [Laravel](https://laravel.com) (duh)
   - **Authentication**: [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) 
   - **Frontend**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)), and [Laravel SEO](https://github.com/ralphjsmit/laravel-seo).
@@ -97,9 +88,11 @@ While this is an opinionated setup, it's easy to change it as you please.
 
 ### Local Development
 
-In keeping with the spirit of this project, try using native solutions. One drawback here is that Valet and Herd don't use Octane, if you use that.
+In keeping with the spirit of this project, try using native solutions.
 
-Once you've set up one of the methods below, run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). All you need to do is modify your `.env` as needed.
+Once you've set up one of the methods below, create a database in your MySQL instance. run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). All you need to do is modify your `.env` as needed.
+
+Note: By default `init_dev.sh` assumes your mysql credentials are `root` with an empty password - this is for local development after all. If not, only the last two steps will fail: creating the database, and running migrations & seeders.
 
 For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
@@ -121,7 +114,7 @@ Follow Linux instructions on WSL2. Not sure all of it will work properly though,
 
 This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
 
-Why Ubuntu? It's a popular OS and a relatively stable target for most use cases.
+Why Ubuntu? It's a popular OS and a stable target for most use cases.
 
 Your first step is to download your project repository from your VCS. Then, run `./bin/setup_prod.sh` from the project directory. It will:
 - Install PHP (and extensions), Caddy, Redis, and Supervisor
@@ -257,66 +250,6 @@ This boilerplate relies heavily on FilamentPHP for the admin panel building. Thi
 
 ---
 
-### Switching to MySQL/Postgres
-
-If you prefer to use MySQL/Postgres, there are some things to be aware of:
-- The Database download action in `Filament\Pages\HealthCheckResults` will need to be modified to do a dump of the database. It may be preferrable to delete this action and use [Laravel backup Filament](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup) instead.
-
-### Laravel Octane
-
-Initially, this project included Laravel Octane. I love the idea of it - an almost free speed boost, and with Swoole even a free cache! 
-
-After some consideration and discussion on the topic, I've decided not to include it. The shared-memory model introduced with the Octane paradigm is a footgun - even if your own code is clean, you can't always trust your dependencies to not introduce memory leaks.
-
-If you need to speed up or scale your application workload, consider horizontal & vertical scaling of your server(s) first. Then when you want to squeeze some extra juice, consider Octane.
-
-The longer we hold back from using these tools because of dependencies, the longer it will take for them to become viable. Stay vigilant of your app's memory usage, and submit PRs to your dependencies if you find leaks.
-
-Switching to using Octane is fairly simple on your own server. I'm not sure how easy this is to do on Forge/Ploi and have them manage it properly, so it may be smarter to just provision a new server entirely.
-1. Follow the [setup instructions](https://laravel.com/docs/10.x/octane), 
-2. Set up Octane to run as a service or with supervisor on your server.
-3. Replace the `reverse_proxy` line in your Caddyfile with `reverse_proxy 127.0.0.1:8000` (or whichever port you run it on).
-
-#### Roadrunner vs Swoole
-
-In short:
-- Roadrunner is a Go-based PHP application server
-- Swoole is a PHP _extension_ that adds functionality to PHP in the form of concurrent tasks.
-  - Swoole itself is split between [OG Swoole](https://www.swoole.com/) and [OpenSwoole](https://openswoole.com) after [some drama](https://github.com/swoole/swoole-src/issues/4450). Going by commit history, it seems Swoole is more active than OpenSwoole.
-
-I haven't been able to find more recent [benchmarks](https://github.com/morozovsk/webserver-performance-comparison), but it seems the general implication is that Swoole is faster than Roadrunner.
-
-Roadrunner is simpler, but Swoole provides a lot more functionality to your Octane with [concurrent tasks](https://laravel.com/docs/10.x/octane#concurrent-tasks), [ticks & intervals](https://laravel.com/docs/10.x/octane#ticks-and-intervals), the [octane cache](https://laravel.com/docs/10.x/octane#the-octane-cache), and [tables](https://laravel.com/docs/10.x/octane#tables). Additionally, it seems Swoole doesn't play well with debug extensions and monitoring applications (hopefully that's changed since 2021).
-
-Installing Octane with Roadrunner:
-1. Select `roadrunner` when running `php artisan octane:install`
-2. Roadrunner will be downloaded and run when you run Octane. No further action needed past that selection.
-
-Installing Octane with Swoole:
-1. Run the following:
-```shell
-# Swoole is available in the Ondřej Surý PPA
-sudo apt install php8.2-swoole
-# OpenSwoole
-sudo add-apt-repository ppa:openswoole/ppa -y
-sudo apt install -y php8.2-openswoole
-```
-2. Select `swoole` when running `php artisan octane:install`.
-
-Switching between Roadrunner and Swoole is simple:
-1. Follow the Swoole steps above.
-2. Update your `OCTANE_SERVER` env or your `config/octane.php`'s `server` key to `swoole`, and restart Octane.
-
-## Notes
-
-- Many of the Filament packages used are nascent and subject to breakage. I'll try and keep everything up to date on a best-effort basis, or remove packages that refuse to update/end up abandoned.
-- There's a bit of admitted hypocrisy here: Using SQLite for simplicity over running MySQL, but at the same time using Redis for queue & cache. Should Redis be removed, or should MySQL be added?
-  - Filesystem cache & `php artisan queue:work` can probably do just fine for quite a while. 
-  - The Horizon integration for visibility into queues is really nice.
-- Should tests run as pre-commit hooks too? On larger test bases and for atomised commits probably a bad idea, so for now no.
-- CI/CD: Github Actions could be used for testing on PRs/main pushes. For a more local alternative, perhaps a pre-push hook to prevent push if tests fail?
-- Docker: Support not yet planned.
-
 ## What to do when you need to scale
 
 This package is a starting point, but as your project scales, you may need to add some more pieces to keep it stable & safe.
@@ -328,6 +261,7 @@ You can do all of what is described below with the [infrastructure](#infrastruct
 - **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
 - **Horizontal scale**: Spin more servers up, and stick a load balancer in front of them. Again managed services for this exist, or you can spin up a generic server with Forge/Ploi and use that for it. Just remember to [modify your scheduled tasks to only run on one server](https://laravel.com/docs/10.x/scheduling#running-tasks-on-one-server).
 - **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
+- **Octane**: If you've gotten here, are sure your code (and dependencies) won't have memory leaks, and want another option before going with serverless, services or autoscaling, consider switching from PHP-FPM to [Octane](https://laravel.com/docs/10.x/octane).
 - **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.
 
 If you need _even more_ than that:
