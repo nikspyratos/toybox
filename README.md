@@ -10,6 +10,8 @@
       * [Linux](#linux)
       * [Windows](#windows)
     * [Production](#production)
+      * [Deployment](#deployment)
+      * [Troubleshooting](#troubleshooting)
   * [Next Steps - DIY](#next-steps---diy)
     * [Post-Setup](#post-setup)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
@@ -25,13 +27,14 @@
       * [Search](#search)
       * [Websockets](#websockets)
       * [Infrastructure](#infrastructure)
+      * [Deployment - CI/CD](#deployment---cicd)
       * [Backups](#backups)
       * [Serverless](#serverless)
       * [Desktop](#desktop)
       * [Mobile](#mobile)
     * [Other Tools not included](#other-tools-not-included)
       * [Filament Plugins & Tricks](#filament-plugins--tricks)
-  * [What to do when you need to scale](#what-to-do-when-you-need-to-scale)
+  * [How to scale](#how-to-scale)
   * [Other recommendations for business operations, launching, etc.](#other-recommendations-for-business-operations-launching-etc)
     * [Helpdesk/Support](#helpdesksupport)
     * [Live Chat](#live-chat)
@@ -57,6 +60,12 @@ Principles
 - **Stability**: Strict types. Automated linting.
 - **Simplified Scaling**: It's cheaper to scale with load balancing & bigger servers, and with minor manual input instead of full automation.
 - **Local is lekker**: Reducing reliance on third-party services while not reducing capabilities.
+
+Evolution
+This project has gone through some changes even before release:
+- Octane: removed over concerns with memory leaks and dependencies.
+- SQLite: it seemed more prudent to skip the step and just get going with MariaDB. Also seemed inconsistent to use SQLite for simplicity but then Redis instead of filesystem/php cache/session/queue drivers.
+- Deployer: [lingering issues](https://github.com/deployphp/deployer/issues/3542) and difficulty in testing made it evidently simpler to manage with bash scripts. Envoy is not included for the same reason: any problem it can meaningfully solve is better done either directly in Bash, or for more complexity it's better to use [Envoyer](#deployment).
 
 ## Support this project
 
@@ -88,11 +97,15 @@ Principles
 
 ### Local Development
 
-In keeping with the spirit of this project, try using native solutions.
+In keeping with the spirit of this project, Bash scripts are used for simplicity.
 
-Once you've set up one of the methods below, create a database in your MySQL instance. run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). All you need to do is modify your `.env` as needed.
+Once you've set up one of the methods below, clone/fork this repository into a new repository, create a database in your MySQL instance. run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
 
-Note: By default `init_dev.sh` assumes your mysql credentials are `root` with an empty password - this is for local development after all. If not, only the last two steps will fail: creating the database, and running migrations & seeders.
+Note: By default `init_dev.sh` makes two assumptions:
+- Your production server username is `ubuntu`. If it is not, all you need to do is replace `ubuntu` in your Caddyfile with the correct username, once `init_dev.sh` is finished.
+- Your local mysql credentials are `root` with an empty password - this is for local development after all. If not, only the last two steps will fail: creating the database, and running migrations & seeders.
+
+Once the script completes, you can commit the changes to the edited files.
 
 For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
@@ -116,13 +129,37 @@ This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer
 
 Why Ubuntu? It's a popular OS and a stable target for most use cases.
 
-Your first step is to download your project repository from your VCS. Then, run `./bin/setup_prod.sh` from the project directory. It will:
+**Note: The `provision_prod.sh` and `deploy.sh` scripts are intended for early use in your SaaS. Once you need to go beyond vertical scaling, I'd highly recommend getting started with the recommended [infrastructure](#infrastructure) and [deployment](#deployment---cicd) tools.**
+
+Your first step is to download your project repository from your VCS. Then, run `./bin/provision_prod.sh` from the project directory. It will:
+- Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
 - Install PHP (and extensions), Caddy, Redis, and Supervisor
 - Setup Caddy to run your Caddyfile
 - Install the Horizon config for Supervisor
 - Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
 
-For details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
+Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
+
+For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
+
+#### Deployment
+
+In your local project, edit the following variables to your local `.env`, using the appropriate values:
+```dotenv
+DEPLOYMENT_IP=
+DEPLOYMENT_USER=
+DEPLOYMENT_SSH_KEY=
+```
+
+`DEPLOYMENT_PATH` should already be set up from when you ran `init_dev.sh`. If not, please edit it to the appropriate value.
+
+To deploy the latest application changes, run `./bin/deploy.sh`. It will:
+- SSH into your server using the variables above
+- Run `git pull`, `composer install`, `npm install`, `npm run build`, and `php artisan migrate`.
+
+#### Troubleshooting
+
+This is where your skills come in.
 
 ## Next Steps - DIY
 
@@ -205,6 +242,10 @@ I highly recommend checking out [Metabase](https://metabase.com) for this. While
 
 [Laravel Forge](https://forge.laravel.com/) and [Ploi](https://ploi.io/) are good options (I prefer Ploi) and support many cloud providers. I lean towards AWS, but only because they have a Cape Town region.
 
+#### Deployment - CI/CD
+
+Forge & Ploi offer deployment, but [Envoyer](https://envoyer.io/) is a great addition.
+
 #### Backups
 
 - SQLite: [LiteStream](https://litestream.io/)
@@ -250,11 +291,11 @@ This boilerplate relies heavily on FilamentPHP for the admin panel building. Thi
 
 ---
 
-## What to do when you need to scale
+## How to scale
 
 This package is a starting point, but as your project scales, you may need to add some more pieces to keep it stable & safe.
 
-You can do all of what is described below with the [infrastructure](#infrastructure) tools recommended.
+You can do most of what is described below with the [infrastructure](#infrastructure) tools recommended.
 
 - **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows.
 - **Content Delivery Network (CDN)**: Sign up for a service like [Cloudflare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/) to take the edge off of some of your traffic and protect from DDoS attacks.

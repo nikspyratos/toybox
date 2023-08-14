@@ -1,6 +1,0 @@
-toybox-laravel.test {
-    root * ./
-    encode zstd gzip
-    file_server
-    php_fastcgi unix//run/php/php8.2-fpm.sock
-}

@@ -1,6 +1,8 @@
 #!/bin/sh
 app_path=$(pwd)
-read -p "App Name: " app_name
+echo "Copying .env.prod.example to .env and using it";sleep 1;
+cp .env.prod.example .env
+source .env
 # PHP
 echo "Installing PHP";sleep 1;
 sudo apt update
@@ -13,13 +15,12 @@ echo "Installing MariaDB";sleep 1;
 DEBIAN_FRONTEND=noninteractive timeout=900 apt-get install -y mariadb-server
 read -p "Database username: " db_user
 read -p "Database password: " db_password
-read -p "Database name: " db_name
 mysql --user="root" -e "CREATE USER IF NOT EXISTS '$db_user'@'0.0.0.0' IDENTIFIED BY '$db_password';"
 mysql --user="root" -e "CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_password';"
 mysql --user="root" -e "GRANT ALL PRIVILEGES ON *.* TO '$db_user'@'0.0.0.0' WITH GRANT OPTION;"
 mysql --user="root" -e "GRANT ALL PRIVILEGES ON *.* TO '$db_user'@'%' WITH GRANT OPTION;"
 mysql --user="root" -e "FLUSH PRIVILEGES;"
-mysql --user="root" -e "CREATE DATABASE IF NOT EXISTS $db_name character set UTF8mb4 collate utf8mb4_unicode_ci;"
+mysql --user="root" -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE character set UTF8mb4 collate utf8mb4_unicode_ci;"
 # Redis
 echo "Installing Redis";sleep 1;
 sudo apt install redis
@@ -43,7 +44,6 @@ echo "Setting up application";sleep 1;
 composer install
 npm install
 npm run build
-cp .env.prod.example .env
 sed -i "s/DB_USERNAME=/DB_USERNAME=$db_user/g" .env
 sed -i "s/DB_PASSWORD=/DB_PASSWORD=$db_password/g" .env
 php artisan key:generate
@@ -53,3 +53,4 @@ crontab -l >> mycron
 echo '\n'"# '* * * * * php $app_path/artisan schedule:run >> /dev/null 2>&1" >> mycron
 crontab mycron
 rm mycron
+echo -e "Installation complete!";
