@@ -27,7 +27,8 @@ mysql --user="root" -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE character set
 # Redis
 echo "Installing Redis";sleep 1;
 sudo apt install redis
-sudo
+sudo sed "s/supervised no/supervised systemd/g" /etc/redis/redis.conf
+sudo systemctl restart redis.service
 # Caddy
 echo "Installing Caddy";sleep 1;
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https

@@ -125,9 +125,7 @@ Follow Linux instructions on WSL2. Not sure all of it will work properly though,
 
 ### Production
 
-This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server.
-
-Why Ubuntu? It's a popular OS and a stable target for most use cases.
+This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server with an `ubuntu` user that has sudo access.
 
 **Note: The `provision_prod.sh` and `deploy.sh` scripts are intended for early use in your SaaS. Once you need to go beyond vertical scaling, I'd highly recommend getting started with the recommended [infrastructure](#infrastructure) and [deployment](#deployment---cicd) tools.**
 
