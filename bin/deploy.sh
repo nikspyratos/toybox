@@ -15,5 +15,6 @@ php artisan icons:cache
 php artisan view:cache
 php artisan migrate --force
 php artisan horizon:terminate
+sudo systemctl restart php8.2-fpm
 caddy reload
 ENDSSH

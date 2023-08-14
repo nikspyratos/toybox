@@ -10,6 +10,9 @@ sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https softw
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 sudo apt install -y php8.2 php8.2-fpm php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql php8.2-redis
+sudo cp ./templates/php8.2-fpm.service /etc/systemd/service/php8.2-fpm.service
+sudo systemctl daemon-reload
+sudo systemctl restart php8.2-fpm
 # MariaDB
 echo "Installing MariaDB";sleep 1;
 DEBIAN_FRONTEND=noninteractive timeout=900 apt-get install -y mariadb-server
@@ -24,6 +27,7 @@ mysql --user="root" -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE character set
 # Redis
 echo "Installing Redis";sleep 1;
 sudo apt install redis
+sudo
 # Caddy
 echo "Installing Caddy";sleep 1;
 sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https
@@ -34,8 +38,7 @@ sudo apt install caddy
 caddy reload
 echo "Setting up Supervisor for queue work";sleep 1;
 sudo apt-get install supervisor
-cp supervisord/horizon.conf /etc/supervisor/conf.d/
-sed -i "s/app_path/$app_path/g" /etc/supervisor/conf.d/horizon.conf
+cp templates/horizon.conf /etc/supervisor/conf.d/
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl start laravel-worker:*
@@ -44,8 +47,7 @@ echo "Setting up application";sleep 1;
 composer install
 npm install
 npm run build
-sed -i "s/DB_USERNAME=/DB_USERNAME=$db_user/g" .env
-sed -i "s/DB_PASSWORD=/DB_PASSWORD=$db_password/g" .env
+sed -i "s/DB_USERNAME=/DB_USERNAME=$db_user/g;s/DB_PASSWORD=/DB_PASSWORD=$db_password/g" .env
 php artisan key:generate
 php artisan migrate --seed
 echo "Installing Laravel cron schedule";sleep 1;

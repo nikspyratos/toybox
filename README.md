@@ -102,7 +102,7 @@ In keeping with the spirit of this project, Bash scripts are used for simplicity
 Once you've set up one of the methods below, clone/fork this repository into a new repository, create a database in your MySQL instance. run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
 
 Note: By default `init_dev.sh` makes two assumptions:
-- Your production server username is `ubuntu`. If it is not, all you need to do is replace `ubuntu` in your Caddyfile with the correct username, once `init_dev.sh` is finished.
+- Your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile and `templates/horizon.conf` with the correct username, once `init_dev.sh` is finished.
 - Your local mysql credentials are `root` with an empty password - this is for local development after all. If not, only the last two steps will fail: creating the database, and running migrations & seeders.
 
 Once the script completes, you can commit the changes to the edited files.
@@ -133,7 +133,7 @@ Why Ubuntu? It's a popular OS and a stable target for most use cases.
 
 Your first step is to download your project repository from your VCS. Then, run `./bin/provision_prod.sh` from the project directory. It will:
 - Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
-- Install PHP (and extensions), Caddy, Redis, and Supervisor
+- Install PHP (with service config and extensions), Caddy, Redis, and Supervisor
 - Setup Caddy to run your Caddyfile
 - Install the Horizon config for Supervisor
 - Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
