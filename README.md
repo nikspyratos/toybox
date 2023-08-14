@@ -50,7 +50,7 @@ The toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 
 Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward, or the [scripts](bin) will give you something to work with.
 
-> This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. For client work I'd still recommend going down more well-trodden paths like using Forge/Ploi or a Docker-based solution.
+> This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. This is also not intended for "professional" commercial use, i.e. for freelance clients - it's intended for use by indie developer-entrepreneurs.
  
 Principles
 - **Self-containment**: With minimal extra commands, you should be able to clone this repo and get something running.
@@ -154,6 +154,8 @@ DEPLOYMENT_SSH_KEY=
 To deploy the latest application changes, run `./bin/deploy.sh`. It will:
 - SSH into your server using the variables above
 - Run `git pull`, `composer install`, `npm install`, `npm run build`, and `php artisan migrate`.
+
+If you're in a rush/need to throw hotfixes up, `bin/quick_deploy.sh` will only pull new code & reset the optimisation caches.
 
 #### Troubleshooting
 
@@ -368,6 +370,3 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Toybox Website - Jigsaw? Or the default welcome page?
 - UI recommendations
   - https://devdojo.com/pines
-- Deploy script
-  - `php artisan horizon:terminate` to get new code changes
-- FPM auto restarter
