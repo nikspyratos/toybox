@@ -124,4 +124,7 @@ return [
         ],
     ],
 
+    // The address system messages & contact form submissions go to.
+    'admin_address' => env('MAIL_ADMIN_ADDRESS'),
+
 ];

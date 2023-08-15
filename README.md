@@ -7,6 +7,7 @@
 <!-- TOC -->
 * [Toybox - A Laravel micro-SaaS starter kit](#toybox---a-laravel-micro-saas-starter-kit)
   * [Support this project](#support-this-project)
+  * [Features](#features)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
     * [Local Development](#local-development)
@@ -19,6 +20,7 @@
   * [Next Steps - DIY](#next-steps---diy)
     * [Post-Setup](#post-setup)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
+      * [User Interface](#user-interface)
       * [CMS](#cms)
       * [Media Library](#media-library)
       * [File Storage](#file-storage)
@@ -78,6 +80,14 @@ This project has gone through some changes even before release:
 - Sign up to services like OhDear and Paystack with my affiliate links in the [Next Steps](#next-steps---diy) section.
 - I also [consult in the Laravel & payments space](https://nik.software)
 
+## Features
+
+- Self-initialising, self-provisioning, self-deploying.
+- SaaS public content: Landing & Contact pages, alongside CMS, all with SEO!
+- User authentication, profile & dashboard
+- Ready-to-go admin panel
+- API-ready
+
 ## Components
 
 - **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
@@ -85,8 +95,11 @@ This project has gone through some changes even before release:
 - **Database**: [MariaDB](https://mariadb.org/)
 - **Cache, Queues, Session, Websockets**: [Redis](https://redis.io)
 - **Application**: [Laravel](https://laravel.com) (duh)
-  - **Authentication**: [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) 
-  - **Frontend**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)), and [Laravel SEO](https://github.com/ralphjsmit/laravel-seo).
+  - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) for authentication, profile & dashboard.
+  - **Content**:
+    - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js
+    - CMS built with [Laravel Folio](https://github.com/laravel/folio), [Folio-Markdown](https://github.com/snellingio/folio-markdown) [Orbit](https://github.com/ryangjchandler/orbit) and [Laravel SEO](https://github.com/ralphjsmit/laravel-seo).
+    - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
     - [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
@@ -119,7 +132,7 @@ For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 - ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
 - [DBngin](https://dbngin.com/)
 
-Note: Favicons with valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
+Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
 
 #### Linux
 
@@ -192,6 +205,15 @@ These are the next steps you will have to implement yourself for your project as
 ### 3rd-party Services/Tools
 
 **Remember: this is a list of options, not requirements. You can likely run your SaaS perfectly fine without many of these.**
+
+#### User Interface
+
+- Filament is intended to be used for UI where possible. Consult the documentation for details.  
+- [Tailwind UI](https://tailwindui.com/) is a great premium resource, and includes many site templates.
+- [WireUI](https://livewire-wireui.com/) is a Livewire-based component kit.
+- [Pines](https://devdojo.com/pines) is an Alpine-based component kit.
+
+For more recommendations, see [here](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Design).
 
 #### CMS
 
@@ -369,18 +391,11 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Get something working with this
 - Filament: 
   - https://github.com/spatie/laravel-settings +  https://filamentphp.com/plugins/filament-spatie-settings 
-  - https://filamentphp.com/plugins/pxlrbt-activity-log
-    - Still need a custom resource for non-model CRUD actions
-  - https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health
-    - Add extra utility actions in `Filament\Pages\HealthCheckResults`
 - Landing page/marketing/content
   - Folio
     - https://github.com/snellingio/folio-markdown
   - Laravel analytics?
-  - Find a nice usable starter template for landing pages
+  - Find a nice usable starter template for landing pages & CMS
+    - Idea: Find a decent template or two to use as a skeleton, then reimplement it using Pines
   - Contact form
-    - Investigate [Lara Zeus](https://larazeus.com/)
-  - Investigate if it's feasible to create something like or integrate [Jigsaw](https://jigsaw.tighten.com/) into this repo
-- UI recommendations
-  - https://devdojo.com/pines
 - Pre-commit linting: All changes are re-added, ignoring partial additions selected by IDE
