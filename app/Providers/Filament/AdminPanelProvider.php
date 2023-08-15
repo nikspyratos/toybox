@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers\Filament;
 
+use App\Filament\Color;
 use App\Filament\Pages\Dashboard;
 use App\Filament\Pages\HealthCheckResults;
 use Filament\Http\Middleware\Authenticate;
@@ -11,7 +12,6 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Panel;
 use Filament\PanelProvider;
-use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -40,10 +40,10 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'gray' => $background,
                 'danger' => Color::Rose,
-                'primary' => Color::Emerald,
-                'info' => Color::Sky,
+                'primary' => Color::Matisse,
+                'info' => Color::Voodoo,
                 'success' => Color::Emerald,
-                'warning' => Color::Amber,
+                'warning' => Color::Buttercup,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -51,7 +51,12 @@ class AdminPanelProvider extends PanelProvider
                 Dashboard::class,
             ])
             ->plugins([
-                EnvironmentIndicatorPlugin::make(),
+                EnvironmentIndicatorPlugin::make()
+                    ->color(fn () => match (app()->environment()) {
+                        'production' => Color::Red,
+                        'staging' => Color::Orange,
+                        default => Color::Blue,
+                    }),
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->usingPage(HealthCheckResults::class),
             ])

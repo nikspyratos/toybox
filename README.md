@@ -1,7 +1,11 @@
-# Toybox Laravel
+# Toybox - A Laravel micro-SaaS starter kit
+
+![Toybox cover image](public/images/toybox-cover.png)
+
+---
 
 <!-- TOC -->
-* [Toybox Laravel](#toybox-laravel)
+* [Toybox - A Laravel micro-SaaS starter kit](#toybox---a-laravel-micro-saas-starter-kit)
   * [Support this project](#support-this-project)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
@@ -34,6 +38,7 @@
       * [Mobile](#mobile)
     * [Other Tools not included](#other-tools-not-included)
       * [Filament Plugins & Tricks](#filament-plugins--tricks)
+    * [Design](#design)
   * [How to scale](#how-to-scale)
   * [Other recommendations for business operations, launching, etc.](#other-recommendations-for-business-operations-launching-etc)
     * [Helpdesk/Support](#helpdesksupport)
@@ -46,7 +51,7 @@
 
 My TALL stack boilerplate for Laravel micro-SaaS/indie hackers.
 
-The toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak.
+The Toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak. Let's have some fun!
 
 Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward, or the [scripts](bin) will give you something to work with.
 
@@ -113,6 +118,8 @@ For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
 - ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
 - [DBngin](https://dbngin.com/)
+
+Note: Favicons with valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
 
 #### Linux
 
@@ -277,6 +284,7 @@ Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend
 - **2FA, Password reset, token management**: For more secure access to admin panels, consider adding [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy). Especially useful if you have a customer-facing Filament panel.
 - **Media Management**: Try out [Spatie Media Library](https://spatie.be/docs/laravel-medialibrary/v10/introduction) alongside [Filament's plugin](https://filamentphp.com/plugins/filament-spatie-media-library).
 - **Alternative Eloquent Drivers**: [Sushi](https://github.com/calebporzio/sushi) is an array driver, while [Orbit](https://github.com/ryangjchandler/orbit) is a flat file driver. These can be useful for things like CMSes, or loading data into Filament tables (which rely on the Eloquent query builder) without needing a database-driven model.
+- **Fixture data**: [Squire](https://github.com/squirephp/squire) adds static fixtures (e.g. airport, country code, currency, timezone) available through Eloquent. 
 - **Provisioning & Deployment**: [Deployer](https://deployer.org/).
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
@@ -288,6 +296,12 @@ For more tutorials, packages and more, make sure to look at [Laravel News](https
 This boilerplate relies heavily on FilamentPHP for the admin panel building. This also means there are plenty of extra resources to augment either your UI or admin panel:
 - [Plugins](https://filamentphp.com/plugins)
 - [Community Articles](https://filamentphp.com/community)
+
+### Design
+
+- **Application Colours**: Generate matching application colours with [Coolors](https://coolors.co/), and generate Tailwind palettes from those with [UIColors.app](https://uicolors.app/create).
+- **Logo**: Change the contents of [resources/views/vendor/filament-panels/components/logo.blade.php](resources/views/vendor/filament-panels/components/logo.blade.php) to reference your logo image.
+- **Images**: Once you've set up your project, you can delete the default logos & images in `public/images`.
 
 ---
 
@@ -367,6 +381,6 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
   - Contact form
     - Investigate [Lara Zeus](https://larazeus.com/)
   - Investigate if it's feasible to create something like or integrate [Jigsaw](https://jigsaw.tighten.com/) into this repo
-- Toybox Website - Jigsaw? Or the default welcome page?
 - UI recommendations
   - https://devdojo.com/pines
+- Pre-commit linting: All changes are re-added, ignoring partial additions selected by IDE
