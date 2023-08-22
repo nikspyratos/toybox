@@ -16,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Remove this once you've started working on your project
+Route::redirect('/', '/welcome');
 
 Route::get('dashboard', function () {
     return view('dashboard');

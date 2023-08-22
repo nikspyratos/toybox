@@ -1,3 +1,11 @@
+<?php
+
+use function Laravel\Folio\name;
+
+name('welcome');
+
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
@@ -82,6 +90,24 @@
 
                             <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
                         </a>
+
+                        <div class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
+                            <div>
+                                <img class="h-16 w-16" src="{{ asset('images/toybox-logo.png') }}">
+
+                                <h2 class="mt-6 text-xl font-semibold text-matisse-900 dark:text-emerald-400">Next Steps</h2>
+
+                                <p class="mt-4 text-matisse-500 dark:text-matisse-400 text-sm leading-relaxed">
+                                    Consult the Toybox README for information, documentation and resources on launching your SaaS.
+
+                                    The very first thing you might want to do is set up your project's landing page: rename the landing.blade.php file to index.blade.php, and remove the route redirect from / to /welcome.
+
+                                    Then, you likely want to replace the Toybox logo, favicon and cover image and references to the authors with your own.
+                                </p>
+                            </div>
+
+                            <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
+                        </div>
                     </div>
                 </div>
 
@@ -97,6 +123,12 @@
                         </div>
                     </div>
 
+                    <a class="text-matisse-500" href="https://nikspyratos.com">
+                        <x-heroicon-o-link
+                            class="inline -mt-px mr-1 w-5 h-5 stroke-matisse-400 dark:stroke-matisse-600 group-hover:stroke-matisse-600 dark:group-hover:stroke-matisse-400"
+                        ></x-heroicon-o-link>
+                        Made by Nik Spyratos
+                    </a>
                     <div class="ml-4 text-center text-sm text-matisse-500 dark:text-matisse-400 sm:text-right sm:ml-0">
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
