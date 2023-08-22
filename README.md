@@ -51,7 +51,7 @@
   * [TODO](#todo)
 <!-- TOC -->
 
-My TALL stack boilerplate for Laravel micro-SaaS/indie hackers.
+My [TALL stack](https://tallstack.dev/) boilerplate for Laravel micro-SaaS/indie hackers.
 
 The Toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak. Let's have some fun!
 
@@ -79,6 +79,7 @@ This project has gone through some changes even before release:
 - [Buy me a coffee](https://tip-jar.co.za/@thecapegreek)
 - Sign up to services like OhDear and Paystack with my affiliate links in the [Next Steps](#next-steps---diy) section.
 - I also [consult in the Laravel & payments space](https://nik.software)
+- Post what you've built using the Toybox and tag me!
 
 ## Features
 
@@ -212,6 +213,7 @@ These are the next steps you will have to implement yourself for your project as
 - [Tailwind UI](https://tailwindui.com/) is a great premium resource, and includes many site templates.
 - [WireUI](https://livewire-wireui.com/) is a Livewire-based component kit.
 - [Pines](https://devdojo.com/pines) is an Alpine-based component kit.
+- [Blade UI Kit](https://blade-ui-kit.com) is another component kit for the TALL stack.
 
 For more recommendations, see [here](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Design).
 
@@ -390,12 +392,11 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 - Get something working with this
 - Filament: 
-  - https://github.com/spatie/laravel-settings +  https://filamentphp.com/plugins/filament-spatie-settings 
+  - https://github.com/spatie/laravel-settings +  https://filamentphp.com/plugins/filament-spatie-settings
+    - Can probably use for site meta attributes etc
 - Landing page/marketing/content
   - Folio
     - https://github.com/snellingio/folio-markdown
   - Laravel analytics?
-  - Find a nice usable starter template for landing pages & CMS
-    - Idea: Find a decent template or two to use as a skeleton, then reimplement it using Pines
-  - Contact form
+  - Convert Landwind Flowbite components to Blade/Alpine/Livewire
 - Pre-commit linting: All changes are re-added, ignoring partial additions selected by IDE
