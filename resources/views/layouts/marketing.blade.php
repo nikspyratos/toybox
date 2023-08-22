@@ -41,6 +41,5 @@
     @include('layouts.marketing.navigation')
     @yield('content')
     @include('layouts.marketing.footer')
-    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
 </body>
 </html>

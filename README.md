@@ -84,7 +84,7 @@ This project has gone through some changes even before release:
 ## Features
 
 - Self-initialising, self-provisioning, self-deploying.
-- SaaS public content: Landing & Contact pages, alongside CMS, all with SEO!
+- Landing page starter
 - User authentication, profile & dashboard
 - Ready-to-go admin panel
 - API-ready
@@ -99,7 +99,6 @@ This project has gone through some changes even before release:
   - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) for authentication, profile & dashboard.
   - **Content**:
     - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js
-    - CMS built with [Laravel Folio](https://github.com/laravel/folio), [Folio-Markdown](https://github.com/snellingio/folio-markdown) [Orbit](https://github.com/ryangjchandler/orbit) and [Laravel SEO](https://github.com/ralphjsmit/laravel-seo).
     - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
@@ -198,7 +197,11 @@ These are the next steps you will have to implement yourself for your project as
   - To monitor a specific Redis connection, [you can specify the name](https://spatie.be/docs/laravel-health/v1/available-checks/redis#content-customizing-the-thresholds).
   - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
 - **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
-- **Landing page/CMS**: Assuming these pages are static, make sure they are heavily cached.
+- **Replaces assets**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors with your own.
+- **Landing page**: 
+  - Make sure to change the copy on the provided pages.
+  - Assuming these pages are static, make sure they are heavily cached. 
+  - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
 - **Queues**: Consult the [Horizon](https://laravel.com/docs/10.x/horizon) documentation on how best to use it for your queues.
 
 ---
@@ -211,6 +214,7 @@ These are the next steps you will have to implement yourself for your project as
 
 - Filament is intended to be used for UI where possible. Consult the documentation for details.  
 - [Tailwind UI](https://tailwindui.com/) is a great premium resource, and includes many site templates.
+- [Alpine Components](https://alpinejs.dev/components) is the premier Alpine component kit.
 - [WireUI](https://livewire-wireui.com/) is a Livewire-based component kit.
 - [Pines](https://devdojo.com/pines) is an Alpine-based component kit.
 - [Blade UI Kit](https://blade-ui-kit.com) is another component kit for the TALL stack.
@@ -394,9 +398,5 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Filament: 
   - https://github.com/spatie/laravel-settings +  https://filamentphp.com/plugins/filament-spatie-settings
     - Can probably use for site meta attributes etc
-- Landing page/marketing/content
-  - Folio
-    - https://github.com/snellingio/folio-markdown
-  - Laravel analytics?
-  - Convert Landwind Flowbite components to Blade/Alpine/Livewire
+- Convert Landwind Flowbite components to Blade/Alpine/Livewire
 - Pre-commit linting: All changes are re-added, ignoring partial additions selected by IDE
