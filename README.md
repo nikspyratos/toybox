@@ -48,7 +48,6 @@
     * [Knowledgebase](#knowledgebase)
     * [Accounting](#accounting)
     * [Terms & Conditions](#terms--conditions)
-  * [TODO](#todo)
 <!-- TOC -->
 
 My [TALL stack](https://tallstack.dev/) boilerplate for Laravel micro-SaaS/indie hackers.
@@ -314,6 +313,7 @@ Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend
 - **Alternative Eloquent Drivers**: [Sushi](https://github.com/calebporzio/sushi) is an array driver, while [Orbit](https://github.com/ryangjchandler/orbit) is a flat file driver. These can be useful for things like CMSes, or loading data into Filament tables (which rely on the Eloquent query builder) without needing a database-driven model.
 - **Fixture data**: [Squire](https://github.com/squirephp/squire) adds static fixtures (e.g. airport, country code, currency, timezone) available through Eloquent. 
 - **Provisioning & Deployment**: [Deployer](https://deployer.org/).
+- **Application settings**: [Spatie Laravel Settings](https://github.com/spatie/laravel-settings) + [Filament Spatie Settings](https://filamentphp.com/plugins/filament-spatie-settings) 
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 
@@ -392,11 +392,4 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 ---
 
-## TODO
-
-- Get something working with this
-- Filament: 
-  - https://github.com/spatie/laravel-settings +  https://filamentphp.com/plugins/filament-spatie-settings
-    - Can probably use for site meta attributes etc
-- Convert Landwind Flowbite components to Blade/Alpine/Livewire
-- Pre-commit linting: All changes are re-added, ignoring partial additions selected by IDE
+[Back to top](#toybox---a-laravel-micro-saas-starter-kit)
