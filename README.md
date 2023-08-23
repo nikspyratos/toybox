@@ -48,6 +48,7 @@
     * [Knowledgebase](#knowledgebase)
     * [Accounting](#accounting)
     * [Terms & Conditions](#terms--conditions)
+  * [Future/Next Steps/TODO](#futurenext-stepstodo)
 <!-- TOC -->
 
 My [TALL stack](https://tallstack.dev/) boilerplate for Laravel micro-SaaS/indie hackers.
@@ -202,6 +203,7 @@ These are the next steps you will have to implement yourself for your project as
   - Assuming these pages are static, make sure they are heavily cached. 
   - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
 - **Queues**: Consult the [Horizon](https://laravel.com/docs/10.x/horizon) documentation on how best to use it for your queues.
+- **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
 
 ---
 
@@ -328,7 +330,7 @@ This boilerplate relies heavily on FilamentPHP for the admin panel building. Thi
 ### Design
 
 - **Application Colours**: Generate matching application colours with [Coolors](https://coolors.co/), and generate Tailwind palettes from those with [UIColors.app](https://uicolors.app/create).
-- **Logo**: Change the contents of [resources/views/vendor/filament-panels/components/logo.blade.php](resources/views/vendor/filament-panels/components/logo.blade.php) to reference your logo image.
+- **Logo**: Change the contents of [resources/views/vendor/filament-panels/components/logo.blade.php](resources/views/vendor/filament-panels/components/logo.blade.php) to reference your logo image. For favicon generation from the logo, [Real Favicon Generator](https://realfavicongenerator.net/) will create all the images as well as all the HTML you need.
 - **Images**: Once you've set up your project, you can delete the default logos & images in `public/images`.
 
 ---
@@ -389,6 +391,12 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - [Avodocs](https://www.avodocs.com/)
 - [All sorts of policies available for free by Basecamp](https://github.com/basecamp/policies)
 - [GetTerms](https://getterms.io/)
+
+
+## Future/Next Steps/TODO
+
+- Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
+- Test the scripts
 
 ---
 
