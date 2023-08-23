@@ -48,9 +48,9 @@ echo "Setting up application";sleep 1;
 composer install
 npm install
 npm run build
-sed -i "s/DB_USERNAME=/DB_USERNAME=$db_user/g;s/DB_PASSWORD=/DB_PASSWORD=$db_password/g" .env
+sed -i '' "s/DB_USERNAME=/DB_USERNAME=$db_user/g;s/DB_PASSWORD=/DB_PASSWORD=$db_password/g" .env
 php artisan key:generate
-php artisan migrate --seed
+php artisan migrate --force --seed
 echo "Installing Laravel cron schedule";sleep 1;
 crontab -l >> mycron
 echo '\n'"# '* * * * * php $app_path/artisan schedule:run >> /dev/null 2>&1" >> mycron
