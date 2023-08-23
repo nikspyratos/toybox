@@ -18,6 +18,10 @@ sed -i '.bak' "s/DEPLOYMENT_PATH=/DEPLOYMENT_PATH=$prod_app_path/g" .env.example
 sed -i '.bak' "s/toybox-laravel.test/$app_domain/g" Caddyfile
 sed -i '.bak' "s/APP_PATH/$prod_app_path/g" Caddyfile
 sed -i '.bak' "s/APP_PATH/$prod_app_path/g" templates/horizon.conf
+# MacOS specific: Delete .bak files.
+# See https://stackoverflow.com/questions/4247068/sed-command-with-i-option-failing-on-mac-but-works-on-linux
+# and https://superuser.com/questions/241333/mac-remove-all-files-with-a-certain-extension-from-a-directory-tree
+find ./ -name "*.bak" -exec rm {} \;
 # Local setup
 git config --local include.path ../.gitconfig
 composer install
@@ -29,8 +33,4 @@ php artisan key:generate
 # Will fail here if local DB is not set up with root & no password. No biggie
 # artisan migrate --force will create a database for you if one is missing and the connection works. Without --force it will ask.
 php artisan migrate --force --seed
-# MacOS specific: Delete .bak files.
-# See https://stackoverflow.com/questions/4247068/sed-command-with-i-option-failing-on-mac-but-works-on-linux
-# and https://superuser.com/questions/241333/mac-remove-all-files-with-a-certain-extension-from-a-directory-tree
-find ./ -name "*.bak" -exec rm {} \;
 echo "Complete! See above for any potential errors."
