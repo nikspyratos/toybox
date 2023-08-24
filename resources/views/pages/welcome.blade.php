@@ -77,21 +77,21 @@ name('welcome');
                             <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
                         </a>
 
-                        <a href="https://laravel.com/docs/starter-kits#laravel-breeze" class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
+                        <a href="https://jetstream.laravel.com" class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
                             <div>
-                                <img class="h-16 w-16" src="{{ asset('images/breeze-logo-icon.png') }}">
+                                <img class="h-16 w-16" src="{{ asset('images/jetstream-logo.png') }}">
 
-                                <h2 class="mt-6 text-xl font-semibold text-matisse-900 dark:text-emerald-400">Breeze</h2>
+                                <h2 class="mt-6 text-xl font-semibold text-matisse-900 dark:text-emerald-400">Jetstream</h2>
 
                                 <p class="mt-4 text-matisse-500 dark:text-matisse-400 text-sm leading-relaxed">
-                                     Breeze is a minimal, simple implementation of all of Laravel's authentication features, including login, registration, password reset, email verification, and password confirmation. In addition, Breeze includes a simple "profile" page where the user may update their name, email address, and password.
+                                     Laravel Jetstream is a beautifully designed application starter kit for Laravel and provides the perfect starting point for your next Laravel application. Jetstream provides the implementation for your application's login, registration, email verification, two-factor authentication, session management, API via Laravel Sanctum, and optional team management features.
                                 </p>
                             </div>
 
                             <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
                         </a>
 
-                        <div class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
+                        <a href="https://github.com/nikspyratos/toybox" class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
                             <div>
                                 <img class="h-16 w-16" src="{{ asset('images/toybox-logo.png') }}">
 
@@ -107,7 +107,7 @@ name('welcome');
                             </div>
 
                             <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
-                        </div>
+                        </a>
                     </div>
                 </div>
 

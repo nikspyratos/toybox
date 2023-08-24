@@ -96,7 +96,7 @@ This project has gone through some changes even before release:
 - **Database**: [MariaDB](https://mariadb.org/)
 - **Cache, Queues, Session, Websockets**: [Redis](https://redis.io)
 - **Application**: [Laravel](https://laravel.com) (duh)
-  - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) for authentication, profile & dashboard.
+  - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Jetstream](https://jetstream.laravel.com) for authentication, API, profile, and general scaffolding.
   - **Content**:
     - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js
     - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
@@ -399,6 +399,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
 - Test the scripts - feedback welcome!
     - Need to add some confirmation mechanisms or tests for Redis
+- Figure out how to make teams installable on Jetstream after-the-fact
 
 ---
 
