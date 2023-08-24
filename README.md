@@ -152,7 +152,7 @@ This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer
 Your first step is to download your project repository from your VCS. Then, run `./bin/provision_prod.sh` from the project directory. It will:
 - Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
 - Install PHP (with service config and extensions), Caddy, Redis, and Supervisor
-- Setup Caddy to run your Caddyfile
+- Setup Caddy to run your Caddyfile **NB:** Caddy will be set up to be run with the `ubuntu` user and not `caddy`.
 - Install the Horizon config for Supervisor
 - Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
 
@@ -187,6 +187,7 @@ These are the next steps you will have to implement yourself for your project as
 
 ### Post-Setup
 
+- **DNS**: You'll need to set up some A records to point to your server's IP for your domain.
 - **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
 - **Laravel Health**: 
   - If using MySQL or Postgres, consider adding the [Database Connections](https://spatie.be/docs/laravel-health/v1/available-checks/db-connection-count), [Database Size](https://spatie.be/docs/laravel-health/v1/available-checks/db-size-check), and [Database table size](https://spatie.be/docs/laravel-health/v1/available-checks/db-table-size-check) healthchecks. 
@@ -397,6 +398,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 - Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
 - Test the scripts - feedback welcome!
+    - Need to add some confirmation mechanisms or tests for Redis
 
 ---
 
