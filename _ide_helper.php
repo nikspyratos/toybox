@@ -19033,6 +19033,7 @@
             /**
      * 
      *
+     * @method static void setUpdateUri()
      * @see \Livewire\LivewireManager
      */ 
         class Livewire {
@@ -19101,10 +19102,10 @@
          *
          * @static 
          */ 
-        public static function precompiler($pattern, $callback)
+        public static function precompiler($callback)
         {
                         /** @var \Livewire\LivewireManager $instance */
-                        return $instance->precompiler($pattern, $callback);
+                        return $instance->precompiler($callback);
         }
                     /**
          * 
@@ -19375,26 +19376,6 @@
         {
                         /** @var \Livewire\LivewireManager $instance */
                         return $instance->flushState();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function enableJsFeature($name)
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->enableJsFeature($name);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function getJsFeatures()
-        {
-                        /** @var \Livewire\LivewireManager $instance */
-                        return $instance->getJsFeatures();
         }
                     /**
          * 
@@ -20322,6 +20303,28 @@
         public static function collect()
         {
                         return \Illuminate\Http\Client\Request::collect();
+        }
+         
+    }
+     
+}
+
+    namespace Illuminate\Routing { 
+            /**
+     * 
+     *
+     */ 
+        class Route {
+                    /**
+         * 
+         *
+         * @see \Livewire\Features\SupportLazyLoading\SupportLazyLoading::registerRouteMacro()
+         * @param mixed $enabled
+         * @static 
+         */ 
+        public static function lazy($enabled = true)
+        {
+                        return \Illuminate\Routing\Route::lazy($enabled);
         }
          
     }
