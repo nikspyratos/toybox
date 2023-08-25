@@ -181,6 +181,10 @@ If you're in a rush/need to throw hotfixes up, `bin/quick_deploy.sh` will only p
 
 This is where your skills come in.
 
+##### Caddy having issues obtaining SSL
+
+Make sure your firewall rules allow incoming traffic on port 443. This includes checking security settings with your hosting provider, e.g. AWS security groups.
+
 ## Next Steps - DIY
 
 These are the next steps you will have to implement yourself for your project as your needs change & scale.
