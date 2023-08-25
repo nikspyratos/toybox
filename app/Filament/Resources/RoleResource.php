@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\Filament\Resources\Authentication;
+namespace App\Filament\Resources;
 
-use App\Filament\Resources\Authentication;
 use App\Models\Role;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
@@ -20,7 +19,7 @@ class RoleResource extends Resource
 {
     protected static ?string $model = Role::class;
 
-    protected static ?string $navigationGroup = 'Authentication';
+    protected static ?string $navigationGroup = 'Core';
     protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
@@ -77,17 +76,17 @@ class RoleResource extends Resource
     public static function getRelations(): array
     {
         return [
-            Authentication\RoleResource\RelationManagers\PermissionRelationManager::class,
+            RoleResource\RelationManagers\PermissionRelationManager::class,
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Authentication\RoleResource\Pages\ListRoles::route('/'),
-            'create' => Authentication\RoleResource\Pages\CreateRole::route('/create'),
-            'view' => Authentication\RoleResource\Pages\ViewRole::route('/{record}'),
-            'edit' => Authentication\RoleResource\Pages\EditRole::route('/{record}/edit'),
+            'index' => RoleResource\Pages\ListRoles::route('/'),
+            'create' => RoleResource\Pages\CreateRole::route('/create'),
+            'view' => RoleResource\Pages\ViewRole::route('/{record}'),
+            'edit' => RoleResource\Pages\EditRole::route('/{record}/edit'),
         ];
     }
 }

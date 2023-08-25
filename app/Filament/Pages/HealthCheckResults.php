@@ -10,8 +10,8 @@ use ShuvroRoy\FilamentSpatieLaravelHealth\Pages\HealthCheckResults as BaseHealth
 
 class HealthCheckResults extends BaseHealthCheckResults
 {
-    protected static ?string $navigationIcon = 'heroicon-o-cpu-chip';
     protected static ?string $title = 'Application Overview';
+    protected static ?string $navigationIcon = ''; //Override default so the group can have icon instead
 
     public static function getNavigationGroup(): ?string
     {

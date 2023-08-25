@@ -17,6 +17,7 @@
     * [Production](#production)
       * [Deployment](#deployment)
       * [Troubleshooting](#troubleshooting)
+        * [Caddy having issues obtaining SSL](#caddy-having-issues-obtaining-ssl)
   * [Next Steps - DIY](#next-steps---diy)
     * [Post-Setup](#post-setup)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
@@ -100,6 +101,7 @@ This project has gone through some changes even before release:
   - **Content**:
     - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js
     - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
+  - **Authorization**: [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission/v5/introduction) with some basic Filament management of roles & permissions.
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
     - [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
@@ -191,6 +193,7 @@ These are the next steps you will have to implement yourself for your project as
 
 ### Post-Setup
 
+- **Create an admin user**: Run the `php artisan app:create-admin-user` command to create an admin user. This will allow you to access Filament at `/admin`, Horizon at `/horizon`, and Telescope at `/telescope`.
 - **DNS**: You'll need to set up some A records to point to your server's IP for your domain.
 - **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
 - **Laravel Health**: 
@@ -402,7 +405,6 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 - Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
 - Test the scripts - feedback welcome!
-    - Need to add some confirmation mechanisms or tests for Redis
 - Figure out how to make teams installable on Jetstream after-the-fact
 - Perhaps re-try Octane but with some benchmark or worker restarting config
 
