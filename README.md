@@ -400,6 +400,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Test the scripts - feedback welcome!
     - Need to add some confirmation mechanisms or tests for Redis
 - Figure out how to make teams installable on Jetstream after-the-fact
+- Perhaps re-try Octane but with some benchmark or worker restarting config
 
 ---
 
