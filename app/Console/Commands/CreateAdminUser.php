@@ -46,7 +46,7 @@ class CreateAdminUser extends Command
             placeholder: 'Minimum 8 characters...',
             required: true
         );
-        $user = User::firstOrCreate(['email' => $email], ['name' => $name, 'password' => Hash::make($password)]);
+        $user = User::firstOrCreate(['email' => $email], ['name' => $name, 'password' => Hash::make($password), 'email_verified_at' => now()]);
         $user->assignRole(Role::ADMIN);
         $this->info('Successfully created user - you may now log in at /admin, access Horizon at /horizon, and telescope at /telescope');
     }
