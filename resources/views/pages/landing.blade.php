@@ -14,12 +14,12 @@ name('landing');
         <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-6 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">A TALL starter kit for <br>Laravel solopreneurs.</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-4 md:text-lg lg:text-xl dark:text-gray-400">The Toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak. Let's have some fun!</p>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-4 md:text-lg lg:text-xl dark:text-gray-300">The Toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak. Let's have some fun!</p>
                 <p class="mb-2 font-light text-gray-500">This page was built using the <a class="underline text-matisse-500" href="https://demo.themesberg.com/landwind/">Landwind theme</a>.</p>
-                <p class="font-semibold mb-6 lg:mb-8">This landing page is both a template for your SaaS and an explainer of the Toybox project.</p>
+                <p class="font-semibold mb-6 lg:mb-8 text-gray-500 dark:text-gray-300">This landing page is both a template for your SaaS and an explainer of the Toybox project.</p>
                 <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
                     <a href="https://github.com/nikspyratos/toybox" class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+                        <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
                         Github
                     </a>
                 </div>
@@ -32,8 +32,8 @@ name('landing');
     {{--  Logos  --}}
     <section class="bg-white dark:bg-gray-900">
         <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16">
-            <p class="text-center mb-6">Here's some logos, where you'd put your customers.</p>
-            <div class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-400">
+            <p class="text-center mb-6 text-gray-500 dark:text-gray-300">Here's some logos, where you'd put your customers.</p>
+            <div class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-300">
                 <a href="#" class="flex items-center lg:justify-center">
                     Logo 1
                 </a>
@@ -61,7 +61,7 @@ name('landing');
         <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20 lg:py-24 lg:px-6">
             <!-- Row -->
             <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
-                <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+                <div class="text-gray-500 sm:text-lg dark:text-gray-300">
                     <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Work with tools you already use</h2>
                     <p class="mb-8 font-light lg:text-xl">Deliver great service experiences fast - with tools you're already familiar with.</p>
                     <!-- List -->
@@ -94,7 +94,7 @@ name('landing');
             <!-- Row -->
             <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
                 <img src="{{ asset('images/feature-2.png') }}">
-                <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+                <div class="text-gray-500 sm:text-lg dark:text-gray-300">
                     <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Principles</h2>
                     <p class="mb-8 font-light lg:text-xl">This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project.</p>
                     <ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
@@ -138,7 +138,7 @@ name('landing');
             <div class="col-span-2 mb-8">
                 <p class="text-lg font-medium text-buttercup-500 dark:text-buttercup-500">Trusted by... some people</p>
                 <h2 class="mt-3 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-3xl dark:text-white">I'm using Toybox for this very site!</h2>
-                <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">This page is part demo, part starter - this is the very same landing page you'll see in a default Toybox installation!</p>
+                <p class="font-light text-gray-500 sm:text-xl dark:text-gray-300">This page is part demo, part starter - this is the very same landing page you'll see in a default Toybox installation!</p>
                 <div class="pt-6 mt-6 space-y-4 border-t border-gray-200 dark:border-gray-700">
                     <div>
                       <a href="https://github.com/nikspyratos/toybox" class="inline-flex items-center text-base font-medium text-buttercup-500 hover:text-buttercup-800 dark:text-buttercup-500 dark:hover:text-buttercup-700">
@@ -152,22 +152,22 @@ name('landing');
                 <div>
                     <x-heroicon-s-server class="w-10 h-10 mb-2 text-buttercup-400 md:w-12 md:h-12 dark:text-buttercup-500"></x-heroicon-s-server>
                     <h3 class="mb-2 text-2xl font-bold dark:text-white">99.99% uptime</h3>
-                    <p class="font-light text-gray-500 dark:text-gray-400">...if you don't host on us-east-1 like everyone else.</p>
+                    <p class="font-light text-gray-500 dark:text-gray-300">...if you don't host on us-east-1 like everyone else.</p>
                 </div>
                 <div>
                     <x-heroicon-s-users class="w-10 h-10 mb-2 text-buttercup-400 md:w-12 md:h-12 dark:text-buttercup-500"></x-heroicon-s-users>
                     <h3 class="mb-2 text-2xl font-bold dark:text-white">1+ Users</h3>
-                    <p class="font-light text-gray-500 dark:text-gray-400">Does the creator using it count?</p>
+                    <p class="font-light text-gray-500 dark:text-gray-300">Does the creator using it count?</p>
                 </div>
                 <div>
                     <x-heroicon-s-globe-europe-africa class="w-10 h-10 mb-2 text-buttercup-400 md:w-12 md:h-12 dark:text-buttercup-500"></x-heroicon-s-globe-europe-africa>
                     <h3 class="mb-2 text-2xl font-bold dark:text-white">2+ countries</h3>
-                    <p class="font-light text-gray-500 dark:text-gray-400">There are at least two countries worldwide.</p>
+                    <p class="font-light text-gray-500 dark:text-gray-300">There are at least two countries worldwide.</p>
                 </div>
                 <div>
                     <x-heroicon-s-shopping-cart class="w-10 h-10 mb-2 text-buttercup-400 md:w-12 md:h-12 dark:text-buttercup-500"></x-heroicon-s-shopping-cart>
                     <h3 class="mb-2 text-2xl font-bold dark:text-white">0</h3>
-                    <p class="font-light text-gray-500 dark:text-gray-400">Transactions per day. Go launch your MVP!</p>
+                    <p class="font-light text-gray-500 dark:text-gray-300">Transactions per day. Go launch your MVP!</p>
                 </div>
             </div>
         </div>
@@ -184,7 +184,7 @@ name('landing');
                     <img class="w-6 h-6 rounded-full" src="https://avatars.githubusercontent.com/u/17888779?v=4" alt="profile picture">
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
                         <div class="pr-3 font-medium text-gray-900 dark:text-white">Nik Spyratos</div>
-                        <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">A person</div>
+                        <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-300">A person</div>
                     </div>
                 </figcaption>
             </figure>
@@ -195,15 +195,15 @@ name('landing');
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
             <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                 <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Designed for someone</h2>
-                <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">I could've written some lorem ipsum and called it a day.</p>
+                <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-300">I could've written some lorem ipsum and called it a day.</p>
             </div>
             <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
                 <div class="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                     <h3 class="mb-4 text-2xl font-semibold">Starter</h3>
-                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best option for personal use & for your next project.</p>
+                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-300">Best option for personal use & for your next project.</p>
                     <div class="flex items-baseline justify-center my-8">
                         <span class="mr-2 text-5xl font-extrabold">$29</span>
-                        <span class="text-gray-500 dark:text-gray-400">/month</span>
+                        <span class="text-gray-500 dark:text-gray-300">/month</span>
                     </div>
                     <ul role="list" class="mb-8 space-y-4 text-left">
                         <li class="flex items-center space-x-3">
@@ -231,10 +231,10 @@ name('landing');
                 </div>
                 <div class="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                     <h3 class="mb-4 text-2xl font-semibold">Company</h3>
-                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Relevant for multiple users, extended & premium support.</p>
+                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-300">Relevant for multiple users, extended & premium support.</p>
                     <div class="flex items-baseline justify-center my-8">
                         <span class="mr-2 text-5xl font-extrabold">$99</span>
-                        <span class="text-gray-500 dark:text-gray-400" dark:text-gray-400>/month</span>
+                        <span class="text-gray-500 dark:text-gray-300" dark:text-gray-300>/month</span>
                     </div>
                     <ul role="list" class="mb-8 space-y-4 text-left">
                         <li class="flex items-center space-x-3">
@@ -262,10 +262,10 @@ name('landing');
                 </div>
                 <div class="flex flex-col max-w-lg p-6 mx-auto text-center text-gray-900 bg-white border border-gray-100 rounded-lg shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                     <h3 class="mb-4 text-2xl font-semibold">Enterprise</h3>
-                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Best for large scale uses and extended redistribution rights.</p>
+                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-300">Best for large scale uses and extended redistribution rights.</p>
                     <div class="flex items-baseline justify-center my-8">
                         <span class="mr-2 text-5xl font-extrabold">$499</span>
-                        <span class="text-gray-500 dark:text-gray-400">/month</span>
+                        <span class="text-gray-500 dark:text-gray-300">/month</span>
                     </div>
                     <ul role="list" class="mb-8 space-y-4 text-left">
                         <li class="flex items-center space-x-3">
@@ -310,7 +310,7 @@ name('landing');
                     </h3>
                     <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
                         <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Magic 8-ball says: Try again later.</p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-300">Magic 8-ball says: Try again later.</p>
                         </div>
                     </div>
                 </div>
@@ -325,7 +325,7 @@ name('landing');
                     </h3>
                     <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
                         <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Swap it out, shouldn't be too hard. Also, that wasn't a question.</p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-300">Swap it out, shouldn't be too hard. Also, that wasn't a question.</p>
                         </div>
                     </div>
                 </div>
@@ -340,7 +340,7 @@ name('landing');
                     </h3>
                     <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
                         <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Thanks! Still not a question.</p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-300">Thanks! Still not a question.</p>
                         </div>
                     </div>
                 </div>
@@ -355,7 +355,7 @@ name('landing');
                     </h3>
                     <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
                         <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Launch first.</p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-300">Launch first.</p>
                         </div>
                     </div>
                 </div>
@@ -370,7 +370,7 @@ name('landing');
                     </h3>
                     <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
                         <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-400">Launch for you. The only way to see if your project works, is to launch!</p>
+                            <p class="mb-2 text-gray-500 dark:text-gray-300">Launch for you. The only way to see if your project works, is to launch!</p>
                         </div>
                     </div>
                 </div>
@@ -382,7 +382,7 @@ name('landing');
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-16 lg:px-6">
             <div class="max-w-screen-sm mx-auto text-center">
                 <h2 class="mb-4 text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">Start your free trial today</h2>
-                <p class="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">Just kidding. But here's another link to the docs.</p>
+                <p class="mb-6 font-light text-gray-500 dark:text-gray-300 md:text-lg">Just kidding. But here's another link to the docs.</p>
                 <a href="https://github.com/nikspyratos/toybox" class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-emerald-600 dark:hover:bg-emerald-700 focus:outline-none dark:focus:ring-emerald-800">Free trial for 30 days</a>
             </div>
         </div>
