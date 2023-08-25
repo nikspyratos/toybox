@@ -14,7 +14,6 @@ export default {
         './vendor/pxlrbt/filament-activity-log/resources/**/*.blade.php',
     ],
 
-    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {

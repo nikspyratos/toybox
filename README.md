@@ -71,7 +71,7 @@ Principles
 
 Evolution
 This project has gone through some changes even before release:
-- Octane: removed over concerns with memory leaks and dependencies.
+- Octane: removed over concerns with memory leaks and dependencies. There are some strategies around this however, so I might still reimplement it.
 - SQLite: it seemed more prudent to skip the step and just get going with MariaDB. Also seemed inconsistent to use SQLite for simplicity but then Redis instead of filesystem/php cache/session/queue drivers.
 - Deployer: [lingering issues](https://github.com/deployphp/deployer/issues/3542) and difficulty in testing made it evidently simpler to manage with bash scripts. Envoy is not included for the same reason: any problem it can meaningfully solve is better done either directly in Bash, or for more complexity it's better to use [Envoyer](#deployment).
 

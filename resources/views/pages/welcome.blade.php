@@ -23,7 +23,7 @@ name('welcome');
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-dots-lighter dark:bg-gray-900 selection:bg-emerald-500 selection:text-matisse-400">
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center dark:bg-dots-lighter bg-gray-50 dark:bg-gray-900 selection:bg-emerald-500 selection:text-matisse-400">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
@@ -65,7 +65,7 @@ name('welcome');
 
                         <a href="https://filamentphp.com/" class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
                             <div>
-                                <img class="h-16 w-16" src="{{ asset('images/filament-logo.png') }}">
+                                <img class="h-16 w-auto" src="{{ asset('images/filament-logo.png') }}">
 
                                 <h2 class="mt-6 text-xl font-semibold text-matisse-900 dark:text-emerald-400">Filament</h2>
 
