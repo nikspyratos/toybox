@@ -14,6 +14,7 @@
       * [macOS](#macos)
       * [Linux](#linux)
       * [Windows](#windows)
+      * [Laravel Octane](#laravel-octane)
     * [Production](#production)
       * [Deployment](#deployment)
       * [Troubleshooting](#troubleshooting)
@@ -71,7 +72,6 @@ Principles
 
 Evolution
 This project has gone through some changes even before release:
-- Octane: removed over concerns with memory leaks and dependencies. There are some strategies around this however, so I might still reimplement it.
 - SQLite: it seemed more prudent to skip the step and just get going with MariaDB. Also seemed inconsistent to use SQLite for simplicity but then Redis instead of filesystem/php cache/session/queue drivers.
 - Deployer: [lingering issues](https://github.com/deployphp/deployer/issues/3542) and difficulty in testing made it evidently simpler to manage with bash scripts. Envoy is not included for the same reason: any problem it can meaningfully solve is better done either directly in Bash, or for more complexity it's better to use [Envoyer](#deployment).
 
@@ -93,7 +93,7 @@ This project has gone through some changes even before release:
 ## Components
 
 - **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
-- **Webserver**: [Caddy](https://caddyserver.com/)
+- **Webserver**: [Caddy](https://caddyserver.com/), by default with PHP-FPM but optionally with [Laravel Octane](https://laravel.com/docs/10.x/octane)
 - **Database**: [MariaDB](https://mariadb.org/)
 - **Cache, Queues, Session, Websockets**: [Redis](https://redis.io)
 - **Application**: [Laravel](https://laravel.com) (duh)
@@ -133,6 +133,9 @@ For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
 - ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
 - [DBngin](https://dbngin.com/)
+- [Pickle](https://github.com/FriendsOfPHP/pickle/)
+
+Make sure to run `pickle install redis` and any other extensions you require prior to initialising this repository.
 
 Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
 
@@ -144,6 +147,22 @@ Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/lar
 #### Windows
 
 Follow Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
+
+#### Laravel Octane
+
+>Laravel Octane supercharges your application's performance by serving your application using high-powered application servers, including Open Swoole, Swoole, and RoadRunner. Octane boots your application once, keeps it in memory, and then feeds it requests at supersonic speeds.
+
+If you'd like to use Laravel Octane for your production server, run `./bin/init_octane.sh`. _after_ `init_dev.sh`. It will:
+- Install the Octane package
+- Initialise it to run with OpenSwoole
+- Modify your Caddyfile to reverse proxy to Octane (with the assumption it will be on port 8000)
+- Modify your `templates/octane.conf` with the correct (assumed) path
+
+The default Octane config will start with one worker per core, and restart workers every 500 requests. To account for this project's dependencies and any potential leaks, Toybox's config is a bit more conservative and will restart workers every 250 requests. You can change this in `templates/octane.conf`.
+
+If you intend to use [Concurrent tasks](https://laravel.com/docs/10.x/octane#concurrent-tasks), you'll need to add `--task-workers=` to the Octane command in `templates/octane.conf`. Per the documentation, start with 6 task workers, and add more if you need them.
+
+Due to [local issues with installing openswoole](https://github.com/FriendsOfPHP/pickle/issues/165#issuecomment-1694386076), the `.env.example` sets `OCTANE_SERVER=` to `roadrunner`. If you want to try and run swoole/openswoole locally on Mac, install `pickle` via brew and than run `pickle install openswoole`.
 
 ### Production
 
@@ -161,6 +180,11 @@ Your first step is to download your project repository from your VCS. Then, run 
 Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
 
 For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
+
+If you're using Octane, also make sure to run `./bin/provision_octane.sh`. It will:
+- Install OpenSwoole
+- Create a supervisor config for Octane (using the template in `templates/octane.conf`) and start it
+The rest of the required config will have already been done in the `init_octane.sh` run prior.
 
 #### Deployment
 
@@ -407,7 +431,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
 - Test the scripts - feedback welcome!
 - Figure out how to make teams installable on Jetstream after-the-fact
-- Perhaps re-try Octane but with some benchmark or worker restarting config
+- Perhaps re-try Octane but with some benchmark or worker restarting config (by default it already does this every 500 requests per worker)
 
 ---
 

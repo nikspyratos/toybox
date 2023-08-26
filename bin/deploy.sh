@@ -16,5 +16,7 @@ php artisan view:cache
 php artisan migrate --force
 php artisan horizon:terminate
 sudo systemctl restart php8.2-fpm
+#octane_placeholder
 caddy reload
 ENDSSH
+echo "Done! See above for any potential errors.";
