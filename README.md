@@ -431,7 +431,6 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
 - Test the scripts - feedback welcome!
 - Figure out how to make teams installable on Jetstream after-the-fact
-- Perhaps re-try Octane but with some benchmark or worker restarting config (by default it already does this every 500 requests per worker)
 
 ---
 

@@ -10,7 +10,7 @@ name('landing');
 
 @section('content')
     {{--  Title, hero  --}}
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter">
         <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-6 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">A TALL starter kit for <br>Laravel solopreneurs.</h1>
@@ -30,7 +30,7 @@ name('landing');
         </div>
     </section>
     {{--  Logos  --}}
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter">
         <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16">
             <p class="text-center mb-6 text-gray-500 dark:text-gray-300">Here's some logos, where you'd put your customers.</p>
             <div class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-300">
@@ -133,7 +133,7 @@ name('landing');
         </div>
       </section>
     {{--  Trusted by  --}}
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter">
         <div class="items-center max-w-screen-xl px-4 py-8 mx-auto lg:grid lg:grid-cols-4 lg:gap-16 xl:gap-24 lg:py-24 lg:px-6">
             <div class="col-span-2 mb-8">
                 <p class="text-lg font-medium text-buttercup-500 dark:text-buttercup-500">Trusted by... some people</p>
@@ -191,7 +191,7 @@ name('landing');
         </div>
       </section>
     {{--  Pricing  --}}
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter">
         <div class="max-w-screen-xl px-4 py-8 mx-auto lg:py-24 lg:px-6">
             <div class="max-w-screen-md mx-auto mb-8 text-center lg:mb-12">
                 <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Designed for someone</h2>
@@ -296,13 +296,13 @@ name('landing');
       </section>
     <!-- End block -->
     <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900">
+    <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter">
         <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-24 lg:px-6 ">
             <h2 class="mb-6 text-3xl font-extrabold tracking-tight text-center text-gray-900 lg:mb-8 lg:text-3xl dark:text-white">Frequently asked questions</h2>
             <div class="max-w-screen-md mx-auto">
                 <div x-data="{ open: false }">
                     <h3>
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
                             <span>Is it really an FAQ if nobody has asked a question yet?</span>
                             <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
                             <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
@@ -317,7 +317,7 @@ name('landing');
 
                 <div x-data="{ open: false }">
                     <h3 >
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
                             <span>I don't like your tech choices.</span>
                             <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
                             <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
@@ -332,7 +332,7 @@ name('landing');
 
                 <div x-data="{ open: false }">
                     <h3 >
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
                             <span>I <i>do</i> like your tech choices.</span>
                             <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
                             <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
@@ -347,7 +347,7 @@ name('landing');
 
                 <div x-data="{ open: false }">
                     <h3 >
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
                             <span>Dark mode?</span>
                             <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
                             <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
@@ -362,7 +362,7 @@ name('landing');
 
                 <div x-data="{ open: false }">
                     <h3 >
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
                             <span>What can't this do?</span>
                             <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
                             <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
@@ -385,6 +385,70 @@ name('landing');
                 <p class="mb-6 font-light text-gray-500 dark:text-gray-300 md:text-lg">Just kidding. But here's another link to the docs.</p>
                 <a href="https://github.com/nikspyratos/toybox" class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-emerald-600 dark:hover:bg-emerald-700 focus:outline-none dark:focus:ring-emerald-800">Free trial for 30 days</a>
             </div>
+        </div>
+    </section>
+    <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter p-12">
+        <h2 class="mb-8 text-center text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white">Documentation</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
+                <div>
+                    <img class="h-16 w-16" src="{{ asset('images/laravel-logo.svg') }}">
+
+                    <h2 class="mt-6 text-xl font-semibold text-matisse-900 dark:text-emerald-400">Laravel Documentation</h2>
+
+                    <p class="mt-4 text-matisse-500 dark:text-matisse-400 text-sm leading-relaxed">
+                        Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
+                    </p>
+                </div>
+
+                <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
+            </a>
+
+            <a href="https://filamentphp.com/" class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
+                <div>
+                    <img class="h-16 w-auto" src="{{ asset('images/filament-logo.png') }}">
+
+                    <h2 class="mt-6 text-xl font-semibold text-matisse-900 dark:text-emerald-400">Filament</h2>
+
+                    <p class="mt-4 text-matisse-500 dark:text-matisse-400 text-sm leading-relaxed">
+                         A collection of beautiful full-stack components, as well as an excellent admin panel starter. The perfect starting point for your next app.
+                    </p>
+                </div>
+
+                <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
+            </a>
+
+            <a href="https://jetstream.laravel.com" class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
+                <div>
+                    <img class="h-16 w-16" src="{{ asset('images/jetstream-logo.png') }}">
+
+                    <h2 class="mt-6 text-xl font-semibold text-matisse-900 dark:text-emerald-400">Jetstream</h2>
+
+                    <p class="mt-4 text-matisse-500 dark:text-matisse-400 text-sm leading-relaxed">
+                         Laravel Jetstream is a beautifully designed application starter kit for Laravel and provides the perfect starting point for your next Laravel application. Jetstream provides the implementation for your application's login, registration, email verification, two-factor authentication, session management, API via Laravel Sanctum, and optional team management features.
+                    </p>
+                </div>
+
+                <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
+            </a>
+
+            <a href="https://github.com/nikspyratos/toybox" class="scale-100 p-6 bg-white dark:bg-voodoo-800/50 dark:bg-gradient-to-bl from-matisse-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-matisse-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-emerald-500">
+                <div>
+                    <img class="h-16 w-16" src="{{ asset('images/toybox-logo.png') }}">
+
+                    <h2 class="mt-6 text-xl font-semibold text-matisse-900 dark:text-emerald-400">Next Steps</h2>
+
+                    <p class="mt-4 text-matisse-500 dark:text-matisse-400 text-sm leading-relaxed">
+                        Consult the Toybox README for information, documentation and resources on launching your SaaS.
+
+                        The very first thing you might want to do is set up your project's landing page: rename the landing.blade.php file to index.blade.php, and remove the route redirect from / to /welcome.
+
+                        Then, you likely want to replace the Toybox logo, favicon and cover image and references to the authors with your own.
+                    </p>
+                </div>
+
+                <x-heroicon-o-arrow-right class="self-center shrink-0 stroke-emerald-500 w-6 h-6 mx-6"></x-heroicon-o-arrow-right>
+            </a>
         </div>
     </section>
 @endsection

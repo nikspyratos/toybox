@@ -15,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Remove this once you've started working on your project
-Route::redirect('/', '/welcome');
-
 require __DIR__ . '/auth.php';
 
 Route::middleware([
