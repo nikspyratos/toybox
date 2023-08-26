@@ -37,7 +37,7 @@
     <meta name="theme-color" content="#ffffff">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-dots-darker dark:bg-dots-lighter">
+<body>
     @include('layouts.marketing.navigation')
     @yield('content')
     @include('layouts.marketing.footer')

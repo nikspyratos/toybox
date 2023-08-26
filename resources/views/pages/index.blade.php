@@ -30,7 +30,7 @@ name('landing');
         </div>
     </section>
     {{--  Logos  --}}
-    <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter">
+    <section class="bg-white dark:bg-gray-900">
         <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-16">
             <p class="text-center mb-6 text-gray-500 dark:text-gray-300">Here's some logos, where you'd put your customers.</p>
             <div class="grid grid-cols-2 gap-8 text-gray-500 sm:gap-12 sm:grid-cols-3 lg:grid-cols-6 dark:text-gray-300">
@@ -296,82 +296,78 @@ name('landing');
       </section>
     <!-- End block -->
     <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter">
+    <section class="bg-white dark:bg-gray-900">
         <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-24 lg:px-6 ">
             <h2 class="mb-6 text-3xl font-extrabold tracking-tight text-center text-gray-900 lg:mb-8 lg:text-3xl dark:text-white">Frequently asked questions</h2>
-            <div class="max-w-screen-md mx-auto">
-                <div x-data="{ open: false }">
-                    <h3>
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
-                            <span>Is it really an FAQ if nobody has asked a question yet?</span>
-                            <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
-                            <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
-                        </button>
-                    </h3>
-                    <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-300">Magic 8-ball says: Try again later.</p>
-                        </div>
+            <div class="bg-white dark:bg-gray-900" x-data="{ open: false }">
+                <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                    <span>Is it really an FAQ if nobody has asked a question yet?</span>
+                    <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
+                    <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
+                </button>
+                <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+                    <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                        <p class="mb-2 text-gray-500 dark:text-gray-300">Magic 8-ball says: Try again later.</p>
                     </div>
                 </div>
+            </div>
 
-                <div x-data="{ open: false }">
-                    <h3 >
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
-                            <span>I don't like your tech choices.</span>
-                            <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
-                            <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
-                        </button>
-                    </h3>
-                    <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-300">Swap it out, shouldn't be too hard. Also, that wasn't a question.</p>
-                        </div>
+            <div x-data="{ open: false }">
+                <h3 >
+                    <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <span>I don't like your tech choices.</span>
+                        <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
+                        <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
+                    </button>
+                </h3>
+                <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+                    <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                        <p class="mb-2 text-gray-500 dark:text-gray-300">Swap it out, shouldn't be too hard. Also, that wasn't a question.</p>
                     </div>
                 </div>
+            </div>
 
-                <div x-data="{ open: false }">
-                    <h3 >
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
-                            <span>I <i>do</i> like your tech choices.</span>
-                            <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
-                            <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
-                        </button>
-                    </h3>
-                    <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-300">Thanks! Still not a question.</p>
-                        </div>
+            <div x-data="{ open: false }">
+                <h3 >
+                    <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <span>I <i>do</i> like your tech choices.</span>
+                        <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
+                        <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
+                    </button>
+                </h3>
+                <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+                    <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                        <p class="mb-2 text-gray-500 dark:text-gray-300">Thanks! Still not a question.</p>
                     </div>
                 </div>
+            </div>
 
-                <div x-data="{ open: false }">
-                    <h3 >
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
-                            <span>Dark mode?</span>
-                            <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
-                            <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
-                        </button>
-                    </h3>
-                    <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-300">Launch first.</p>
-                        </div>
+            <div x-data="{ open: false }">
+                <h3 >
+                    <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <span>Dark mode?</span>
+                        <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
+                        <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
+                    </button>
+                </h3>
+                <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+                    <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                        <p class="mb-2 text-gray-500 dark:text-gray-300">Launch first.</p>
                     </div>
                 </div>
+            </div>
 
-                <div x-data="{ open: false }">
-                    <h3 >
-                        <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
-                            <span>What can't this do?</span>
-                            <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
-                            <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
-                        </button>
-                    </h3>
-                    <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
-                        <div class="py-5 border-b border-gray-200 dark:border-gray-700">
-                            <p class="mb-2 text-gray-500 dark:text-gray-300">Launch for you. The only way to see if your project works, is to launch!</p>
-                        </div>
+            <div x-data="{ open: false }">
+                <h3 >
+                    <button @click="open = !open" type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-900 bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white" :aria-expanded="open" aria-controls="accordion-flush-body-1">
+                        <span>What can't this do?</span>
+                        <x-heroicon-o-chevron-down x-show="!open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-down>
+                        <x-heroicon-o-chevron-up x-show="open" class="w-6 h-6 shrink-0"></x-heroicon-o-chevron-up>
+                    </button>
+                </h3>
+                <div x-show="open" id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+                    <div class="py-5 border-b border-gray-200 dark:border-gray-700">
+                        <p class="mb-2 text-gray-500 dark:text-gray-300">Launch for you. The only way to see if your project works, is to launch!</p>
                     </div>
                 </div>
             </div>
