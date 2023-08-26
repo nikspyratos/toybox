@@ -227,6 +227,7 @@ These are the next steps you will have to implement yourself for your project as
 - [WireUI](https://livewire-wireui.com/) is a Livewire-based component kit.
 - [Pines](https://devdojo.com/pines) is an Alpine-based component kit.
 - [Blade UI Kit](https://blade-ui-kit.com) is another component kit for the TALL stack.
+- [Mary UI](https://www.mary-ui.com) is a Tailwind component kit.
 
 For more recommendations, see [here](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Design).
 
