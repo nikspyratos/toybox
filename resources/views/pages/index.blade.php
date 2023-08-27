@@ -108,7 +108,7 @@ name('landing');
                         </li>
                         <li class="flex space-x-3">
                             <x-heroicon-s-check-circle class="flex-shrink-0 w-5 h-5 text-emerald-500 dark:text-emerald-400"></x-heroicon-s-check-circle>
-                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Tiny but mighty: Minimising the different languages used, using simpler & standardised alternatives to common tools.</span>
+                            <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Don't reinvent the wheel: Use the official & unofficial Laravel ecosystem where applicable. Use popular tools & packages where applicable instead of rewriting boilerplate logic from scratch.</span>
                         </li>
                         <li class="flex space-x-3">
                             <x-heroicon-s-check-circle class="flex-shrink-0 w-5 h-5 text-emerald-500 dark:text-emerald-400"></x-heroicon-s-check-circle>
