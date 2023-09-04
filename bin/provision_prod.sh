@@ -10,7 +10,7 @@ sudo apt update
 sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo apt install -y php8.2 php8.2-fpm php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql php8.2-redis composer
+sudo apt install -y php8.2 php8.2-fpm php8.2-intl php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql php8.2-redis composer
 sudo mkdir /etc/systemd/service
 sudo cp ./templates/php8.2-fpm.service /etc/systemd/service/php8.2-fpm.service
 sudo sed -i "s/www-data/caddy/g" /etc/php/8.2/fpm/pool.d/www.conf

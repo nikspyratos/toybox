@@ -115,6 +115,40 @@ This project has gone through some changes even before release:
 
 ## Installation/Usage
 
+### Requirements
+
+You will need PHP 8.2 alongside some extensions (at least the [Laravel defaults](https://laravel.com/docs/10.x/deployment#server-requirements) and `intl`)
+
+A good starting point of extensions that should cover most apps is:
+```
+bcmath
+ctype
+curl
+dba
+dom
+fileinfo
+filter
+gd
+gettext
+gmp
+iconv
+intl
+libxml
+mbstring
+mysqli
+openssl
+pcntl
+PDO
+Phar
+posix
+redis
+session
+soap
+sockets
+tokenizer
+zlib
+```
+
 ### Local Development
 
 In keeping with the spirit of this project, Bash scripts are used for simplicity.
