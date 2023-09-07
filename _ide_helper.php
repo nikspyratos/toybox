@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 10.20.0.
+ * Generated for Laravel 10.22.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3651,6 +3651,18 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
                         return $instance->recordPendingBatch($pendingBatch);
+        }
+                    /**
+         * Specify if commands should be serialized and restored when being batched.
+         *
+         * @param bool $serializeAndRestore
+         * @return \Illuminate\Support\Testing\Fakes\BusFake 
+         * @static 
+         */ 
+        public static function serializeAndRestore($serializeAndRestore = true)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\BusFake $instance */
+                        return $instance->serializeAndRestore($serializeAndRestore);
         }
          
     }
@@ -10408,6 +10420,18 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\QueueFake $instance */
                         return $instance->pushedJobs();
+        }
+                    /**
+         * Specify if jobs should be serialized and restored when being "pushed" to the queue.
+         *
+         * @param bool $serializeAndRestore
+         * @return \Illuminate\Support\Testing\Fakes\QueueFake 
+         * @static 
+         */ 
+        public static function serializeAndRestore($serializeAndRestore = true)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\QueueFake $instance */
+                        return $instance->serializeAndRestore($serializeAndRestore);
         }
                     /**
          * Get the connection name for the queue.
@@ -23384,6 +23408,20 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Eloquent\Builder $instance */
                                 return $instance->withCasts($casts);
+            }
+             
+                /**
+             * Execute the given Closure within a transaction savepoint if needed.
+             *
+             * @template TModelValue
+             * @param \Closure():  TModelValue  $scope
+             * @return \Illuminate\Database\Eloquent\TModelValue 
+             * @static 
+             */ 
+            public static function withSavepointIfNeeded($scope)
+            {
+                                /** @var \Illuminate\Database\Eloquent\Builder $instance */
+                                return $instance->withSavepointIfNeeded($scope);
             }
              
                 /**
