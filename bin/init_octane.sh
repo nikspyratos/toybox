@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+export DEBIAN_FRONTEND=noninteractive
 prod_app_path="\/home\/ubuntu\/$(basename $PWD)"
 composer require laravel/octane
 npm install --save-dev chokidar

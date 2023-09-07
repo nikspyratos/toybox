@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 export DEBIAN_FRONTEND=noninteractive
 echo "Installing Octane"; sleep 1;
 sudo add-apt-repository ppa:openswoole/ppa -y

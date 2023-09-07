@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+export DEBIAN_FRONTEND=noninteractive
 prod_app_path="\/home\/ubuntu\/$(basename $PWD)"
 read -p "App Name: " app_name
 read -p "Domain (WITHOUT 'https:// or www.'): " app_domain

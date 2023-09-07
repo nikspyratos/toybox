@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 export app_path=$(pwd)
 export DEBIAN_FRONTEND=noninteractive
 echo "Copying .env.prod.example to .env and using it";sleep 1;
@@ -51,7 +52,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart caddy
 caddy reload
 echo "Installing composer packages";sleep 1;
-composer install
+composer install --no-interaction --optimize-autoloader --no-dev
 echo "Setting up Supervisor for queue work";sleep 1;
 sudo apt-get install -y supervisor
 sudo cp templates/horizon.conf /etc/supervisor/conf.d/
@@ -65,6 +66,7 @@ npm run build
 sed -i "s/DB_USERNAME=root/DB_USERNAME=$db_user/g;s/DB_PASSWORD=/DB_PASSWORD=$db_password/g" .env
 php artisan key:generate
 php artisan migrate --force --seed
+php artisan storage:link
 echo "Installing Laravel cron schedule";sleep 1;
 crontab templates/cron
 echo -e "Installation complete! Please change your Caddyfile's instances of APP_PATH and your .env DEPLOYMENT_PATH value to $app_path";
