@@ -23,7 +23,7 @@
   * [Next Steps - DIY](#next-steps---diy)
     * [Code Quality & Analysis](#code-quality--analysis)
     * [Post-Setup](#post-setup)
-      * [Jetstream Teams](#jetstream-teams)
+      * [Jetstream: Teams and Inertia](#jetstream-teams-and-inertia)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
       * [Analytics](#analytics)
       * [Backups](#backups)
@@ -299,7 +299,7 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
 - **Queues**: Consult the [Horizon](https://laravel.com/docs/10.x/horizon) documentation on how best to use it for your queues.
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
 
-#### Jetstream Teams
+#### Jetstream: Teams and Inertia
 
 Toybox ships without Jetstream's Teams features by default. If you want to use Teams, it's recommended you do so as one of the first steps before changing anything else in your application.
 
@@ -311,6 +311,8 @@ To install Jetstream teams, run the following:
 ```shell
 php artisan jetstream:install livewire --teams --dark
 ```
+
+The same goes for Inertia + Vue: replace `livewire` in the above commnd with `inertia` to switch the stack to Inertia.
 
 ---
 
