@@ -70,7 +70,7 @@ class RoleResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->filters([
-                //
+                // Stub
             ]);
     }
 

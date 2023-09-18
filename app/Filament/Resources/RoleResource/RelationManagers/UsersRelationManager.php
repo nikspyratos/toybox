@@ -33,7 +33,7 @@ class UsersRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('name'),
             ])
             ->filters([
-                //
+                // Stub
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make(),

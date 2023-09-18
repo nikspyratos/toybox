@@ -25,7 +25,7 @@ class FolioServiceProvider extends ServiceProvider
             ->uri('/')
             ->middleware([
                 '*' => [
-                    //
+                    // Add yours here...
                 ],
             ]);
     }

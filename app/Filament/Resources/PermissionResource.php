@@ -66,7 +66,7 @@ class PermissionResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                // Stub
             ]);
     }
 
