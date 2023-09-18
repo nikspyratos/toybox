@@ -23,6 +23,7 @@
   * [Next Steps - DIY](#next-steps---diy)
     * [Code Quality & Analysis](#code-quality--analysis)
     * [Post-Setup](#post-setup)
+      * [Jetstream Teams](#jetstream-teams)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
       * [Analytics](#analytics)
       * [Backups](#backups)
@@ -262,7 +263,7 @@ By default, you will already have Duster running as a pre-commit hook. The rest 
 
 The commands for all the tools are:
 
-```
+```shell
 ./vendor/bin/duster fix
 ./vendor/bin/phpstan analyse
 php artisan insights
@@ -296,6 +297,19 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
   - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
 - **Queues**: Consult the [Horizon](https://laravel.com/docs/10.x/horizon) documentation on how best to use it for your queues.
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
+
+#### Jetstream Teams
+
+Toybox ships without Jetstream's Teams features by default. If you want to use Teams, it's recommended you do so as one of the first steps before changing anything else in your application.
+
+In order to reduce maintenance burden, Toybox doesn't have any helper to pick out only the teams-specific code and add it. 
+
+This means you'll have to pay attention to the git diff on all the changed files. Most notable here is the User model, as some Filament-related code will be overridden. You'll need to add it back using the diff as your guide. The other major override is the application logo and default views will revert to the non-Toybox Jetstream default.
+
+To install Jetstream teams, run the following:
+```shell
+php artisan jetstream:install livewire --teams --dark
+```
 
 ---
 
@@ -502,7 +516,6 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 - Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
 - Test the scripts - feedback welcome!
-- Figure out how to make teams installable on Jetstream after-the-fact
 - Figure out if Larastan is unnecessary if PHP Insights potentially does more
 
 ---
