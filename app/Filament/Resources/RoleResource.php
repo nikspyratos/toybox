@@ -6,8 +6,8 @@ namespace App\Filament\Resources;
 
 use App\Models\Role;
 use Filament\Forms;
-use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,7 +26,8 @@ class RoleResource extends Resource
     {
         return $form
             ->schema([
-                Card::make()
+                Section::make()
+                    ->heading()
                     ->schema([
                         Grid::make(1)
                             ->schema([

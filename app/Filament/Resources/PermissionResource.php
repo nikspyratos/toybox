@@ -8,8 +8,8 @@ use App\Filament\Resources\PermissionResource\Pages\ListPermissions;
 use App\Filament\Resources\PermissionResource\Pages\ViewPermission;
 use App\Filament\Resources\PermissionResource\RelationManager\RoleRelationManager;
 use App\Models\Permission;
-use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -28,7 +28,8 @@ class PermissionResource extends Resource
     {
         return $form
             ->schema([
-                Card::make()
+                Section::make()
+                    ->heading()
                     ->schema([
                         Grid::make(3)->schema([
                             TextInput::make('id')
