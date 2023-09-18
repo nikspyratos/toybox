@@ -10,6 +10,7 @@
   * [Features](#features)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
+    * [Requirements](#requirements)
     * [Local Development](#local-development)
       * [macOS](#macos)
       * [Linux](#linux)
@@ -249,6 +250,10 @@ Make sure your firewall rules allow incoming traffic on port 443. This includes 
 
 These are the next steps you will have to implement yourself for your project as your needs change & scale.
 
+In a default Toybox installation, there will be some code quality and security analysis steps that may fail. This is because for some cases an opinionated step is unnecessary, or a step needs to be explicitly taken by the developer instead of set up in Toybox by default.
+
+An example of this is the `TrustProxies` middleware - Enlightn will flag this as unused middleware due to no proxies being configured. The only way to avoid this and keep the middleware would be to trust all proxies by default, but that assumes you will be using cloud-based load balancers which might not be the case.
+
 ### Post-Setup
 
 - **Create an admin user**: Run the `php artisan app:create-admin-user` command to create an admin user. This will allow you to access Filament at `/admin`, Horizon at `/horizon`, and Telescope at `/telescope`.
@@ -386,7 +391,8 @@ Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend
 - **Alternative Eloquent Drivers**: [Sushi](https://github.com/calebporzio/sushi) is an array driver, while [Orbit](https://github.com/ryangjchandler/orbit) is a flat file driver. These can be useful for things like CMSes, or loading data into Filament tables (which rely on the Eloquent query builder) without needing a database-driven model.
 - **Fixture data**: [Squire](https://github.com/squirephp/squire) adds static fixtures (e.g. airport, country code, currency, timezone) available through Eloquent. 
 - **Provisioning & Deployment**: [Deployer](https://deployer.org/).
-- **Application settings**: [Spatie Laravel Settings](https://github.com/spatie/laravel-settings) + [Filament Spatie Settings](https://filamentphp.com/plugins/filament-spatie-settings) 
+- **Application settings**: [Spatie Laravel Settings](https://github.com/spatie/laravel-settings) + [Filament Spatie Settings](https://filamentphp.com/plugins/filament-spatie-settings)
+- **Security**: Enlightn recommends adding a Content Security Policy. This is easily doable with [Spatie's CSP package](https://github.com/spatie/laravel-csp). 
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 

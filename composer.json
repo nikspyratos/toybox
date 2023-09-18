@@ -32,6 +32,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
         "barryvdh/laravel-ide-helper": "^2.13",
+        "enlightn/enlightn": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -68,13 +69,7 @@
             "@php artisan ide-helper:eloquent -n",
             "@php artisan ide-helper:meta -n",
             "@php artisan ide-helper:generate -n",
-            "@php artisan ide-helper:models -n --reset",
-            "@php artisan optimize:clear",
-            "@php artisan schedule:clear-cache",
-            "@php artisan optimize",
-            "@php artisan event:cache",
-            "@php artisan icons:cache",
-            "@php artisan view:cache"
+            "@php artisan ide-helper:models -n --reset"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -94,7 +89,8 @@
         "sort-packages": true,
         "allow-plugins": {
             "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "minimum-stability": "stable",
