@@ -70,6 +70,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
 
     public function getFilamentAvatarUrl(): ?string
     {
+        /** @phpstan-ignore-next-line */
         return $this->profile_photo_url;
     }
 }
