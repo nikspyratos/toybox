@@ -42,6 +42,7 @@
       * [Search](#search)
       * [Serverless](#serverless)
       * [Uptime & Monitoring](#uptime--monitoring)
+      * [Upgrading Laravel & PHP](#upgrading-laravel--php)
       * [User Interface](#user-interface)
       * [Websockets](#websockets)
     * [Other Tools not included](#other-tools-not-included)
@@ -399,6 +400,12 @@ Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for fr
 #### Uptime & Monitoring
 
 I recommend [OhDear](https://ohdear.app/?via=nikspyratos). For error monitoring, [Flare](https://flareapp.io) is also good.
+
+#### Upgrading Laravel & PHP
+
+For upgrading PHP, see [Rector](https://getrector.com/).
+
+For upgrading Laravel, see [Laravel Shift](https://laravelshift.com/).
 
 #### User Interface
 
