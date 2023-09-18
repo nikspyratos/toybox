@@ -21,26 +21,28 @@
       * [Troubleshooting](#troubleshooting)
         * [Caddy having issues obtaining SSL](#caddy-having-issues-obtaining-ssl)
   * [Next Steps - DIY](#next-steps---diy)
+    * [Code Quality & Analysis](#code-quality--analysis)
     * [Post-Setup](#post-setup)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
-      * [User Interface](#user-interface)
-      * [CMS](#cms)
-      * [Media Library](#media-library)
-      * [File Storage](#file-storage)
-      * [Mail Provider](#mail-provider-)
-      * [Payment Provider](#payment-provider)
-      * [Event tracking/system notifications](#event-trackingsystem-notifications)
-      * [Uptime & Monitoring](#uptime--monitoring)
       * [Analytics](#analytics)
-      * [Data Analysis](#data-analysis)
-      * [Search](#search)
-      * [Websockets](#websockets)
-      * [Infrastructure](#infrastructure)
-      * [Deployment - CI/CD](#deployment---cicd)
       * [Backups](#backups)
-      * [Serverless](#serverless)
+      * [CMS](#cms)
+      * [Data Analysis](#data-analysis)
+      * [Debugging](#debugging)
+      * [Deployment - CI/CD](#deployment---cicd)
       * [Desktop](#desktop)
+      * [Event tracking/system notifications](#event-trackingsystem-notifications)
+      * [File Storage](#file-storage)
+      * [Infrastructure](#infrastructure)
+      * [Mail Provider](#mail-provider-)
+      * [Media Library](#media-library)
       * [Mobile](#mobile)
+      * [Payment Provider](#payment-provider)
+      * [Search](#search)
+      * [Serverless](#serverless)
+      * [Uptime & Monitoring](#uptime--monitoring)
+      * [User Interface](#user-interface)
+      * [Websockets](#websockets)
     * [Other Tools not included](#other-tools-not-included)
       * [Filament Plugins & Tricks](#filament-plugins--tricks)
     * [Design](#design)
@@ -112,6 +114,7 @@ This project has gone through some changes even before release:
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
   - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope), [Horizon](https://laravel.com/docs/10.x/horizon), and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
+  - **Code Quality, Static Analysis, Security analysis**: [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) (with custom configuration to play nice with Duster and be a little less strict), [Enlightn (free version)](https://github.com/enlightn/enlightn/).
 - **CI/CD**: Good old Bash scripts.
 
 ## Installation/Usage
@@ -250,7 +253,25 @@ Make sure your firewall rules allow incoming traffic on port 443. This includes 
 
 These are the next steps you will have to implement yourself for your project as your needs change & scale.
 
-In a default Toybox installation, there will be some code quality and security analysis steps that may fail. This is because for some cases an opinionated step is unnecessary, or a step needs to be explicitly taken by the developer instead of set up in Toybox by default.
+### Code Quality & Analysis
+
+Four tools have been included for this: Duster (linting), Larastan (static analysis), PHP Insights (analysis & architecture), Enlightn (security). There are also some default Pest tests for architecture rules as well.
+You may see some overlap or conflicts in recommendations by these tools - if so, please make an issue so I can adjust the config to avoid the conflict.
+
+By default, you will already have Duster running as a pre-commit hook. The rest are left for you to run as you see fit.
+
+The commands for all the tools are:
+
+```
+./vendor/bin/duster fix
+./vendor/bin/phpstan analyse
+php artisan insights
+php artisan enlightn
+```
+
+For Duster, if there are any unfixable issues raised in `duster fix`, you can get more info on them but running `duster lint`. Also note that you can add the `--dirty` flag to only run it for files that have changed.
+
+Some analysis steps in these tools may fail on a default Toybox installation. Where reasonable I've tried to mitigate this, but some will be left up to you as the developer. Some fixes require opinionated configurations that I don't feel Toybox should have a default on.
 
 An example of this is the `TrustProxies` middleware - Enlightn will flag this as unused middleware due to no proxies being configured. The only way to avoid this and keep the middleware would be to trust all proxies by default, but that assumes you will be using cloud-based load balancers which might not be the case.
 
@@ -282,6 +303,89 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
 
 **Remember: this is a list of options, not requirements. You can likely run your SaaS perfectly fine without many of these.**
 
+#### Analytics
+
+[Fathom](https://usefathom.com) and [Plausible](https://plausible.io) are great options. If I had to choose: Fathom has more accessible pricing, and is made with Laravel!
+
+#### Backups
+
+- SQLite: [LiteStream](https://litestream.io/)
+- MySQL, volumes, servers, and more: [SnapShooter](https://snapshooter.com/)
+
+#### CMS
+
+[Statamic](https://statamic.com/) has excellent integration directly into Laravel apps.
+
+Alternatively, there are plenty of other blog/content site providers out there, e.g. [Wordpress](https://wordpress.org/). The CMS space is too huge to make any more specific recommendations.
+
+If you want something free & simple for creating content for your app, consider using [Jigsaw](https://jigsaw.tighten.com/) - a static site generator that uses Markdown & Blade. It's free and easy to use. If hosting it with Github Pages, have a look [here](https://github.com/nikspyratos/thecapegreek-site/blob/master/bin/deploy) on how to remove build artifacts from your main branch.
+
+#### Data Analysis
+
+I highly recommend checking out [Metabase](https://metabase.com) for this. While it's fairly simple to make graphs/dashboards and track database metrics with Laravel/Filament, Metabase is more specialised for the task and separates concerns nicely. It can also be self-hosted!.
+
+#### Debugging
+
+If you're a `dd` fan, [Ray](https://myray.app/) is a great addition.
+
+#### Deployment - CI/CD
+
+Forge & Ploi offer deployment, but [Envoyer](https://envoyer.io/) is a great addition.
+
+#### Desktop
+
+While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a very promising option if you'd like to add desktop apps to your toolkit.
+
+For a ready-to-go desktop-based database management/admin panel for your application, [Invoker](https://invoker.dev/) is worth a look.
+
+#### Event tracking/system notifications
+
+I recommend [LogSnag](https://logsnag.com/).
+
+#### File Storage
+
+Consider using any [S3-compatible storage service](https://gprivate.com/663g4). The ordinary local disk may be enough for your use case, but it may be prudent to separate this from your app. That way if you don't need a big server but need lots of storage, you don't have to scale your server costs unnecessarily (storage is much cheaper!).
+
+#### Infrastructure
+
+[Laravel Forge](https://forge.laravel.com/) and [Ploi](https://ploi.io/) are good options (I prefer Ploi) and support many cloud providers. I lean towards AWS, but only because they have a Cape Town region.
+
+Open source alternatives include [Deployer](https://deployer.org/), [Eddy](https://eddy.management/), and [VitoDeploy](https://vitodeploy.com/)
+
+Otherwise, generalised provisioning tools like [Ansible](https://www.ansible.com/), [Chef](https://www.chef.io/) or [Puppet](https://www.puppet.com/) should work.
+
+#### Mail Provider 
+
+[Laravel recommends](https://laravel.com/docs/10.x/mail#introduction) [Mailgun](https://www.mailgun.com/), [Postmark](https://postmarkapp.com/) and [SES](https://aws.amazon.com/ses/). Another option that integrates well, and works for newsletters/marketing campaigns too, is [Mailcoach](https://mailcoach.app/).
+
+#### Media Library
+
+Spatie's [Media Library Pro](https://medialibrary.pro/) is excellent. See [below](#other-tools-not-included) for free version details.
+
+#### Mobile
+
+Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend sticking to "normal" mobile tech.
+
+#### Payment Provider
+
+There are a few options here, depending on your region. For many countries, [Stripe](https://stripe.com) with [Laravel Cashier](https://laravel.com/docs/10.x/billing#introduction) will be fine. Otherwise, have a look at [Paddle](https://www.paddle.com/) (also has a [Cashier plugin](https://laravel.com/docs/10.x/cashier-paddle)) or [Lemon Squeezy](https://lemonsqueezy.com) (Laravel package [here](https://github.com/lmsqueezy/laravel)) for a Merchant of Record. 
+
+If you're in Africa, [Paystack](https://paystack.com/) is a solid option (affiliate signup: [here](https://nik-software.paystack.com/#/signup)). 
+
+For more options, and whether or not you need an MoR, and taxation info see [here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
+
+#### Search
+
+[Algolia](https://www.algolia.com/) and [Meilisearch](https://www.meilisearch.com) are the ones supported by [Laravel Scout](https://laravel.com/docs/10.x/scout). Meilisearch can be self-hosted, but can be a handful to manage and would still cost a fair bit in storage/RAM requirements, so you might not save much in time & headaches over using cloud.
+
+#### Serverless
+
+Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). **Note**: this project is untested with serverless. If you get it working with any modifications, make a PR for adding your setup or instructions!
+
+#### Uptime & Monitoring
+
+I recommend [OhDear](https://ohdear.app/?via=nikspyratos). For error monitoring, [Flare](https://flareapp.io) is also good.
+
 #### User Interface
 
 - Filament is intended to be used for UI where possible. Consult the documentation for details.  
@@ -294,86 +398,9 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
 
 For more recommendations, see [here](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Design).
 
-#### CMS
-
-[Statamic](https://statamic.com/) has excellent integration directly into Laravel apps.
-
-Alternatively, there are plenty of other blog/content site providers out there, e.g. [Wordpress](https://wordpress.org/). The CMS space is too huge to make any more specific recommendations.
-
-If you want something free & simple for creating content for your app, consider using [Jigsaw](https://jigsaw.tighten.com/) - a static site generator that uses Markdown & Blade. It's free and easy to use. If hosting it with Github Pages, have a look [here](https://github.com/nikspyratos/thecapegreek-site/blob/master/bin/deploy) on how to remove build artifacts from your main branch.
-
-#### Media Library
-
-Spatie's [Media Library Pro](https://medialibrary.pro/) is excellent. See [below](#other-tools-not-included) for free version details.
-
-#### File Storage
-
-Consider using any [S3-compatible storage service](https://gprivate.com/663g4). The ordinary local disk may be enough for your use case, but it may be prudent to separate this from your app. That way if you don't need a big server but need lots of storage, you don't have to scale your server costs unnecessarily (storage is much cheaper!). 
-
-#### Mail Provider 
-
-[Laravel recommends](https://laravel.com/docs/10.x/mail#introduction) [Mailgun](https://www.mailgun.com/), [Postmark](https://postmarkapp.com/) and [SES](https://aws.amazon.com/ses/). Another option that integrates well, and works for newsletters/marketing campaigns too, is [Mailcoach](https://mailcoach.app/).
- 
-#### Payment Provider
-
-There are a few options here, depending on your region. For many countries, [Stripe](https://stripe.com) with [Laravel Cashier](https://laravel.com/docs/10.x/billing#introduction) will be fine. Otherwise, have a look at [Paddle](https://www.paddle.com/) (also has a [Cashier plugin](https://laravel.com/docs/10.x/cashier-paddle)) or [Lemon Squeezy](https://lemonsqueezy.com) (Laravel package [here](https://github.com/lmsqueezy/laravel)) for a Merchant of Record. 
-
-If you're in Africa, [Paystack](https://paystack.com/) is a solid option (affiliate signup: [here](https://nik-software.paystack.com/#/signup)). 
-
-For more options, and whether or not you need an MoR, and taxation info see [here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
-
-#### Event tracking/system notifications
-
-I recommend [LogSnag](https://logsnag.com/).
-
-#### Uptime & Monitoring
-
-I recommend [OhDear](https://ohdear.app/?via=nikspyratos). For error monitoring, [Flare](https://flareapp.io) is also good.
-
-#### Analytics
-
-[Fathom](https://usefathom.com) and [Plausible](https://plausible.io) are great options. If I had to choose: Fathom has more accessible pricing, and is made with Laravel!
-
-#### Data Analysis
-
-I highly recommend checking out [Metabase](https://metabase.com) for this. While it's fairly simple to make graphs/dashboards and track database metrics with Laravel/Filament, Metabase is more specialised for the task and separates concerns nicely. It can also be self-hosted!.
-
-#### Search
-
-[Algolia](https://www.algolia.com/) and [Meilisearch](https://www.meilisearch.com) are the ones supported by [Laravel Scout](https://laravel.com/docs/10.x/scout). Meilisearch can be self-hosted, but can be a handful to manage and would still cost a fair bit in storage/RAM requirements, so you might not save much in time & headaches over using cloud.
-
 #### Websockets
 
 [Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options in this space, which will be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation). If you want to DIY, see [below](#other-tools-not-included).
-
-#### Infrastructure
-
-[Laravel Forge](https://forge.laravel.com/) and [Ploi](https://ploi.io/) are good options (I prefer Ploi) and support many cloud providers. I lean towards AWS, but only because they have a Cape Town region.
-
-Open source alternatives include [Deployer](https://deployer.org/), [Eddy](https://eddy.management/), and [VitoDeploy](https://vitodeploy.com/)
-
-Otherwise, generalised provisioning tools like [Ansible](https://www.ansible.com/), [Chef](https://www.chef.io/) or [Puppet](https://www.puppet.com/) should work.
-
-#### Deployment - CI/CD
-
-Forge & Ploi offer deployment, but [Envoyer](https://envoyer.io/) is a great addition.
-
-#### Backups
-
-- SQLite: [LiteStream](https://litestream.io/)
-- MySQL, volumes, servers, and more: [SnapShooter](https://snapshooter.com/)
-
-#### Serverless
-
-Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for free with [Bref](https://bref.sh/). **Note**: this project is untested with serverless. If you get it working with any modifications, make a PR for adding your setup or instructions!
-
-#### Desktop
-
-While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a very promising option if you'd like to add desktop apps to your toolkit.
-
-#### Mobile
-
-Yeah, nah. Maybe some mad scientist has gotten this one right, but I'd recommend sticking to "normal" mobile tech.
 
 ---
 
@@ -476,6 +503,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
 - Test the scripts - feedback welcome!
 - Figure out how to make teams installable on Jetstream after-the-fact
+- Figure out if Larastan is unnecessary if PHP Insights potentially does more
 
 ---
 

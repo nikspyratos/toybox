@@ -102,7 +102,7 @@ return [
     ],
 
     'ignore_commands' => [
-        //
+        // Stub
     ],
 
     /*

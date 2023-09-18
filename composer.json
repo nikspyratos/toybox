@@ -39,6 +39,7 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "nunomaduro/larastan": "^2.6",
+        "nunomaduro/phpinsights": "^2.8",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-drift": "^2.2",
         "pestphp/pest-plugin-laravel": "^2.0",
