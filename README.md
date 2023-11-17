@@ -172,8 +172,9 @@ For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 #### macOS
 
 - ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
-- [DBngin](https://dbngin.com/)
-- [Pickle](https://github.com/FriendsOfPHP/pickle/)
+- [DBngin](https://dbngin.com/) for Databases & Redis
+- [Takeout](https://github.com/tighten/takeout) for many more extra services (e.g. Mailhog, ElasticSearch, etc.)
+- [Pickle](https://github.com/FriendsOfPHP/pickle/) for PECL extensions
 
 Make sure to run `pickle install redis` and any other extensions you require prior to initialising this repository.
 
@@ -182,7 +183,7 @@ Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/lar
 #### Linux
 
 - [Valet Linux](https://cpriego.github.io/valet-linux/) OR install PHP manually.
-- Install your DB of choice locally
+- Install your DB of choice locally - [Takeout](https://github.com/tighten/takeout) supports both Redis and MySQL/MariaDB, so it can act as a DBNgin alternative for Linux.
 
 #### Windows
 
