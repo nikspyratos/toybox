@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('telescope:prune')->daily();
         $schedule->command(DispatchQueueCheckJobsCommand::class)->everyMinute();
         $schedule->command(ScheduleCheckHeartbeatCommand::class)->everyMinute();
+        $schedule->command('queue:monitor')->everyMinute(); //TODO: Add your queue name here
     }
 
     /**
