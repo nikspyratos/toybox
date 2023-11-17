@@ -104,7 +104,7 @@ This project has gone through some changes even before release:
 - **Application**: [Laravel](https://laravel.com) (duh)
   - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Jetstream](https://jetstream.laravel.com) for authentication, API, profile, and general scaffolding.
   - **Content**:
-    - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js
+    - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js and [Laravel Folio](https://laravel.com/docs/10.x/folio)
     - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
   - **Authorization**: [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission/v5/introduction) with some basic Filament management of roles & permissions.
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
