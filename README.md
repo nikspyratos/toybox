@@ -332,7 +332,7 @@ The same goes for Inertia + Vue: replace `livewire` in the above commnd with `in
 
 #### CMS
 
-[Statamic](https://statamic.com/) has excellent integration directly into Laravel apps.
+[Statamic](https://statamic.com/) has excellent integration directly into Laravel apps. The core CMS functionality (without any frontend or control panel features) is FOSS, otherwise it's free for solo/hobby projects. For advanced features in a business use case with e.g. a marketing/writing team, it's recommended to pay for Pro.
 
 Alternatively, there are plenty of other blog/content site providers out there, e.g. [Wordpress](https://wordpress.org/). The CMS space is too huge to make any more specific recommendations.
 
