@@ -529,6 +529,8 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
 - Test the scripts - feedback welcome!
 - Figure out if Larastan is unnecessary if PHP Insights potentially does more
+- [Basic CMS](https://alfrednutile.info/one-class-cms-filament)?
+- App changelog page template?
 
 ---
 
