@@ -101,7 +101,7 @@ This project has gone through some changes even before release:
 - **Database**: [MariaDB](https://mariadb.org/)
 - **Cache, Queues, Session, Websockets**: [Redis](https://redis.io)
 - **Application**: [Laravel](https://laravel.com) (duh)
-  - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
+  - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
   - **Content**:
     - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js and [Laravel Folio](https://laravel.com/docs/10.x/folio)
     - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)

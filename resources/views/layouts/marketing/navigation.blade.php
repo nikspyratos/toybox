@@ -2,18 +2,18 @@
     <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
             <a href="#" class="flex items-center">
-                <img src="{{ asset('images/toybox-logo.png') }}" class="h-6 mr-3 sm:h-9" alt="Landwind Logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-matisse-400">{{ config('app.name') }}</span>
+                <img src="{{ asset('images/toybox-logo.png') }}" class="h-6 mr-3 sm:h-9" alt="Toybox Logo" />
+                <span class="self-center text-xl font-semibold whitespace-nowrap text-white dark:text-matisse-400">{{ config('app.name') }}</span>
             </a>
             <div class="flex items-center lg:order-2">
                 @if (Route::has('login'))
                         @auth
                             <a href="{{ url('/dashboard') }}" class="text-gray-800 dark:text-matisse-400 hover:bg-gray-100 focus:ring-4 focus:ring-gray-500 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="text-white dark:text-matisse-400 hover:bg-gray-100 focus:ring-4 focus:ring-gray-500 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
+                            <a href="{{ route('login') }}" class="text-gray-800 dark:text-matisse-400 hover:bg-gray-100 focus:ring-4 focus:ring-gray-500 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="text-white bg-matisse-500 hover:bg-matisse-800 focus:ring-4 focus:ring-matisse-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-matisse-600 dark:hover:bg-matisse-500 focus:outline-none dark:focus:ring-matisse-800">Register</a>
+                                <a href="{{ route('register') }}" class="text-gray-800 dark:text-matisse-400 hover:bg-gray-100 focus:ring-4 focus:ring-gray-500 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Register</a>
                             @endif
                         @endauth
                 @endif

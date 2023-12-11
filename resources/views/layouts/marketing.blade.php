@@ -36,10 +36,12 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 <body>
     @include('layouts.marketing.navigation')
     @yield('content')
     @include('layouts.marketing.footer')
+    @livewireScripts
 </body>
 </html>
