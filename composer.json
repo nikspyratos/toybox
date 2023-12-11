@@ -11,7 +11,6 @@
         "laravel/folio": "^1.0",
         "laravel/framework": "^10.10",
         "laravel/horizon": "^5.19",
-        "laravel/jetstream": "^4.0",
         "laravel/sanctum": "^3.2",
         "laravel/telescope": "^4.15",
         "laravel/tinker": "^2.8",

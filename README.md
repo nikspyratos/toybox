@@ -23,7 +23,6 @@
   * [Next Steps - DIY](#next-steps---diy)
     * [Code Quality & Analysis](#code-quality--analysis)
     * [Post-Setup](#post-setup)
-      * [Jetstream: Teams and Inertia](#jetstream-teams-and-inertia)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
       * [Analytics](#analytics)
       * [Backups](#backups)
@@ -102,7 +101,7 @@ This project has gone through some changes even before release:
 - **Database**: [MariaDB](https://mariadb.org/)
 - **Cache, Queues, Session, Websockets**: [Redis](https://redis.io)
 - **Application**: [Laravel](https://laravel.com) (duh)
-  - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Jetstream](https://jetstream.laravel.com) for authentication, API, profile, and general scaffolding.
+  - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/10.x/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
   - **Content**:
     - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js and [Laravel Folio](https://laravel.com/docs/10.x/folio)
     - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
@@ -299,21 +298,6 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
   - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
 - **Queues**: Consult the [Horizon](https://laravel.com/docs/10.x/horizon) documentation on how best to use it for your queues.
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
-
-#### Jetstream: Teams and Inertia
-
-Toybox ships without Jetstream's Teams features by default. If you want to use Teams, it's recommended you do so as one of the first steps before changing anything else in your application.
-
-In order to reduce maintenance burden, Toybox doesn't have any helper to pick out only the teams-specific code and add it. 
-
-This means you'll have to pay attention to the git diff on all the changed files. Most notable here is the User model, as some Filament-related code will be overridden. You'll need to add it back using the diff as your guide. The other major override is the application logo and default views will revert to the non-Toybox Jetstream default.
-
-To install Jetstream teams, run the following:
-```shell
-php artisan jetstream:install livewire --teams --dark
-```
-
-The same goes for Inertia + Vue: replace `livewire` in the above commnd with `inertia` to switch the stack to Inertia.
 
 ---
 
