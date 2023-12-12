@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
-use App\Models\Role;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
@@ -47,7 +46,6 @@ class CreateAdminUser extends Command
             required: true
         );
         $user = User::firstOrCreate(['email' => $email], ['name' => $name, 'password' => Hash::make($password), 'email_verified_at' => now()]);
-        $user->assignRole(Role::ADMIN);
         $this->info('Successfully created user - you may now log in at /admin and access Telescope at /telescope');
     }
 }
