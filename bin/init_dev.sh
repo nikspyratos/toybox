@@ -19,7 +19,7 @@ sed -i.bak "s/DB_DATABASE=toybox/DB_DATABASE=$db_name/g" .env.prod.example
 sed -i.bak "s/DEPLOYMENT_PATH=/DEPLOYMENT_PATH=$prod_app_path/g" .env.example
 sed -i.bak "s/toybox-laravel.test/$app_domain/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" Caddyfile
-sed -i.bak "s/APP_PATH/$prod_app_path/g" templates/horizon.conf
+sed -i.bak "s/APP_PATH/$prod_app_path/g" templates/octane.conf
 # Local setup
 git config --local include.path ../.gitconfig
 composer install

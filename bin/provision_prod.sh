@@ -19,24 +19,6 @@ sudo systemctl daemon-reload
 sudo systemctl restart php8.2-fpm
 # NPM 20
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
-# MariaDB
-echo "Installing MariaDB";sleep 1;
-sudo timeout=900 apt-get install -y mariadb-server
-read -p "Database username: " db_user
-read -p "Database password: " db_password
-export db_user
-export db_password
-sudo mysql --user="root" -e "CREATE USER IF NOT EXISTS '$db_user'@'0.0.0.0' IDENTIFIED BY '$db_password';"
-sudo mysql --user="root" -e "CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_password';"
-sudo mysql --user="root" -e "GRANT ALL PRIVILEGES ON *.* TO '$db_user'@'0.0.0.0' WITH GRANT OPTION;"
-sudo mysql --user="root" -e "GRANT ALL PRIVILEGES ON *.* TO '$db_user'@'%' WITH GRANT OPTION;"
-sudo mysql --user="root" -e "FLUSH PRIVILEGES;"
-sudo mysql --user="root" -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE character set UTF8mb4 collate utf8mb4_unicode_ci;"
-# Redis
-echo "Installing Redis";sleep 1;
-sudo apt install -y redis
-sudo sed "s/supervised no/supervised systemd/g" /etc/redis/redis.conf
-sudo systemctl restart redis.service
 # Caddy
 echo "Installing Caddy";sleep 1;
 sudo ufw allow 80,443/tcp
@@ -53,12 +35,17 @@ sudo systemctl restart caddy
 caddy reload
 echo "Installing composer packages";sleep 1;
 composer install --no-interaction --optimize-autoloader --no-dev
+# Octane
+sudo add-apt-repository ppa:openswoole/ppa -y
+sudo apt update
+sudo apt install -y php8.2-openswoole
+# Supervisor
 echo "Setting up Supervisor for queue work";sleep 1;
 sudo apt-get install -y supervisor
-sudo cp templates/horizon.conf /etc/supervisor/conf.d/
+sudo cp templates/octane.conf /etc/supervisor/conf.d/
 sudo supervisorctl reread
 sudo supervisorctl update
-sudo supervisorctl start horizon
+sudo supervisorctl start octane
 # Application
 echo "Setting up application";sleep 1;
 npm install

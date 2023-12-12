@@ -10529,29 +10529,18 @@
                         return $instance->setConnectionName($name);
         }
                     /**
-         * Get the number of queue jobs that are ready to process.
-         *
-         * @param string|null $queue
-         * @return int 
-         * @static 
-         */ 
-        public static function readyNow($queue = null)
-        {
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
-                        return $instance->readyNow($queue);
-        }
-                    /**
          * Migrate the delayed jobs that are ready to the regular queue.
          *
          * @param string $from
          * @param string $to
-         * @return void 
+         * @param int $limit
+         * @return array 
          * @static 
          */ 
         public static function migrateExpiredJobs($from, $to)
         {
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
-                        $instance->migrateExpiredJobs($from, $to);
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->migrateExpiredJobs($from, $to);
         }
                     /**
          * Delete a reserved job from the queue.
@@ -10563,7 +10552,7 @@
          */ 
         public static function deleteReserved($queue, $job)
         {
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         $instance->deleteReserved($queue, $job);
         }
                     /**
@@ -10577,7 +10566,7 @@
          */ 
         public static function deleteAndRelease($queue, $job, $delay)
         {
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         $instance->deleteAndRelease($queue, $job, $delay);
         }
                     /**
@@ -10588,8 +10577,8 @@
          * @static 
          */ 
         public static function clear($queue)
-        {            //Method inherited from \Illuminate\Queue\RedisQueue         
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->clear($queue);
         }
                     /**
@@ -10600,8 +10589,8 @@
          * @static 
          */ 
         public static function getQueue($queue)
-        {            //Method inherited from \Illuminate\Queue\RedisQueue         
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getQueue($queue);
         }
                     /**
@@ -10611,8 +10600,8 @@
          * @static 
          */ 
         public static function getConnection()
-        {            //Method inherited from \Illuminate\Queue\RedisQueue         
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getConnection();
         }
                     /**
@@ -10622,8 +10611,8 @@
          * @static 
          */ 
         public static function getRedis()
-        {            //Method inherited from \Illuminate\Queue\RedisQueue         
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getRedis();
         }
                     /**
@@ -10635,7 +10624,7 @@
          */ 
         public static function getJobBackoff($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getJobBackoff($job);
         }
                     /**
@@ -10647,7 +10636,7 @@
          */ 
         public static function getJobExpiration($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getJobExpiration($job);
         }
                     /**
@@ -10659,7 +10648,7 @@
          */ 
         public static function createPayloadUsing($callback)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        \Laravel\Horizon\RedisQueue::createPayloadUsing($callback);
+                        \Illuminate\Queue\RedisQueue::createPayloadUsing($callback);
         }
                     /**
          * Get the container instance being used by the connection.
@@ -10669,7 +10658,7 @@
          */ 
         public static function getContainer()
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getContainer();
         }
                     /**
@@ -10681,7 +10670,7 @@
          */ 
         public static function setContainer($container)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Laravel\Horizon\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         $instance->setContainer($container);
         }
          
@@ -19205,12 +19194,136 @@
      
 }
 
-    namespace Laravel\Horizon { 
+    namespace Laravel\Octane\Facades { 
             /**
      * 
      *
+     * @see \Laravel\Octane\Octane
      */ 
-        class Horizon {
+        class Octane {
+                    /**
+         * Get a Swoole table instance.
+         *
+         * @static 
+         */ 
+        public static function table($table)
+        {
+                        /** @var \Laravel\Octane\Octane $instance */
+                        return $instance->table($table);
+        }
+                    /**
+         * Format an exception to a string that should be returned to the client.
+         *
+         * @static 
+         */ 
+        public static function formatExceptionForClient($e, $debug = false)
+        {
+                        return \Laravel\Octane\Octane::formatExceptionForClient($e, $debug);
+        }
+                    /**
+         * Concurrently resolve the given callbacks via background tasks, returning the results.
+         * 
+         * Results will be keyed by their given keys - if a task did not finish, the tasks value will be "false".
+         *
+         * @return array 
+         * @throws \Laravel\Octane\Exceptions\TaskException
+         * @throws \Laravel\Octane\Exceptions\TaskTimeoutException
+         * @static 
+         */ 
+        public static function concurrently($tasks, $waitMilliseconds = 3000)
+        {
+                        /** @var \Laravel\Octane\Octane $instance */
+                        return $instance->concurrently($tasks, $waitMilliseconds);
+        }
+                    /**
+         * Get the task dispatcher.
+         *
+         * @return \Laravel\Octane\Contracts\DispatchesTasks 
+         * @static 
+         */ 
+        public static function tasks()
+        {
+                        /** @var \Laravel\Octane\Octane $instance */
+                        return $instance->tasks();
+        }
+                    /**
+         * Get the listeners that will prepare the Laravel application for a new request.
+         *
+         * @static 
+         */ 
+        public static function prepareApplicationForNextRequest()
+        {
+                        return \Laravel\Octane\Octane::prepareApplicationForNextRequest();
+        }
+                    /**
+         * Get the listeners that will prepare the Laravel application for a new operation.
+         *
+         * @static 
+         */ 
+        public static function prepareApplicationForNextOperation()
+        {
+                        return \Laravel\Octane\Octane::prepareApplicationForNextOperation();
+        }
+                    /**
+         * Get the container bindings / services that should be pre-resolved by default.
+         *
+         * @static 
+         */ 
+        public static function defaultServicesToWarm()
+        {
+                        return \Laravel\Octane\Octane::defaultServicesToWarm();
+        }
+                    /**
+         * Register a Octane route.
+         *
+         * @static 
+         */ 
+        public static function route($method, $uri, $callback)
+        {
+                        /** @var \Laravel\Octane\Octane $instance */
+                        return $instance->route($method, $uri, $callback);
+        }
+                    /**
+         * Determine if a route exists for the given method and URI.
+         *
+         * @static 
+         */ 
+        public static function hasRouteFor($method, $uri)
+        {
+                        /** @var \Laravel\Octane\Octane $instance */
+                        return $instance->hasRouteFor($method, $uri);
+        }
+                    /**
+         * Invoke the route for the given method and URI.
+         *
+         * @static 
+         */ 
+        public static function invokeRoute($request, $method, $uri)
+        {
+                        /** @var \Laravel\Octane\Octane $instance */
+                        return $instance->invokeRoute($request, $method, $uri);
+        }
+                    /**
+         * Get the registered Octane routes.
+         *
+         * @static 
+         */ 
+        public static function getRoutes()
+        {
+                        /** @var \Laravel\Octane\Octane $instance */
+                        return $instance->getRoutes();
+        }
+                    /**
+         * Register a callback to be called every N seconds.
+         *
+         * @return \Laravel\Octane\Swoole\InvokeTickCallable 
+         * @static 
+         */ 
+        public static function tick($key, $callback, $seconds = 1, $immediate = true)
+        {
+                        /** @var \Laravel\Octane\Octane $instance */
+                        return $instance->tick($key, $callback, $seconds, $immediate);
+        }
          
     }
      
@@ -19502,6 +19615,16 @@
         {            //Method inherited from \Livewire\LivewireManager         
                         /** @var \Livewire\Volt\LivewireManager $instance */
                         return $instance->withCookies($cookies);
+        }
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function withHeaders($headers)
+        {            //Method inherited from \Livewire\LivewireManager         
+                        /** @var \Livewire\Volt\LivewireManager $instance */
+                        return $instance->withHeaders($headers);
         }
                     /**
          * 
@@ -26824,7 +26947,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
-            class Horizon extends \Laravel\Horizon\Horizon {}
+            class Octane extends \Laravel\Octane\Facades\Octane {}
             class Livewire extends \Livewire\Livewire {}
             class SEOManager extends \RalphJSmit\Laravel\SEO\Facades\SEOManager {}
             class Health extends \Spatie\Health\Facades\Health {}

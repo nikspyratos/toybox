@@ -110,7 +110,7 @@ Principles
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
   - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere. Also [Rustywind]() for Tailwind classes.
-  - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope), [Horizon](https://laravel.com/docs/10.x/horizon), and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
+  - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope) and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
   - **Code Quality, Static Analysis, Security analysis**: [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) (with custom configuration to play nice with Duster and be a little less strict), [Enlightn (free version)](https://github.com/enlightn/enlightn/).
 - **CI/CD**: Good old Bash scripts.
 
@@ -155,9 +155,7 @@ In keeping with the spirit of this project, Bash scripts are used for simplicity
 
 Once you've set up one of the methods below, clone/fork this repository into a new repository, create a database in your MySQL instance. run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
 
-Note: By default `init_dev.sh` makes two assumptions:
-- Your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile and `templates/horizon.conf` with the correct username, once `init_dev.sh` is finished.
-- Your local mysql credentials are `root` with an empty password - this is for local development after all. If not, only the last two steps will fail: creating the database, and running migrations & seeders.
+Note: By default `init_dev.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile, `templates/octane.conf` and `templates/soketi.conf` with the correct username, once `init_dev.sh` is finished.
 
 Once the script completes, you can commit the changes to the edited files.
 
@@ -172,7 +170,7 @@ For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
 Other tooling:
 - Rustywind: `brew install avencera/tap/rustywind`
-- `pickle install xx` for extensions - most likely at minimum `openswoole`
+- `pickle install xx` for extensions - most likely at minimum `swoole`/`openswoole`. Note there may be [some issues](https://github.com/FriendsOfPHP/pickle/issues/165) with installing this, so Roadrunner/FrankenPHP for local dev may make more sense.
 
 Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
 
@@ -189,15 +187,11 @@ Follow Linux instructions on WSL2. Not sure all of it will work properly though,
 
 >Laravel Octane supercharges your application's performance by serving your application using high-powered application servers, including Open Swoole, Swoole, and RoadRunner. Octane boots your application once, keeps it in memory, and then feeds it requests at supersonic speeds.
 
-If you'd like to use Laravel Octane for your production server, run `./bin/init_octane.sh`. _after_ `init_dev.sh`. It will:
-- Install the Octane package
-- Initialise it to run with OpenSwoole
-- Modify your Caddyfile to reverse proxy to Octane (with the assumption it will be on port 8000)
-- Modify your `templates/octane.conf` with the correct (assumed) path
-
 The default Octane config will start with one worker per core, and restart workers every 500 requests. To account for this project's dependencies and any potential leaks, Toybox's config is a bit more conservative and will restart workers every 250 requests. You can change this in `templates/octane.conf`.
 
 If you intend to use [Concurrent tasks](https://laravel.com/docs/10.x/octane#concurrent-tasks), you'll need to add `--task-workers=` to the Octane command in `templates/octane.conf`. Per the documentation, start with 6 task workers, and add more if you need them.
+
+If you have issues with installing Swoole on your machine, switch your `OCTANE_SERVER` env variable to `roadrunner` and rerun `php artisan octane:install`.
 
 Due to [local issues with installing openswoole](https://github.com/FriendsOfPHP/pickle/issues/165#issuecomment-1694386076), the `.env.example` sets `OCTANE_SERVER=` to `roadrunner`. If you want to try and run swoole/openswoole locally on Mac, install `pickle` via brew and than run `pickle install openswoole`.
 
@@ -211,17 +205,14 @@ Your first step is to download your project repository from your VCS. Then, run 
 - Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
 - Install PHP (with service config and extensions), Caddy, Redis, and Supervisor
 - Setup Caddy to run your Caddyfile **NB:** Caddy will be set up to be run with the `ubuntu` user and not `caddy`.
-- Install the Horizon config for Supervisor
+- Install the Octane config for Supervisor
 - Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
 
 Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
 
-For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
+If you're using websockets, you will also want to manually copy the `templates/soketi.conf` config over for Supervisor to run Soketi for you.
 
-If you're using Octane, also make sure to run `./bin/provision_octane.sh`. It will:
-- Install OpenSwoole
-- Create a supervisor config for Octane (using the template in `templates/octane.conf`) and start it
-The rest of the required config will have already been done in the `init_octane.sh` run prior.
+For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
 
 #### Deployment
 
@@ -276,7 +267,7 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
 
 ### Post-Setup
 
-- **Create an admin user**: Run the `php artisan app:create-admin-user` command to create an admin user. This will allow you to access Filament at `/admin`, Horizon at `/horizon`, and Telescope at `/telescope`.
+- **Create an admin user**: Run the `php artisan app:create-admin-user` command to create an admin user. This will allow you to access Filament at `/admin`, and Telescope at `/telescope`.
 - **DNS**: You'll need to set up some A records to point to your server's IP for your domain.
 - **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
 - **Laravel Health**: 
@@ -288,11 +279,10 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
   - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
 - **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
 - **Replaces assets**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors with your own.
-- **Landing page**: 
+- **Landing page**:
   - Make sure to change the copy on the provided pages.
   - Assuming these pages are static, make sure they are heavily cached. 
   - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
-- **Queues**: Consult the [Horizon](https://laravel.com/docs/10.x/horizon) documentation on how best to use it for your queues.
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
 
 ---

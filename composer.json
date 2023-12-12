@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel/folio": "^1.0",
         "laravel/framework": "^10.10",
-        "laravel/horizon": "^5.19",
+        "laravel/octane": "^2.1",
         "laravel/sanctum": "^3.2",
         "laravel/telescope": "^4.15",
         "laravel/tinker": "^2.8",
