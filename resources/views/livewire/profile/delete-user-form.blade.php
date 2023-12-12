@@ -58,14 +58,14 @@ new class extends Component
                     id="password"
                     name="password"
                     type="password"
-                    class="mt-1 block w-3/4"
+                    class="block mt-1 w-3/4"
                     placeholder="{{ __('Password') }}"
                 />
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
             </div>
 
-            <div class="mt-6 flex justify-end">
+            <div class="flex justify-end mt-6">
                 <x-secondary-button x-on:click="$dispatch('close')">
                     {{ __('Cancel') }}
                 </x-secondary-button>
