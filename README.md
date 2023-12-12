@@ -376,6 +376,8 @@ Either [Laravel Vapor](https://vapor.laravel.com/) or roll-your-own setup for fr
 
 I recommend [OhDear](https://ohdear.app/?via=nikspyratos). For error monitoring, [Flare](https://flareapp.io) is also good.
 
+[Laravel Pulse](https://laravel.com/docs/master/pulse) is the latest offering in the OSS Laravel suite. Note however it won't work with SQLite databases.
+
 #### Upgrading Laravel & PHP
 
 For upgrading PHP, see [Rector](https://getrector.com/).
@@ -493,12 +495,9 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - [All sorts of policies available for free by Basecamp](https://github.com/basecamp/policies)
 - [GetTerms](https://getterms.io/)
 
-
 ## Future/Next Steps/TODO
 
-- Investigate Laravel pulse
-- Package updates
-- Containers: I'm not intending to create a containerised setup for this, but if you'd like to contribute one, please do!
+- Get FrankenPHP static build working (ideally without Docker overheads)
 - Test the scripts - feedback welcome!
 - Figure out if Larastan is unnecessary if PHP Insights potentially does more
 - [Basic CMS](https://alfrednutile.info/one-class-cms-filament)?

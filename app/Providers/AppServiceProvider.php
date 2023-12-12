@@ -12,8 +12,6 @@ use Spatie\Health\Checks\Checks\DebugModeCheck;
 use Spatie\Health\Checks\Checks\EnvironmentCheck;
 use Spatie\Health\Checks\Checks\OptimizedAppCheck;
 use Spatie\Health\Checks\Checks\QueueCheck;
-use Spatie\Health\Checks\Checks\RedisCheck;
-use Spatie\Health\Checks\Checks\RedisMemoryUsageCheck;
 use Spatie\Health\Checks\Checks\ScheduleCheck;
 use Spatie\Health\Checks\Checks\UsedDiskSpaceCheck;
 use Spatie\Health\Facades\Health;
@@ -44,8 +42,6 @@ class AppServiceProvider extends ServiceProvider
             DebugModeCheck::new(),
             EnvironmentCheck::new(),
             QueueCheck::new(),
-            RedisCheck::new(),
-            RedisMemoryUsageCheck::new()->failWhenAboveMb(1000),
             ScheduleCheck::new()->heartbeatMaxAgeInMinutes(2),
             SecurityAdvisoriesCheck::new(),
             UsedDiskSpaceCheck::new()

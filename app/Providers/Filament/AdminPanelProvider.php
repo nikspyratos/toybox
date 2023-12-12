@@ -11,6 +11,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Navigation\NavigationGroup;
+use Filament\Navigation\NavigationItem;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Widgets\AccountWidget;
@@ -85,6 +86,10 @@ class AdminPanelProvider extends PanelProvider
                     ->label('Core')
                     ->icon('heroicon-o-cpu-chip')
                     ->collapsed(),
+            ])
+            ->navigationItems([
+                NavigationItem::make('Telescope')
+                    ->group('Core'),
             ])
             ->viteTheme('resources/css/filament/admin/theme.css');
     }
