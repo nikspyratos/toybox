@@ -17,8 +17,8 @@ new class extends Component
      */
     public function mount(): void
     {
-        $this->name = Auth::user()->name;
-        $this->email = Auth::user()->email;
+        $this->name = auth()->user()->name;
+        $this->email = auth()->user()->email;
     }
 
     /**
@@ -26,7 +26,7 @@ new class extends Component
      */
     public function updateProfileInformation(): void
     {
-        $user = Auth::user();
+        $user = auth()->user();
 
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -49,7 +49,7 @@ new class extends Component
      */
     public function sendVerification(): void
     {
-        $user = Auth::user();
+        $user = auth()->user();
 
         if ($user->hasVerifiedEmail()) {
             $path = session('url.intended', RouteServiceProvider::HOME);

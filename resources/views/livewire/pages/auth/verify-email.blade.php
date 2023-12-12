@@ -14,7 +14,7 @@ new #[Layout('layouts.guest')] class extends Component
      */
     public function sendVerification(): void
     {
-        if (Auth::user()->hasVerifiedEmail()) {
+        if (auth()->user()->hasVerifiedEmail()) {
             $this->redirect(
                 session('url.intended', RouteServiceProvider::HOME),
                 navigate: true
@@ -23,7 +23,7 @@ new #[Layout('layouts.guest')] class extends Component
             return;
         }
 
-        Auth::user()->sendEmailVerificationNotification();
+        auth()->user()->sendEmailVerificationNotification();
 
         Session::flash('status', 'verification-link-sent');
     }

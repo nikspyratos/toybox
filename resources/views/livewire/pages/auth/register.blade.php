@@ -31,7 +31,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         event(new Registered($user = User::create($validated)));
 
-        Auth::login($user);
+        auth()->login($user);
 
         $this->redirect(RouteServiceProvider::HOME, navigate: true);
     }
