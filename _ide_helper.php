@@ -18526,6 +18526,18 @@
         {
                         return \Illuminate\Support\Str::sanitizeHtml($html);
         }
+                    /**
+         * 
+         *
+         * @see \Filament\Support\SupportServiceProvider::packageBooted()
+         * @param string $value
+         * @return string 
+         * @static 
+         */ 
+        public static function ucwords($value)
+        {
+                        return \Illuminate\Support\Str::ucwords($value);
+        }
          
     }
             /**
@@ -18564,6 +18576,17 @@
         public static function sanitizeHtml()
         {
                         return \Illuminate\Support\Stringable::sanitizeHtml();
+        }
+                    /**
+         * 
+         *
+         * @see \Filament\Support\SupportServiceProvider::packageBooted()
+         * @return \Illuminate\Support\Stringable 
+         * @static 
+         */ 
+        public static function ucwords()
+        {
+                        return \Illuminate\Support\Stringable::ucwords();
         }
          
     }

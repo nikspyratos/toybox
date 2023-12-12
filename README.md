@@ -101,7 +101,6 @@ Principles
   - **Content**:
     - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js and [Laravel Folio](https://laravel.com/docs/10.x/folio)
     - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
-  - **Authorization**: [Spatie Laravel Permission](https://spatie.be/docs/laravel-permission/v5/introduction) with some basic Filament management of roles & permissions.
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
     - [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)

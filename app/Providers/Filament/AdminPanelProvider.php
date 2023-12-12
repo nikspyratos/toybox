@@ -89,7 +89,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationItems([
                 NavigationItem::make('Telescope')
-                    ->group('Core'),
+                    ->group('Core')
+                    ->url('/telescope')
+                    ->openUrlInNewTab(),
             ])
             ->viteTheme('resources/css/filament/admin/theme.css');
     }

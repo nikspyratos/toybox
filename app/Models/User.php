@@ -60,10 +60,6 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
      *
      * @var array<int, string>
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
-
     protected $attributes = [
         'role' => Role::USER,
     ];

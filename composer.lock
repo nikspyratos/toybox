@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce7d78988630c79d73ead06d39fcad39",
+    "content-hash": "ecb19d23613f648287adcfe98c5c81fd",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -1183,16 +1183,16 @@
         },
         {
             "name": "filament/actions",
-            "version": "v3.1.18",
+            "version": "v3.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
-                "reference": "1c913429592cbd0f6228e8e4738e5eb3df8cb325"
+                "reference": "04eea53e61bf0fba6ea12ba82a8d278df613a689"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/actions/zipball/1c913429592cbd0f6228e8e4738e5eb3df8cb325",
-                "reference": "1c913429592cbd0f6228e8e4738e5eb3df8cb325",
+                "url": "https://api.github.com/repos/filamentphp/actions/zipball/04eea53e61bf0fba6ea12ba82a8d278df613a689",
+                "reference": "04eea53e61bf0fba6ea12ba82a8d278df613a689",
                 "shasum": ""
             },
             "require": {
@@ -1230,20 +1230,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2023-12-10T00:21:16+00:00"
+            "time": "2023-12-12T14:20:35+00:00"
         },
         {
             "name": "filament/filament",
-            "version": "v3.1.18",
+            "version": "v3.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/panels.git",
-                "reference": "85988957d2c37b42646082654e9133d838e7d086"
+                "reference": "60680fda3c3ac9bb1bb6149b5f36ba9fe334757a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/panels/zipball/85988957d2c37b42646082654e9133d838e7d086",
-                "reference": "85988957d2c37b42646082654e9133d838e7d086",
+                "url": "https://api.github.com/repos/filamentphp/panels/zipball/60680fda3c3ac9bb1bb6149b5f36ba9fe334757a",
+                "reference": "60680fda3c3ac9bb1bb6149b5f36ba9fe334757a",
                 "shasum": ""
             },
             "require": {
@@ -1295,20 +1295,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2023-12-10T00:21:18+00:00"
+            "time": "2023-12-12T14:20:37+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v3.1.18",
+            "version": "v3.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "7b04f43d152599795581cf21c96a26f6d648e0d6"
+                "reference": "205429c23e8eb0a5df6e4128fb0f269a5544443e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/7b04f43d152599795581cf21c96a26f6d648e0d6",
-                "reference": "7b04f43d152599795581cf21c96a26f6d648e0d6",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/205429c23e8eb0a5df6e4128fb0f269a5544443e",
+                "reference": "205429c23e8eb0a5df6e4128fb0f269a5544443e",
                 "shasum": ""
             },
             "require": {
@@ -1351,20 +1351,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2023-12-10T00:21:13+00:00"
+            "time": "2023-12-12T14:20:36+00:00"
         },
         {
             "name": "filament/infolists",
-            "version": "v3.1.18",
+            "version": "v3.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
-                "reference": "00798e2aa59602e9dc85f56d5d1743d16842125f"
+                "reference": "2f666327755ab6361e122a71a21d306c3bf41ec1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/infolists/zipball/00798e2aa59602e9dc85f56d5d1743d16842125f",
-                "reference": "00798e2aa59602e9dc85f56d5d1743d16842125f",
+                "url": "https://api.github.com/repos/filamentphp/infolists/zipball/2f666327755ab6361e122a71a21d306c3bf41ec1",
+                "reference": "2f666327755ab6361e122a71a21d306c3bf41ec1",
                 "shasum": ""
             },
             "require": {
@@ -1402,20 +1402,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2023-12-07T12:32:29+00:00"
+            "time": "2023-12-12T14:20:34+00:00"
         },
         {
             "name": "filament/notifications",
-            "version": "v3.1.18",
+            "version": "v3.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
-                "reference": "13029b0f257ce9f0f9691b5fe8de933c581d03bc"
+                "reference": "6ed2dc4a4616bf344db7decab0432c36c0900b09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/notifications/zipball/13029b0f257ce9f0f9691b5fe8de933c581d03bc",
-                "reference": "13029b0f257ce9f0f9691b5fe8de933c581d03bc",
+                "url": "https://api.github.com/repos/filamentphp/notifications/zipball/6ed2dc4a4616bf344db7decab0432c36c0900b09",
+                "reference": "6ed2dc4a4616bf344db7decab0432c36c0900b09",
                 "shasum": ""
             },
             "require": {
@@ -1454,20 +1454,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2023-12-07T12:32:30+00:00"
+            "time": "2023-12-12T14:20:34+00:00"
         },
         {
             "name": "filament/support",
-            "version": "v3.1.18",
+            "version": "v3.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
-                "reference": "09d33cb7462dabb249d7cc32fbafb6f567ed8cd6"
+                "reference": "6fbbade84488aecab62ad40f96564cc07c96573f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/support/zipball/09d33cb7462dabb249d7cc32fbafb6f567ed8cd6",
-                "reference": "09d33cb7462dabb249d7cc32fbafb6f567ed8cd6",
+                "url": "https://api.github.com/repos/filamentphp/support/zipball/6fbbade84488aecab62ad40f96564cc07c96573f",
+                "reference": "6fbbade84488aecab62ad40f96564cc07c96573f",
                 "shasum": ""
             },
             "require": {
@@ -1511,20 +1511,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2023-12-10T00:21:13+00:00"
+            "time": "2023-12-12T14:20:36+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v3.1.18",
+            "version": "v3.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "f7251ddedbe3b12c402ea4b55d307f94f13f8bca"
+                "reference": "8303295b87a8e17eef30c7d91e7c692c3fe535ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/f7251ddedbe3b12c402ea4b55d307f94f13f8bca",
-                "reference": "f7251ddedbe3b12c402ea4b55d307f94f13f8bca",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/8303295b87a8e17eef30c7d91e7c692c3fe535ad",
+                "reference": "8303295b87a8e17eef30c7d91e7c692c3fe535ad",
                 "shasum": ""
             },
             "require": {
@@ -1564,20 +1564,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2023-12-10T00:21:14+00:00"
+            "time": "2023-12-12T14:20:39+00:00"
         },
         {
             "name": "filament/widgets",
-            "version": "v3.1.18",
+            "version": "v3.1.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/widgets.git",
-                "reference": "4a1f2e836ede27f9cc32d7ce43172c2d088376f8"
+                "reference": "f7e38b409e419a3675f9f4ed01b3544c566def5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/widgets/zipball/4a1f2e836ede27f9cc32d7ce43172c2d088376f8",
-                "reference": "4a1f2e836ede27f9cc32d7ce43172c2d088376f8",
+                "url": "https://api.github.com/repos/filamentphp/widgets/zipball/f7e38b409e419a3675f9f4ed01b3544c566def5e",
+                "reference": "f7e38b409e419a3675f9f4ed01b3544c566def5e",
                 "shasum": ""
             },
             "require": {
@@ -1608,7 +1608,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2023-12-04T15:57:33+00:00"
+            "time": "2023-12-12T14:20:54+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -6392,578 +6392,6 @@
             "time": "2023-08-25T15:32:17+00:00"
         },
         {
-            "name": "spiral/core",
-            "version": "3.10.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spiral/core.git",
-                "reference": "8f7926025d25734a49d23b127004dd1cab1a7e98"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spiral/core/zipball/8f7926025d25734a49d23b127004dd1cab1a7e98",
-                "reference": "8f7926025d25734a49d23b127004dd1cab1a7e98",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "psr/container": "^1.1|^2.0"
-            },
-            "provide": {
-                "psr/container-implementation": "^1.1|^2.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.5",
-                "phpunit/phpunit": "^10.1",
-                "vimeo/psalm": "^5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.11.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spiral\\Core\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Titov (wolfy-j)",
-                    "email": "wolfy-j@spiralscout.com"
-                },
-                {
-                    "name": "Pavel Butchnev (butschster)",
-                    "email": "pavel.buchnev@spiralscout.com"
-                },
-                {
-                    "name": "Aleksei Gagarin (roxblnfk)",
-                    "email": "alexey.gagarin@spiralscout.com"
-                },
-                {
-                    "name": "Maksim Smakouz (msmakouz)",
-                    "email": "maksim.smakouz@spiralscout.com"
-                }
-            ],
-            "description": "IoC container, IoC scopes, factory, memory, configuration interfaces",
-            "homepage": "https://spiral.dev",
-            "support": {
-                "issues": "https://github.com/spiral/framework/issues",
-                "source": "https://github.com/spiral/core"
-            },
-            "time": "2023-12-05T18:19:25+00:00"
-        },
-        {
-            "name": "spiral/goridge",
-            "version": "4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/roadrunner-php/goridge.git",
-                "reference": "d955f58be1c51daa1eb94a5ddaf4c2daf64ee14e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/roadrunner-php/goridge/zipball/d955f58be1c51daa1eb94a5ddaf4c2daf64ee14e",
-                "reference": "d955f58be1c51daa1eb94a5ddaf4c2daf64ee14e",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-sockets": "*",
-                "php": ">=8.1",
-                "spiral/roadrunner": "^2023"
-            },
-            "require-dev": {
-                "google/protobuf": "^3.22",
-                "infection/infection": "^0.26.1",
-                "jetbrains/phpstorm-attributes": "^1.0",
-                "phpunit/phpunit": "^10.0",
-                "rybakit/msgpack": "^0.7",
-                "vimeo/psalm": "^5.9"
-            },
-            "suggest": {
-                "ext-msgpack": "MessagePack codec support",
-                "ext-protobuf": "Protobuf codec support",
-                "google/protobuf": "(^3.0) Protobuf codec support",
-                "rybakit/msgpack": "(^0.7) MessagePack codec support"
-            },
-            "type": "goridge",
-            "autoload": {
-                "psr-4": {
-                    "Spiral\\Goridge\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Titov (wolfy-j)",
-                    "email": "wolfy-j@spiralscout.com"
-                },
-                {
-                    "name": "Valery Piashchynski",
-                    "homepage": "https://github.com/rustatian"
-                },
-                {
-                    "name": "Aleksei Gagarin (roxblnfk)",
-                    "homepage": "https://github.com/roxblnfk"
-                },
-                {
-                    "name": "Pavel Buchnev (butschster)",
-                    "email": "pavel.buchnev@spiralscout.com"
-                },
-                {
-                    "name": "Maksim Smakouz (msmakouz)",
-                    "email": "maksim.smakouz@spiralscout.com"
-                },
-                {
-                    "name": "RoadRunner Community",
-                    "homepage": "https://github.com/roadrunner-server/roadrunner/graphs/contributors"
-                }
-            ],
-            "description": "High-performance PHP-to-Golang RPC bridge",
-            "homepage": "https://spiral.dev/",
-            "support": {
-                "chat": "https://discord.gg/V6EK4he",
-                "docs": "https://roadrunner.dev/docs",
-                "forum": "https://forum.roadrunner.dev/",
-                "issues": "https://github.com/roadrunner-server/roadrunner/issues",
-                "source": "https://github.com/roadrunner-php/goridge/tree/4.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/roadrunner-server",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-10-03T18:40:43+00:00"
-        },
-        {
-            "name": "spiral/logger",
-            "version": "3.10.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spiral/logger.git",
-                "reference": "771631092ff63339d58a81f0d3aa66cc6c31c327"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spiral/logger/zipball/771631092ff63339d58a81f0d3aa66cc6c31c327",
-                "reference": "771631092ff63339d58a81f0d3aa66cc6c31c327",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1",
-                "psr/log": "1 - 3",
-                "spiral/core": "^3.10.1"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.5",
-                "phpunit/phpunit": "^10.1",
-                "vimeo/psalm": "^5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.11.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spiral\\Logger\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Titov (wolfy-j)",
-                    "email": "wolfy-j@spiralscout.com"
-                },
-                {
-                    "name": "Pavel Butchnev (butschster)",
-                    "email": "pavel.buchnev@spiralscout.com"
-                },
-                {
-                    "name": "Aleksei Gagarin (roxblnfk)",
-                    "email": "alexey.gagarin@spiralscout.com"
-                },
-                {
-                    "name": "Maksim Smakouz (msmakouz)",
-                    "email": "maksim.smakouz@spiralscout.com"
-                }
-            ],
-            "description": "LogFactory and global log listeners",
-            "homepage": "https://spiral.dev",
-            "support": {
-                "issues": "https://github.com/spiral/framework/issues",
-                "source": "https://github.com/spiral/logger"
-            },
-            "time": "2023-12-12T11:45:48+00:00"
-        },
-        {
-            "name": "spiral/roadrunner",
-            "version": "v2023.3.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/roadrunner-server/roadrunner.git",
-                "reference": "6c15487972f1d070025341472829471f3a604871"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/roadrunner-server/roadrunner/zipball/6c15487972f1d070025341472829471f3a604871",
-                "reference": "6c15487972f1d070025341472829471f3a604871",
-                "shasum": ""
-            },
-            "type": "metapackage",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Titov / Wolfy-J",
-                    "email": "wolfy.jd@gmail.com"
-                },
-                {
-                    "name": "Valery Piashchynski",
-                    "homepage": "https://github.com/rustatian"
-                },
-                {
-                    "name": "RoadRunner Community",
-                    "homepage": "https://github.com/roadrunner-server/roadrunner/graphs/contributors"
-                }
-            ],
-            "description": "RoadRunner: High-performance PHP application server and process manager written in Go and powered with plugins",
-            "homepage": "https://roadrunner.dev/",
-            "support": {
-                "chat": "https://discord.gg/V6EK4he",
-                "docs": "https://roadrunner.dev/docs",
-                "forum": "https://forum.roadrunner.dev/",
-                "issues": "https://github.com/roadrunner-server/roadrunner/issues",
-                "source": "https://github.com/roadrunner-server/roadrunner/tree/v2023.3.7"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/roadrunner-server",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-11-30T19:08:45+00:00"
-        },
-        {
-            "name": "spiral/roadrunner-cli",
-            "version": "v2.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/roadrunner-php/cli.git",
-                "reference": "a896e1d05a1fc4ebaf14e68b8b901c851c3b38b2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/roadrunner-php/cli/zipball/a896e1d05a1fc4ebaf14e68b8b901c851c3b38b2",
-                "reference": "a896e1d05a1fc4ebaf14e68b8b901c851c3b38b2",
-                "shasum": ""
-            },
-            "require": {
-                "composer/semver": "^3.2",
-                "ext-json": "*",
-                "php": ">=7.4",
-                "spiral/roadrunner-worker": ">=2.0.2",
-                "spiral/tokenizer": "^2.13 || ^3.0",
-                "symfony/console": "^5.3 || ^6.0 || ^7.0",
-                "symfony/http-client": "^4.4.11 || ^5.0 || ^6.0 || ^7.0",
-                "symfony/polyfill-php80": "^1.22",
-                "symfony/yaml": "^5.4 || ^6.0 || ^7.0"
-            },
-            "require-dev": {
-                "jetbrains/phpstorm-attributes": "^1.0",
-                "vimeo/psalm": "^5.17"
-            },
-            "bin": [
-                "bin/rr"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spiral\\RoadRunner\\Console\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Titov (wolfy-j)",
-                    "email": "wolfy-j@spiralscout.com"
-                },
-                {
-                    "name": "RoadRunner Community",
-                    "homepage": "https://github.com/spiral/roadrunner/graphs/contributors"
-                }
-            ],
-            "description": "RoadRunner: Command Line Interface",
-            "support": {
-                "source": "https://github.com/roadrunner-php/cli/tree/v2.6.0"
-            },
-            "time": "2023-12-05T20:46:56+00:00"
-        },
-        {
-            "name": "spiral/roadrunner-http",
-            "version": "3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/roadrunner-php/http.git",
-                "reference": "7a1f7d0729ad483e9c637ee276f6e910def33f4d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/roadrunner-php/http/zipball/7a1f7d0729ad483e9c637ee276f6e910def33f4d",
-                "reference": "7a1f7d0729ad483e9c637ee276f6e910def33f4d",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": ">=8.1",
-                "psr/http-factory": "^1.0.1",
-                "psr/http-message": "^1.0.1 || ^2.0",
-                "spiral/roadrunner": "^2023.3",
-                "spiral/roadrunner-worker": "^3.1.0"
-            },
-            "require-dev": {
-                "buggregator/trap": "^1.0",
-                "jetbrains/phpstorm-attributes": "^1.0",
-                "nyholm/psr7": "^1.3",
-                "phpunit/phpunit": "^10.0",
-                "symfony/process": "^6.2 || ^7.0",
-                "vimeo/psalm": "^5.9"
-            },
-            "suggest": {
-                "spiral/roadrunner-cli": "Provides RoadRunner installation and management CLI tools"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spiral\\RoadRunner\\Http\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Titov (wolfy-j)",
-                    "email": "wolfy-j@spiralscout.com"
-                },
-                {
-                    "name": "Valery Piashchynski",
-                    "homepage": "https://github.com/rustatian"
-                },
-                {
-                    "name": "Aleksei Gagarin (roxblnfk)",
-                    "homepage": "https://github.com/roxblnfk"
-                },
-                {
-                    "name": "Pavel Buchnev (butschster)",
-                    "email": "pavel.buchnev@spiralscout.com"
-                },
-                {
-                    "name": "Maksim Smakouz (msmakouz)",
-                    "email": "maksim.smakouz@spiralscout.com"
-                },
-                {
-                    "name": "RoadRunner Community",
-                    "homepage": "https://github.com/roadrunner-server/roadrunner/graphs/contributors"
-                }
-            ],
-            "description": "RoadRunner: HTTP and PSR-7 worker",
-            "homepage": "https://spiral.dev/",
-            "support": {
-                "chat": "https://discord.gg/V6EK4he",
-                "docs": "https://roadrunner.dev/docs",
-                "forum": "https://forum.roadrunner.dev/",
-                "issues": "https://github.com/roadrunner-server/roadrunner/issues",
-                "source": "https://github.com/roadrunner-php/http/tree/3.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/roadrunner-server",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-12-05T20:45:38+00:00"
-        },
-        {
-            "name": "spiral/roadrunner-worker",
-            "version": "3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/roadrunner-php/worker.git",
-                "reference": "53f81c3e138a650c4605fcd60cae7c89ef24061f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/roadrunner-php/worker/zipball/53f81c3e138a650c4605fcd60cae7c89ef24061f",
-                "reference": "53f81c3e138a650c4605fcd60cae7c89ef24061f",
-                "shasum": ""
-            },
-            "require": {
-                "composer-runtime-api": "^2.0",
-                "ext-json": "*",
-                "ext-sockets": "*",
-                "php": ">=8.1",
-                "psr/log": "^2.0|^3.0",
-                "spiral/goridge": "^4.1.0",
-                "spiral/roadrunner": "^2023.1"
-            },
-            "require-dev": {
-                "jetbrains/phpstorm-attributes": "^1.0",
-                "phpunit/phpunit": "^10.0",
-                "symfony/var-dumper": "^6.3 || ^7.0",
-                "vimeo/psalm": "^5.9"
-            },
-            "suggest": {
-                "spiral/roadrunner-cli": "Provides RoadRunner installation and management CLI tools"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spiral\\RoadRunner\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Titov (wolfy-j)",
-                    "email": "wolfy-j@spiralscout.com"
-                },
-                {
-                    "name": "Valery Piashchynski",
-                    "homepage": "https://github.com/rustatian"
-                },
-                {
-                    "name": "Aleksei Gagarin (roxblnfk)",
-                    "homepage": "https://github.com/roxblnfk"
-                },
-                {
-                    "name": "Pavel Buchnev (butschster)",
-                    "email": "pavel.buchnev@spiralscout.com"
-                },
-                {
-                    "name": "Maksim Smakouz (msmakouz)",
-                    "email": "maksim.smakouz@spiralscout.com"
-                },
-                {
-                    "name": "RoadRunner Community",
-                    "homepage": "https://github.com/roadrunner-server/roadrunner/graphs/contributors"
-                }
-            ],
-            "description": "RoadRunner: PHP worker",
-            "homepage": "https://spiral.dev/",
-            "support": {
-                "chat": "https://discord.gg/V6EK4he",
-                "docs": "https://roadrunner.dev/docs",
-                "forum": "https://forum.roadrunner.dev/",
-                "issues": "https://github.com/roadrunner-server/roadrunner/issues",
-                "source": "https://github.com/roadrunner-php/worker/tree/3.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/roadrunner-server",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-12-05T19:53:37+00:00"
-        },
-        {
-            "name": "spiral/tokenizer",
-            "version": "3.10.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spiral/tokenizer.git",
-                "reference": "dfbf27114313ae95bbe34e38b7faf5cbf97d4e7c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spiral/tokenizer/zipball/dfbf27114313ae95bbe34e38b7faf5cbf97d4e7c",
-                "reference": "dfbf27114313ae95bbe34e38b7faf5cbf97d4e7c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-tokenizer": "*",
-                "php": ">=8.1",
-                "spiral/core": "^3.10.1",
-                "spiral/logger": "^3.10.1",
-                "symfony/finder": "^5.3.7 || ^6.0 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^10.1",
-                "spiral/attributes": "^2.8|^3.0",
-                "spiral/boot": "^3.10.1",
-                "spiral/files": "^3.10.1",
-                "vimeo/psalm": "^5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.11.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spiral\\Tokenizer\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anton Titov (wolfy-j)",
-                    "email": "wolfy-j@spiralscout.com"
-                },
-                {
-                    "name": "Pavel Butchnev (butschster)",
-                    "email": "pavel.buchnev@spiralscout.com"
-                },
-                {
-                    "name": "Aleksei Gagarin (roxblnfk)",
-                    "email": "alexey.gagarin@spiralscout.com"
-                },
-                {
-                    "name": "Maksim Smakouz (msmakouz)",
-                    "email": "maksim.smakouz@spiralscout.com"
-                }
-            ],
-            "description": "Static Analysis: Class and Invocation locators",
-            "homepage": "https://spiral.dev",
-            "support": {
-                "issues": "https://github.com/spiral/framework/issues",
-                "source": "https://github.com/spiral/tokenizer"
-            },
-            "time": "2023-12-12T11:46:08+00:00"
-        },
-        {
             "name": "symfony/console",
             "version": "v6.4.1",
             "source": {
@@ -7552,176 +6980,6 @@
                 }
             ],
             "time": "2023-10-28T23:12:08+00:00"
-        },
-        {
-            "name": "symfony/http-client",
-            "version": "v7.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-client.git",
-                "reference": "c3e90d09b3c45a5d47170e81a712d51c352cbc68"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/c3e90d09b3c45a5d47170e81a712d51c352cbc68",
-                "reference": "c3e90d09b3c45a5d47170e81a712d51c352cbc68",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "psr/log": "^1|^2|^3",
-                "symfony/http-client-contracts": "^3",
-                "symfony/service-contracts": "^2.5|^3"
-            },
-            "conflict": {
-                "php-http/discovery": "<1.15",
-                "symfony/http-foundation": "<6.4"
-            },
-            "provide": {
-                "php-http/async-client-implementation": "*",
-                "php-http/client-implementation": "*",
-                "psr/http-client-implementation": "1.0",
-                "symfony/http-client-implementation": "3.0"
-            },
-            "require-dev": {
-                "amphp/amp": "^2.5",
-                "amphp/http-client": "^4.2.1",
-                "amphp/http-tunnel": "^1.0",
-                "amphp/socket": "^1.1",
-                "guzzlehttp/promises": "^1.4",
-                "nyholm/psr7": "^1.0",
-                "php-http/httplug": "^1.0|^2.0",
-                "psr/http-client": "^1.0",
-                "symfony/dependency-injection": "^6.4|^7.0",
-                "symfony/http-kernel": "^6.4|^7.0",
-                "symfony/messenger": "^6.4|^7.0",
-                "symfony/process": "^6.4|^7.0",
-                "symfony/stopwatch": "^6.4|^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\HttpClient\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "http"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/http-client/tree/v7.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2023-11-29T08:40:23+00:00"
-        },
-        {
-            "name": "symfony/http-client-contracts",
-            "version": "v3.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/http-client-contracts.git",
-                "reference": "1ee70e699b41909c209a0c930f11034b93578654"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/1ee70e699b41909c209a0c930f11034b93578654",
-                "reference": "1ee70e699b41909c209a0c930f11034b93578654",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "3.4-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Contracts\\HttpClient\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Test/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Generic abstractions related to HTTP clients",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "abstractions",
-                "contracts",
-                "decoupling",
-                "interfaces",
-                "interoperability",
-                "standards"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/http-client-contracts/tree/v3.4.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2023-07-30T20:28:31+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -9547,77 +8805,6 @@
                 }
             ],
             "time": "2023-11-09T08:28:32+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v7.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "0055b230c408428b9b5cde7c55659555be5c0278"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/0055b230c408428b9b5cde7c55659555be5c0278",
-                "reference": "0055b230c408428b9b5cde7c55659555be5c0278",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.2",
-                "symfony/polyfill-ctype": "^1.8"
-            },
-            "conflict": {
-                "symfony/console": "<6.4"
-            },
-            "require-dev": {
-                "symfony/console": "^6.4|^7.0"
-            },
-            "bin": [
-                "Resources/bin/yaml-lint"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Loads and dumps YAML files",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v7.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2023-11-07T10:26:03+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -15044,6 +14231,176 @@
             "time": "2023-07-27T06:33:22+00:00"
         },
         {
+            "name": "symfony/http-client",
+            "version": "v7.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-client.git",
+                "reference": "c3e90d09b3c45a5d47170e81a712d51c352cbc68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/c3e90d09b3c45a5d47170e81a712d51c352cbc68",
+                "reference": "c3e90d09b3c45a5d47170e81a712d51c352cbc68",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "psr/log": "^1|^2|^3",
+                "symfony/http-client-contracts": "^3",
+                "symfony/service-contracts": "^2.5|^3"
+            },
+            "conflict": {
+                "php-http/discovery": "<1.15",
+                "symfony/http-foundation": "<6.4"
+            },
+            "provide": {
+                "php-http/async-client-implementation": "*",
+                "php-http/client-implementation": "*",
+                "psr/http-client-implementation": "1.0",
+                "symfony/http-client-implementation": "3.0"
+            },
+            "require-dev": {
+                "amphp/amp": "^2.5",
+                "amphp/http-client": "^4.2.1",
+                "amphp/http-tunnel": "^1.0",
+                "amphp/socket": "^1.1",
+                "guzzlehttp/promises": "^1.4",
+                "nyholm/psr7": "^1.0",
+                "php-http/httplug": "^1.0|^2.0",
+                "psr/http-client": "^1.0",
+                "symfony/dependency-injection": "^6.4|^7.0",
+                "symfony/http-kernel": "^6.4|^7.0",
+                "symfony/messenger": "^6.4|^7.0",
+                "symfony/process": "^6.4|^7.0",
+                "symfony/stopwatch": "^6.4|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\HttpClient\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "http"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/http-client/tree/v7.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-11-29T08:40:23+00:00"
+        },
+        {
+            "name": "symfony/http-client-contracts",
+            "version": "v3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-client-contracts.git",
+                "reference": "1ee70e699b41909c209a0c930f11034b93578654"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-client-contracts/zipball/1ee70e699b41909c209a0c930f11034b93578654",
+                "reference": "1ee70e699b41909c209a0c930f11034b93578654",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "3.4-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Contracts\\HttpClient\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Test/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Generic abstractions related to HTTP clients",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "abstractions",
+                "contracts",
+                "decoupling",
+                "interfaces",
+                "interoperability",
+                "standards"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/http-client-contracts/tree/v3.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-07-30T20:28:31+00:00"
+        },
+        {
             "name": "symfony/options-resolver",
             "version": "v7.0.0",
             "source": {
@@ -15324,6 +14681,77 @@
                 }
             ],
             "time": "2023-11-30T11:38:21+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v7.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "0055b230c408428b9b5cde7c55659555be5c0278"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/0055b230c408428b9b5cde7c55659555be5c0278",
+                "reference": "0055b230c408428b9b5cde7c55659555be5c0278",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "conflict": {
+                "symfony/console": "<6.4"
+            },
+            "require-dev": {
+                "symfony/console": "^6.4|^7.0"
+            },
+            "bin": [
+                "Resources/bin/yaml-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Loads and dumps YAML files",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/yaml/tree/v7.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-11-07T10:26:03+00:00"
         },
         {
             "name": "ta-tikoma/phpunit-architecture-test",
