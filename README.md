@@ -195,6 +195,8 @@ If you have issues with installing Swoole on your machine, switch your `OCTANE_S
 
 Due to [local issues with installing openswoole](https://github.com/FriendsOfPHP/pickle/issues/165#issuecomment-1694386076), the `.env.example` sets `OCTANE_SERVER=` to `roadrunner`. If you want to try and run swoole/openswoole locally on Mac, install `pickle` via brew and than run `pickle install openswoole`.
 
+To use Octane with Valet, you'll need to [proxy your Valet site to your octane port](https://laravel.com/docs/master/valet#proxying-services).
+
 ### Production
 
 This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server with an `ubuntu` user that has sudo access.
@@ -203,9 +205,9 @@ This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer
 
 Your first step is to download your project repository from your VCS. Then, run `./bin/provision_prod.sh` from the project directory. It will:
 - Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
-- Install PHP (with service config and extensions), Caddy, Redis, and Supervisor
+- Install PHP (with service config and extensions), Caddy, and Supervisor
 - Setup Caddy to run your Caddyfile **NB:** Caddy will be set up to be run with the `ubuntu` user and not `caddy`.
-- Install the Octane config for Supervisor
+- Install the Octane & queue config for Supervisor
 - Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
 
 Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
