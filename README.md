@@ -74,11 +74,6 @@ Principles
 - **Simplified Scaling**: It's cheaper to scale with load balancing & bigger servers, and with minor manual input instead of full automation.
 - **Local is lekker**: Reducing reliance on third-party services while not reducing capabilities.
 
-Evolution
-This project has gone through some changes even before release:
-- SQLite: it seemed more prudent to skip the step and just get going with MariaDB. Also seemed inconsistent to use SQLite for simplicity but then Redis instead of filesystem/php cache/session/queue drivers.
-- Deployer: [lingering issues](https://github.com/deployphp/deployer/issues/3542) and difficulty in testing made it evidently simpler to manage with bash scripts. Envoy is not included for the same reason: any problem it can meaningfully solve is better done either directly in Bash, or for more complexity it's better to use [Envoyer](#deployment).
-
 ## Support this project
 
 - [Buy me a coffee](https://tip-jar.co.za/@thecapegreek)
@@ -97,9 +92,10 @@ This project has gone through some changes even before release:
 ## Components
 
 - **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
-- **Webserver**: [Caddy](https://caddyserver.com/), by default with PHP-FPM but optionally with [Laravel Octane](https://laravel.com/docs/10.x/octane)
-- **Database**: [MariaDB](https://mariadb.org/)
-- **Cache, Queues, Session, Websockets**: [Redis](https://redis.io)
+- **Webserver**: [FrankenPHP](https://frankenphp.dev/): [Caddy](https://caddyserver.com/) merged with your PHP app into one binary, and in Toybox configred to run via [Laravel Octane](https://laravel.com/docs/master/octane)
+- **Database**: [SQLite](https://www.sqlite.org/index.html)
+- **Cache**: Octane cache ([OpenSwoole](https://openswoole.com) driver)
+- **Websockets**: [Soketi](https://soketi.app/)
 - **Application**: [Laravel](https://laravel.com) (duh)
   - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
   - **Content**:
@@ -113,7 +109,7 @@ This project has gone through some changes even before release:
     - [Activity Log](https://filamentphp.com/plugins/pxlrbt-activity-log)
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
-  - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere.
+  - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere. Also [Rustywind]() for Tailwind classes.
   - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope), [Horizon](https://laravel.com/docs/10.x/horizon), and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
   - **Code Quality, Static Analysis, Security analysis**: [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) (with custom configuration to play nice with Duster and be a little less strict), [Enlightn (free version)](https://github.com/enlightn/enlightn/).
 - **CI/CD**: Good old Bash scripts.
@@ -146,7 +142,6 @@ pcntl
 PDO
 Phar
 posix
-redis
 session
 soap
 sockets
@@ -175,7 +170,9 @@ For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 - [Takeout](https://github.com/tighten/takeout) for many more extra services (e.g. Mailhog, ElasticSearch, etc.)
 - [Pickle](https://github.com/FriendsOfPHP/pickle/) for PECL extensions
 
-Make sure to run `pickle install redis` and any other extensions you require prior to initialising this repository.
+Other tooling:
+- Rustywind: `brew install avencera/tap/rustywind`
+- `pickle install xx` for extensions - most likely at minimum `openswoole`
 
 Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
 
@@ -288,7 +285,6 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
   - If using Meilisearch, consider adding the [Meilisearch](https://spatie.be/docs/laravel-health/v1/available-checks/meilisearch) healthcheck.
   - For pinging any other services (e.g. to test network or other services for health), you can add the [Ping](https://spatie.be/docs/laravel-health/v1/available-checks/ping) healthcheck.
   - If you have multiple queues, you can modify the [Queue](https://spatie.be/docs/laravel-health/v1/available-checks/queue) healthcheck accordingly.
-  - To monitor a specific Redis connection, [you can specify the name](https://spatie.be/docs/laravel-health/v1/available-checks/redis#content-customizing-the-thresholds).
   - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
 - **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
 - **Replaces assets**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors with your own.
@@ -458,8 +454,8 @@ You can do most of what is described below with the [infrastructure](#infrastruc
 - **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
 - **Horizontal scale**: Spin more servers up, and stick a load balancer in front of them. Again managed services for this exist, or you can spin up a generic server with Forge/Ploi and use that for it. Just remember to [modify your scheduled tasks to only run on one server](https://laravel.com/docs/10.x/scheduling#running-tasks-on-one-server).
   - This can also be manually done with Caddy with its [load balancing](https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#load-balancing) configuration.
+  - For Soketi, you can also make it [use more cores](https://docs.soketi.app/getting-started/installation/cli-installation#scaling-across-threads-with-pm2) on your server(s) with `pm2`.
 - **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
-- **Octane**: If you've gotten here, are sure your code (and dependencies) won't have memory leaks, and want another option before going with serverless, services or autoscaling, consider switching from PHP-FPM to [Octane](https://laravel.com/docs/10.x/octane).
 - **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.
 
 If you need _even more_ than that:
