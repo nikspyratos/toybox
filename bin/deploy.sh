@@ -19,6 +19,7 @@ php artisan view:cache
 php artisan migrate --force
 sudo systemctl restart php8.2-fpm
 php artisan octane:reload
+sudo supervisorctl start queue
 caddy reload
 ENDSSH
 echo "Done! See above for any potential errors.";

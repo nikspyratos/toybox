@@ -15,6 +15,7 @@ php artisan icons:cache
 php artisan view:cache
 sudo systemctl restart php8.2-fpm
 php artisan octane:reload
+sudo supervisorctl start queue
 caddy reload
 ENDSSH
 echo "Done! See above for any potential errors."

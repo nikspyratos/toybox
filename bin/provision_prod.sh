@@ -43,9 +43,11 @@ sudo apt install -y php8.2-openswoole
 echo "Setting up Supervisor for queue work";sleep 1;
 sudo apt-get install -y supervisor
 sudo cp templates/octane.conf /etc/supervisor/conf.d/
+sudo cp templates/queue.conf /etc/supervisor/conf.d/
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl start octane
+sudo supervisorctl start queue
 # Application
 echo "Setting up application";sleep 1;
 npm install
