@@ -11,12 +11,12 @@ sudo apt update
 sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo apt install -y php8.2 php8.2-fpm php8.2-intl php8.2-curl php8.2-dom php8.2-mbstring php8.2-xml php8.2-sqlite3 php8.2-mysql php8.2-redis composer
+sudo apt install -y php8.3 php8.3-fpm php8.3-intl php8.3-curl php8.3-dom php8.3-mbstring php8.3-xml php8.3-sqlite3 php8.3-mysql composer
 sudo mkdir /etc/systemd/service
-sudo cp ./templates/php8.2-fpm.service /etc/systemd/service/php8.2-fpm.service
-sudo sed -i "s/www-data/caddy/g" /etc/php/8.2/fpm/pool.d/www.conf
+sudo cp ./templates/php8.3-fpm.service /etc/systemd/service/php8.3-fpm.service
+sudo sed -i "s/www-data/caddy/g" /etc/php/8.3/fpm/pool.d/www.conf
 sudo systemctl daemon-reload
-sudo systemctl restart php8.2-fpm
+sudo systemctl restart php8.3-fpm
 # NPM 20
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
 # Caddy
@@ -38,7 +38,7 @@ composer install --no-interaction --optimize-autoloader --no-dev
 # Octane
 sudo add-apt-repository ppa:openswoole/ppa -y
 sudo apt update
-sudo apt install -y php8.2-openswoole
+sudo apt install -y php8.3-openswoole
 # Supervisor
 echo "Setting up Supervisor for queue work";sleep 1;
 sudo apt-get install -y supervisor
@@ -52,7 +52,6 @@ sudo supervisorctl start queue
 echo "Setting up application";sleep 1;
 npm install
 npm run build
-sed -i "s/DB_USERNAME=root/DB_USERNAME=$db_user/g;s/DB_PASSWORD=/DB_PASSWORD=$db_password/g" .env
 php artisan key:generate
 php artisan migrate --force --seed
 php artisan storage:link
