@@ -8,7 +8,7 @@ use Filament\Support\Colors\Color as BaseColor;
 
 class Color extends BaseColor
 {
-    public const Buttercup = [
+    public const BUTTERCUP = [
         50 => '253, 253, 233',
         100 => '253, 251, 196',
         200 => '251, 243, 141',
@@ -21,7 +21,7 @@ class Color extends BaseColor
         900 => '111, 67, 20',
         950 => '65, 35, 7',
     ];
-    public const Matisse = [
+    public const MATISSE = [
         50 => '242, 249, 253',
         100 => '229, 240, 249',
         200 => '197, 225, 242',
@@ -34,7 +34,7 @@ class Color extends BaseColor
         900 => '28, 68, 94',
         950 => '19, 44, 62',
     ];
-    public const Voodoo = [
+    public const VOODOO = [
         50 => '250, 248, 251',
         100 => '245, 241, 246',
         200 => '235, 225, 237',
@@ -47,5 +47,4 @@ class Color extends BaseColor
         900 => '83, 60, 83',
         950 => '50, 32, 50',
     ];
-
 }

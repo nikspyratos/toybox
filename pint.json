@@ -31,6 +31,7 @@
             "anonymous_class": false
         },
         "nullable_type_declaration_for_default_null_value": true,
+        "operator_linebreak": true,
         "ordered_imports": {
             "sort_algorithm": "alpha",
             "imports_order": [
@@ -39,6 +40,8 @@
                 "function"
             ]
         },
+        "ordered_interfaces": true,
+        "ordered_traits": true,
         "php_unit_test_annotation": {
             "style": "annotation"
         },

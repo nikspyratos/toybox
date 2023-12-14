@@ -38,7 +38,12 @@ class ActivitiesRelationManager extends RelationManager
                 TextEntry::make('causer.fullname')
                     ->label('Updated By')
                     ->color(Color::Cyan)
-                    ->url(fn (Activity $activity) => UserResource::getUrl('view', ['record' => $activity->causer])),
+                    ->url(
+                        fn (Activity $activity) => UserResource::getUrl(
+                            'view',
+                            ['record' => $activity->causer]
+                        )
+                    ),
                 TextEntry::make('created_at')
                     ->label('Updated at'),
                 Grid::make(4)
@@ -47,20 +52,30 @@ class ActivitiesRelationManager extends RelationManager
                             ->columnSpan(2)
                             ->schema(function (Activity $activity): array {
                                 $schema = [];
-                                $oldValuesThatChanged = array_diff_assoc($activity->properties->get('old'), $activity->properties->get('attributes'));
+                                $oldValuesThatChanged = array_diff_assoc(
+                                    $activity->properties->get('old'),
+                                    $activity->properties->get('attributes')
+                                );
                                 foreach ($oldValuesThatChanged as $key => $value) {
                                     $schema[] = TextEntry::make($key)->default($value);
                                 }
 
                                 return $schema;
                             })->visible(fn (Activity $activity): bool => Arr::has($activity->properties, 'old')),
-                        Section::make(fn (Activity $activity): string => Arr::has($activity->properties, 'old') ? 'After' : '')
+                        Section::make(
+                            fn (Activity $activity): string => Arr::has($activity->properties, 'old')
+                            ? 'After'
+                            : ''
+                        )
                             ->columnSpan(2)
                             ->schema(function (Activity $activity): array {
                                 $schema = [];
-                                $newValuesThatChanged = array_diff_assoc($activity->properties->get('attributes'), $activity->properties->get('old') ?? []);
+                                $newValuesThatChanged = array_diff_assoc(
+                                    $activity->properties->get('attributes'),
+                                    $activity->properties->get('old') ?? []
+                                );
                                 foreach ($newValuesThatChanged as $key => $value) {
-                                    if ($key == 'password') {
+                                    if ($key === 'password') {
                                         $schema[] = TextEntry::make('Password')->default('Changed');
                                     } elseif (! in_array($key, ['deleted_at', 'last_login_at'])) {
                                         $schema[] = TextEntry::make($key)->default($value);
@@ -97,7 +112,7 @@ class ActivitiesRelationManager extends RelationManager
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([
-                //
+                //Stub
             ])
             ->headerActions([
             ])
