@@ -57,6 +57,81 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\BlogPost
+ *
+ * @property int $id
+ * @property int $author_id
+ * @property string $title
+ * @property string $slug
+ * @property string $seo_description
+ * @property string $content
+ * @property \App\Enumerations\BlogPostStatus $status
+ * @property \Illuminate\Support\Carbon|null $published_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $author
+ * @property \Illuminate\Database\Eloquent\Collection<int, \Spatie\Tags\Tag> $tags
+ * @property-read int|null $tags_count
+ * @method static \Database\Factories\BlogPostFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost query()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereAuthorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereSeoDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withAllTags(\ArrayAccess|\Spatie\Tags\Tag|array|string $tags, ?string $type = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withAllTagsOfAnyType($tags)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withAnyTags(\ArrayAccess|\Spatie\Tags\Tag|array|string $tags, ?string $type = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withAnyTagsOfAnyType($tags)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withoutTags(\ArrayAccess|\Spatie\Tags\Tag|array|string $tags, ?string $type = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withoutTrashed()
+ */
+	class BlogPost extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Tag
+ *
+ * @property int $id
+ * @property array $name
+ * @property array $slug
+ * @property string|null $type
+ * @property int|null $order_column
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag containing(string $name, $locale = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag ordered(string $direction = 'asc')
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereLocale(string $column, string $locale)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereLocales(string $column, array $locales)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereOrderColumn($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Tag withType(?string $type = null)
+ */
+	class Tag extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\User
  *
  * @property int $id
@@ -64,10 +139,10 @@ namespace App\Models{
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
+ * @property \App\Enumerations\Role $role
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \App\Enumerations\Role $role
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Spatie\Activitylog\Models\Activity> $activities
  * @property-read int|null $activities_count
  * @property-read bool $is_admin
@@ -86,6 +161,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  */
 	class User extends \Eloquent implements \Filament\Models\Contracts\FilamentUser, \Filament\Models\Contracts\HasAvatar, \Illuminate\Contracts\Auth\MustVerifyEmail {}
