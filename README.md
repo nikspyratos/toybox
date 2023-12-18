@@ -289,7 +289,7 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
   - If you have multiple queues, you can modify the [Queue](https://spatie.be/docs/laravel-health/v1/available-checks/queue) healthcheck accordingly.
   - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
 - **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
-- **Replaces assets**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors (e.g. in the footer) with your own.
+- **Replaces assets, texts, attributions**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors (e.g. in the footer) with your own. This also applies to any privacy policy and terms of service pages included, as these may have stub values in place.
 - **Landing page**:
   - Make sure to change the copy on the provided pages.
   - Assuming these pages are static, make sure they are heavily cached. 
@@ -515,6 +515,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
   - Octane
   - Static build
 - Payment/subscription authorization stubs
+- Terms & Privacy Policy
 
 ---
 
