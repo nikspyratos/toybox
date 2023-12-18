@@ -3,7 +3,7 @@
             <div class="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-5">
                 <div>
                     <h3 class="mb-6 text-sm font-semibold uppercase dark:text-white text-voodoo-900">Company</h3>
-                    <ul class="text-voodoo-500 dark:text-voodoo-400">
+                    <ul class="dark:text-gray-300 text-voodoo-500">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">About</a>
                         </li>
@@ -20,7 +20,7 @@
                 </div>
                 <div>
                     <h3 class="mb-6 text-sm font-semibold uppercase dark:text-white text-voodoo-900">Help center</h3>
-                    <ul class="text-voodoo-500 dark:text-voodoo-400">
+                    <ul class="dark:text-gray-300 text-voodoo-500">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Discord Server</a>
                         </li>
@@ -37,7 +37,7 @@
                 </div>
                 <div>
                     <h3 class="mb-6 text-sm font-semibold uppercase dark:text-white text-voodoo-900">Legal</h3>
-                    <ul class="text-voodoo-500 dark:text-voodoo-400">
+                    <ul class="dark:text-gray-300 text-voodoo-500">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">Privacy Policy</a>
                         </li>
@@ -51,7 +51,7 @@
                 </div>
                 <div>
                     <h3 class="mb-6 text-sm font-semibold uppercase dark:text-white text-voodoo-900">Company</h3>
-                    <ul class="text-voodoo-500 dark:text-voodoo-400">
+                    <ul class="dark:text-gray-300 text-voodoo-500">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">About</a>
                         </li>
@@ -68,7 +68,7 @@
                 </div>
                 <div>
                     <h3 class="mb-6 text-sm font-semibold uppercase dark:text-white text-voodoo-900">Download</h3>
-                    <ul class="text-voodoo-500 dark:text-voodoo-400">
+                    <ul class="dark:text-gray-300 text-voodoo-500">
                         <li class="mb-4">
                             <a href="#" class="hover:underline">iOS</a>
                         </li>

@@ -136,12 +136,12 @@ name('landing');
     <section class="bg-white dark:bg-gray-900 bg-dots-darker dark:bg-dots-lighter">
         <div class="items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-4 lg:gap-16 lg:py-24 lg:px-6 xl:gap-24">
             <div class="col-span-2 mb-8">
-                <p class="text-lg font-medium text-buttercup-500 dark:text-buttercup-500">Trusted by... some people</p>
+                <p class="text-lg font-medium text-buttercup-500 dark:text-grey-300">Trusted by... some people</p>
                 <h2 class="mt-3 mb-4 text-3xl font-extrabold tracking-tight text-gray-900 md:text-3xl dark:text-white">I'm using Toybox for this very site!</h2>
                 <p class="font-light text-gray-500 sm:text-xl dark:text-gray-300">This page is part demo, part starter - this is the very same landing page you'll see in a default Toybox installation!</p>
                 <div class="pt-6 mt-6 space-y-4 border-t border-gray-200 dark:border-gray-700">
                     <div>
-                      <a href="https://github.com/nikspyratos/toybox" class="inline-flex items-center text-base font-medium text-buttercup-500 dark:text-buttercup-500 dark:hover:text-buttercup-700 hover:text-buttercup-800">
+                      <a href="https://github.com/nikspyratos/toybox" class="inline-flex items-center text-base font-medium text-buttercup-500 dark:text-grey-300 dark:hover:text-buttercup-700 hover:text-buttercup-800">
                           Explore the README
                           <x-heroicon-o-arrow-right class="ml-1 w-5 h-5"></x-heroicon-o-arrow-right>
                       </a>
@@ -150,22 +150,22 @@ name('landing');
             </div>
             <div class="col-span-2 space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
                 <div>
-                    <x-heroicon-s-server class="mb-2 w-10 h-10 md:w-12 md:h-12 text-buttercup-400 dark:text-buttercup-500"></x-heroicon-s-server>
+                    <x-heroicon-s-server class="mb-2 w-10 h-10 md:w-12 md:h-12 text-buttercup-400 dark:text-grey-300"></x-heroicon-s-server>
                     <h3 class="mb-2 text-2xl font-bold dark:text-white">99.99% uptime</h3>
                     <p class="font-light text-gray-500 dark:text-gray-300">...if you don't host on us-east-1 like everyone else.</p>
                 </div>
                 <div>
-                    <x-heroicon-s-users class="mb-2 w-10 h-10 md:w-12 md:h-12 text-buttercup-400 dark:text-buttercup-500"></x-heroicon-s-users>
+                    <x-heroicon-s-users class="mb-2 w-10 h-10 md:w-12 md:h-12 text-buttercup-400 dark:text-grey-300"></x-heroicon-s-users>
                     <h3 class="mb-2 text-2xl font-bold dark:text-white">1+ Users</h3>
                     <p class="font-light text-gray-500 dark:text-gray-300">Does the creator using it count?</p>
                 </div>
                 <div>
-                    <x-heroicon-s-globe-europe-africa class="mb-2 w-10 h-10 md:w-12 md:h-12 text-buttercup-400 dark:text-buttercup-500"></x-heroicon-s-globe-europe-africa>
+                    <x-heroicon-s-globe-europe-africa class="mb-2 w-10 h-10 md:w-12 md:h-12 text-buttercup-400 dark:text-grey-300"></x-heroicon-s-globe-europe-africa>
                     <h3 class="mb-2 text-2xl font-bold dark:text-white">2+ countries</h3>
                     <p class="font-light text-gray-500 dark:text-gray-300">There are at least two countries worldwide.</p>
                 </div>
                 <div>
-                    <x-heroicon-s-shopping-cart class="mb-2 w-10 h-10 md:w-12 md:h-12 text-buttercup-400 dark:text-buttercup-500"></x-heroicon-s-shopping-cart>
+                    <x-heroicon-s-shopping-cart class="mb-2 w-10 h-10 md:w-12 md:h-12 text-buttercup-400 dark:text-grey-300"></x-heroicon-s-shopping-cart>
                     <h3 class="mb-2 text-2xl font-bold dark:text-white">0</h3>
                     <p class="font-light text-gray-500 dark:text-gray-300">Transactions per day. Go launch your MVP!</p>
                 </div>

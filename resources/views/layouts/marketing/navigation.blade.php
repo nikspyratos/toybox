@@ -26,22 +26,22 @@
             <div x-bind:class="{'hidden': !open }" class="justify-between items-center w-full lg:flex lg:order-1 lg:w-auto" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:mt-0 lg:space-x-8">
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 rounded lg:p-0 lg:bg-transparent text-matisse-700 bg-matisse-500 lg:text-matisse-700 dark:text-matisse-400" aria-current="page">Home</a>
+                        <a href="#" class="block py-2 pr-4 pl-3 rounded lg:p-0 lg:bg-transparent text-matisse-600 bg-matisse-500 dark:text-matisse-400" aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-700 lg:hover:bg-transparent lg:hover:text-matisse-700 lg:dark:hover:text-matisse-700 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-700">Company</a>
+                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-600 lg:hover:bg-transparent lg:hover:text-matisse-600 lg:dark:hover:text-matisse-600 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-600">Company</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-700 lg:hover:bg-transparent lg:hover:text-matisse-700 lg:dark:hover:text-matisse-700 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-700">Marketplace</a>
+                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-600 lg:hover:bg-transparent lg:hover:text-matisse-600 lg:dark:hover:text-matisse-600 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-600">Marketplace</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-700 lg:hover:bg-transparent lg:hover:text-matisse-700 lg:dark:hover:text-matisse-700 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-700">Features</a>
+                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-600 lg:hover:bg-transparent lg:hover:text-matisse-600 lg:dark:hover:text-matisse-600 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-600">Features</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-700 lg:hover:bg-transparent lg:hover:text-matisse-700 lg:dark:hover:text-matisse-700 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-700">Team</a>
+                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-600 lg:hover:bg-transparent lg:hover:text-matisse-600 lg:dark:hover:text-matisse-600 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-600">Team</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-700 lg:hover:bg-transparent lg:hover:text-matisse-700 lg:dark:hover:text-matisse-700 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-700">Contact</a>
+                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 lg:p-0 lg:border-0 dark:text-gray-400 dark:border-gray-700 hover:bg-gray-50 text-matisse-600 lg:hover:bg-transparent lg:hover:text-matisse-600 lg:dark:hover:text-matisse-600 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-600">Contact</a>
                     </li>
                 </ul>
             </div>
