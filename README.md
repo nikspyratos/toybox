@@ -26,6 +26,7 @@
     * [3rd-party Services/Tools](#3rd-party-servicestools)
       * [Analytics](#analytics)
       * [Backups](#backups)
+      * [Cache](#cache)
       * [CMS](#cms)
       * [Data Analysis](#data-analysis)
       * [Debugging](#debugging)
@@ -108,9 +109,8 @@ Principles
     - [Activity Log](https://filamentphp.com/plugins/pxlrbt-activity-log)
   - **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) 
   - **Testing**: [PestPHP](https://pestphp.com/)
-  - **Linting**: [Duster](https://github.com/tighten/duster) (includes Laravel Pint) - Minor Pint config changes based on personal style preference, and strict types everywhere. Also [Rustywind]() for Tailwind classes.
   - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope) and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
-  - **Code Quality, Static Analysis, Security analysis**: [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) (with custom configuration to play nice with Duster and be a little less strict), [Enlightn (free version)](https://github.com/enlightn/enlightn/).
+  - **Linting, Code Quality, Static Analysis, Security analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibiltiy, and [Enlightn (free version)](https://github.com/enlightn/enlightn/) for code analysis.
 - **CI/CD**: Good old Bash scripts.
 
 ## Installation/Usage
@@ -246,10 +246,20 @@ These are the next steps you will have to implement yourself for your project as
 
 ### Code Quality & Analysis
 
-Four tools have been included for this: Duster (linting), Larastan (static analysis), PHP Insights (analysis & architecture), Enlightn (security). There are also some default Pest tests for architecture rules as well.
+Five tools have been included for this: 
+- Duster (linting), 
+- Larastan (static analysis), 
+- PHP Insights (analysis & architecture), 
+- Enlightn (security)
+- Rustywind (Tailwind linting). 
+
+There are also some default Pest tests for architecture rules as well.
 You may see some overlap or conflicts in recommendations by these tools - if so, please make an issue so I can adjust the config to avoid the conflict.
 
-By default, you will already have Duster running as a pre-commit hook. The rest are left for you to run as you see fit.
+By default, you will already have Duster & Rustywind running as a pre-commit hook.
+Larastan, PHP Insights, and Enlightn can be run individually, or as a group with the command `composer run analysis`. 
+Note that PHP Insights is configured to automatically fix issues it is able to fix.
+You may also want to look inside `config/insights.php` and add/change any sniffs per your preference - there are some rules that may be too strict for some users.
 
 The commands for all the tools are:
 
@@ -279,7 +289,7 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
   - If you have multiple queues, you can modify the [Queue](https://spatie.be/docs/laravel-health/v1/available-checks/queue) healthcheck accordingly.
   - If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
 - **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
-- **Replaces assets**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors with your own.
+- **Replaces assets**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors (e.g. in the footer) with your own.
 - **Landing page**:
   - Make sure to change the copy on the provided pages.
   - Assuming these pages are static, make sure they are heavily cached. 
@@ -300,6 +310,10 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
 
 - SQLite: [LiteStream](https://litestream.io/)
 - MySQL, volumes, servers, and more: [SnapShooter](https://snapshooter.com/)
+
+#### Cache
+
+[Laravel Response Cache](https://github.com/spatie/laravel-responsecache) is a good starting point for caching frequently accessed & frequently unchanged pages. Beyond that, [Varnish](https://varnish-cache.org/) is excellent and as usual there's a [Spatie package for it](https://github.com/spatie/laravel-varnish).
 
 #### CMS
 
@@ -443,11 +457,12 @@ This package is a starting point, but as your project scales, you may need to ad
 You can do most of what is described below with the [infrastructure](#infrastructure) tools recommended.
 
 - **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows.
-- **Content Delivery Network (CDN)**: Sign up for a service like [Cloudflare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/) to take the edge off of some of your traffic and protect from DDoS attacks.
+- **Caching & Content Delivery Network (CDN)**: Cache frequent application responses with the tools in the [Cache section](#cache). Sign up for a service like [Cloudflare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/) to take the edge off of some of your traffic and protect from DDoS attacks.
 - **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
 - **Horizontal scale**: Spin more servers up, and stick a load balancer in front of them. Again managed services for this exist, or you can spin up a generic server with Forge/Ploi and use that for it. Just remember to [modify your scheduled tasks to only run on one server](https://laravel.com/docs/10.x/scheduling#running-tasks-on-one-server).
   - This can also be manually done with Caddy with its [load balancing](https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#load-balancing) configuration.
   - For Soketi, you can also make it [use more cores](https://docs.soketi.app/getting-started/installation/cli-installation#scaling-across-threads-with-pm2) on your server(s) with `pm2`.
+  - If you stick with SQLite, one of its limitations is that it only allows one write at a time. This is fine until a certain traffic scale, but you can use something like [Marmot](https://maxpert.github.io/marmot/intro) to run multiple SQLite nodes and have them replicated to each other. Note however at this time that you would have to run migrations manually for each node as a separate connection, as Marmot doesn't replicate schema changes to other nodes.
 - **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
 - **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.
 
@@ -496,11 +511,10 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 ## Future/Next Steps/TODO
 
-- Get FrankenPHP static build working (ideally without Docker overheads)
-- Test the scripts - feedback welcome!
-- Figure out if Larastan is unnecessary if PHP Insights potentially does more
-- [Basic CMS](https://alfrednutile.info/one-class-cms-filament)?
-- App changelog page template?
+- FrankenPHP
+  - Octane
+  - Static build
+- Payment/subscription authorization stubs
 
 ---
 
