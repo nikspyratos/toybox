@@ -65,7 +65,7 @@ name('terms');
                 <li class="mb-2">If you forgot to cancel your account a year ago, and there’s been activity on your account since then, we’ll review your account usage and figure out a partial refund based on how many months you used it.</li>
                 <li class="mb-2">If you upgraded your account a few months ago to a higher plan and kept using it in general but you didn’t end up using the extra features, projects, or storage space, we’d consider applying a prorated credit towards future months.</li>
             </ul>
-            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Cancellation and Termination</h2>
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white" id="cancellation-policy">Cancellation and Termination</h2>
             <ol class="mb-4 list-decimal">
                 <li class="mb-2">You are solely responsible for properly canceling your account. Within each of our Services, we provide a simple no-questions-asked cancellation link. An email or phone request to cancel your account is not automatically considered cancellation. If you need help canceling your account, you can always <a class="underline text-matisse-500" href="{{ route('contact-us') }}">contact us</a>.</li>
                 <li class="mb-2">All of your content will be inaccessible from the Services immediately upon account cancellation. Within 30 days, all content will be permanently deleted from active systems and logs. Within 60 days, all content will be permanently deleted from our backups. We cannot recover this information once it has been permanently deleted. If you want to export any data before your account is canceled, .</li>
