@@ -194,7 +194,7 @@ Home
                 <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-300">I could've written some lorem ipsum and called it a day.</p>
             </div>
             <div class="space-y-8 sm:gap-6 lg:grid lg:grid-cols-3 lg:space-y-0 xl:gap-10">
-                <div class="card">
+                <div class="text-center card">
                     <span class="mb-4 text-2xl font-semibold">Starter</span>
                     <p class="headline">Best option for personal use & for your next project.</p>
                     <div class="flex justify-center items-baseline my-8">
@@ -225,7 +225,7 @@ Home
                     </ul>
                     <a href="#" class="cta">Get started</a>
                 </div>
-                <div class="card">
+                <div class="text-center card">
                     <span class="mb-4 text-2xl font-semibold">Company</span>
                     <p class="headline">Relevant for multiple users, extended & premium support.</p>
                     <div class="flex justify-center items-baseline my-8">
@@ -256,7 +256,7 @@ Home
                     </ul>
                     <a href="#" class="cta">Get started</a>
                 </div>
-                <div class="card">
+                <div class="text-center card">
                     <span class="mb-4 text-2xl font-semibold">Enterprise</span>
                     <p class="headline">Best for large scale uses and extended redistribution rights.</p>
                     <div class="flex justify-center items-baseline my-8">

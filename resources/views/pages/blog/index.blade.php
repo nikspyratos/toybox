@@ -26,7 +26,7 @@ Blog
     <h1 class="text-center">Blog</h1>
     @foreach ($posts as $post)
         <a href="{{ $post->getLiveUrl() }}">
-            <div class="mb-8 panel">
+            <div class="mb-8 card">
                 <div class="flex justify-between">
                     <span class="blog-post-title">{{ Str::ucwords($post->title) }}</span>
                     <span class="blog-post-date">{{ $post->published_at->toDateString() }}</span>

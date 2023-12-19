@@ -161,12 +161,12 @@ nav a.inactive {
     @apply p-6 mx-auto bg-slate-100 rounded-lg border border-gray-200 dark:border-gray-800 shadow dark:shadow-slate-400 xl:p-8 dark:bg-gray-800
 }
 
-.panel:hover {
+.card:hover {
     @apply bg-slate-200 border-gray-200 dark:bg-gray-700 dark:border-gray-500
 }
 
 .card {
-    @apply panel flex flex-col mx-auto max-w-lg text-center
+    @apply panel flex flex-col mx-auto max-w-lg
 }
 
 

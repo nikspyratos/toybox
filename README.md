@@ -467,6 +467,7 @@ You can do most of what is described below with the [infrastructure](#infrastruc
   - If you stick with SQLite, one of its limitations is that it only allows one write at a time. This is fine until a certain traffic scale, but you can use something like [Marmot](https://maxpert.github.io/marmot/intro) to run multiple SQLite nodes and have them replicated to each other. Note however at this time that you would have to run migrations manually for each node as a separate connection, as Marmot doesn't replicate schema changes to other nodes.
 - **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
 - **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.
+- **Content**: The included content pages - landing, blog, terms/privacy policy, etc. - are intended as a starting point. As your app grows, it may make more sense to move these pages to a separate CMS rather than include them in your application. 
 
 If you need _even more_ than that:
 - **Splitting into services**: You can split portions of your app into new services, and scale those servers in particular. It's the same as `Separation of concerns`, but for your actual codebase. Note: `service` doesn't have to mean `microservice`.
@@ -517,7 +518,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
   - Octane
   - Static build
 - Payment/subscription authorization stubs
-- Turn styles into components for content pages
+- Blog post TOCs
 - Use laravel-seo on site pages
 
 ---
