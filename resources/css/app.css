@@ -102,7 +102,7 @@ nav a.cta:hover {
 }
 
 main a.btn {
-    @apply inline-flex justify-center items-center py-3 px-5 w-full text-sm font-medium text-center text-gray-900 dark:text-slate-100 bg-gray-100 rounded-lg border border-gray-200 sm:w-auto dark:border-gray-700 hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-500 dark:focus:ring-gray-800
+    @apply inline-flex justify-center items-center py-3 px-5 w-full text-sm font-medium text-center text-gray-900 dark:text-slate-100 bg-gray-100 dark:bg-gray-500 rounded-lg border border-gray-200 sm:w-auto dark:border-gray-700 hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-600 dark:focus:ring-gray-800
 }
 
 main a.link:visited, footer a.link:visited {
