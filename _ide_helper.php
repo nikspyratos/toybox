@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 10.37.1.
+ * Generated for Laravel 10.38.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -19193,6 +19193,15 @@
                         return \Laravel\Octane\Octane::formatExceptionForClient($e, $debug);
         }
                     /**
+         * Write an error message to STDERR or to the SAPI logger if not in CLI mode.
+         *
+         * @static 
+         */ 
+        public static function writeError($message)
+        {
+                        return \Laravel\Octane\Octane::writeError($message);
+        }
+                    /**
          * Concurrently resolve the given callbacks via background tasks, returning the results.
          * 
          * Results will be keyed by their given keys - if a task did not finish, the tasks value will be "false".
@@ -19707,57 +19716,6 @@
         {            //Method inherited from \Livewire\LivewireManager         
                         /** @var \Livewire\Volt\LivewireManager $instance */
                         return $instance->originalMethod();
-        }
-         
-    }
-     
-}
-
-    namespace RalphJSmit\Laravel\SEO\Facades { 
-            /**
-     * 
-     *
-     */ 
-        class SEOManager {
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function SEODataTransformer($transformer)
-        {
-                        /** @var \RalphJSmit\Laravel\SEO\SEOManager $instance */
-                        return $instance->SEODataTransformer($transformer);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function tagTransformer($transformer)
-        {
-                        /** @var \RalphJSmit\Laravel\SEO\SEOManager $instance */
-                        return $instance->tagTransformer($transformer);
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function getTagTransformers()
-        {
-                        /** @var \RalphJSmit\Laravel\SEO\SEOManager $instance */
-                        return $instance->getTagTransformers();
-        }
-                    /**
-         * 
-         *
-         * @static 
-         */ 
-        public static function getSEODataTransformers()
-        {
-                        /** @var \RalphJSmit\Laravel\SEO\SEOManager $instance */
-                        return $instance->getSEODataTransformers();
         }
          
     }
@@ -20600,53 +20558,6 @@
         public static function getPowerJoinExistenceCompareKey()
         {
                         return \Illuminate\Database\Eloquent\Relations\Relation::getPowerJoinExistenceCompareKey();
-        }
-         
-    }
-     
-}
-
-    namespace Illuminate\Http\Client { 
-            /**
-     * 
-     *
-     */ 
-        class Request {
-                    /**
-         * 
-         *
-         * @see \RalphJSmit\Helpers\Laravel\Macros\RequestMacros::register()
-         * @return \Illuminate\Support\Collection 
-         * @static 
-         */ 
-        public static function collect()
-        {
-                        return \Illuminate\Http\Client\Request::collect();
-        }
-         
-    }
-     
-}
-
-    namespace Illuminate\Database\Eloquent\Factories { 
-            /**
-     * 
-     *
-     * @template TModel of \Illuminate\Database\Eloquent\Model
-     * @method $this trashed()
-     */ 
-        class Factory {
-                    /**
-         * 
-         *
-         * @see \Spatie\Translatable\TranslatableServiceProvider::packageRegistered()
-         * @param array|string $locales
-         * @param mixed|null $value
-         * @static 
-         */ 
-        public static function translations($locales, $value)
-        {
-                        return \Illuminate\Database\Eloquent\Factories\Factory::translations($locales, $value);
         }
          
     }
@@ -26924,7 +26835,6 @@ namespace  {
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class Octane extends \Laravel\Octane\Facades\Octane {}
             class Livewire extends \Livewire\Livewire {}
-            class SEOManager extends \RalphJSmit\Laravel\SEO\Facades\SEOManager {}
             class Health extends \Spatie\Health\Facades\Health {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
      
