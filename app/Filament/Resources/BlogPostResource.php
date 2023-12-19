@@ -15,7 +15,7 @@ use Exception;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\SpatieTagsInput;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
@@ -74,7 +74,7 @@ class BlogPostResource extends Resource
                         ->required(),
                     TextInput::make('seo_description')
                         ->required(),
-                    SpatieTagsInput::make('tags'),
+                    TagsInput::make('tags'),
                     Select::make('author_id')
                         ->relationship(name: 'author', titleAttribute: 'name')
                         ->default(auth()->id())
