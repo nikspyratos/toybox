@@ -12,7 +12,7 @@
                         <a href="{{ route('blog-posts.index') }}">Blog</a>
                     </li>
                     <li>
-                        <a href="{{ route('contact-us') }}">Contact</a>
+                        <a href="mailto:{{config('app.contact-email')}}">Contact us</a>
                     </li>
                 </ul>
             </div>

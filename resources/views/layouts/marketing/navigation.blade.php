@@ -29,7 +29,6 @@
                         $navigationRouteNames = [
                             'home' => 'Home',
                             'blog-posts.index' => 'Blog',
-                            'contact-us' => 'Contact'
                         ];
                     @endphp
                     @foreach ($navigationRouteNames as $navigationRouteName => $title)
