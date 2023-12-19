@@ -91,7 +91,9 @@ class BlogPostResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->searchable(),
+                TextColumn::make('title')
+                    ->limit(20)
+                    ->searchable(),
                 TextColumn::make('author.name'),
                 SelectColumn::make('status')->options(EnumHelper::toOptionArray(BlogPostStatus::cases())),
                 TextColumn::make('published_at')
