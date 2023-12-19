@@ -102,6 +102,8 @@ Principles
   - **Content**:
     - [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js and [Laravel Folio](https://laravel.com/docs/10.x/folio)
     - [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
+    - Basic Filament-based CMS for content marketing
+    - [Basecamp-based](https://github.com/basecamp/policies) Terms of Service and Privacy Policy
   - **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
     - [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
     - [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
@@ -515,7 +517,8 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
   - Octane
   - Static build
 - Payment/subscription authorization stubs
-- Terms & Privacy Policy
+- Turn styles into components for content pages
+- Use laravel-seo on site pages
 
 ---
 
