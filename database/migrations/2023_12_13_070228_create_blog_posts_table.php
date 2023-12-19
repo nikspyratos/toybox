@@ -16,9 +16,10 @@ return new class extends Migration
             $table->foreignIdFor(User::class, 'author_id');
             $table->string('title')->index();
             $table->string('slug')->index();
+            $table->string('status')->index();
             $table->text('seo_description');
             $table->text('content');
-            $table->string('status')->index();
+            $table->json('tags');
             $table->timestamp('published_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
