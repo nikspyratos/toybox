@@ -1,3 +1,173 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[x-cloak] {
+    display: none;
+}
+
+body {
+    @apply text-gray-600 dark:text-slate-100 font-sans antialiased min-h-screen bg-slate-50 dark:bg-gray-900
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply mb-6 font-extrabold tracking-tight leading-none
+}
+
+h1 {
+    @apply text-4xl md:text-5xl xl:text-6xl
+}
+
+h2 {
+    @apply text-3xl md:text-4xl xl:text-5xl
+}
+
+h3 {
+    @apply text-2xl md:text-3xl xl:text-4xl
+}
+
+h4 {
+    @apply text-xl md:text-2xl xl:text-3xl
+}
+
+h5 {
+    @apply text-lg md:text-xl xl:text-2xl
+}
+
+h6 {
+    @apply text-lg md:text-lg xl:text-xl
+}
+
+.headline {
+    @apply mb-6 max-w-2xl font-light text-gray-500 dark:text-gray-300 md:text-lg lg:mb-4 lg:text-xl
+}
+
+.subheading {
+    @apply mb-2 font-light text-gray-500 dark:text-gray-300
+}
+
+.emphasis {
+    @apply mb-6 font-semibold text-gray-500 dark:text-slate-100 lg:mb-8
+}
+
+.highlight {
+    @apply text-base font-medium leading-tight text-gray-900 dark:text-slate-100
+}
+
+p, ul {
+    @apply my-4
+}
+
+blockquote {
+    @apply text-xl font-medium text-gray-900 dark:text-slate-100 md:text-2xl
+}
+
+main ul, ol {
+    @apply ml-4
+}
+
+main ul {
+    @apply list-disc
+}
+
+main ol {
+    @apply list-decimal
+}
+
+li {
+    @apply my-2
+}
+
+main {
+    @apply pt-20 lg:pt-28
+}
+
+main a {
+    @apply text-matisse-500
+}
+
+main a.link {
+    @apply underline
+}
+
+main a.cta {
+    @apply py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-center text-slate-100 bg-emerald-700 rounded-lg dark:bg-emerald-600 hover:bg-emerald-800 focus:ring-4 focus:ring-emerald-300 focus:outline-none dark:hover:bg-emerald-700 dark:focus:ring-emerald-800
+}
+
+nav a.cta {
+    @apply py-2.5 px-0 md:px-5 mr-2 mb-2 text-sm font-medium text-center rounded-lg lg:hover:bg-matisse-400 lg:focus:ring-4 lg:focus:ring-matisse-300 lg:focus:outline-none lg:dark:hover:bg-matisse-400 lg:dark:focus:bg-matisse-800
+}
+nav a.cta:hover {
+    @apply lg:text-slate-100
+}
+
+main a.btn {
+    @apply inline-flex justify-center items-center py-3 px-5 w-full text-sm font-medium text-center text-gray-900 dark:text-slate-100 bg-gray-100 rounded-lg border border-gray-200 sm:w-auto dark:border-gray-700 hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 dark:hover:bg-gray-500 dark:focus:ring-gray-800
+}
+
+main a.link:visited, footer a.link:visited {
+    @apply text-voodoo-500
+}
+
+a:hover, footer a:hover, main a.link:hover, a * {
+    @apply text-matisse-400 dark:text-matisse-400
+}
+
+main a:hover span.blog-post-title {
+    @apply text-matisse-400
+}
+
+span.blog-post-title {
+    @apply text-matisse-500
+}
+
+main a:hover span.blog-post-date, main a:hover p.blog-post-description {
+    @apply text-gray-500 dark:text-gray-300
+}
+
+span.blog-post-date, p.blog-post-description {
+    @apply text-gray-600 dark:text-gray-400
+}
+
+footer a {
+    @apply no-underline text-matisse-500
+}
+
+nav a {
+    @apply no-underline text-matisse-500 block py-2 pr-4 pl-3 rounded lg:p-1 lg:bg-transparent
+}
+
+nav a.active {
+    @apply text-slate-100 bg-matisse-400
+}
+
+nav a.inactive {
+    @apply text-gray-500 dark:text-gray-400 lg:hover:bg-transparent lg:hover:text-matisse-400 lg:dark:hover:text-matisse-400 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-400
+}
+
+.primary-section {
+    @apply bg-slate-50 dark:bg-gray-900
+}
+
+.alternate-section {
+    @apply bg-slate-100 dark:bg-gray-800
+}
+
+.faq-button {
+    @apply flex justify-between items-center py-5 w-full font-medium text-left text-gray-900 dark:text-slate-100 border-b border-gray-200 dark:border-gray-700
+}
+
+.panel {
+    @apply p-6 mx-auto bg-slate-100 rounded-lg border border-gray-200 dark:border-gray-800 shadow dark:shadow-slate-400 xl:p-8 dark:bg-gray-800
+}
+
+.panel:hover {
+    @apply bg-slate-200 border-gray-200 dark:bg-gray-700 dark:border-gray-500
+}
+
+.card {
+    @apply panel flex flex-col mx-auto max-w-lg text-center
+}
+
+
+

@@ -1,21 +1,21 @@
 <header x-data="{ open: false }" class="fixed w-full">
     <nav class="py-2.5 bg-white border-gray-200 dark:bg-gray-900">
         <div class="flex flex-wrap justify-between items-center px-4 mx-auto max-w-screen-xl">
-            <a href="#" class="flex items-center">
+            <a class="flex items-center" href="{{ route('home') }}">
                 <img src="{{ asset('images/toybox-logo.png') }}" class="mr-3 h-6 sm:h-9" alt="Toybox Logo" />
-                <span class="self-center text-xl font-semibold text-white whitespace-nowrap dark:text-matisse-400">{{ config('app.name') }}</span>
+                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-matisse-400">{{ config('app.name') }}</span>
             </a>
             <div class="flex items-center lg:order-2">
                 @if (Route::has('login'))
-                        @auth
-                            <a href="{{ url('/dashboard') }}" class="py-2 px-4 text-sm font-medium text-gray-800 rounded-lg sm:mr-2 lg:py-2.5 lg:px-5 hover:bg-gray-100 focus:ring-4 focus:ring-gray-500 focus:outline-none dark:text-matisse-400 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Dashboard</a>
-                        @else
-                            <a href="{{ route('login') }}" class="py-2 px-4 text-sm font-medium text-gray-800 rounded-lg sm:mr-2 lg:py-2.5 lg:px-5 hover:bg-gray-100 focus:ring-4 focus:ring-gray-500 focus:outline-none dark:text-matisse-400 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Log in</a>
+                    @auth
+                        <a class="cta" href="{{ url('/dashboard') }}">Dashboard</a>
+                    @else
+                        <a class="cta" href="{{ route('login') }}">Log in</a>
 
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="py-2 px-4 text-sm font-medium text-gray-800 rounded-lg sm:mr-2 lg:py-2.5 lg:px-5 hover:bg-gray-100 focus:ring-4 focus:ring-gray-500 focus:outline-none dark:text-matisse-400 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Register</a>
-                            @endif
-                        @endauth
+                        @if (Route::has('register'))
+                            <a class="cta" href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
                 @endif
                 <button @click="open = !open" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden dark:text-gray-400 hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 focus:outline-none dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" :aria-expanded="open">
                     <span class="sr-only">Open main menu</span>
@@ -27,7 +27,7 @@
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:mt-0 lg:space-x-8">
                     @php
                         $navigationRouteNames = [
-                            'landing' => 'Home',
+                            'home' => 'Home',
                             'blog-posts.index' => 'Blog',
                             'contact-us' => 'Contact'
                         ];
@@ -36,9 +36,8 @@
                         <li>
                             <a href="{{ route($navigationRouteName) }}"
                                @class([
-                                    'block py-2 pr-4 pl-3 rounded lg:p-0 lg:bg-transparent',
-                                    'text-white lg:text-matisse-600 dark:md:text-matisse-600 bg-matisse-500' => request()->route()->getName() === $navigationRouteName,
-                                    'text-gray-500 dark:text-gray-400 hover:bg-gray-50 lg:hover:bg-transparent lg:hover:text-matisse-600 lg:dark:hover:text-matisse-600 lg:dark:hover:bg-transparent dark:hover:bg-gray-700 dark:hover:text-matisse-600' => request()->route()->getName() !== $navigationRouteName
+                                    'active' => request()->route()->getName() === $navigationRouteName,
+                                    'inactive' => request()->route()->getName() !== $navigationRouteName
                                 ])>
                                 {{ $title }}
                             </a>

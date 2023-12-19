@@ -17,21 +17,23 @@ render(function (View $view) {
 
 @extends('layouts.marketing')
 
+@section('pageTitle')
+Blog
+@endsection
+
 @section('content')
-<section class="bg-gray-50 dark:bg-gray-900">
-    <div class="px-4 pt-8 pb-4 mx-auto w-1/2 max-w-screen-xl lg:pt-24">
-        <h1 class="mb-6 max-w-2xl text-4xl font-extrabold tracking-tight leading-none text-center md:text-5xl xl:text-6xl dark:text-white">Blog</h1>
-        @foreach ($posts as $post)
-            <a href="{{ $post->getLiveUrl() }}">
-                <div class="p-6 mx-auto mb-6 max-w-lg text-gray-900 bg-white rounded-lg border border-gray-100 shadow xl:p-8 dark:text-white dark:bg-gray-800 dark:border-gray-600">
-                    <div class="flex justify-between">
-                        <span class="text-matisse-500">{{ Str::ucwords($post->title) }}</span>
-                        <span class="text-gray-400">{{ $post->published_at->toDateString() }}</span>
-                    </div>
-                    <p class="text-gray-500">{{ Str::limit($post->seo_description) }}</p>
+<section class="px-4 pb-4 mx-auto w-3/4 max-w-xl primary-section">
+    <h1 class="text-center">Blog</h1>
+    @foreach ($posts as $post)
+        <a href="{{ $post->getLiveUrl() }}">
+            <div class="mb-8 panel">
+                <div class="flex justify-between">
+                    <span class="blog-post-title">{{ Str::ucwords($post->title) }}</span>
+                    <span class="blog-post-date">{{ $post->published_at->toDateString() }}</span>
                 </div>
-            </a>
-        @endforeach
-    </div>
+                <p class="blog-post-description">{{ Str::limit($post->seo_description) }}</p>
+            </div>
+        </a>
+    @endforeach
 </section>
 @endsection

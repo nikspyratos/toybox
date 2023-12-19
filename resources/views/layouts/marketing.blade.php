@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'Toybox') }}</title>
+    <title>@yield('pageTitle') | {{ config('app.name', 'Toybox') }}</title>
 
     <!-- Meta SEO -->
-    <meta name="title" content="{{ config('app.name', 'Toybox') }}">
+    <meta name="title" content="@yield('pageTitle') | {{ config('app.name', 'Toybox') }}">
     <meta name="description" content="">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -16,7 +16,7 @@
     <meta name="author" content="Nik.Software">
 
     <!-- Social media share -->
-    <meta property="og:title" content="{{ config('app.name', 'Toybox') }}">
+    <meta property="og:title" content="@yield('pageTitle') | {{ config('app.name', 'Toybox') }}">
     <meta property="og:site_name" content="{{ config('app.name', 'Toybox') }}">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:description" content="A TALL stack starter kit for solopreneurs">
@@ -40,7 +40,9 @@
 </head>
 <body>
     @include('layouts.marketing.navigation')
-    @yield('content')
+    <main>
+        @yield('content')
+    </main>
     @include('layouts.marketing.footer')
     @livewireScripts
 </body>
