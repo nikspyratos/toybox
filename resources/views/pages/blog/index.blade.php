@@ -11,7 +11,9 @@ use function Laravel\Folio\render;
 name('blog-posts.index');
 
 render(function (View $view) {
-    $posts = BlogPost::select(['title', 'slug', 'seo_description', 'published_at'])->get();
+    $posts = BlogPost::select(['id', 'title', 'slug', 'seo_description', 'published_at'])
+        ->published()
+        ->get();
     return $view->with('posts', $posts);
 }); ?>
 

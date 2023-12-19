@@ -5,8 +5,20 @@
 
 @extends('layouts.marketing')
 
-@section('pageTitle')
-{{ $blogPost->title }}
+@section('pageTitle', $blogPost->title)
+@section('pageAuthor', $blogPost->author->name)
+@section('pageDescription', $blogPost->seo_description)
+@section('pageOgType', 'article')
+@section('ogArticleData')
+    <meta property="article:published_time" content="{{ $blogPost->published_at->toIso8601String() }}">
+    <meta property="article:modified_time" content="{{ $blogPost->updated_at->toIso8601String() }}">
+    <meta property="article:author" content="{{ $blogPost->author->name }}">
+    @foreach($blogPost->tags as $tag)
+    <meta property="article:tag" content="{{ $tag->name }}">
+    @endforeach
+@endsection
+@section('ld-json')
+<script type="application/ld+json">{{ $blogPost->getStructuredData() }}</script>
 @endsection
 
 @section('content')

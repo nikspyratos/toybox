@@ -71,12 +71,11 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\User|null $author
- * @property \Illuminate\Database\Eloquent\Collection<int, \Spatie\Tags\Tag> $tags
- * @property-read int|null $tags_count
  * @method static \Database\Factories\BlogPostFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost published()
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost query()
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereAuthorId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereContent($value)
@@ -89,45 +88,10 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withAllTags(\ArrayAccess|\Spatie\Tags\Tag|array|string $tags, ?string $type = null)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withAllTagsOfAnyType($tags)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withAnyTags(\ArrayAccess|\Spatie\Tags\Tag|array|string $tags, ?string $type = null)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withAnyTagsOfAnyType($tags)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withoutTags(\ArrayAccess|\Spatie\Tags\Tag|array|string $tags, ?string $type = null)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withoutTrashed()
  */
 	class BlogPost extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- * App\Models\Tag
- *
- * @property int $id
- * @property array $name
- * @property array $slug
- * @property string|null $type
- * @property int|null $order_column
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|Tag containing(string $name, $locale = null)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Tag newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Tag ordered(string $direction = 'asc')
- * @method static \Illuminate\Database\Eloquent\Builder|Tag query()
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereLocale(string $column, string $locale)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereLocales(string $column, array $locales)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereOrderColumn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Tag withType(?string $type = null)
- */
-	class Tag extends \Eloquent {}
 }
 
 namespace App\Models{

@@ -9,22 +9,26 @@
 
     <!-- Meta SEO -->
     <meta name="title" content="@yield('pageTitle') | {{ config('app.name', 'Toybox') }}">
-    <meta name="description" content="">
-    <meta name="robots" content="index, follow">
+    <meta name="description" content="@yield('pageDescription', config('app.default_description', ''))">
+    <meta name="robots" content="{{ config('app.default_robots') }}">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
-    <meta name="author" content="Nik.Software">
+    <meta name="author" content="@yield('pageAuthor', config('app.name', 'Toybox'))">
 
     <!-- Social media share -->
     <meta property="og:title" content="@yield('pageTitle') | {{ config('app.name', 'Toybox') }}">
     <meta property="og:site_name" content="{{ config('app.name', 'Toybox') }}">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:description" content="A TALL stack starter kit for solopreneurs">
-    <meta property="og:type" content="">
-    <meta property="og:image" content="{{ asset('images/toybox-cover.png') }}">
+    <meta property="og:description" content="@yield('pageDescription', config('app.default_description', ''))">
+    <meta property="og:type" content="@yield('pageOgType', '')">
+    @yield('ogArticleData')
+    <meta property="og:image" content="@yield('pageImage', asset('images/toybox-cover.png'))">
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@nikspyratos" />
-    <meta name="twitter:creator" content="@nikspyratos" />
+    <meta name="twitter:title" content="@yield('pageDescription', config('app.default_description', ''))">
+    <meta name="twitter:description" content="@yield('pageDescription', config('app.default_description', ''))">
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    @yield('ld-json', '')
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
