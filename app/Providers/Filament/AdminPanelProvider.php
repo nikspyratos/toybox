@@ -23,6 +23,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Pboivin\FilamentPeek\FilamentPeekPlugin;
 use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 
@@ -61,6 +62,7 @@ class AdminPanelProvider extends PanelProvider
                     }),
                 FilamentSpatieLaravelHealthPlugin::make()
                     ->usingPage(HealthCheckResults::class),
+                FilamentPeekPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
@@ -93,6 +95,7 @@ class AdminPanelProvider extends PanelProvider
                     ->url('/telescope')
                     ->openUrlInNewTab(),
             ])
+            ->sidebarCollapsibleOnDesktop()
             ->viteTheme('resources/css/filament/admin/theme.css');
     }
 }

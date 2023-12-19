@@ -24,7 +24,6 @@ class BlogPost extends Model
         'seo_description',
         'category',
         'published_at',
-
     ];
 
     protected $attributes = [

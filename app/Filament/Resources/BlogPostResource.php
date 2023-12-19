@@ -26,13 +26,13 @@ use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Pboivin\FilamentPeek\Tables\Actions\ListPreviewAction;
 
 // Credit: https://alfrednutile.info/one-class-cms-filament
 class BlogPostResource extends Resource
@@ -129,7 +129,8 @@ class BlogPostResource extends Resource
                     }),
             ])
             ->actions([
-                ViewAction::make(),
+                ListPreviewAction::make()
+                    ->previewModalData(fn (BlogPost $blogPost): array => ['blogPost' => $blogPost]),
                 EditAction::make(),
                 Action::make('view_live')
                     ->label('View live')

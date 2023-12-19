@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "livewire/volt": "^1.0",
+        "pboivin/filament-peek": "^2.0",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "ralphjsmit/laravel-filament-seo": "^1.2",
         "ralphjsmit/laravel-seo": "^1.4",
