@@ -10,7 +10,6 @@ use App\Filament\Resources\BlogPostResource\Pages\EditBlogPost;
 use App\Filament\Resources\BlogPostResource\Pages\ListBlogPosts;
 use App\Helpers\EnumHelper;
 use App\Models\BlogPost;
-use App\Models\Tag;
 use Exception;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
@@ -27,11 +26,9 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\SelectColumn;
-use Filament\Tables\Columns\SpatieTagsColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Pboivin\FilamentPeek\Tables\Actions\ListPreviewAction;
 
 // Credit: https://alfrednutile.info/one-class-cms-filament
@@ -102,31 +99,12 @@ class BlogPostResource extends Resource
                         ? '(Scheduled) ' . $blogPost->published_at
                         : $blogPost->published_at
                     ),
-                SpatieTagsColumn::make('tags'),
+                TextColumn::make('tags')->badge(),
             ])
             ->filters([
                 SelectFilter::make('status')
                     ->options(EnumHelper::toOptionArray(BlogPostStatus::cases()))
                     ->multiple(),
-                /**
-                 * @NOTE
-                 * This got a bit complicated
-                 * since the Filter would show the object
-                 * { en: "Foo" } and not just "Foo"
-                 */
-                SelectFilter::make('tags')
-                    ->options(Tag::all()
-                        ->pluck('name', 'id')
-                        ->unique())
-                    ->query(function (Builder $query, array $data): Builder {
-                        $tag = (int) data_get($data, 'value');
-
-                        return $query->when($tag, function ($query) use ($tag) {
-                            $query->whereHas('tags', function ($query) use ($tag) {
-                                $query->where('tags.id', '=', $tag);
-                            });
-                        });
-                    }),
             ])
             ->actions([
                 ListPreviewAction::make()

@@ -14,8 +14,8 @@
     <meta property="article:modified_time" content="{{ $blogPost->updated_at->toIso8601String() }}">
     <meta property="article:author" content="{{ $blogPost->author->name }}">
     @foreach($blogPost->tags as $tag)
-    <meta property="article:tag" content="{{ $tag->name }}">
-    @endforeach
+    <meta property="article:tag" content="{{ $tag }}">
+@endforeach
 @endsection
 @section('ld-json')
 <script type="application/ld+json">{{ $blogPost->getStructuredData() }}</script>
