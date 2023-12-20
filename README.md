@@ -39,6 +39,7 @@
       * [Media Library](#media-library)
       * [Mobile](#mobile)
       * [Payment Provider](#payment-provider)
+      * [Security](#security)
       * [Search](#search)
       * [Serverless](#serverless)
       * [Uptime & Monitoring](#uptime--monitoring)
@@ -379,6 +380,10 @@ If you're in Africa, [Paystack](https://paystack.com/) is a solid option (affili
 
 For more options, and whether or not you need an MoR, and taxation info see [here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
 
+#### Security
+
+Have a look at [Securing Laravel](https://securinglaravel.com/about), and packages like [Treblle security headers](https://github.com/Treblle/security-headers) for reference.
+
 #### Search
 
 [Algolia](https://www.algolia.com/) and [Meilisearch](https://www.meilisearch.com) are the ones supported by [Laravel Scout](https://laravel.com/docs/10.x/scout). Meilisearch can be self-hosted, but can be a handful to manage and would still cost a fair bit in storage/RAM requirements, so you might not save much in time & headaches over using cloud.
@@ -517,9 +522,9 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - FrankenPHP
   - Octane
   - Static build
+  - Mercure config (websockets)
 - Payment/subscription authorization stubs
 - Blog post TOCs
-- Use laravel-seo on site pages
 
 ---
 

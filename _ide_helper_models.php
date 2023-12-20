@@ -63,9 +63,10 @@ namespace App\Models{
  * @property int $author_id
  * @property string $title
  * @property string $slug
+ * @property \App\Enumerations\BlogPostStatus $status
  * @property string $seo_description
  * @property string $content
- * @property \App\Enumerations\BlogPostStatus $status
+ * @property array $tags
  * @property \Illuminate\Support\Carbon|null $published_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -86,6 +87,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereSeoDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereTags($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withTrashed()
