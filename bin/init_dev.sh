@@ -5,6 +5,7 @@ prod_app_path="\/home\/ubuntu\/$(basename $PWD)"
 read -p "App Name: " app_name
 read -p "Domain (WITHOUT 'https:// or www.'): " app_domain
 read -p "Database name: " db_name
+read -p "Strict linting hook (y/n)? If yes, 'duster lint' will prevent commits if linting fails: " strict_hooks
 # Replaces MAIL_FROM_ADDRESS
 sed -i.bak "s/example.com=/$app_domain/g" .env.example
 sed -i.bak "s/example.com=/$app_domain/g" .env.prod.example
@@ -20,6 +21,10 @@ sed -i.bak "s/DEPLOYMENT_PATH=/DEPLOYMENT_PATH=$prod_app_path/g" .env.example
 sed -i.bak "s/toybox-laravel.test/$app_domain/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" templates/octane.conf
+if [[ $strict_hooks == *"y"* ]]; then
+  sed -i.bak "s/#strict_e_placeholder/set -e/g" ./hooks/pre-commit
+  sed -i.bak "s/#strict_lint_placeholder/duster lint --dirty/g" ./hooks/pre-commit
+fi
 # Local setup
 git config --local include.path ../.gitconfig
 composer install
