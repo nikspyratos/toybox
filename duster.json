@@ -6,6 +6,7 @@
     "tests"
   ],
   "exclude": [
+    "bootstrap/app.php",
     "tests/fixtures"
   ]
 }
