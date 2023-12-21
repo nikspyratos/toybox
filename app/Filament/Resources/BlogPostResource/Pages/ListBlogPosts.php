@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Resources\BlogPostResource\Pages;
 
 use App\Filament\Resources\BlogPostResource;
-use Filament\Actions;
+use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use Pboivin\FilamentPeek\Pages\Concerns\HasPreviewModal;
 
@@ -18,7 +18,7 @@ class ListBlogPosts extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 
@@ -31,11 +31,4 @@ class ListBlogPosts extends ListRecords
     {
         return 'content';
     }
-
-    //    protected function mutatePreviewModalData(array $data): array
-    //    {
-    //        $data['blogPost'] = $data['recp'];
-    //
-    //        return $data;
-    //    }
 }

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-class Activity extends \Spatie\Activitylog\Models\Activity
+use Spatie\Activitylog\Models\Activity as BaseActivity;
+
+class Activity extends BaseActivity
 {
     //This currently just exists to make DI work for model-dependent things like `artisan make:abc`
     public function getSubjectTitleAttribute(): string
