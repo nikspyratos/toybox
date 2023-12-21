@@ -1,23 +1,15 @@
-{
-	frankenphp
-	order php_server before file_server
-}
-
 www.toybox-laravel.test {
     redir https://toybox-laravel.test{uri} 301
 }
 
 toybox-laravel.test {
-	root * APP_PATH/public/
-	# Enable compression (optional)
-	encode zstd gzip
+    root * APP_PATH/public
+    encode zstd gzip
     file_server
-	# Execute PHP files in the current directory and serve assets
-	php_server {
-		# Required for the public/storage/ dir
-		resolve_root_symlink
-	}
-	log {
+    reverse_proxy 127.0.0.1:8000
+
+    log {
         output file APP_PATH/storage/logs/caddy-access.log
     }
+
 }

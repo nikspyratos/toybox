@@ -12,6 +12,7 @@
   * [Installation/Usage](#installationusage)
     * [Requirements](#requirements)
     * [Local Development](#local-development)
+      * [Cross-platform](#cross-platform)
       * [macOS](#macos)
       * [Linux](#linux)
       * [Windows](#windows)
@@ -94,9 +95,8 @@ Principles
 ## Components
 
 - **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
-- **Webserver**: [FrankenPHP](https://frankenphp.dev/): [Caddy](https://caddyserver.com/) merged with your PHP app into one binary, and in Toybox configred to run via [Laravel Octane](https://laravel.com/docs/master/octane)
+- **Webserver**: [Caddy](https://caddyserver.com/) configred to run via [Laravel Octane](https://laravel.com/docs/master/octane)
 - **Database**: [SQLite](https://www.sqlite.org/index.html)
-- **Cache**: Octane cache ([OpenSwoole](https://openswoole.com) driver)
 - **Websockets**: [Soketi](https://soketi.app/)
 - **Application**: [Laravel](https://laravel.com) (duh)
   - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
@@ -115,6 +115,7 @@ Principles
   - **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope) and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
   - **Linting, Code Quality, Static Analysis, Security analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibiltiy, and [Enlightn (free version)](https://github.com/enlightn/enlightn/) for code analysis.
 - **CI/CD**: Good old Bash scripts.
+- **Cache, queues, etc**: If it's not using a 3rd party component listed above, it's probably using a stock/file driver.
 
 ## Installation/Usage
 
@@ -163,16 +164,19 @@ Once the script completes, you can commit the changes to the edited files.
 
 For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
+The sections below outline the recommended way to work with Toybox on your local system. Please note the included Caddyfile is intended for production use.
+
+#### Cross-platform
+
+- [Mailpit](https://github.com/axllent/mailpit) for emails
+- [Rustywind](https://github.com/avencera/rustywind) for Tailwind linting
+- [Pickle](https://github.com/FriendsOfPHP/pickle) for PHP extensions via PECL
+
 #### macOS
 
 - ([Valet](https://laravel.com/docs/10.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
 - [DBngin](https://dbngin.com/) for Databases & Redis
-- [Takeout](https://github.com/tighten/takeout) for many more extra services (e.g. Mailhog, ElasticSearch, etc.)
-- [Pickle](https://github.com/FriendsOfPHP/pickle/) for PECL extensions
-
-Other tooling:
-- Rustywind: `brew install avencera/tap/rustywind`
-- `pickle install xx` for extensions - most likely at minimum `swoole`/`openswoole`. Note there may be [some issues](https://github.com/FriendsOfPHP/pickle/issues/165) with installing this, so Roadrunner/FrankenPHP for local dev may make more sense.
+- [Takeout](https://github.com/tighten/takeout) for many more extra services (e.g. ElasticSearch)
 
 Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
 
@@ -187,15 +191,9 @@ Follow Linux instructions on WSL2. Not sure all of it will work properly though,
 
 #### Laravel Octane
 
->Laravel Octane supercharges your application's performance by serving your application using high-powered application servers, including Open Swoole, Swoole, and RoadRunner. Octane boots your application once, keeps it in memory, and then feeds it requests at supersonic speeds.
-
 The default Octane config will start with one worker per core, and restart workers every 500 requests. To account for this project's dependencies and any potential leaks, Toybox's config is a bit more conservative and will restart workers every 250 requests. You can change this in `templates/octane.conf`.
 
 If you intend to use [Concurrent tasks](https://laravel.com/docs/10.x/octane#concurrent-tasks), you'll need to add `--task-workers=` to the Octane command in `templates/octane.conf`. Per the documentation, start with 6 task workers, and add more if you need them.
-
-If you have issues with installing Swoole on your machine, switch your `OCTANE_SERVER` env variable to `roadrunner` and rerun `php artisan octane:install`.
-
-Due to [local issues with installing openswoole](https://github.com/FriendsOfPHP/pickle/issues/165#issuecomment-1694386076), the `.env.example` sets `OCTANE_SERVER=` to `roadrunner`. If you want to try and run swoole/openswoole locally on Mac, install `pickle` via brew and than run `pickle install openswoole`.
 
 To use Octane with Valet, you'll need to [proxy your Valet site to your octane port](https://laravel.com/docs/master/valet#proxying-services).
 
@@ -519,10 +517,6 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 ## Future/Next Steps/TODO
 
-- FrankenPHP
-  - Octane
-  - Static build
-  - Mercure config (websockets)
 - Payment/subscription authorization stubs
 - Blog post TOCs
 

@@ -22,7 +22,9 @@
         "spatie/cpu-load-health-check": "^1.0",
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-health": "^1.23",
-        "spatie/security-advisories-health-check": "^1.0"
+        "spatie/security-advisories-health-check": "^1.0",
+        "spiral/roadrunner-cli": "^2.5.0",
+        "spiral/roadrunner-http": "^3.0.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
