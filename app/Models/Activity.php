@@ -12,6 +12,7 @@ class Activity extends BaseActivity
     public function getSubjectTitleAttribute(): string
     {
         if ($this->subject_type === User::class) {
+            /* @phpstan-ignore-next-line */
             return $this->subject->fullname;
         }
 
