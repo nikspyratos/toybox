@@ -1,10 +1,10 @@
 #!/bin/sh
 #strict_e_placeholder
-#strict_lint_placeholder
 #https://laraveldaily.com/post/laravel-pint-pre-commit-hooks-github-actions
 phpFiles=$(git diff --cached --name-only --diff-filter=ACM -- '*.php');
 resourceFiles=$(git diff --cached --name-only --diff-filter=ACM -- resources/);
 vendor/bin/duster fix --dirty
+#strict_lint_placeholder
 #Sort tailwind classes
 rustywind --write resources/
 git add $phpFiles
