@@ -324,6 +324,10 @@ Alternatively, there are plenty of other blog/content site providers out there, 
 
 If you want something free & simple for creating content for your app, consider using [Jigsaw](https://jigsaw.tighten.com/) - a static site generator that uses Markdown & Blade. It's free and easy to use. If hosting it with Github Pages, have a look [here](https://github.com/nikspyratos/thecapegreek-site/blob/master/bin/deploy) on how to remove build artifacts from your main branch.
 
+#### Code Generation
+
+[Blueprint](https://blueprint.laravelshift.com/) by the Laravel Shift team is a great addition.
+
 #### Data Analysis
 
 I highly recommend checking out [Metabase](https://metabase.com) for this. While it's fairly simple to make graphs/dashboards and track database metrics with Laravel/Filament, Metabase is more specialised for the task and separates concerns nicely. It can also be self-hosted!.
@@ -519,6 +523,9 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 - Payment/subscription authorization stubs
 - Blog post TOCs
+- Blog RSS feed
+- Deployments
+  - Handling a shared server? I.e. multiple toybox apps on one server
 
 ---
 

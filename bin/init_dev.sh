@@ -22,8 +22,8 @@ sed -i.bak "s/toybox-laravel.test/$app_domain/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" templates/octane.conf
 if [[ $strict_hooks == *"y"* ]]; then
-  sed -i.bak "s/#strict_e_placeholder/set -e/g" ./hooks/pre-commit
-  sed -i.bak "s/#strict_lint_placeholder/duster lint --dirty/g" ./hooks/pre-commit
+  sed -i.bak "s/#strict_e_placeholder/set -e/g" ./.hooks/pre-commit
+  sed -i.bak "s/#strict_lint_placeholder/duster lint --dirty/g" ./.hooks/pre-commit
 fi
 # Local setup
 git config --local include.path ../.gitconfig
