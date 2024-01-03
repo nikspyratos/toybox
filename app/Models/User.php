@@ -6,7 +6,6 @@ namespace App\Models;
 
 use App\Enumerations\Role;
 use Filament\Models\Contracts\FilamentUser;
-use Filament\Models\Contracts\HasAvatar;
 use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +15,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerifyEmail
+class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 {
     use HasApiTokens, HasFactory, LogsActivity, Notifiable;
 
@@ -25,15 +24,12 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
         'email',
         'email_verified_at',
         'password',
-        'profile_photo_path',
         'role',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
     ];
 
     protected $casts = [
@@ -58,7 +54,7 @@ class User extends Authenticatable implements FilamentUser, HasAvatar, MustVerif
     public function getFilamentAvatarUrl(): ?string
     {
         /** @phpstan-ignore-next-line */
-        return $this->profile_photo_url;
+        return null;
     }
 
     public function getActivitylogOptions(): LogOptions
