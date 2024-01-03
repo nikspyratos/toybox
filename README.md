@@ -269,6 +269,7 @@ The commands for all the tools are:
 
 ```shell
 ./vendor/bin/duster fix
+./vendor/bin/duster lint #Linting may catch issues that fix can't resolve
 ./vendor/bin/phpstan analyse
 php artisan insights
 php artisan enlightn
