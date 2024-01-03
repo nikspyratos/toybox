@@ -27,8 +27,8 @@ if [[ $strict_hooks == *"y"* ]]; then
 fi
 # Local setup
 git config --local include.path ../.gitconfig
-composer install
-npm install
+composer update --no-interaction --prefer-dist --optimize-autoloader
+npm update
 npm run build
 php artisan ide-helper:eloquent
 cp .env.example .env
