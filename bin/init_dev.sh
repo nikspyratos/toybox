@@ -37,5 +37,5 @@ php artisan key:generate
 # artisan migrate --force will create a database for you if one is missing and the connection works. Without --force it will ask.
 php artisan migrate --force --seed
 # Cleanup
-./bin/cleanup_bak.sh
+./bin/cleanup.sh
 echo "Done! See above for any potential errors."
