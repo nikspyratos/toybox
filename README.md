@@ -29,13 +29,16 @@
       * [Backups](#backups)
       * [Cache](#cache)
       * [CMS](#cms)
+      * [Code Generation](#code-generation)
       * [Data Analysis](#data-analysis)
       * [Debugging](#debugging)
       * [Deployment - CI/CD](#deployment---cicd)
       * [Desktop](#desktop)
+      * [Documentation](#documentation)
       * [Event tracking/system notifications](#event-trackingsystem-notifications)
       * [File Storage](#file-storage)
       * [Infrastructure](#infrastructure)
+      * [Logging](#logging)
       * [Mail Provider](#mail-provider-)
       * [Media Library](#media-library)
       * [Mobile](#mobile)
@@ -303,6 +306,10 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
 
 **Remember: this is a list of options, not requirements. You can likely run your SaaS perfectly fine without many of these.**
 
+This list includes both commercial options and open-source, including packages.
+
+For more, search for `awesome-laravel` repos on Github, like [this one](https://github.com/chiraggude/awesome-laravel).
+
 #### Analytics
 
 [Fathom](https://usefathom.com) and [Plausible](https://plausible.io) are great options. If I had to choose: Fathom has more accessible pricing, and is made with Laravel!
@@ -346,6 +353,10 @@ While still in alpha, [NativePHP](https://nativephp.com/) will hopefully be a ve
 
 For a ready-to-go desktop-based database management/admin panel for your application, [Invoker](https://invoker.dev/) is worth a look.
 
+#### Documentation
+
+For documentation within your app, see [LaRecipe](https://github.com/saleem-hadad/larecipe).
+
 #### Event tracking/system notifications
 
 I recommend [LogSnag](https://logsnag.com/).
@@ -361,6 +372,10 @@ Consider using any [S3-compatible storage service](https://gprivate.com/663g4). 
 Open source alternatives include [Deployer](https://deployer.org/), [Eddy](https://eddy.management/), and [VitoDeploy](https://vitodeploy.com/)
 
 Otherwise, generalised provisioning tools like [Ansible](https://www.ansible.com/), [Chef](https://www.chef.io/) or [Puppet](https://www.puppet.com/) should work.
+
+#### Logging
+
+[Laravel Pail](https://github.com/laravel/pail) gives `tail`-like log tracking in your terminal, for any log driver. For application monitoring, see [Uptime & Monitoring](#uptime--monitoring)
 
 #### Mail Provider 
 
