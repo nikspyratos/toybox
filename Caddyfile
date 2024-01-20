@@ -1,3 +1,8 @@
+{
+	frankenphp
+	order php_server before file_server
+}
+
 www.toybox-laravel.test {
     redir https://toybox-laravel.test{uri} 301
 }
@@ -5,8 +10,12 @@ www.toybox-laravel.test {
 toybox-laravel.test {
     root * APP_PATH/public
     encode zstd gzip
-    file_server
-    reverse_proxy 127.0.0.1:8000
+    php_server {
+		# Required for the public/storage/ dir
+		resolve_root_symlink
+	}
+
+    #mercure_placeholder
 
     log {
         output file APP_PATH/storage/logs/caddy-access.log

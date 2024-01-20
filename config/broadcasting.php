@@ -56,6 +56,12 @@ return [
             'connection' => 'default',
         ],
 
+        'mercure' => [
+            'driver' => 'mercure',
+            'url' => env('MERCURE_URL', 'http://localhost:3000/.well-known/mercure'),
+            'secret' => env('MERCURE_SECRET', 'aVerySecretKey'),
+        ],
+
         'log' => [
             'driver' => 'log',
         ],

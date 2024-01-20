@@ -19,5 +19,7 @@ yarn-error.log
 /.vscode
 rr
 .rr.yaml
+frankenphp
 database/database.sqlite
+database/pulse.sqlite
 *.bak
