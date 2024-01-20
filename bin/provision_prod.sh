@@ -36,18 +36,7 @@ caddy reload
 echo "Installing composer packages";sleep 1;
 composer install --no-interaction --optimize-autoloader --no-dev
 # Octane
-sudo add-apt-repository ppa:openswoole/ppa -y
-sudo apt update
-sudo apt install -y php8.3-openswoole
-# Supervisor
-echo "Setting up Supervisor for queue work";sleep 1;
-sudo apt-get install -y supervisor
-sudo cp templates/octane.conf /etc/supervisor/conf.d/
-sudo cp templates/queue.conf /etc/supervisor/conf.d/
-sudo supervisorctl reread
-sudo supervisorctl update
-sudo supervisorctl start octane
-sudo supervisorctl start queue
+artisan octane:install --server=roadrunner -n
 # Application
 echo "Setting up application";sleep 1;
 npm install
@@ -57,4 +46,13 @@ php artisan migrate --force --seed
 php artisan storage:link
 echo "Installing Laravel cron schedule";sleep 1;
 crontab templates/cron
+# Supervisor
+echo "Setting up Supervisor for queue work";sleep 1;
+sudo apt-get install -y supervisor
+sudo cp templates/octane.conf /etc/supervisor/conf.d/
+sudo cp templates/queue.conf /etc/supervisor/conf.d/
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl start octane
+sudo supervisorctl start queue
 echo -e "Installation complete! Please change your Caddyfile's instances of APP_PATH and your .env DEPLOYMENT_PATH value to $app_path";

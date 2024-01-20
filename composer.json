@@ -19,7 +19,9 @@
         "pboivin/filament-peek": "^2.0",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "spatie/cpu-load-health-check": "^1.0",
-        "spatie/laravel-activitylog": "^4.7"
+        "spatie/laravel-activitylog": "^4.7",
+        "spiral/roadrunner-cli": "^2.6",
+        "spiral/roadrunner-http": "^3.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
