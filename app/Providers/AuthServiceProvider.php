@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Stub
+        $isAdminCallback = function (User $user) {
+            return $user->is_admin;
+        };
+        Gate::define('viewPulse', $isAdminCallback);
+        Gate::define('viewTelescope', $isAdminCallback);
     }
 }

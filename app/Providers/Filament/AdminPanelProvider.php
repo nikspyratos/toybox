@@ -6,7 +6,6 @@ namespace App\Providers\Filament;
 
 use App\Filament\Color;
 use App\Filament\Pages\Dashboard;
-use App\Filament\Pages\HealthCheckResults;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -25,7 +24,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Pboivin\FilamentPeek\FilamentPeekPlugin;
 use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
-use ShuvroRoy\FilamentSpatieLaravelHealth\FilamentSpatieLaravelHealthPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -60,8 +58,6 @@ class AdminPanelProvider extends PanelProvider
                         'staging' => Color::Orange,
                         default => Color::Blue,
                     }),
-                FilamentSpatieLaravelHealthPlugin::make()
-                    ->usingPage(HealthCheckResults::class),
                 FilamentPeekPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
@@ -85,17 +81,24 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 NavigationGroup::make()
-                    ->label('Core')
+                    ->label('App Health')
                     ->icon('heroicon-o-cpu-chip')
                     ->collapsed(),
             ])
             ->navigationItems([
+                NavigationItem::make('Pulse')
+                    ->group('App Health')
+                    ->url('/pulse')
+                    ->openUrlInNewTab()
+                    ->visible(config('pulse.enabled')),
                 NavigationItem::make('Telescope')
-                    ->group('Core')
+                    ->group('App Health')
                     ->url('/telescope')
-                    ->openUrlInNewTab(),
+                    ->openUrlInNewTab()
+                    ->visible(config('telescope.enabled')),
             ])
             ->sidebarCollapsibleOnDesktop()
-            ->viteTheme('resources/css/filament/admin/theme.css');
+            ->viteTheme('resources/css/filament/admin/theme.css')
+            ->unsavedChangesAlerts();
     }
 }

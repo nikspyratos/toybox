@@ -99,9 +99,9 @@ Principles
 ## Components
 
 -   **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
--   **Webserver**: [Caddy](https://caddyserver.com/) configred to run via [Laravel Octane](https://laravel.com/docs/master/octane)
--   **Database**: [SQLite](https://www.sqlite.org/index.html)
--   **Websockets**: [Soketi](https://soketi.app/)
+-   **Webserver**: [Laravel Octane](https://laravel.com/docs/master/octane) via [FrankenPHP](https://frankenphp.dev) (i.e. [Caddy](https://caddyserver.com/)) 
+-   **Database**: MySQL
+-   **Websockets**: [Mercure via FrankenPHP](https://frankenphp.dev/docs/mercure/)
 -   **Application**: [Laravel](https://laravel.com) (duh)
     -   **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
     -   **Content**:
@@ -112,12 +112,11 @@ Principles
     -   **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
         -   [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
         -   [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
-        -   [Filament Laravel Health](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-health)
         -   [Activity Log](https://filamentphp.com/plugins/pxlrbt-activity-log)
     -   **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum)
     -   **Testing**: [PestPHP](https://pestphp.com/)
-    -   **Observability/Metrics**: [Laravel Telescope](https://laravel.com/docs/10.x/telescope) and [Laravel Health](https://spatie.be/docs/laravel-health/v1/introduction)
-    -   **Linting, Code Quality, Static Analysis, Security analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [TailwindCSS Prettier Plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibiltiy, and [Enlightn (free version)](https://github.com/enlightn/enlightn/) for code analysis.
+    -   **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/10.x/pulse) and [Laravel Telescope](https://laravel.com/docs/10.x/telescope)
+    -   **Linting, Code Quality, Static Analysis, Security analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibiltiy, and [Enlightn (free version)](https://github.com/enlightn/enlightn/) for code analysis.
 -   **CI/CD**: Good old Bash scripts.
 -   **Cache, queues, etc**: If it's not using a 3rd party component listed above, it's probably using a stock/file driver.
 
@@ -174,7 +173,7 @@ The sections below outline the recommended way to work with Toybox on your local
 #### Cross-platform
 
 -   [Mailpit](https://github.com/axllent/mailpit) for emails
--   [TailwindCSS Prettier Plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) for Tailwind linting - just add your editor's Prettier extension
+-   [Rustywind](https://github.com/avencera/rustywind) for Tailwind class order linting.
 -   [Pickle](https://github.com/FriendsOfPHP/pickle) for PHP extensions via PECL
 
 #### macOS
@@ -261,12 +260,12 @@ Five tools have been included for this:
 -   Larastan (static analysis),
 -   PHP Insights (analysis & architecture),
 -   Enlightn (security)
--   Prettier (Tailwind linting).
+-   Rustywind (Tailwind linting).
 
 There are also some default Pest tests for architecture rules as well.
 You may see some overlap or conflicts in recommendations by these tools - if so, please make an issue so I can adjust the config to avoid the conflict.
 
-By default, you will already have Duster running as a pre-commit hook. Prettier is best run with a plugin in your editor.
+By default, you will already have Duster & Rustywind running as a pre-commit hook.
 Larastan, PHP Insights, and Enlightn can be run individually, or as a group with the command `composer run analysis`.
 Note that PHP Insights is configured to automatically fix issues it is able to fix.
 You may also want to look inside `config/insights.php` and add/change any sniffs per your preference - there are some rules that may be too strict for some users.

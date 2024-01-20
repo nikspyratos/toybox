@@ -5,6 +5,7 @@ prod_app_path="\/home\/ubuntu\/$(basename $PWD)"
 read -p "App Name: " app_name
 read -p "Domain (WITHOUT 'https:// or www.'): " app_domain
 read -p "Database name: " db_name
+read -p "Include Mercure for websockets (y/n)?: " install_mercure
 # Replaces MAIL_FROM_ADDRESS
 sed -i.bak "s/example.com=/$app_domain/g" .env.example
 sed -i.bak "s/example.com=/$app_domain/g" .env.prod.example
@@ -22,6 +23,10 @@ sed -i.bak "s/APP_PATH/$prod_app_path/g" templates/octane.conf
 # Local setup
 git config --local include.path ../.gitconfig
 composer update --no-interaction --prefer-dist --optimize-autoloader
+if [[ $install_mercure == *"y"* ]]; then
+  awk '{gsub(/#mercure_placeholder/, "mercure {\n        publisher_jwt {env.MERCURE_PUBLISHER_JWT_KEY}\n        subscriber_jwt {env.MERCURE_SUBSCRIBER_JWT_KEY}\n    }")} 1' Caddyfile > tmp && mv tmp Caddyfile
+  composer require mvanduijker/laravel-mercure-broadcaster
+fi
 npm update
 npm run build
 php artisan ide-helper:eloquent
