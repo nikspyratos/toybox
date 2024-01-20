@@ -99,9 +99,9 @@ Principles
 ## Components
 
 -   **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
--   **Webserver**: [Laravel Octane](https://laravel.com/docs/master/octane) via [FrankenPHP](https://frankenphp.dev) (i.e. [Caddy](https://caddyserver.com/)) 
+-   **Webserver**: [Caddy](https://caddyserver.com/) configred to run via [Laravel Octane](https://laravel.com/docs/master/octane) 
 -   **Database**: MySQL
--   **Websockets**: [Mercure via FrankenPHP](https://frankenphp.dev/docs/mercure/)
+-   **Websockets**: [Soketi](https://soketi.app/)
 -   **Application**: [Laravel](https://laravel.com) (duh)
     -   **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
     -   **Content**:
