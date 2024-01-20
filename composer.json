@@ -11,20 +11,15 @@
         "laravel/folio": "^1.0",
         "laravel/framework": "^10.10",
         "laravel/octane": "^2.1",
+        "laravel/pulse": "^1.0@beta",
         "laravel/sanctum": "^3.2",
-        "laravel/telescope": "^4.15",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.0",
         "livewire/volt": "^1.0",
         "pboivin/filament-peek": "^2.0",
         "pxlrbt/filament-environment-indicator": "^2.0",
-        "shuvroroy/filament-spatie-laravel-health": "^2.0",
         "spatie/cpu-load-health-check": "^1.0",
-        "spatie/laravel-activitylog": "^4.7",
-        "spatie/laravel-health": "^1.23",
-        "spatie/security-advisories-health-check": "^1.0",
-        "spiral/roadrunner-cli": "^2.5.0",
-        "spiral/roadrunner-http": "^3.0.1"
+        "spatie/laravel-activitylog": "^4.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",
@@ -35,13 +30,14 @@
         "laravel/breeze": "^1.26",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
+        "laravel/telescope": "^4.17",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "nunomaduro/phpinsights": "^2.8",
         "pestphp/pest": "^2.0",
         "pestphp/pest-plugin-drift": "^2.2",
         "pestphp/pest-plugin-laravel": "^2.0",
-        "pestphp/pest-plugin-type-coverage": "^2.0",
+        "pestphp/pest-plugin-type-coverage": "^2.8",
         "spatie/laravel-ignition": "^2.0",
         "tightenco/duster": "^2.2"
     },
@@ -84,7 +80,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope"
+            ]
         }
     },
     "config": {
@@ -97,6 +95,6 @@
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "beta",
     "prefer-stable": true
 }
