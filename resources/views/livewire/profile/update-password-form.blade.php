@@ -28,7 +28,7 @@ new class extends Component
             throw $e;
         }
 
-        auth()->user()->update([
+        Auth::user()->update([
             'password' => Hash::make($validated['password']),
         ]);
 
