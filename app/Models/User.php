@@ -53,7 +53,6 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 
     public function getFilamentAvatarUrl(): ?string
     {
-        /** @phpstan-ignore-next-line */
         return null;
     }
 
