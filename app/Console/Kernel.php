@@ -18,8 +18,6 @@ class Kernel extends ConsoleKernel
     {
         // Chores
         $schedule->command('telescope:prune')->daily();
-        $schedule->command(DispatchQueueCheckJobsCommand::class)->everyMinute();
-        $schedule->command(ScheduleCheckHeartbeatCommand::class)->everyMinute();
     }
 
     /**
