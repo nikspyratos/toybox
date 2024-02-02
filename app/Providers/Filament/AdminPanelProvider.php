@@ -90,12 +90,12 @@ class AdminPanelProvider extends PanelProvider
                     ->group('App Health')
                     ->url('/pulse')
                     ->openUrlInNewTab()
-                    ->visible(config('pulse.enabled')),
+                    ->visible((bool)config('pulse.enabled')),
                 NavigationItem::make('Telescope')
                     ->group('App Health')
                     ->url('/telescope')
                     ->openUrlInNewTab()
-                    ->visible(config('telescope.enabled')),
+                    ->visible((bool)config('telescope.enabled')),
             ])
             ->sidebarCollapsibleOnDesktop()
             ->viteTheme('resources/css/filament/admin/theme.css')

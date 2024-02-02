@@ -487,6 +487,7 @@ This package is a starting point, but as your project scales, you may need to ad
 
 You can do most of what is described below with the [infrastructure](#infrastructure) tools recommended.
 
+-   **Test speed**: Consider implementing [parallel testing](https://laravel.com/docs/10.x/testing#running-tests-in-parallel) if your test suite grows large. It is not included by default in Toybox as it actually takes slightly _longer_ to run with this small test suite.
 -   **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows.
 -   **Caching & Content Delivery Network (CDN)**: Cache frequent application responses with the tools in the [Cache section](#cache). Sign up for a service like [Cloudflare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/) to take the edge off of some of your traffic and protect from DDoS attacks.
 -   **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
