@@ -5,3 +5,5 @@ resourceFiles=$(git diff --cached --name-only --diff-filter=ACM -- resources/);
 vendor/bin/duster fix --dirty
 #Sort tailwind classes
 rustywind --write resources/
+git add $phpFiles
+git add $resourceFiles
