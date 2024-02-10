@@ -30,6 +30,7 @@
       * [Cache](#cache)
       * [CMS](#cms)
       * [Code Generation](#code-generation)
+      * [Containerisation](#containerisation)
       * [Data Analysis](#data-analysis)
       * [Debugging](#debugging)
       * [Deployment - CI/CD](#deployment---cicd)
@@ -39,7 +40,7 @@
       * [File Storage](#file-storage)
       * [Infrastructure](#infrastructure)
       * [Logging](#logging)
-      * [Mail Provider](#mail-provider-)
+      * [Mail Provider](#mail-provider)
       * [Media Library](#media-library)
       * [Mobile](#mobile)
       * [Payment Provider](#payment-provider)
@@ -101,7 +102,7 @@ Principles
 -   **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
 -   **Webserver**: [Caddy](https://caddyserver.com/) configred to run via [Laravel Octane](https://laravel.com/docs/master/octane) 
 -   **Database**: MySQL
--   **Websockets**: [Soketi](https://soketi.app/)
+-   **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 -   **Application**: [Laravel](https://laravel.com) (duh)
     -   **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
     -   **Content**:
@@ -341,6 +342,10 @@ If you want something free & simple for creating content for your app, consider 
 
 [Blueprint](https://blueprint.laravelshift.com/) by the Laravel Shift team is a great addition.
 
+#### Containerisation
+
+Beyond Docker, check out [Colima](https://github.com/abiosoft/colima) (macOS + Linux) and [Orbstack](https://orbstack.dev/) (macOS) as alternative runtimes that will save your system resources.
+
 #### Data Analysis
 
 I highly recommend checking out [Metabase](https://metabase.com) for this. While it's fairly simple to make graphs/dashboards and track database metrics with Laravel/Filament, Metabase is more specialised for the task and separates concerns nicely. It can also be self-hosted!.
@@ -352,6 +357,8 @@ If you're a `dd` fan, [Ray](https://myray.app/) is a great addition.
 #### Deployment - CI/CD
 
 Forge & Ploi offer deployment, but [Envoyer](https://envoyer.io/) is a great addition.
+
+As a deployment management layer over Docker, see [Kamal](https://kamal-deploy.org/)
 
 #### Desktop
 
@@ -441,7 +448,13 @@ For more recommendations, see [here](https://writing.nikspyratos.com/Perceptions
 
 #### Websockets
 
-[Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options in this space, which will be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation). If you want to DIY, see [below](#other-tools-not-included).
+[Laravel Reverb](https://reverb.laravel.com/) is one of the newest ecosystem additions for this exact purpose.
+
+[Soketi](https://soketi.app/) and [Laravel Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) are a good alternatives.
+
+[Pusher](https://pusher.com) and [Ably](https://ably.com) are great paid options.
+
+All options are to be used alongside [Laravel Echo](https://laravel.com/docs/10.x/broadcasting#client-side-installation). If you want to DIY, see [below](#other-tools-not-included).
 
 ---
 
@@ -452,13 +465,13 @@ For more recommendations, see [here](https://writing.nikspyratos.com/Perceptions
     -   **OpenAPI/Swagger**: [l5-swagger](https://github.com/DarkaOnLine/L5-Swagger) is great here - must-use for writing great APIs. Otherwise, [Scramble](https://scramble.dedoc.co/) is a new entry in the scene.
     -   **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) does the job without much overhead.
 -   **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient. For exports from Filament tables, there's also [Filament Excel](https://github.com/pxlrbt/filament-excel) which uses Laravel Excel under the hood.
--   **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout), [Websockets](https://beyondco.de/docs/laravel-websockets/getting-started/introduction) (and [client](https://laravel.com/docs/10.x/broadcasting#client-side-installation)).
+-   **More Laravel goodies**: [Social login](https://laravel.com/docs/10.x/socialite), [Feature Flags](https://laravel.com/docs/10.x/pennant), [OAuth2](https://laravel.com/docs/10.x/passport), [Search](https://laravel.com/docs/10.x/scout).
 -   **Manual backups**: [Laravel Backup](https://github.com/spatie/laravel-backup) (with [Filament plugin](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup)). If using SQLite you can just do a file download of your database with the `Storage` facade.
 -   **2FA, Password reset, token management**: For more secure access to admin panels, consider adding [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy). Especially useful if you have a customer-facing Filament panel.
 -   **Media Management**: Try out [Spatie Media Library](https://spatie.be/docs/laravel-medialibrary/v10/introduction) alongside [Filament's plugin](https://filamentphp.com/plugins/filament-spatie-media-library).
 -   **Alternative Eloquent Drivers**: [Sushi](https://github.com/calebporzio/sushi) is an array driver, while [Orbit](https://github.com/ryangjchandler/orbit) is a flat file driver. These can be useful for things like CMSes, or loading data into Filament tables (which rely on the Eloquent query builder) without needing a database-driven model.
 -   **Fixture data**: [Squire](https://github.com/squirephp/squire) adds static fixtures (e.g. airport, country code, currency, timezone) available through Eloquent.
--   **Provisioning & Deployment**: [Deployer](https://deployer.org/).
+-   **Provisioning & Deployment**: There are many tools here, but I'd recommend keeping it simple with one of: Docker, Ansible, or even plain Bash scripts. Otherwise, look at 
 -   **Application settings**: [Spatie Laravel Settings](https://github.com/spatie/laravel-settings) + [Filament Spatie Settings](https://filamentphp.com/plugins/filament-spatie-settings)
 -   **Security**: Enlightn recommends adding a Content Security Policy. This is easily doable with [Spatie's CSP package](https://github.com/spatie/laravel-csp).
 
@@ -493,7 +506,7 @@ You can do most of what is described below with the [infrastructure](#infrastruc
 -   **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
 -   **Horizontal scale**: Spin more servers up, and stick a load balancer in front of them. Again managed services for this exist, or you can spin up a generic server with Forge/Ploi and use that for it. Just remember to [modify your scheduled tasks to only run on one server](https://laravel.com/docs/10.x/scheduling#running-tasks-on-one-server).
     -   This can also be manually done with Caddy with its [load balancing](https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#load-balancing) configuration.
-    -   For Soketi, you can also make it [use more cores](https://docs.soketi.app/getting-started/installation/cli-installation#scaling-across-threads-with-pm2) on your server(s) with `pm2`.
+    -   Laravel Reverb can be scaled [with Redis]()
     -   If you stick with SQLite, one of its limitations is that it only allows one write at a time. This is fine until a certain traffic scale, but you can use something like [Marmot](https://maxpert.github.io/marmot/intro) to run multiple SQLite nodes and have them replicated to each other. Note however at this time that you would have to run migrations manually for each node as a separate connection, as Marmot doesn't replicate schema changes to other nodes.
 -   **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
 -   **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.
