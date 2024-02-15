@@ -162,7 +162,7 @@ return [
         'exceptions' => true,  // Exception displayer
         'log' => true,  // Logs from Monolog (merged in messages if enabled)
         'db' => true,  // Show database (PDO) queries and bindings
-        'views' => false,  // Views with their data - Disabled for local Filament performance
+        'views' => true,  // Views with their data - Disabled for local Filament performance
         'route' => true,  // Current route information
         'auth' => false, // Display Laravel authentication status
         'gate' => true,  // Display Laravel Gate checks
