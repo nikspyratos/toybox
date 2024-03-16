@@ -28,6 +28,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.10",
         "barryvdh/laravel-ide-helper": "^3.0",
+        "enlightn/enlightn": "dev-l11-compatibility",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^2.8",
         "laravel/breeze": "^2.0",
@@ -98,5 +99,11 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/laravel-shift/enlightn.git"
+        }
+    ]
 }
