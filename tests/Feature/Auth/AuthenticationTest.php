@@ -3,15 +3,14 @@
 declare(strict_types=1);
 
 use App\Models\User;
-use App\Providers\AppServiceProvider;
 use Livewire\Volt\Volt;
 
 test('login screen can be rendered', function () {
     $response = $this->get('/login');
 
     $response
-        ->assertSeeVolt('pages.auth.login')
-        ->assertOk();
+        ->assertOk()
+        ->assertSeeVolt('pages.auth.login');
 });
 
 test('users can authenticate using the login screen', function () {
@@ -25,7 +24,7 @@ test('users can authenticate using the login screen', function () {
 
     $component
         ->assertHasNoErrors()
-        ->assertRedirect(AppServiceProvider::HOME);
+        ->assertRedirect(route('dashboard', absolute: false));
 
     $this->assertAuthenticated();
 });
@@ -54,8 +53,8 @@ test('navigation menu can be rendered', function () {
     $response = $this->get('/dashboard');
 
     $response
-        ->assertSeeVolt('layout.navigation')
-        ->assertOk();
+        ->assertOk()
+        ->assertSeeVolt('layout.navigation');
 });
 
 test('users can logout', function () {
