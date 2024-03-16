@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "filament/filament": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/folio": "^1.0",
@@ -78,7 +78,8 @@
         ],
         "analysis": [
             "./vendor/bin/phpstan analyse",
-            "@php artisan insights --fix -v -n"
+            "@php artisan insights --fix -v -n",
+            "@php artisan enlightn"
         ]
     },
     "extra": {

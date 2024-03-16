@@ -125,7 +125,7 @@ Principles
 
 ### Requirements
 
-You will need PHP 8.2 alongside some extensions (at least the [Laravel defaults](https://laravel.com/docs/10.x/deployment#server-requirements) and `intl`)
+You will need PHP 8.3 alongside some extensions (at least the [Laravel defaults](https://laravel.com/docs/10.x/deployment#server-requirements) and `intl`)
 
 A good starting point of extensions that should cover most apps is:
 
@@ -559,6 +559,7 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 ## Future/Next Steps/TODO
 
+-   Enlightn + Pulse release versions
 -   Payment/subscription authorization stubs
 -   Blog post TOCs
 -   Blog RSS feed

@@ -16,8 +16,9 @@ php artisan config:cache
 php artisan event:cache
 php artisan icons:cache
 php artisan view:cache
+php artisan filament:cache-components
 php artisan migrate --force
-sudo systemctl restart php8.2-fpm
+sudo systemctl restart php8.3-fpm
 php artisan octane:reload
 sudo supervisorctl start queue
 caddy reload
