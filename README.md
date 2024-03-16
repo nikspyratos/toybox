@@ -101,7 +101,7 @@ Principles
 
 -   **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
 -   **Webserver**: [Caddy](https://caddyserver.com/) configred to run via [Laravel Octane](https://laravel.com/docs/master/octane) 
--   **Database**: MySQL
+-   **Database**: SQLite
 -   **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 -   **Application**: [Laravel](https://laravel.com) (duh)
     -   **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
@@ -119,7 +119,7 @@ Principles
     -   **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/10.x/pulse) and [Laravel Telescope](https://laravel.com/docs/10.x/telescope)
     -   **Linting, Code Quality, Static Analysis, Security analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibiltiy, and [Enlightn (free version)](https://github.com/enlightn/enlightn/) for code analysis.
 -   **CI/CD**: Good old Bash scripts.
--   **Cache, queues, etc**: If it's not using a 3rd party component listed above, it's probably using a stock/file driver.
+-   **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, Cache, Queue & Pulse have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
 
 ## Installation/Usage
 

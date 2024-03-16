@@ -111,10 +111,26 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
-        'pulse' => [
+        'pulse_db' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
             'database' => env('PULSE_DATABASE', database_path('pulse.sqlite')),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+
+        'cache_db' => [
+            'driver' => 'sqlite',
+            'url' => env('DB_URL'),
+            'database' => env('CACHE_DATABASE', database_path('cache.sqlite')),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+
+        'queue_db' => [
+            'driver' => 'sqlite',
+            'url' => env('DB_URL'),
+            'database' => env('QUEUE_DATABASE', database_path('queue.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],

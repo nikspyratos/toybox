@@ -14,8 +14,8 @@ return new class extends PulseMigration
             return;
         }
 
-        if (Schema::connection('pulse')->hasTable('pulse')) {
-            Schema::connection('pulse')->create('pulse_values', function (Blueprint $table) {
+        if (! Schema::connection('pulse_db')->hasTable('pulse_values')) {
+            Schema::connection('pulse_db')->create('pulse_values', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedInteger('timestamp');
                 $table->string('type');
@@ -31,8 +31,9 @@ return new class extends PulseMigration
                 $table->index('type'); // For fast lookups and purging...
                 $table->unique(['type', 'key_hash']); // For data integrity and upserts...
             });
-
-            Schema::create('pulse_entries', function (Blueprint $table) {
+        }
+        if (! Schema::connection('pulse_db')->hasTable('pulse_entries')) {
+            Schema::connection('pulse_db')->create('pulse_entries', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedInteger('timestamp');
                 $table->string('type');
@@ -49,8 +50,9 @@ return new class extends PulseMigration
                 $table->index('key_hash'); // For mapping...
                 $table->index(['timestamp', 'type', 'key_hash', 'value']); // For aggregate queries...
             });
-
-            Schema::create('pulse_aggregates', function (Blueprint $table) {
+        }
+        if (! Schema::connection('pulse_db')->hasTable('pulse_aggregates')) {
+            Schema::connection('pulse_db')->create('pulse_aggregates', function (Blueprint $table) {
                 $table->id();
                 $table->unsignedInteger('bucket');
                 $table->unsignedMediumInteger('period');
@@ -75,8 +77,8 @@ return new class extends PulseMigration
 
     public function down(): void
     {
-        Schema::connection('pulse')->dropIfExists('pulse_values');
-        Schema::connection('pulse')->dropIfExists('pulse_entries');
-        Schema::connection('pulse')->dropIfExists('pulse_aggregates');
+        Schema::connection('pulse_db')->dropIfExists('pulse_values');
+        Schema::connection('pulse_db')->dropIfExists('pulse_entries');
+        Schema::connection('pulse_db')->dropIfExists('pulse_aggregates');
     }
 };

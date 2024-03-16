@@ -62,7 +62,7 @@ return [
         'driver' => env('PULSE_STORAGE_DRIVER', 'database'),
 
         'database' => [
-            'connection' => env('PULSE_DB_CONNECTION', null),
+            'connection' => env('PULSE_DB_CONNECTION', 'pulse_db'),
             'chunk' => 1000,
         ],
     ],
