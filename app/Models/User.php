@@ -32,14 +32,17 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         'remember_token',
     ];
 
-    protected $casts = [
-        'role' => Role::class,
-        'email_verified_at' => 'datetime',
-    ];
-
     protected $attributes = [
         'role' => Role::USER,
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'role' => Role::class,
+            'email_verified_at' => 'datetime',
+        ];
+    }
 
     public function getIsAdminAttribute(): bool
     {
