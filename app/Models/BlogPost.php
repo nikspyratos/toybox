@@ -31,11 +31,14 @@ class BlogPost extends Model
         'status' => BlogPostStatus::DRAFT,
     ];
 
-    protected $casts = [
-        'status' => BlogPostStatus::class,
-        'published_at' => 'datetime',
-        'tags' => 'array',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'status' => BlogPostStatus::class,
+            'published_at' => 'datetime',
+            'tags' => 'array',
+        ];
+    }
 
     public function scopePublished(Builder $query): void
     {

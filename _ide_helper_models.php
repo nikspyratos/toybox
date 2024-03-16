@@ -13,7 +13,7 @@
 
 namespace App\Models{
 /**
- * App\Models\Activity
+ * 
  *
  * @property int $id
  * @property string|null $log_name
@@ -58,7 +58,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\BlogPost
+ * 
  *
  * @property int $id
  * @property int $author_id
@@ -99,7 +99,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * App\Models\User
+ * 
  *
  * @property int $id
  * @property string $name
