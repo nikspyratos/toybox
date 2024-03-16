@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Feature\Auth;
 
 use App\Providers\AppServiceProvider;
-use App\Providers\RouteServiceProvider;
 use Livewire\Volt\Volt;
 
 test('registration screen can be rendered', function () {

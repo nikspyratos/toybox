@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Providers\AppServiceProvider;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
+use App\Providers\AppServiceProvider;
 use Livewire\Volt\Volt;
 
 test('login screen can be rendered', function () {
