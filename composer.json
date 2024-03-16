@@ -28,7 +28,6 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.10",
         "barryvdh/laravel-ide-helper": "^3.0",
-        "enlightn/enlightn": "^2.5",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^2.8",
         "laravel/breeze": "^2.0",
@@ -39,7 +38,6 @@
         "nunomaduro/collision": "^8.0",
         "nunomaduro/phpinsights": "^2.8",
         "pestphp/pest": "^2.23",
-        "pestphp/pest-plugin-drift": "^2.2",
         "pestphp/pest-plugin-laravel": "^2.2",
         "pestphp/pest-plugin-type-coverage": "^2.8",
         "roave/security-advisories": "dev-latest",
@@ -79,8 +77,7 @@
         ],
         "analysis": [
             "./vendor/bin/phpstan analyse",
-            "@php artisan insights --fix -v -n",
-            "@php artisan enlightn"
+            "@php artisan insights --fix -v -n"
         ]
     },
     "extra": {
