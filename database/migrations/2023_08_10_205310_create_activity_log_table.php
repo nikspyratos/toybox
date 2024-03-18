@@ -10,16 +10,23 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::connection(config('activitylog.database_connection'))->create(config('activitylog.table_name'), function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('log_name')->nullable();
-            $table->text('description');
-            $table->nullableMorphs('subject', 'subject');
-            $table->nullableMorphs('causer', 'causer');
-            $table->json('properties')->nullable();
-            $table->timestamps();
-            $table->index('log_name');
-        });
+        $connection = config('activitylog.database_connection');
+        $tableName = config('activitylog.table_name');
+        if (! Schema::connection($connection)->hasTable($tableName)) {
+            Schema::connection($connection)->create(
+                $tableName,
+                function (Blueprint $table) {
+                    $table->bigIncrements('id');
+                    $table->string('log_name')->nullable();
+                    $table->text('description');
+                    $table->nullableMorphs('subject', 'subject');
+                    $table->nullableMorphs('causer', 'causer');
+                    $table->json('properties')->nullable();
+                    $table->timestamps();
+                    $table->index('log_name');
+                }
+            );
+        }
     }
 
     public function down(): void

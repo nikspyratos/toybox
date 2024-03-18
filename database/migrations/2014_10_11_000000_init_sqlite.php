@@ -9,7 +9,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        $connections = ['sqlite', 'pulse_db', 'cache_db', 'queue_db'];
+        $connections = ['sqlite', 'activity_db', 'cache_db', 'pulse_db', 'queue_db', 'telescope_db'];
         foreach ($connections as $connection) {
             DB::connection($connection)
                 ->statement(
