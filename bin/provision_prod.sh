@@ -11,7 +11,7 @@ sudo apt update
 sudo apt install -y lsb-release gnupg2 ca-certificates apt-transport-https software-properties-common
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update
-sudo apt install -y php8.3 php8.3-gd php8.3-intl php8.3-curl php8.3-dom php8.3-mbstring php8.3-xml php8.3-sqlite3 php8.3-mysql composer
+sudo apt install -y php8.3 php8.3-event php8.3-gd php8.3-intl php8.3-curl php8.3-dom php8.3-mbstring php8.3-xml php8.3-sqlite3 php8.3-mysql composer
 sudo mkdir /etc/systemd/service
 sudo systemctl daemon-reload
 # NPM 20

@@ -119,7 +119,7 @@ Principles
     -   **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/10.x/pulse) and [Laravel Telescope](https://laravel.com/docs/10.x/telescope)
     -   **Linting, Code Quality, Static Analysis, Security analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibiltiy, and [Enlightn (free version)](https://github.com/enlightn/enlightn/) for code analysis.
 -   **CI/CD**: Good old Bash scripts.
--   **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, Cache, Queue & Pulse have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
+-   **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, ActivityLog, Cache, Queue, Pulse & Telescope have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
 
 ## Installation/Usage
 
@@ -163,7 +163,7 @@ In keeping with the spirit of this project, Bash scripts are used for simplicity
 
 Once you've set up one of the methods below, clone/fork this repository into a new repository, create a database in your MySQL instance. run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
 
-Note: By default `init_dev.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile.prod, `templates/octane.conf` and `templates/soketi.conf` with the correct username, once `init_dev.sh` is finished.
+Note: By default `init_dev.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile.prod, `templates/octane.conf` and `templates/reverb.conf` with the correct username, once `init_dev.sh` is finished.
 
 Once the script completes, you can commit the changes to the edited files.
 
@@ -218,7 +218,7 @@ Your first step is to download your project repository from your VCS. Then, run 
 
 Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
 
-If you're using websockets, you will also want to manually copy the `templates/soketi.conf` config over for Supervisor to run Soketi for you.
+If you're using websockets, you will also want to manually copy the `templates/reverb.conf` config over for Supervisor to run reverb for you.
 
 For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
 

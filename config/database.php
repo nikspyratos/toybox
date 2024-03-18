@@ -111,10 +111,10 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
-        'pulse_db' => [
+        'activity_db' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
-            'database' => env('PULSE_DATABASE', database_path('pulse.sqlite')),
+            'database' => env('ACTIVITY_DATABASE', database_path('activities.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
@@ -127,10 +127,26 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'pulse_db' => [
+            'driver' => 'sqlite',
+            'url' => env('DB_URL'),
+            'database' => env('PULSE_DATABASE', database_path('pulse.sqlite')),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+
         'queue_db' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
             'database' => env('QUEUE_DATABASE', database_path('queue.sqlite')),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+
+        'telescope_db' => [
+            'driver' => 'sqlite',
+            'url' => env('DB_URL'),
+            'database' => env('TELESCOPE_DATABASE', database_path('telescope.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],

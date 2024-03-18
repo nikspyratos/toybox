@@ -8,6 +8,7 @@ localhost {
     encode zstd gzip
     file_server
     php_server
+    reverse_proxy 127.0.0.1:8080
 
     log {
         output file ./storage/logs/caddy-access.log
