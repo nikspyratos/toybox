@@ -212,8 +212,7 @@ Your first step is to download your project repository from your VCS. Then, run 
 
 -   Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
 -   Install PHP (with service config and extensions), Caddy, and Supervisor
--   Setup Caddy to run your Caddyfile **NB:** Caddy will be set up to be run with the `ubuntu` user and not `caddy`.
--   Install the Octane & queue config for Supervisor
+-   Install the Octane, queue config for Supervisor
 -   Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
 
 Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
@@ -500,13 +499,12 @@ This package is a starting point, but as your project scales, you may need to ad
 
 You can do most of what is described below with the [infrastructure](#infrastructure) tools recommended.
 
--   **Test speed**: Consider implementing [parallel testing](https://laravel.com/docs/10.x/testing#running-tests-in-parallel) if your test suite grows large. It is not included by default in Toybox as it actually takes slightly _longer_ to run with this small test suite.
--   **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows.
+-   **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows. For Toybox, the memory & upload limits are set in `public/index.php`. 
 -   **Caching & Content Delivery Network (CDN)**: Cache frequent application responses with the tools in the [Cache section](#cache). Sign up for a service like [Cloudflare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/) to take the edge off of some of your traffic and protect from DDoS attacks.
 -   **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
 -   **Horizontal scale**: Spin more servers up, and stick a load balancer in front of them. Again managed services for this exist, or you can spin up a generic server with Forge/Ploi and use that for it. Just remember to [modify your scheduled tasks to only run on one server](https://laravel.com/docs/10.x/scheduling#running-tasks-on-one-server).
     -   This can also be manually done with Caddy with its [load balancing](https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#load-balancing) configuration.
-    -   Laravel Reverb can be scaled [with Redis]()
+    -   Laravel Reverb can be scaled [with Redis](https://laravel.com/docs/11.x/reverb#scaling)
     -   If you stick with SQLite, one of its limitations is that it only allows one write at a time. This is fine until a certain traffic scale, but you can use something like [Marmot](https://maxpert.github.io/marmot/intro) to run multiple SQLite nodes and have them replicated to each other. Note however at this time that you would have to run migrations manually for each node as a separate connection, as Marmot doesn't replicate schema changes to other nodes.
 -   **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
 -   **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.

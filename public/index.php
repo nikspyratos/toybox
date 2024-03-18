@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+ini_set('memory_limit', '512M');
+ini_set('upload_max_filesize', '20M');
+ini_set('post_max_size', '20M');
+
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
