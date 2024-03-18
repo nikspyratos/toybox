@@ -1,0 +1,15 @@
+{
+	frankenphp
+	order php_server before file_server
+}
+
+localhost {
+    root * public/
+    encode zstd gzip
+    file_server
+    php_server
+
+    log {
+        output file ./storage/logs/caddy-access.log
+    }
+}

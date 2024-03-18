@@ -100,8 +100,8 @@ Principles
 ## Components
 
 -   **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
--   **Webserver**: [Caddy](https://caddyserver.com/) configred to run via [Laravel Octane](https://laravel.com/docs/master/octane) 
--   **Database**: SQLite
+-   **Webserver**: [FrankenPHP](https://frankenphp.dev/)'s [Caddy](https://caddyserver.com/), configured to run through [Laravel Octane](https://laravel.com/docs/master/octane) 
+-   **Database**: [SQLite](https://sqlite.org)
 -   **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 -   **Application**: [Laravel](https://laravel.com) (duh)
     -   **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
@@ -163,13 +163,13 @@ In keeping with the spirit of this project, Bash scripts are used for simplicity
 
 Once you've set up one of the methods below, clone/fork this repository into a new repository, create a database in your MySQL instance. run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
 
-Note: By default `init_dev.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile, `templates/octane.conf` and `templates/soketi.conf` with the correct username, once `init_dev.sh` is finished.
+Note: By default `init_dev.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile.prod, `templates/octane.conf` and `templates/soketi.conf` with the correct username, once `init_dev.sh` is finished.
 
 Once the script completes, you can commit the changes to the edited files.
 
 For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
-The sections below outline the recommended way to work with Toybox on your local system. Please note the included Caddyfile is intended for production use.
+The sections below outline the recommended way to work with Toybox on your local system. Please note the included Caddyfile.prod is intended for production use and Caddyfile.dev for local testing..
 
 #### Cross-platform
 

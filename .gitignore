@@ -20,6 +20,7 @@ yarn-error.log
 rr
 .rr.yaml
 frankenphp
-database/database.sqlite
-database/pulse.sqlite
+database/*.sqlite
 *.bak
+/caddy
+frankenphp-worker.php
