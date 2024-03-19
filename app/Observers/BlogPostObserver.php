@@ -22,7 +22,7 @@ class BlogPostObserver
      */
     public function updating(BlogPost $blogPost): void
     {
-        if ($blogPost->status == BlogPostStatus::PUBLISHED) {
+        if ($blogPost->status === BlogPostStatus::PUBLISHED) {
             $blogPost->published_at = now();
         } else {
             $blogPost->published_at = null;

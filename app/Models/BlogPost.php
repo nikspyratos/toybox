@@ -31,15 +31,6 @@ class BlogPost extends Model
         'status' => BlogPostStatus::DRAFT,
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'status' => BlogPostStatus::class,
-            'published_at' => 'datetime',
-            'tags' => 'array',
-        ];
-    }
-
     public function scopePublished(Builder $query): void
     {
         $query->whereNotNull('published_at');
@@ -79,5 +70,14 @@ class BlogPost extends Model
             'description' => $this->seo_description,
 
         ]);
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'status' => BlogPostStatus::class,
+            'published_at' => 'datetime',
+            'tags' => 'array',
+        ];
     }
 }

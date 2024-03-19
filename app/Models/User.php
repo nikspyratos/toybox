@@ -36,14 +36,6 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         'role' => Role::USER,
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'role' => Role::class,
-            'email_verified_at' => 'datetime',
-        ];
-    }
-
     public function getIsAdminAttribute(): bool
     {
         return $this->role === Role::ADMIN;
@@ -62,5 +54,13 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()->logFillable();
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'role' => Role::class,
+            'email_verified_at' => 'datetime',
+        ];
     }
 }
