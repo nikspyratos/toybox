@@ -300,6 +300,7 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
     -   If you want to monitor _specific_ scheduled jobs, consider installing [spatie/laravel-schedule-monitor](https://github.com/spatie/laravel-schedule-monitor).
 -   **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
 -   **Replaces assets, texts, attributions**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors (e.g. in the footer) with your own. This also applies to any privacy policy and terms of service pages included, as these may have stub values in place.
+-   **Security**: Update the `public/.well-known/security.txt` with a contact email or URL (e.g. Twitter).
 -   **Landing page**:
     -   Make sure to change the copy on the provided pages.
     -   Assuming these pages are static, make sure they are heavily cached.
@@ -555,14 +556,13 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 -   [All sorts of policies available for free by Basecamp](https://github.com/basecamp/policies)
 -   [GetTerms](https://getterms.io/)
 
-## Future/Next Steps/TODO
+## Contributing
 
--   Enlightn + Pulse release versions
--   Payment/subscription authorization stubs
--   Blog post TOCs
--   Blog RSS feed
--   Deployments
-    -   Handling a shared server? I.e. multiple toybox apps on one server
+These are some features that would be nice to have, but I don't intend on building yet for one reason or another:
+
+- FrankenPHP binary build
+- PWA support
+- Dockerfile
 
 ---
 
