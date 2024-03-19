@@ -289,6 +289,7 @@ An example of this is the `TrustProxies` middleware - Enlightn will flag this as
 
 ### Post-Setup
 
+-   **Websockets**: If you won't be using any realtime features, remove the `import './echo';` line from `resources/js/bootstrap.js`.
 -   **Create an admin user**: Run the `php artisan app:create-admin-user` command to create an admin user. This will allow you to access Filament at `/admin`, and Telescope at `/telescope`.
 -   **DNS**: You'll need to set up some A records to point to your server's IP for your domain.
 -   **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
