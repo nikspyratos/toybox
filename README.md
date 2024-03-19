@@ -24,6 +24,7 @@
   * [Next Steps - DIY](#next-steps---diy)
     * [Code Quality & Analysis](#code-quality--analysis)
     * [Post-Setup](#post-setup)
+    * [Ongoing Development Recommendations](#ongoing-development-recommendations)
     * [3rd-party Services/Tools](#3rd-party-servicestools)
       * [Analytics](#analytics)
       * [Backups](#backups)
@@ -61,7 +62,7 @@
     * [Knowledgebase](#knowledgebase)
     * [Accounting](#accounting)
     * [Terms & Conditions](#terms--conditions)
-  * [Future/Next Steps/TODO](#futurenext-stepstodo)
+  * [Contributing](#contributing)
 <!-- TOC -->
 
 My [TALL stack](https://tallstack.dev/) boilerplate for Laravel micro-SaaS/indie hackers.
