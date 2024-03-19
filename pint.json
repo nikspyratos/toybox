@@ -1,6 +1,7 @@
 {
     "preset": "laravel",
     "rules": {
+        "backtick_to_shell_exec": true,
         "blank_line_between_import_groups": true,
         "concat_space": {
             "spacing": "one"
@@ -21,6 +22,7 @@
         },
         "declare_strict_types": true,
         "explicit_string_variable": true,
+        "fully_qualified_strict_types": true,
         "global_namespace_import": {
             "import_classes": true,
             "import_constants": true,
@@ -32,6 +34,31 @@
         },
         "nullable_type_declaration_for_default_null_value": true,
         "operator_linebreak": true,
+        "ordered_class_elements": {
+            "order": [
+                "use_trait",
+                "case",
+                "constant",
+                "constant_public",
+                "constant_protected",
+                "constant_private",
+                "property_public",
+                "property_protected",
+                "property_private",
+                "construct",
+                "destruct",
+                "magic",
+                "phpunit",
+                "method_abstract",
+                "method_public_static",
+                "method_public",
+                "method_protected_static",
+                "method_protected",
+                "method_private_static",
+                "method_private"
+            ],
+            "sort_algorithm": "none"
+        },
         "ordered_imports": {
             "sort_algorithm": "alpha",
             "imports_order": [
@@ -45,6 +72,7 @@
         "php_unit_test_annotation": {
             "style": "annotation"
         },
-        "simple_to_complex_string_variable": true
+        "simple_to_complex_string_variable": true,
+        "strict_comparison": true
     }
 }
