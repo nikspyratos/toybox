@@ -98,6 +98,8 @@ Principles
 -   Ready-to-go admin panel
 -   API-ready
 
+All of this is done while keeping package dependencies minimal.
+
 ## Components
 
 -   **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
@@ -108,12 +110,11 @@ Principles
     -   **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Breeze](https://laravel.com/docs/master/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding.
     -   **Content**:
         -   [Landwind-based](https://github.com/themesberg/landwind) landing page, reimplemented with Alpine.js and [Laravel Folio](https://laravel.com/docs/10.x/folio)
-        -   [Laravel SEO](https://github.com/ralphjsmit/laravel-seo)
-        -   Basic Filament-based CMS for content marketing
+        -   Sensible SEO defaults are included, including social meta tags, scheduled sitemap generation for content pages, and Article Schema.org data.
+        -   Basic Filament-based CMS for content marketing & SEO
         -   [Basecamp-based](https://github.com/basecamp/policies) Terms of Service and Privacy Policy
     -   **Admin panel**: [Filament](https://filamentphp.com/), with included plugins:
         -   [Environment Indicator](https://filamentphp.com/plugins/pxlrbt-environment-indicator)
-        -   [Laravel Filament SEO](https://github.com/ralphjsmit/laravel-filament-seo)
         -   [Activity Log](https://filamentphp.com/plugins/pxlrbt-activity-log)
     -   **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum)
     -   **Testing**: [PestPHP](https://pestphp.com/)
@@ -290,7 +291,6 @@ Some analysis steps in these tools may fail on a default Toybox installation. Wh
 -   **Websockets**: If you won't be using any realtime features, remove the `import './echo';` line from `resources/js/bootstrap.js`.
 -   **Create an admin user**: Run the `php artisan app:create-admin-user` command to create an admin user. This will allow you to access Filament at `/admin`, and Telescope at `/telescope`.
 -   **DNS**: You'll need to set up some A records to point to your server's IP for your domain.
--   **Laravel SEO**: Consult the [main package documentation](https://github.com/ralphjsmit/laravel-seo) as well as the [Filament plugin](https://github.com/ralphjsmit/laravel-filament-seo) on how to handle SEO for your models.
 -   **Laravel Health**:
     -   If using MySQL or Postgres, consider adding the [Database Connections](https://spatie.be/docs/laravel-health/v1/available-checks/db-connection-count), [Database Size](https://spatie.be/docs/laravel-health/v1/available-checks/db-size-check), and [Database table size](https://spatie.be/docs/laravel-health/v1/available-checks/db-table-size-check) healthchecks.
     -   If using Flare, consider adding the [Flare Error Count](https://spatie.be/docs/laravel-health/v1/available-checks/flare-error-count) healthcheck.
