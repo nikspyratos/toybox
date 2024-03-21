@@ -21,7 +21,6 @@ class BlogPost extends Model
         'author_id',
         'status',
         'content',
-        'table_of_contents',
         'seo_description',
         'tags',
         'category',
@@ -44,7 +43,7 @@ class BlogPost extends Model
 
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'author_id');
+        return $this->belongsTo(User::class, 'author_id', 'id');
     }
 
     public function getLiveUrl(): string

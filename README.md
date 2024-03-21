@@ -570,6 +570,7 @@ These are some features that would be nice to have, but I don't intend on buildi
 - PWA support
 - Dockerfile
 - Auto-generate table of contents for blog posts
+- Blog RSS feed
 
 ---
 
