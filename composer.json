@@ -23,14 +23,11 @@
         "pboivin/filament-peek": "^2.2",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "spatie/laravel-activitylog": "^4.8",
-        "spatie/laravel-sitemap": "^7.2",
-        "spiral/roadrunner-cli": "^2.6",
-        "spiral/roadrunner-http": "^3.3"
+        "spatie/laravel-sitemap": "^7.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.10",
         "barryvdh/laravel-ide-helper": "^3.0",
-        "enlightn/enlightn": "dev-l11-compatibility",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^2.8",
         "laravel/breeze": "^2.0",
@@ -81,7 +78,6 @@
         "analysis": [
             "./vendor/bin/phpstan analyse",
             "@php artisan insights --fix -v -n",
-            "@php artisan enlightn"
         ]
     },
     "extra": {
@@ -103,10 +99,4 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/laravel-shift/enlightn.git"
-        }
-    ]
 }

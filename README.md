@@ -118,7 +118,7 @@ Principles
     -   **API**: [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum)
     -   **Testing**: [PestPHP](https://pestphp.com/)
     -   **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/10.x/pulse) and [Laravel Telescope](https://laravel.com/docs/10.x/telescope)
-    -   **Linting, Code Quality, Static Analysis, Security analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibiltiy, and [Enlightn (free version)](https://github.com/enlightn/enlightn/) for code analysis.
+    -   **Linting, Code Quality, Static Analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibility.
 -   **CI/CD**: Good old Bash scripts.
 -   **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, ActivityLog, Cache, Queue, Pulse & Telescope have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
 
@@ -260,14 +260,15 @@ Five tools have been included for this:
 -   Duster (linting),
 -   Larastan (static analysis),
 -   PHP Insights (analysis & architecture),
--   Enlightn (security)
 -   Rustywind (Tailwind linting).
+-   Roave security advisories
 
 There are also some default Pest tests for architecture rules as well.
 You may see some overlap or conflicts in recommendations by these tools - if so, please make an issue so I can adjust the config to avoid the conflict.
 
 By default, you will already have Duster & Rustywind running as a pre-commit hook.
-Larastan, PHP Insights, and Enlightn can be run individually, or as a group with the command `composer run analysis`.
+Larastan and PHP Insights can be run individually, or as a group with the command `composer run analysis`.
+Security Advisories runs on composer operations, to prevent installation of insecure packages.
 Note that PHP Insights is configured to automatically fix issues it is able to fix.
 You may also want to look inside `config/insights.php` and add/change any sniffs per your preference - there are some rules that may be too strict for some users.
 
@@ -278,14 +279,11 @@ The commands for all the tools are:
 ./vendor/bin/duster lint #Linting may catch issues that fix can't resolve
 ./vendor/bin/phpstan analyse
 php artisan insights
-php artisan enlightn
 ```
 
-For Duster, if there are any unfixable issues raised in `duster fix`, you can get more info on them but running `duster lint`. Also note that you can add the `--dirty` flag to only run it for files that have changed.
+For Duster, if there are any unfixable issues raised in `duster fix`, you can get more info on them by running `duster lint`. Also note that you can add the `--dirty` flag to only run it for files that have changed.
 
 Some analysis steps in these tools may fail on a default Toybox installation. Where reasonable I've tried to mitigate this, but some will be left up to you as the developer. Some fixes require opinionated configurations that I don't feel Toybox should have a default on.
-
-An example of this is the `TrustProxies` middleware - Enlightn will flag this as unused middleware due to no proxies being configured. The only way to avoid this and keep the middleware would be to trust all proxies by default, but that assumes you will be using cloud-based load balancers which might not be the case.
 
 ### Post-Setup
 
@@ -479,7 +477,7 @@ All options are to be used alongside [Laravel Echo](https://laravel.com/docs/10.
 -   **Fixture data**: [Squire](https://github.com/squirephp/squire) adds static fixtures (e.g. airport, country code, currency, timezone) available through Eloquent.
 -   **Provisioning & Deployment**: There are many tools here, but I'd recommend keeping it simple with one of: Docker, Ansible, or even plain Bash scripts. Otherwise, look at 
 -   **Application settings**: [Spatie Laravel Settings](https://github.com/spatie/laravel-settings) + [Filament Spatie Settings](https://filamentphp.com/plugins/filament-spatie-settings)
--   **Security**: Enlightn recommends adding a Content Security Policy. This is easily doable with [Spatie's CSP package](https://github.com/spatie/laravel-csp).
+-   **Security**: Consider adding [Spatie's CSP package](https://github.com/spatie/laravel-csp).
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
 
