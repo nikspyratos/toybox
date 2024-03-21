@@ -42,6 +42,7 @@ class EditBlogPost extends EditRecord
     protected function mutatePreviewModalData(array $data): array
     {
         $data['blogPost'] = $this->getRecord();
+        $data['blogPost']->published_at = now();
 
         return $data;
     }

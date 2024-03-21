@@ -21,6 +21,7 @@ class BlogPost extends Model
         'author_id',
         'status',
         'content',
+        'table_of_contents',
         'seo_description',
         'tags',
         'category',
@@ -60,7 +61,7 @@ class BlogPost extends Model
                 '@type' => 'WebPage',
                 '@id' => $this->getLiveUrl(),
             ],
-            'datePublished' => $this->published_at->toIso8601String(),
+            'datePublished' => $this->published_at?->toIso8601String(),
             'dateModified' => $this->updated_at->toIso8601String(),
             'headline' => $this->title,
             'author' => [
