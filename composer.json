@@ -23,6 +23,7 @@
         "pboivin/filament-peek": "^2.2",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "spatie/laravel-activitylog": "^4.8",
+        "spatie/laravel-sitemap": "^7.2",
         "spiral/roadrunner-cli": "^2.6",
         "spiral/roadrunner-http": "^3.3"
     },
