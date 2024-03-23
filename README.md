@@ -177,18 +177,18 @@ Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/lar
 
 ##### Linux
 
-- [Valet Linux](https://cpriego.github.io/valet-linux/) OR install PHP manually.
-- Install your DB of choice locally - [Takeout](https://github.com/tighten/takeout) supports both Redis and MySQL/MariaDB, so it can act as a DBNgin alternative for Linux.
+- [Valet Linux](https://cpriego.github.io/valet-linux/) AND install PHP on your system.
+- Install your DB of choice locally, or [Takeout](https://github.com/tighten/takeout) supports both Redis and MySQL/MariaDB, so it can act as a DBNgin alternative for Linux and more.
 
 ##### Windows
 
 - Herd is an all-in-one development solution, including database, redis, and other services (if you pay for Pro).
-- Otherwise, try following the Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
+- WSL2 is still required, as all the scripts in `bin` are built for Linux/Mac. 
 
 #### Installing Toybox
 
 1. Clone/fork this repository into a new repository.
-2. Run `./bin/init_dev.sh`. It will:
+2. Run `./bin/init_dev.sh` (remember to do so from WSL2 on Windows). It will:
    - Set up pre-commit linting, 
    - Replace template names, 
    - Conduct Laravel boilerplate setup (package installs, key generate, migrate, etc.). 
