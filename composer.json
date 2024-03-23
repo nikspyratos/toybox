@@ -19,6 +19,7 @@
         "laravel/pulse": "dev-validation-errors",
         "laravel/reverb": "@beta",
         "laravel/sanctum": "^4.0",
+        "laravel/socialite": "^5.12",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
         "pboivin/filament-peek": "^2.2",
