@@ -101,7 +101,7 @@ Principles
 - **Content/Marketing pages** set up with a [Landwind-based](https://github.com/themesberg/landwind) landing page, with sensible SEO defaults, social meta tags, sitemap generation, and Article Schema.org data.
 - **Terms of Service and Privacy Policy** derived from [Basecamp](https://github.com/basecamp/policies)
 - **Security enhancements** included from [Securing Laravel](https://securinglaravel.com/)
-- **Laravel ecosystem included** - auth scaffolding, websockets, performance monitoring, webserver runtime, API authentication, feature flags, social login (WIP)
+- **Laravel ecosystem included** - auth scaffolding, websockets, performance monitoring, webserver runtime, API authentication, feature flags, social login
 
 All of this is done while keeping package dependencies minimal outside of trusted third parties like Filament or Spatie.
 
@@ -256,6 +256,7 @@ These are the next steps you will have to implement yourself for your project as
     - Assuming these pages are static, make sure they are heavily cached.
     - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
+- **Social Logins**: For each provider you plan on adding, you'll need to add the relevant credentials and configuration for both [Socialite](https://laravel.com/docs/11.x/socialite#configuration) and [Socialstream](https://docs.socialstream.dev/getting-started/configuration#providers). If you'd like to add additional social login providers, please check out the [Socialite Providers](https://socialiteproviders.com/) site.
 
 #### Ongoing Development
 

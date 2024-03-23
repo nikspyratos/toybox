@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "886103d59ab1f1b746121ddbd578cdab",
+    "content-hash": "e932271816b307cf3c8e6dab847f354c",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -2459,6 +2459,88 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "joelbutcher/socialstream",
+            "version": "v6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joelbutcher/socialstream.git",
+                "reference": "3e70cdf17f00da7d677f0b728aef8b0c366128e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joelbutcher/socialstream/zipball/3e70cdf17f00da7d677f0b728aef8b0c366128e9",
+                "reference": "3e70cdf17f00da7d677f0b728aef8b0c366128e9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^11.0",
+                "laravel/prompts": "^0.1.10",
+                "laravel/socialite": "^5.12",
+                "php": "^8.2",
+                "webmozart/assert": "^1.11"
+            },
+            "require-dev": {
+                "laravel/breeze": "^2.0",
+                "laravel/jetstream": "^5.0",
+                "laravel/sanctum": "^4.0",
+                "livewire/livewire": "^3.3.5",
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^9.0",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.2",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^10.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "6.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "JoelButcher\\Socialstream\\SocialstreamServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JoelButcher\\Socialstream\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joel Butcher",
+                    "email": "joel@joelbutcher.co.uk"
+                }
+            ],
+            "description": "Get started with OAuth and Laravel",
+            "keywords": [
+                "SocialStream",
+                "laravel",
+                "laravel socialite",
+                "oauth"
+            ],
+            "support": {
+                "issues": "https://github.com/joelbutcher/socialstream/issues",
+                "source": "https://github.com/joelbutcher/socialstream"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/joelbutcher",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/joelbutcher",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-18T08:59:32+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
@@ -12854,6 +12936,76 @@
                 }
             ],
             "time": "2024-01-26T09:46:42+00:00"
+        },
+        {
+            "name": "pestphp/pest-plugin-drift",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pestphp/pest-plugin-drift.git",
+                "reference": "8c07c1a94275f39ef62bbb622556dbf1d361d860"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-drift/zipball/8c07c1a94275f39ef62bbb622556dbf1d361d860",
+                "reference": "8c07c1a94275f39ef62bbb622556dbf1d361d860",
+                "shasum": ""
+            },
+            "require": {
+                "nikic/php-parser": "^5.0.2",
+                "pestphp/pest": "^2.34.4",
+                "php": "^8.2.0",
+                "symfony/finder": "^7.0.0"
+            },
+            "require-dev": {
+                "pestphp/pest-dev-tools": "^2.16.0"
+            },
+            "type": "library",
+            "extra": {
+                "pest": {
+                    "plugins": [
+                        "Pest\\Drift\\Plugin"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pest\\Drift\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Pest Drift Plugin",
+            "keywords": [
+                "framework",
+                "laravel",
+                "pest",
+                "php",
+                "test",
+                "testing",
+                "unit"
+            ],
+            "support": {
+                "issues": "https://github.com/pestphp/pest-plugin-drift/issues",
+                "source": "https://github.com/pestphp/pest-plugin-drift/tree/v2.6.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.com/paypalme/enunomaduro",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/mandisma",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nunomaduro",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-19T19:51:17+00:00"
         },
         {
             "name": "pestphp/pest-plugin-laravel",
