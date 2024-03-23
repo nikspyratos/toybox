@@ -113,7 +113,7 @@ All of this is done while keeping package dependencies minimal outside of truste
 - **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 - **Application**: [Laravel](https://laravel.com) (duh)
     - **Admin Panel**: [Filament](https://filamentphp.com/)
-    - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Folio](https://laravel.com/docs/11.x/folio) for content pages. [Laravel Breeze](https://laravel.com/docs/11.x/starter-kits#laravel-breeze) for authentication, API, profile, and general scaffolding. Some features may also use Filamnent components.
+    - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Folio](https://laravel.com/docs/11.x/folio) for content pages. [Laravel Jetstream](https://jetstream.laravel.com) for authentication, session management, 2FA and much more ([Socialstream](https://docs.socialstream.dev/) included to augment Jetstream with social logins). Some features may also use Filamnent components.
     - **API**: [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum)
     - **Testing**: [PestPHP](https://pestphp.com/)
     - **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/11.x/pulse) and [Laravel Telescope](https://laravel.com/docs/11.x/telescope)
@@ -569,19 +569,16 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 I intend to build out more common SaaS features.
 
+- Generic-ish payments management, modeled after [Laravel Cashier](https://laravel.com/docs/11.x/cashier-paddle), [LemonSqueezy Laravel](https://github.com/lmsqueezy/laravel), etc.
 - Documentation using [LaRecipe](https://larecipe.saleem.dev)
 - Customer feedback
 - Roadmaps
 - Support ticketing
 - Publish announcements/notifications to users in-app (with/without Reverb)
 - Sensible AI default setup for AI related features
-- Generic-ish payments management, modeled after [Laravel Cashier](https://laravel.com/docs/11.x/cashier-paddle), [LemonSqueezy Laravel](https://github.com/lmsqueezy/laravel), etc.
 - Maybe rework the T&C docs - Basecamp's ones are free to copy, but highly specific to them.
-- Maybe include some of the features mentioned but left out in [#other-tools-not-included] - especially first party ones.
-  - Sensible API consumption & creation defaults with Sanctum, Swagger, and Saloon
-  - Social logins with Socialite
-  - Search with Scout - maybe using Meilisearch?
-- Maybe switch back from Breeze to Jetstream - the extra features such as 2FA, browser session management, and teams can be useful, and it'd still be mostly the same app.
+- Redo/improve Blog & post styling
+- Rework general app styling with a different UI kit
 
 ## Contributing
 
