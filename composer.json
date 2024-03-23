@@ -14,6 +14,7 @@
         "laravel/folio": "^1.0",
         "laravel/framework": "^11.0",
         "laravel/octane": "^2.3",
+        "laravel/pennant": "^1.7",
         "laravel/pulse": "dev-validation-errors",
         "laravel/reverb": "@beta",
         "laravel/sanctum": "^4.0",
@@ -77,7 +78,7 @@
         ],
         "analysis": [
             "./vendor/bin/phpstan analyse",
-            "@php artisan insights --fix -v -n",
+            "@php artisan insights --fix -v -n"
         ]
     },
     "extra": {
@@ -98,5 +99,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
+    "prefer-stable": true
 }
