@@ -12,6 +12,7 @@ else
   sed -i.bak "/#team_placeholder/d" config/jetstream.php
   sed -i.bak "/#teams_use_placeholder/d" config/jetstream.php
   sed -i.bak "/#teams_trait_placeholder/d" config/jetstream.php
+  sed -i.bak "/teams_placeholder/d" database/migrations/2014_10_12_000000_create_users_table.php
 fi
 # Replaces MAIL_FROM_ADDRESS
 sed -i.bak "s/example.com=/$app_domain/g" .env.example

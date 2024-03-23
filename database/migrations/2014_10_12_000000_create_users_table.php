@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->text('two_factor_secret')->nullable();
 
             $table->text('two_factor_recovery_codes')->nullable();
@@ -25,6 +25,8 @@ return new class extends Migration
             if (Fortify::confirmsTwoFactorAuthentication()) {
                 $table->timestamp('two_factor_confirmed_at')->nullable();
             }
+            //teams_placeholder
+            $table->string('profile_photo_path', 2048)->nullable();
             $table->string('role')->index();
             $table->rememberToken();
             $table->timestamps();
