@@ -11,14 +11,26 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, LogsActivity, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use HasProfilePhoto;
+    use LogsActivity;
+    use Notifiable;
+    use TwoFactorAuthenticatable;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'name',
         'email',
@@ -27,13 +39,24 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         'role',
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     protected $attributes = [
         'role' => Role::USER,
+    ];
+
+    protected $appends = [
+        'profile_photo_url',
     ];
 
     public function getIsAdminAttribute(): bool
@@ -61,6 +84,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         return [
             'role' => Role::class,
             'email_verified_at' => 'datetime',
+            'password' => 'hashed',
         ];
     }
 }
