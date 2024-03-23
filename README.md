@@ -70,7 +70,7 @@
   * [Contributing](#contributing)
 <!-- TOC -->
 
-My [TALL stack](https://tallstack.dev/) boilerplate for Laravel micro-SaaS/indie hackers.
+My [TALL stack](https://tallstack.dev/) boilerplate for Laravel SaaS builders.
 
 The Toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak. Let's have some fun!
 
@@ -80,6 +80,7 @@ Even if you don't need another boilerplate, perhaps the list of [recommended ser
 
 Principles
 
+- **Free, both ways**: There's no need to pay anything for this - I build it because I use it! You can also do whatever you'd like.
 - **Self-containment**: With minimal extra commands, you should be able to clone this repo and get something running.
 - **Tiny but mighty**: Minimising the different technologies used, using simpler & standardised alternatives to common tools.
 - **Don't reinvent the wheel**: Use as much of the official & unofficial Laravel ecosystem where applicable. Use popular (i.e. sustainable, gets regular updates) tools & packages where applicable instead of rewriting boilerplate logic from scratch. We're in Laravel, not JS!
