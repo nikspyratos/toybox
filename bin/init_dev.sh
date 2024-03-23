@@ -4,6 +4,15 @@ export DEBIAN_FRONTEND=noninteractive
 prod_app_path="\/home\/ubuntu\/$(basename $PWD)"
 read -p "App Name: " app_name
 read -p "Domain (WITHOUT 'https:// or www.'): " app_domain
+# Teams
+read -p "Install Jetstream Teams functionality? (y/n): " install_teams
+if [[ $install_teams == *"y"* ]]; then
+  ./bin/init_teams.sh
+else
+  sed -i.bak "/#team_placeholder/d" config/jetstream.php
+  sed -i.bak "/#teams_use_placeholder/d" config/jetstream.php
+  sed -i.bak "/#teams_trait_placeholder/d" config/jetstream.php
+fi
 # Replaces MAIL_FROM_ADDRESS
 sed -i.bak "s/example.com=/$app_domain/g" .env.example
 sed -i.bak "s/example.com=/$app_domain/g" .env.prod.example
@@ -34,8 +43,6 @@ npm run build
 php artisan ide-helper:eloquent
 cp .env.example .env
 php artisan key:generate
-# Will fail here if local DB is not set up with root & no password. No biggie
-# artisan migrate --force will create a database for you if one is missing and the connection works. Without --force it will ask.
 php artisan migrate --force --seed
 php artisan storage:link
 # Cleanup

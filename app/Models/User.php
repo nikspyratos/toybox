@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
+//teams_use_placeholder
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -22,6 +23,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
+    //teams_trait_placeholder
     use LogsActivity;
     use Notifiable;
     use TwoFactorAuthenticatable;

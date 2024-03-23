@@ -12,20 +12,24 @@
   * [Installation/Usage](#installationusage)
     * [Requirements](#requirements)
     * [Local Development](#local-development)
-      * [Cross-platform](#cross-platform)
-      * [macOS](#macos)
-      * [Linux](#linux)
-      * [Windows](#windows)
+      * [Environment Setup](#environment-setup)
+        * [Cross-platform](#cross-platform)
+        * [macOS](#macos)
+        * [Linux](#linux)
+        * [Windows](#windows)
+      * [Installing Toybox](#installing-toybox)
       * [Laravel Octane](#laravel-octane)
+    * [Code Quality & Analysis](#code-quality--analysis)
+    * [Next Steps - DIY](#next-steps---diy)
+      * [Post-Setup](#post-setup)
+      * [Ongoing Development](#ongoing-development)
     * [Production](#production)
+      * [Provisioning](#provisioning)
+      * [Manual steps](#manual-steps)
       * [Deployment](#deployment)
       * [Troubleshooting](#troubleshooting)
         * [Caddy having issues obtaining SSL](#caddy-having-issues-obtaining-ssl)
-  * [Next Steps - DIY](#next-steps---diy)
-    * [Code Quality & Analysis](#code-quality--analysis)
-    * [Post-Setup](#post-setup)
-    * [Ongoing Development Recommendations](#ongoing-development-recommendations)
-    * [3rd-party Services/Tools](#3rd-party-servicestools)
+  * [3rd-party Services/Tools](#3rd-party-servicestools)
       * [Analytics](#analytics)
       * [Backups](#backups)
       * [Cache](#cache)
@@ -155,9 +159,41 @@ zlib
 
 ### Local Development
 
-In keeping with the spirit of this project, Bash scripts are used for simplicity.
+#### Environment Setup
 
-Once you've set up one of the methods below, clone/fork this repository into a new repository, create a database in your MySQL instance. run `./bin/init_dev.sh` to set up pre-commit linting, replace template names, and do Laravel boilerplate setup (package installs, key generate, migrate, etc.). The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
+##### Cross-platform
+
+- [Mailpit](https://github.com/axllent/mailpit) for emails
+- [Rustywind](https://github.com/avencera/rustywind) for Tailwind class order linting.
+- [Pickle](https://github.com/FriendsOfPHP/pickle) for PHP extensions via PECL
+
+##### macOS
+
+- ([Valet](https://laravel.com/docs/11.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
+- [DBngin](https://dbngin.com/) for Databases & Redis
+- [Takeout](https://github.com/tighten/takeout) for many more extra services (e.g. ElasticSearch)
+
+Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
+
+##### Linux
+
+- [Valet Linux](https://cpriego.github.io/valet-linux/) OR install PHP manually.
+- Install your DB of choice locally - [Takeout](https://github.com/tighten/takeout) supports both Redis and MySQL/MariaDB, so it can act as a DBNgin alternative for Linux.
+
+##### Windows
+
+- Herd is an all-in-one development solution, including database, redis, and other services (if you pay for Pro).
+- Otherwise, try following the Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
+
+#### Installing Toybox
+
+1. Clone/fork this repository into a new repository.
+2. Run `./bin/init_dev.sh`. It will:
+   - Set up pre-commit linting, 
+   - Replace template names, 
+   - Conduct Laravel boilerplate setup (package installs, key generate, migrate, etc.). 
+   - The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
+   - It will also ask if you would like to install Jetstream Teams, and has a custom installer (`bin/init_teams.sh`) it runs if yes.
 
 Note: By default `init_dev.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile.prod, `templates/octane.conf` and `templates/reverb.conf` with the correct username, once `init_dev.sh` is finished.
 
@@ -167,86 +203,11 @@ For details, look in [bin/init_dev.sh](bin/init_dev.sh).
 
 The sections below outline the recommended way to work with Toybox on your local system. Please note the included Caddyfile.prod is intended for production use and Caddyfile.dev for local testing..
 
-#### Cross-platform
-
-- [Mailpit](https://github.com/axllent/mailpit) for emails
-- [Rustywind](https://github.com/avencera/rustywind) for Tailwind class order linting.
-- [Pickle](https://github.com/FriendsOfPHP/pickle) for PHP extensions via PECL
-
-#### macOS
-
-- ([Valet](https://laravel.com/docs/11.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
-- [DBngin](https://dbngin.com/) for Databases & Redis
-- [Takeout](https://github.com/tighten/takeout) for many more extra services (e.g. ElasticSearch)
-
-Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
-
-#### Linux
-
-- [Valet Linux](https://cpriego.github.io/valet-linux/) OR install PHP manually.
-- Install your DB of choice locally - [Takeout](https://github.com/tighten/takeout) supports both Redis and MySQL/MariaDB, so it can act as a DBNgin alternative for Linux.
-
-#### Windows
-
-Follow Linux instructions on WSL2. Not sure all of it will work properly though, I don't use Windows.
-
 #### Laravel Octane
 
 The default Octane config will start with one worker per core, and restart workers every 500 requests. To account for this project's dependencies and any potential leaks, Toybox's config is a bit more conservative and will restart workers every 250 requests. You can change this in `templates/octane.conf`.
 
-If you intend to use [Concurrent tasks](https://laravel.com/docs/11.x/octane#concurrent-tasks), you'll need to add `--task-workers=` to the Octane command in `templates/octane.conf`. Per the documentation, start with 6 task workers, and add more if you need them.
-
-To use Octane with Valet, you'll need to [proxy your Valet site to your octane port](https://laravel.com/docs/11.x/valet#proxying-services).
-
-### Production
-
-This assumes you're starting from scratch on an unmanaged (no Forge/Ploi/Envoyer) Ubuntu server with an `ubuntu` user that has sudo access.
-
-**Note: The `provision_prod.sh` and `deploy.sh` scripts are intended for early use in your SaaS. Once you need to go beyond vertical scaling, I'd highly recommend getting started with the recommended [infrastructure](#infrastructure) and [deployment](#deployment---cicd) tools.**
-
-Your first step is to download your project repository from your VCS. Then, run `./bin/provision_prod.sh` from the project directory. It will:
-
-- Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
-- Install PHP (with service config and extensions), Caddy, and Supervisor
-- Install the Octane, queue config for Supervisor
-- Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
-
-Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
-
-If you're using websockets, you will also want to manually copy the `templates/reverb.conf` config over for Supervisor to run reverb for you.
-
-For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
-
-#### Deployment
-
-In your local project, edit the following variables to your local `.env`, using the appropriate values:
-
-```dotenv
-DEPLOYMENT_IP=
-DEPLOYMENT_USER=
-DEPLOYMENT_SSH_KEY=
-```
-
-`DEPLOYMENT_PATH` should already be set up from when you ran `init_dev.sh`. If not, please edit it to the appropriate value.
-
-To deploy the latest application changes, run `./bin/deploy.sh`. It will:
-
-- SSH into your server using the variables above
-- Run `git pull`, `composer install`, `npm install`, `npm run build`, and `php artisan migrate`.
-
-If you're in a rush/need to throw hotfixes up, `bin/quick_deploy.sh` will only pull new code & reset the optimisation caches.
-
-#### Troubleshooting
-
-This is where your skills come in.
-
-##### Caddy having issues obtaining SSL
-
-Make sure your firewall rules allow incoming traffic on port 443. This includes checking security settings with your hosting provider, e.g. AWS security groups.
-
-## Next Steps - DIY
-
-These are the next steps you will have to implement yourself for your project as your needs change & scale.
+To use Octane with Valet/Herd, you'll need to [proxy your site to your octane port](https://laravel.com/docs/11.x/valet#proxying-services).
 
 ### Code Quality & Analysis
 
@@ -280,12 +241,14 @@ For Duster, if there are any unfixable issues raised in `duster fix`, you can ge
 
 Some analysis steps in these tools may fail on a default Toybox installation. Where reasonable I've tried to mitigate this, but some will be left up to you as the developer. Some fixes require opinionated configurations that I don't feel Toybox should have a default on.
 
-### Post-Setup
+### Next Steps - DIY
+
+These are the next steps you will have to implement yourself for your project as your needs change & scale.
+
+#### Post-Setup
 
 - **Websockets**: If you won't be using any realtime features, remove the `import './echo';` line from `resources/js/bootstrap.js`.
 - **Create an admin user**: Run the `php artisan app:create-admin-user` command to create an admin user. This will allow you to access Filament at `/admin`, and Telescope at `/telescope`.
-- **DNS**: You'll need to set up some A records to point to your server's IP for your domain.
-- **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
 - **Replaces assets, texts, attributions**: You will also want to take some time to remove the Toybox logo, links to the repository and replace any such mentions and authors (e.g. in the footer) with your own. This also applies to any privacy policy and terms of service pages included, as these may have stub values in place.
 - **Security**: Update the `public/.well-known/security.txt` with a contact email or URL (e.g. Twitter).
 - **Landing page**:
@@ -294,15 +257,71 @@ Some analysis steps in these tools may fail on a default Toybox installation. Wh
     - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
 
-### Ongoing Development Recommendations
+#### Ongoing Development
 
 - **Live validation**: Remember to use [Precognition](https://laravel.com/docs/11.x/precognition#using-alpine) to bring live validation to your forms. 
+- **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
+
+### Production
+
+#### Provisioning
+
+This assumes you're starting from scratch on an unmanaged Ubuntu server with an `ubuntu` user that has sudo access.
+
+**Note: The `provision_prod.sh` and `deploy.sh` scripts are intended for early use in your SaaS. Once you need to go beyond vertical scaling, I'd highly recommend getting started with the recommended [infrastructure](#infrastructure) and [deployment](#deployment---cicd) tools.**
+
+Your first step is to download your project repository from your VCS. Then, run `./bin/provision_prod.sh` from the project directory. It will:
+
+- Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
+- Install PHP (with service config and extensions), Caddy, and Supervisor
+- Install the Octane, queue config for Supervisor
+- Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
+
+Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
+
+If you're using websockets, you will also want to manually copy the `templates/reverb.conf` config over for Supervisor to run reverb for you.
+
+For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
+
+#### Manual steps
+
+Naturally, you'll also need to configure your own DNS records to point your domain to your webserver.
+
+When your application goes live, make sure to update the `last updated` dates of the terms & privacy policy pages to your launch date.
+
+
+#### Deployment
+
+In your local project, edit the following variables to your local `.env`, using the appropriate values:
+
+```dotenv
+DEPLOYMENT_IP=
+DEPLOYMENT_USER=
+DEPLOYMENT_SSH_KEY=
+```
+
+`DEPLOYMENT_PATH` should already be set up from when you ran `init_dev.sh`. If not, please edit it to the appropriate value.
+
+To deploy the latest application changes, run `./bin/deploy.sh`. It will:
+
+- SSH into your server using the variables above
+- Run `git pull`, `composer install`, `npm install`, `npm run build`, and `php artisan migrate`.
+
+If you're in a rush/need to throw hotfixes up, `bin/quick_deploy.sh` will only pull new code & reset the optimisation caches.
+
+#### Troubleshooting
+
+This is where your skills come in.
+
+##### Caddy having issues obtaining SSL
+
+Make sure your firewall rules allow incoming traffic on port 443. This includes checking security settings with your hosting provider, e.g. AWS security groups.
 
 ---
 
-### 3rd-party Services/Tools
+## 3rd-party Services/Tools
 
-**Remember: this is a list of options, not requirements. You can likely run your SaaS perfectly fine without many of these.**
+**This is a list of options, not requirements. You can likely run your SaaS perfectly fine without many of these.**
 
 This list includes both commercial options and open-source, including packages.
 
@@ -457,7 +476,6 @@ All options are to be used alongside [Laravel Echo](https://laravel.com/docs/11.
     - **Data Transfer Objects**: [Laravel Data](https://spatie.be/docs/laravel-data/v3/introduction) should cover you, but if you want something simple and non-Laravel, [dragon-code/simple-dto](https://github.com/TheDragonCode/simple-data-transfer-object) does the job without much overhead.
 - **Excel Import/Export**: [Laravel Excel](https://docs.laravel-excel.com/3.1/getting-started/) - it's a wrapper over PHPSpreadsheet, very convenient. For exports from Filament tables, there's also [Filament Excel](https://github.com/pxlrbt/filament-excel) which uses Laravel Excel under the hood.
 - **Manual backups**: [Laravel Backup](https://github.com/spatie/laravel-backup) (with [Filament plugin](https://filamentphp.com/plugins/shuvroroy-spatie-laravel-backup)). By default there is a `Download Database` action in the Filament dashboard to download the SQLite databases.
-- **2FA, Password reset, token management**: For more secure access to admin panels, consider adding [Filament Breezy](https://filamentphp.com/plugins/jeffgreco-breezy). Especially useful if you have a customer-facing Filament panel.
 - **Media Management**: Try out [Spatie Media Library](https://spatie.be/docs/laravel-medialibrary/v10/introduction) alongside [Filament's plugin](https://filamentphp.com/plugins/filament-spatie-media-library).
 - **Alternative Eloquent Drivers**: [Sushi](https://github.com/calebporzio/sushi) is an array driver, while [Orbit](https://github.com/ryangjchandler/orbit) is a flat file driver. These can be useful for things like CMSes, or loading data into Filament tables (which rely on the Eloquent query builder) without needing a database-driven model.
 - **Fixture data**: [Squire](https://github.com/squirephp/squire) adds static fixtures (e.g. airport, country code, currency, timezone) available through Eloquent.
@@ -573,6 +591,8 @@ These are some features that would be nice to have, but I don't intend on buildi
 - Dockerfile
 - Auto-generate table of contents for blog posts
 - Blog RSS feed
+- Confirmed working Windows environment solution: I don't work on Windows, and while Herd may be a first prize solution, I do want a free setup recommendation to have for Windows devs.
+- Let me know if any new file changes need to be added to the Jetstream Teams installer.
 
 ---
 
