@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.0.8.
+ * Generated for Laravel 11.1.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -4554,6 +4554,7 @@ namespace Illuminate\Support\Facades {
          * @param string $key
          * @param mixed $values
          * @return \Illuminate\Log\Context\Repository 
+         * @throws \RuntimeException
          * @static 
          */        public static function push($key, ...$values)
         {
@@ -4566,6 +4567,7 @@ namespace Illuminate\Support\Facades {
          * @param string $key
          * @param mixed $values
          * @return \Illuminate\Log\Context\Repository 
+         * @throws \RuntimeException
          * @static 
          */        public static function pushHidden($key, ...$values)
         {
@@ -4642,11 +4644,42 @@ namespace Illuminate\Support\Facades {
          * @internal 
          * @param \Illuminate\Log\Context\?array $context
          * @return \Illuminate\Log\Context\Repository 
+         * @throws \RuntimeException
          * @static 
          */        public static function hydrate($context)
         {
                         /** @var \Illuminate\Log\Context\Repository $instance */
                         return $instance->hydrate($context);
+        }
+                    /**
+         * Apply the callback if the given "value" is (or resolves to) truthy.
+         *
+         * @template TWhenParameter
+         * @template TWhenReturnType
+         * @param \Illuminate\Log\Context\(\Closure($this):  TWhenParameter)|TWhenParameter|null  $value
+         * @param \Illuminate\Log\Context\(callable($this,  TWhenParameter): TWhenReturnType)|null  $callback
+         * @param \Illuminate\Log\Context\(callable($this,  TWhenParameter): TWhenReturnType)|null  $default
+         * @return $this|\Illuminate\Log\Context\TWhenReturnType 
+         * @static 
+         */        public static function when($value = null, $callback = null, $default = null)
+        {
+                        /** @var \Illuminate\Log\Context\Repository $instance */
+                        return $instance->when($value, $callback, $default);
+        }
+                    /**
+         * Apply the callback if the given "value" is (or resolves to) falsy.
+         *
+         * @template TUnlessParameter
+         * @template TUnlessReturnType
+         * @param \Illuminate\Log\Context\(\Closure($this):  TUnlessParameter)|TUnlessParameter|null  $value
+         * @param \Illuminate\Log\Context\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $callback
+         * @param \Illuminate\Log\Context\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $default
+         * @return $this|\Illuminate\Log\Context\TUnlessReturnType 
+         * @static 
+         */        public static function unless($value = null, $callback = null, $default = null)
+        {
+                        /** @var \Illuminate\Log\Context\Repository $instance */
+                        return $instance->unless($value, $callback, $default);
         }
                     /**
          * Register a custom macro.
@@ -26532,11 +26565,6 @@ namespace  {
     }
 
 
-namespace Facades\Livewire\Features\SupportFileUploads {
-    /**
-     * @mixin \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl     */
-    class GenerateSignedUploadUrl extends \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl {}
-}
 
 
 
