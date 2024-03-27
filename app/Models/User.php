@@ -17,6 +17,7 @@ use JoelButcher\Socialstream\SetsProfilePhotoFromUrl;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 //teams_use_placeholder
+use Laravel\Pennant\Concerns\HasFeatures;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -26,6 +27,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     use HasApiTokens;
     use HasConnectedAccounts;
     use HasFactory;
+    use HasFeatures;
     use HasProfilePhoto {
         HasProfilePhoto::profilePhotoUrl as getPhotoUrl;
     }

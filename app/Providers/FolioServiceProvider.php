@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Http\Middleware\ComingSoon;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Folio\Folio;
 
@@ -25,7 +26,7 @@ class FolioServiceProvider extends ServiceProvider
             ->uri('/')
             ->middleware([
                 '*' => [
-                    // Add yours here...
+                    ComingSoon::class,
                 ],
             ]);
     }

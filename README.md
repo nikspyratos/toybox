@@ -258,6 +258,8 @@ These are the next steps you will have to implement yourself for your project as
     - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
 - **Social Logins**: For each provider you plan on adding, you'll need to add the relevant credentials and configuration for both [Socialite](https://laravel.com/docs/11.x/socialite#configuration) and [Socialstream](https://docs.socialstream.dev/getting-started/configuration#providers). If you'd like to add additional social login providers, please check out the [Socialite Providers](https://socialiteproviders.com/) site.
+- **Feature flags**: By default the `array` driver is used for Pennant feature flags. If you'd like to use the `database` driver instead, make sure to [publish the migrations](https://laravel.com/docs/11.x/pennant#installation) and change the `PENNANT_STORE` environment variable.
+  - **Coming Soon**: To redirect public routes to a "Coming Soon" page before launch, change the `COMING_SOON_ENABLED` environment variable and re-cache your config. This feature is implemented using Pennant for an example implementation. You can delete the middleware, feature definition, and environment variable post-launch. 
 
 #### Ongoing Development
 
@@ -556,6 +558,10 @@ While you're solo, I'd recommend one of the following:
 
 Once you need to start having the knowledgebase available to others, [Notion](https://notion.so) is my go-to. Notion also supports making public pages, so you can also have your customer knowledgebase there.
 
+### Roadmap Management
+
+[Suggest.gg](https://suggest.gg/)
+
 ### Accounting
 
 I don't know too much in this space other than [Xero](https://www.xero.com).
@@ -592,6 +598,7 @@ These are some features that would be nice to have, but I don't intend on buildi
 - Blog RSS feed
 - Confirmed working Windows environment solution: I don't work on Windows, and while Herd may be a first prize solution, I do want a free setup recommendation to have for Windows devs.
 - Let me know if any new file changes need to be added to the Jetstream Teams installer.
+- Convert some of the install scripts to be Prompts-based (or hybrid with Prompts)
 
 ---
 

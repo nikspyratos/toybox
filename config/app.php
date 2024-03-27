@@ -134,4 +134,6 @@ return [
 
     'default_description' => 'A TALL stack starter kit for solopreneurs',
 
+    'coming_soon_enabled' => env('COMING_SOON_ENABLED', false),
+
 ];

@@ -5,6 +5,7 @@
                 <img src="{{ asset('images/toybox-logo.png') }}" class="mr-3 h-6 sm:h-9" alt="Toybox Logo" />
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-matisse-400">{{ config('app.name') }}</span>
             </a>
+            @if($includeNav)
             <div class="flex items-center lg:order-2">
                 @if (Route::has('login'))
                     @auth
@@ -44,6 +45,7 @@
                     @endforeach
                 </ul>
             </div>
+           @endif
         </div>
     </nav>
 </header>

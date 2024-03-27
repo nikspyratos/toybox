@@ -43,7 +43,7 @@
     @livewireStyles
 </head>
 <body>
-    @include('layouts.marketing.navigation')
+    @include('layouts.marketing.navigation', ['includeNav' => $includeNav ?? true])
     <main>
         @yield('content')
     </main>
