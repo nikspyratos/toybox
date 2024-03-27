@@ -36,7 +36,9 @@ class BlogPostResource extends Resource
 {
     protected static ?string $model = BlogPost::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $pluralLabel = 'Blog Posts';
+
+    protected static ?string $navigationIcon = 'heroicon-o-bookmark-square';
 
     public static function infolist(Infolist $infolist): Infolist
     {

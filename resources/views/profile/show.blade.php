@@ -50,6 +50,14 @@
                 </div>
             @endif
 
+            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                <x-section-border />
+
+                <div class="mt-10 sm:mt-0">
+                    @livewire('profile.api-token-manager')
+                </div>
+            @endif
+
             @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures() && ! is_null($user->getAuthPassword()))
                 <x-section-border />
 
