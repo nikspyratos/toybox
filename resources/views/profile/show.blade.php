@@ -58,6 +58,12 @@
                 </div>
             @endif
 
+                <x-section-border />
+
+                <div class="mt-10 sm:mt-0">
+                    @livewire('profile.send-feedback')
+                </div>
+
             @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures() && ! is_null($user->getAuthPassword()))
                 <x-section-border />
 
