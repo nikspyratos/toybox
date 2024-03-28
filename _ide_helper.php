@@ -22685,6 +22685,36 @@ namespace Illuminate\View {
             }
     }
 
+namespace Illuminate\Database\Schema {
+            /**
+     * 
+     *
+     */        class Blueprint {
+                    /**
+         * 
+         *
+         * @see \Orbit\OrbitServiceProvider::boot()
+         * @param string $name
+         * @return bool 
+         * @static 
+         */        public static function hasColumn($name)
+        {
+                        return \Illuminate\Database\Schema\Blueprint::hasColumn($name);
+        }
+                    /**
+         * 
+         *
+         * @see \Orbit\OrbitServiceProvider::boot()
+         * @param string $name
+         * @return \Illuminate\Database\Schema\ColumnDefinition|null 
+         * @static 
+         */        public static function orbitGetColumn($name)
+        {
+                        return \Illuminate\Database\Schema\Blueprint::orbitGetColumn($name);
+        }
+            }
+    }
+
 
 namespace  {
             class App extends \Illuminate\Support\Facades\App {}

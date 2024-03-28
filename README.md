@@ -64,6 +64,7 @@
     * [Helpdesk/Support](#helpdesksupport)
     * [Live Chat](#live-chat)
     * [Knowledgebase](#knowledgebase)
+    * [Roadmap Management](#roadmap-management)
     * [Accounting](#accounting)
     * [Terms & Conditions](#terms--conditions)
   * [Roadmap](#roadmap)
@@ -103,9 +104,10 @@ Principles
 - **Terms of Service and Privacy Policy** derived from [Basecamp](https://github.com/basecamp/policies)
 - **Security enhancements** included from [Securing Laravel](https://securinglaravel.com/)
 - **Laravel ecosystem included** - auth scaffolding, websockets, performance monitoring, webserver runtime, API authentication, feature flags, social login
+- **Documentation pages built-in (WIP)** with Folio and Orbit
 - **User Impersonation**
 - **Coming Soon page**
-- **User Feedback, Testimonial & Roadmap management**
+- **User Feedback, Testimonial & Roadmap management (WIP)**
 
 All of this is done while keeping package dependencies minimal outside of trusted third parties like Filament or Spatie.
 
@@ -117,7 +119,7 @@ All of this is done while keeping package dependencies minimal outside of truste
 - **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 - **Application**: [Laravel](https://laravel.com) (duh)
     - **Admin Panel**: [Filament](https://filamentphp.com/)
-    - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Folio](https://laravel.com/docs/11.x/folio) for content pages. [Laravel Jetstream](https://jetstream.laravel.com) for authentication, session management, 2FA and much more ([Socialstream](https://docs.socialstream.dev/) included to augment Jetstream with social logins). Some features may also use Filamnent components.
+    - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Folio](https://laravel.com/docs/11.x/folio) for content pages. [Orbit](https://github.com/ryangjchandler/orbit for docs pages. [Laravel Jetstream](https://jetstream.laravel.com) for authentication, session management, 2FA and much more ([Socialstream](https://docs.socialstream.dev/) included to augment Jetstream with social logins). Some features may also use Filamnent components.
     - **API**: [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum)
     - **Testing**: [PestPHP](https://pestphp.com/)
     - **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/11.x/pulse) and [Laravel Telescope](https://laravel.com/docs/11.x/telescope)
