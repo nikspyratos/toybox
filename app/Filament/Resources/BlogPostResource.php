@@ -29,6 +29,7 @@ use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Override;
 use Pboivin\FilamentPeek\Tables\Actions\ListPreviewAction;
 
 // Credit: https://alfrednutile.info/one-class-cms-filament
@@ -40,6 +41,7 @@ class BlogPostResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-bookmark-square';
 
+    #[Override]
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist->schema([
@@ -50,6 +52,7 @@ class BlogPostResource extends Resource
         ]);
     }
 
+    #[Override]
     public static function form(Form $form): Form
     {
         return $form
@@ -60,7 +63,7 @@ class BlogPostResource extends Resource
                         ->live(onBlur: true)
                         ->autocomplete(false)
                         ->afterStateUpdated(
-                            function ($state, Set $set) {
+                            static function (string $state, Set $set) {
                                 $slug = $set('slug', str($state)->slug()->toString());
                                 $increments = 0;
                                 while (BlogPost::whereSlug($slug)->exists()) {
@@ -88,6 +91,7 @@ class BlogPostResource extends Resource
     /**
      * @throws Exception
      */
+    #[Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -99,7 +103,7 @@ class BlogPostResource extends Resource
                 SelectColumn::make('status')->options(EnumHelper::toOptionArray(BlogPostStatus::cases())),
                 TextColumn::make('published_at')
                     ->formatStateUsing(
-                        fn (BlogPost $blogPost) => $blogPost->published_at->isFuture()
+                        static fn (BlogPost $blogPost) => $blogPost->published_at->isFuture()
                         ? '(Scheduled) ' . $blogPost->published_at
                         : $blogPost->published_at
                     ),
@@ -112,14 +116,14 @@ class BlogPostResource extends Resource
             ])
             ->actions([
                 ListPreviewAction::make()
-                    ->previewModalData(fn (BlogPost $blogPost): array => ['blogPost' => $blogPost]),
+                    ->previewModalData(static fn (BlogPost $blogPost): array => ['blogPost' => $blogPost]),
                 EditAction::make(),
                 Action::make('view_live')
                     ->label('View live')
                     ->icon('heroicon-s-globe-europe-africa')
-                    ->url(fn (BlogPost $blogPost): string => $blogPost->getLiveUrl())
+                    ->url(static fn (BlogPost $blogPost): string => $blogPost->getLiveUrl())
                     ->openUrlInNewTab()
-                    ->visible(fn (BlogPost $blogPost): bool => $blogPost->status === BlogPostStatus::PUBLISHED),
+                    ->visible(static fn (BlogPost $blogPost): bool => $blogPost->status === BlogPostStatus::PUBLISHED),
             ])
             ->bulkActions([
                 BulkActionGroup::make([
@@ -128,6 +132,7 @@ class BlogPostResource extends Resource
             ]);
     }
 
+    #[Override]
     public static function getRelations(): array
     {
         return [
@@ -135,6 +140,7 @@ class BlogPostResource extends Resource
         ];
     }
 
+    #[Override]
     public static function getPages(): array
     {
         return [

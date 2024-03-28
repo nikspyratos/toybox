@@ -22,11 +22,13 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Override;
 use Pboivin\FilamentPeek\FilamentPeekPlugin;
 use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
+    #[Override]
     public function panel(Panel $panel): Panel
     {
         $background = Color::Gray;
@@ -53,7 +55,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 EnvironmentIndicatorPlugin::make()
-                    ->color(fn () => match (app()->environment()) {
+                    ->color(static fn (): array => match (app()->environment()) {
                         'production' => Color::Red,
                         'staging' => Color::Orange,
                         default => Color::Blue,

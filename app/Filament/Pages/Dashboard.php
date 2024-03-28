@@ -12,9 +12,11 @@ use Filament\Pages\Dashboard as BasePage;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Support\Facades\Storage;
+use Override;
 
 class Dashboard extends BasePage
 {
+    #[Override]
     public function getWidgets(): array
     {
         return [
@@ -23,6 +25,7 @@ class Dashboard extends BasePage
         ];
     }
 
+    #[Override]
     protected function getHeaderActions(): array
     {
         return [
@@ -35,12 +38,12 @@ class Dashboard extends BasePage
                         ->options(EnumHelper::toOptionArray(Database::cases()))
                         ->required(),
                 ])
-                ->action(function (array $data) {
-                    if (Database::tryFrom($data['database'])) {
+                ->action(static function (array $data) {
+                    if (Database::tryFrom($data['database']) instanceof Database) {
                         return Storage::disk('root')->download('database/' . $data['database'] . '.sqlite');
                     }
                 })
-                ->visible(fn () => auth()->user()->is_admin),
+                ->visible(static fn () => auth()->user()->is_admin),
         ];
     }
 }

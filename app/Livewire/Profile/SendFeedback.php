@@ -17,7 +17,7 @@ class SendFeedback extends Component
         return view('profile.send-feedback');
     }
 
-    public function sendFeedback()
+    public function sendFeedback(): void
     {
         $this->resetErrorBag();
         auth()->user()->feedback()->create(['feedback' => $this->feedback, 'consented_testimonial' => $this->consentTestimonial]);

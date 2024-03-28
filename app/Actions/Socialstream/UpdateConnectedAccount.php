@@ -9,12 +9,14 @@ use JoelButcher\Socialstream\ConnectedAccount;
 use JoelButcher\Socialstream\Contracts\UpdatesConnectedAccounts;
 use JoelButcher\Socialstream\Socialstream;
 use Laravel\Socialite\Contracts\User;
+use Override;
 
 class UpdateConnectedAccount implements UpdatesConnectedAccounts
 {
     /**
      * Update a given connected account.
      */
+    #[Override]
     public function update(mixed $user, ConnectedAccount $connectedAccount, string $provider, User $providerUser): ConnectedAccount
     {
         Gate::forUser($user)->authorize('update', $connectedAccount);

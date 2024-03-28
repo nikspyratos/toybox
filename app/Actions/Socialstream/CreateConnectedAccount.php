@@ -8,12 +8,14 @@ use JoelButcher\Socialstream\ConnectedAccount;
 use JoelButcher\Socialstream\Contracts\CreatesConnectedAccounts;
 use JoelButcher\Socialstream\Socialstream;
 use Laravel\Socialite\Contracts\User as ProviderUser;
+use Override;
 
 class CreateConnectedAccount implements CreatesConnectedAccounts
 {
     /**
      * Create a connected account for a given user.
      */
+    #[Override]
     public function create(mixed $user, string $provider, ProviderUser $providerUser): ConnectedAccount
     {
         return Socialstream::connectedAccountModel()::forceCreate([

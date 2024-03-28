@@ -11,41 +11,39 @@ uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 /**
  * @return array<int, array<int, string>>
  */
-dataset('socialiteProvidersDataProvider', function () {
-    return [
-        [Providers::bitbucket()],
-        [Providers::facebook()],
-        [Providers::github()],
-        [Providers::gitlab()],
-        [Providers::google()],
-        [Providers::linkedin()],
-        [Providers::linkedinOpenId()],
-        [Providers::slack()],
-        [Providers::twitterOAuth1()],
-        [Providers::twitterOAuth2()],
-    ];
-});
-test('users get redirected correctly', function (string $provider) {
+dataset('socialiteProvidersDataProvider', static fn (): array => [
+    [Providers::bitbucket()],
+    [Providers::facebook()],
+    [Providers::github()],
+    [Providers::gitlab()],
+    [Providers::google()],
+    [Providers::linkedin()],
+    [Providers::linkedinOpenId()],
+    [Providers::slack()],
+    [Providers::twitterOAuth1()],
+    [Providers::twitterOAuth2()],
+]);
+test('users get redirected correctly', function (string $provider): void {
     if (! Providers::enabled($provider)) {
-        $this->markTestSkipped("Registration support with the {$provider} provider is not enabled.");
+        $this->markTestSkipped(sprintf('Registration support with the %s provider is not enabled.', $provider));
     }
 
-    config()->set("services.{$provider}", [
+    config()->set('services.' . $provider, [
         'client_id' => 'client-id',
         'client_secret' => 'client-secret',
-        'redirect' => "http://localhost/oauth/{$provider}/callback",
+        'redirect' => sprintf('http://localhost/oauth/%s/callback', $provider),
     ]);
 
-    $response = $this->get("/oauth/{$provider}");
+    $response = $this->get('/oauth/' . $provider);
     $response->assertRedirectContains($provider);
 })->with('socialiteProvidersDataProvider');
-test('users can register using socialite providers', function (string $socialiteProvider) {
+test('users can register using socialite providers', function (string $socialiteProvider): void {
     if (! FortifyFeatures::enabled(FortifyFeatures::registration())) {
         $this->markTestSkipped('Registration support is not enabled.');
     }
 
     if (! Providers::enabled($socialiteProvider)) {
-        $this->markTestSkipped("Registration support with the {$socialiteProvider} provider is not enabled.");
+        $this->markTestSkipped(sprintf('Registration support with the %s provider is not enabled.', $socialiteProvider));
     }
 
     $user = (new User)
@@ -68,7 +66,7 @@ test('users can register using socialite providers', function (string $socialite
 
     session()->put('socialstream.previous_url', route('register'));
 
-    $response = $this->get("/oauth/{$socialiteProvider}/callback");
+    $response = $this->get(sprintf('/oauth/%s/callback', $socialiteProvider));
 
     $this->assertAuthenticated();
     $response->assertRedirect(route('dashboard', absolute: false));

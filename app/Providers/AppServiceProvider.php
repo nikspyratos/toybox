@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Pennant\Feature;
+use Override;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
+    #[Override]
     public function register(): void
     {
         // Stub
@@ -44,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(TelescopeServiceProvider::class);
         }
 
-        Feature::define('coming-soon', static fn (?User $user) => ! $user?->is_admin && config('app.coming_soon_enabled'));
+        Feature::define('coming-soon', static fn (?User $user): bool => ! $user?->is_admin && config('app.coming_soon_enabled'));
 
         $this->bootAuth();
         $this->bootEvent();
@@ -53,9 +55,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function bootAuth(): void
     {
-        $isAdminCallback = function (User $user) {
-            return $user->is_admin;
-        };
+        $isAdminCallback = static fn (User $user) => $user->is_admin;
         Gate::define('viewPulse', $isAdminCallback);
         Gate::define('viewTelescope', $isAdminCallback);
     }
@@ -67,9 +67,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function bootRoute(): void
     {
-        RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
-        });
+        RateLimiter::for('api', static fn (Request $request) => Limit::perMinute(60)->by($request->user()?->id ?: $request->ip()));
 
     }
 }

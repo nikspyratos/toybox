@@ -7,6 +7,7 @@ namespace App\Filament\Resources\BlogPostResource\Pages;
 use App\Filament\Resources\BlogPostResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
+use Override;
 use Pboivin\FilamentPeek\Pages\Actions\PreviewAction;
 use Pboivin\FilamentPeek\Pages\Concerns\HasPreviewModal;
 
@@ -16,6 +17,7 @@ class EditBlogPost extends EditRecord
 
     protected static string $resource = BlogPostResource::class;
 
+    #[Override]
     protected function getHeaderActions(): array
     {
         return [
@@ -24,6 +26,7 @@ class EditBlogPost extends EditRecord
         ];
     }
 
+    #[Override]
     protected function getRedirectUrl(): string
     {
         return $this->getResource()::getUrl('edit', ['record' => $this->getRecord()]);

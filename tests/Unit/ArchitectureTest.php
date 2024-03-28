@@ -28,33 +28,33 @@ arch('Mailables are extending the correct class')
     ->expect('App\Mail')
     ->toBeClasses()
 //    ->classes->toBeFinal() // optional
-    ->classes->toExtend('Illuminate\Mail\Mailable');
+    ->classes->toExtend(Illuminate\Mail\Mailable::class);
 //    ->classes->toImplement('Illuminate\Contracts\Queue\ShouldQueue'); // optional
 
 arch('Models are extending the correct class')
     ->expect('App\Models')
     ->toBeClasses()
 //    ->classes->toBeFinal() // optional
-    ->classes->toExtend('Illuminate\Database\Eloquent\Model');
+    ->classes->toExtend(Illuminate\Database\Eloquent\Model::class);
 
 arch('Providers are extending the correct class')
     ->expect('App\Providers')
     ->toBeClasses()
 //    ->classes->toBeFinal() // optional
-    ->classes->toExtend('Illuminate\Support\ServiceProvider')
+    ->classes->toExtend(Illuminate\Support\ServiceProvider::class)
     ->classes->toImplementNothing();
 
 arch('Requests are extending the correct class')
     ->expect('App\Http\Requests')
     ->toBeClasses()
 //    ->classes->toBeFinal() // optional
-    ->classes->toExtend('Illuminate\Foundation\Http\FormRequest');
+    ->classes->toExtend(Illuminate\Foundation\Http\FormRequest::class);
 
 arch('Commands are extending the correct class')
     ->expect('App\Console\Commands')
     ->toBeClasses()
 //    ->classes->toBeFinal() // optional
-    ->classes->toExtend('Illuminate\Console\Command');
+    ->classes->toExtend(Illuminate\Console\Command::class);
 
 arch('Tests are using strict types and have the correct suffix')
     ->expect('Tests')

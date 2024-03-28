@@ -11,5 +11,5 @@ enum RoadmapItemStatus: string
     case PLANNED = 'planned';
     case IN_PROGRESS = 'in progress';
     case DONE = 'done';
-    case WONTFIX = 'won\'t fix';
+    case WONTFIX = "won't fix";
 }

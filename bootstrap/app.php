@@ -17,16 +17,14 @@ return Application::configure(basePath: dirname(__DIR__))
         channels: __DIR__.'/../routes/channels.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware) {
-        $middleware->redirectGuestsTo(fn () => route('login'));
+    ->withMiddleware(static function (Middleware $middleware) : void {
+        $middleware->redirectGuestsTo(static fn() => route('login'));
         $middleware->redirectUsersTo(AppServiceProvider::HOME);
-
         $middleware->throttleApi();
-
         $middleware->appendToGroup('web', [
             ComingSoon::class
         ]);
     })
-    ->withExceptions(function (Exceptions $exceptions) {
+    ->withExceptions(static function (Exceptions $exceptions) : void {
         //
     })->create();

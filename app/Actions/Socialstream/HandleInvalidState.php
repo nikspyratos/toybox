@@ -7,14 +7,16 @@ namespace App\Actions\Socialstream;
 use Illuminate\Http\Response;
 use JoelButcher\Socialstream\Contracts\HandlesInvalidState;
 use Laravel\Socialite\Two\InvalidStateException;
+use Override;
 
 class HandleInvalidState implements HandlesInvalidState
 {
     /**
      * Handle an invalid state exception from a Socialite provider.
      */
-    public function handle(InvalidStateException $exception): Response
+    #[Override]
+    public function handle(InvalidStateException $invalidStateException): Response
     {
-        throw $exception;
+        throw $invalidStateException;
     }
 }

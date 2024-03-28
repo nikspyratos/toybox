@@ -5,7 +5,7 @@ declare(strict_types=1);
 use App\Models\User;
 use Laravel\Jetstream\Features;
 
-test('confirm password screen can be rendered', function () {
+test('confirm password screen can be rendered', function (): void {
     $user = Features::hasTeamFeatures()
                     ? User::factory()->withPersonalTeam()->create()
                     : User::factory()->create();
@@ -15,7 +15,7 @@ test('confirm password screen can be rendered', function () {
     $response->assertStatus(200);
 });
 
-test('password can be confirmed', function () {
+test('password can be confirmed', function (): void {
     $user = User::factory()->create();
 
     $response = $this->actingAs($user)->post('/user/confirm-password', [
@@ -26,7 +26,7 @@ test('password can be confirmed', function () {
     $response->assertSessionHasNoErrors();
 });
 
-test('password is not confirmed with invalid password', function () {
+test('password is not confirmed with invalid password', function (): void {
     $user = User::factory()->create();
 
     $response = $this->actingAs($user)->post('/user/confirm-password', [

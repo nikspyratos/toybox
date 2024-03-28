@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Override;
 
 class RoadmapItem extends Model implements Votable
 {
@@ -45,6 +46,7 @@ class RoadmapItem extends Model implements Votable
         return $this->morphMany(Vote::class, 'votable');
     }
 
+    #[Override]
     public function handleVoteUpdate(Vote $vote): void
     {
         if ($vote->vote_up) {
@@ -52,9 +54,11 @@ class RoadmapItem extends Model implements Votable
         } else {
             $this->votes--;
         }
+
         $this->save();
     }
 
+    #[Override]
     protected function casts(): array
     {
         return [

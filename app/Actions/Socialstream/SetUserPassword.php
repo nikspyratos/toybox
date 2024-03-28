@@ -8,12 +8,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use JoelButcher\Socialstream\Contracts\SetsUserPasswords;
 use Laravel\Fortify\Rules\Password;
+use Override;
 
 class SetUserPassword implements SetsUserPasswords
 {
     /**
      * Validate and update the user's password.
      */
+    #[Override]
     public function set(mixed $user, array $input): void
     {
         Validator::make($input, [

@@ -17,29 +17,33 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Override;
 use Spatie\Activitylog\Models\Activity;
 
 class ActivitiesRelationManager extends RelationManager
 {
     protected static ?string $title = 'Event Log';
+
     protected static string $relationship = 'activities';
 
-    public static function canViewForRecord(Model $ownerRecord, string $pageClass): bool
+    #[Override]
+    public static function canViewForRecord(Model $model, string $pageClass): bool
     {
         return auth()->user()->is_admin;
     }
 
+    #[Override]
     public function infolist(Infolist $infolist): Infolist
     {
         return $infolist
             ->schema([
                 TextEntry::make('description')
-                    ->formatStateUsing(fn (string $state) => Str::ucfirst($state)),
+                    ->formatStateUsing(static fn (string $state) => Str::ucfirst($state)),
                 TextEntry::make('causer.fullname')
                     ->label('Updated By')
                     ->color(Color::Cyan)
                     ->url(
-                        fn (Activity $activity) => UserResource::getUrl(
+                        static fn (Activity $activity): string => UserResource::getUrl(
                             'view',
                             ['record' => $activity->causer]
                         )
@@ -50,7 +54,7 @@ class ActivitiesRelationManager extends RelationManager
                     ->schema([
                         Section::make('Before')
                             ->columnSpan(2)
-                            ->schema(function (Activity $activity): array {
+                            ->schema(static function (Activity $activity): array {
                                 $schema = [];
                                 $oldValuesThatChanged = array_diff_assoc(
                                     $activity->properties->get('old'),
@@ -61,14 +65,14 @@ class ActivitiesRelationManager extends RelationManager
                                 }
 
                                 return $schema;
-                            })->visible(fn (Activity $activity): bool => Arr::has($activity->properties, 'old')),
+                            })->visible(static fn (Activity $activity): bool => Arr::has($activity->properties, 'old')),
                         Section::make(
-                            fn (Activity $activity): string => Arr::has($activity->properties, 'old')
+                            static fn (Activity $activity): string => Arr::has($activity->properties, 'old')
                             ? 'After'
                             : ''
                         )
                             ->columnSpan(2)
-                            ->schema(function (Activity $activity): array {
+                            ->schema(static function (Activity $activity): array {
                                 $schema = [];
                                 $newValuesThatChanged = array_diff_assoc(
                                     $activity->properties->get('attributes'),
@@ -83,17 +87,19 @@ class ActivitiesRelationManager extends RelationManager
                                 }
 
                                 return $schema;
-                            })->visible(fn (Activity $activity): bool => Arr::has($activity->properties, 'attributes')),
+                            })->visible(static fn (Activity $activity): bool => Arr::has($activity->properties, 'attributes')),
                     ]),
 
             ]);
     }
 
+    #[Override]
     public function isReadOnly(): bool
     {
         return true;
     }
 
+    #[Override]
     public function table(Table $table): Table
     {
         return $table
@@ -101,11 +107,11 @@ class ActivitiesRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('description')
                     ->label('Action')
-                    ->formatStateUsing(fn (string $state) => Str::ucfirst($state)),
+                    ->formatStateUsing(static fn (string $state) => Str::ucfirst($state)),
                 TextColumn::make('causer.fullname')
                     ->label('Updated By')
                     ->color(Color::Cyan)
-                    ->url(fn (Activity $activity) => UserResource::getUrl('view', ['record' => $activity->causer]))
+                    ->url(static fn (Activity $activity): string => UserResource::getUrl('view', ['record' => $activity->causer]))
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->label('Updated at'),

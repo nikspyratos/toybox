@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Table;
+use Override;
 
 class RoadmapItemResource extends Resource
 {
@@ -25,6 +26,7 @@ class RoadmapItemResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-map';
 
+    #[Override]
     public static function form(Form $form): Form
     {
         return $form
@@ -41,6 +43,7 @@ class RoadmapItemResource extends Resource
             ]);
     }
 
+    #[Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -76,6 +79,7 @@ class RoadmapItemResource extends Resource
             ]);
     }
 
+    #[Override]
     public static function getPages(): array
     {
         return [

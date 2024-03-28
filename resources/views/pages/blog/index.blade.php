@@ -10,7 +10,7 @@ use function Laravel\Folio\render;
 
 name('blog-posts.index');
 
-render(function (View $view) {
+render(static function (View $view) {
     $posts = BlogPost::select(['id', 'title', 'slug', 'seo_description', 'published_at'])
         ->published()
         ->get();

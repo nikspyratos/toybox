@@ -8,7 +8,7 @@ use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
 use Livewire\Livewire;
 
-test('api tokens can be deleted', function () {
+test('api tokens can be deleted', function (): void {
     if (Features::hasTeamFeatures()) {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
     } else {
@@ -26,6 +26,4 @@ test('api tokens can be deleted', function () {
         ->call('deleteApiToken');
 
     expect($user->fresh()->tokens)->toHaveCount(0);
-})->skip(function () {
-    return ! Features::hasApiFeatures();
-}, 'API support is not enabled.');
+})->skip(static fn (): bool => ! Features::hasApiFeatures(), 'API support is not enabled.');

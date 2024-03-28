@@ -10,6 +10,7 @@ use JoelButcher\Socialstream\ConnectedAccount as SocialstreamConnectedAccount;
 use JoelButcher\Socialstream\Events\ConnectedAccountCreated;
 use JoelButcher\Socialstream\Events\ConnectedAccountDeleted;
 use JoelButcher\Socialstream\Events\ConnectedAccountUpdated;
+use Override;
 
 class ConnectedAccount extends SocialstreamConnectedAccount
 {
@@ -35,16 +36,6 @@ class ConnectedAccount extends SocialstreamConnectedAccount
     ];
 
     /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'expires_at' => 'datetime',
-    ];
-
-    /**
      * The event map for the model.
      *
      * @var array
@@ -54,4 +45,16 @@ class ConnectedAccount extends SocialstreamConnectedAccount
         'updated' => ConnectedAccountUpdated::class,
         'deleted' => ConnectedAccountDeleted::class,
     ];
+
+    /**
+     * The attributes that should be cast.
+     */
+    #[Override]
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'expires_at' => 'datetime',
+        ];
+    }
 }

@@ -21,6 +21,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 //teams_use_placeholder
 use Laravel\Pennant\Concerns\HasFeatures;
 use Laravel\Sanctum\HasApiTokens;
+use Override;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -80,6 +81,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         return $this->role === Role::ADMIN;
     }
 
+    #[Override]
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->is_admin;
@@ -105,6 +107,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         return $this->hasMany(RoadmapItem::class, 'suggester_id');
     }
 
+    #[Override]
     protected function casts(): array
     {
         return [

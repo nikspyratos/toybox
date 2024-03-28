@@ -21,6 +21,7 @@ class Color extends BaseColor
         900 => '111, 67, 20',
         950 => '65, 35, 7',
     ];
+
     public const MATISSE = [
         50 => '242, 249, 253',
         100 => '229, 240, 249',
@@ -34,6 +35,7 @@ class Color extends BaseColor
         900 => '28, 68, 94',
         950 => '19, 44, 62',
     ];
+
     public const VOODOO = [
         50 => '250, 248, 251',
         100 => '245, 241, 246',

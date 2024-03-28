@@ -7,12 +7,14 @@ namespace App\Providers;
 use App\Http\Middleware\ComingSoon;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Folio\Folio;
+use Override;
 
 class FolioServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
      */
+    #[Override]
     public function register(): void
     {
     }

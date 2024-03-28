@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Override;
 
 class FeedbackResource extends Resource
 {
@@ -17,6 +18,7 @@ class FeedbackResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-megaphone';
 
+    #[Override]
     public static function table(Table $table): Table
     {
         return $table
@@ -49,13 +51,13 @@ class FeedbackResource extends Resource
                         Forms\Components\Textarea::make('edited_feedback')
                             ->label('Editing Feedback'),
                     ])
-                    ->action(function (Feedback $record, array $data) {
-                        $record->update(['edited_feedback' => $data['edited_feedback'], 'reviewed' => true]);
+                    ->action(static function (Feedback $feedback, array $data): void {
+                        $feedback->update(['edited_feedback' => $data['edited_feedback'], 'reviewed' => true]);
                     }),
                 Tables\Actions\Action::make('mark_reviewed')
                     ->icon('heroicon-m-check-badge')
-                    ->action(function (Feedback $record) {
-                        $record->update(['reviewed' => true]);
+                    ->action(static function (Feedback $feedback): void {
+                        $feedback->update(['reviewed' => true]);
                     }),
                 Tables\Actions\Action::make('add_to_roadmap')
                     ->icon('heroicon-m-map')
@@ -63,10 +65,10 @@ class FeedbackResource extends Resource
                         Forms\Components\TextInput::make('title')
                             ->required(),
                         Forms\Components\Textarea::make('content')
-                            ->default(fn (Feedback $record): string => $record->feedback),
+                            ->default(static fn (Feedback $feedback): string => $feedback->feedback),
                     ])
-                    ->action(function (Feedback $record, array $data) {
-                        $record->roadmapItems()->create(['title' => $data['title'], 'content' => $data['content']]);
+                    ->action(static function (Feedback $feedback, array $data): void {
+                        $feedback->roadmapItems()->create(['title' => $data['title'], 'content' => $data['content']]);
                     }),
 
             ])
@@ -74,6 +76,7 @@ class FeedbackResource extends Resource
             ]);
     }
 
+    #[Override]
     public static function getPages(): array
     {
         return [

@@ -10,8 +10,6 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+])->group(static function (): void {
+    Route::get('dashboard', static fn () => view('dashboard'))->name('dashboard');
 });

@@ -7,6 +7,7 @@ namespace App\Filament\Resources\BlogPostResource\Pages;
 use App\Filament\Resources\BlogPostResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Override;
 use Pboivin\FilamentPeek\Pages\Concerns\HasPreviewModal;
 
 class ListBlogPosts extends ListRecords
@@ -15,6 +16,7 @@ class ListBlogPosts extends ListRecords
 
     protected static string $resource = BlogPostResource::class;
 
+    #[Override]
     protected function getHeaderActions(): array
     {
         return [

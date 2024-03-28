@@ -168,7 +168,7 @@ return [
 
         Recorders\Servers::class => [
             'server_name' => env('PULSE_SERVER_NAME', gethostname()),
-            'directories' => explode(':', env('PULSE_SERVER_DIRECTORIES', '/')),
+            'directories' => explode(':', (string) env('PULSE_SERVER_DIRECTORIES', '/')),
         ],
 
         Recorders\SlowJobs::class => [

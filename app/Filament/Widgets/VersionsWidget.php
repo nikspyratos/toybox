@@ -8,9 +8,11 @@ use Composer\InstalledVersions;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Illuminate\Foundation\Application;
+use Override;
 
 class VersionsWidget extends BaseWidget
 {
+    #[Override]
     protected function getStats(): array
     {
         return [

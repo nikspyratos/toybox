@@ -6,6 +6,7 @@ namespace App\Filament\Resources\BlogPostResource\Pages;
 
 use App\Filament\Resources\BlogPostResource;
 use Filament\Resources\Pages\CreateRecord;
+use Override;
 use Pboivin\FilamentPeek\Pages\Actions\PreviewAction;
 use Pboivin\FilamentPeek\Pages\Concerns\HasPreviewModal;
 
@@ -15,6 +16,7 @@ class CreateBlogPost extends CreateRecord
 
     protected static string $resource = BlogPostResource::class;
 
+    #[Override]
     protected function getHeaderActions(): array
     {
         return [
