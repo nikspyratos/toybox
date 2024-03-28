@@ -103,6 +103,9 @@ Principles
 - **Terms of Service and Privacy Policy** derived from [Basecamp](https://github.com/basecamp/policies)
 - **Security enhancements** included from [Securing Laravel](https://securinglaravel.com/)
 - **Laravel ecosystem included** - auth scaffolding, websockets, performance monitoring, webserver runtime, API authentication, feature flags, social login
+- **User Impersonation**
+- **Coming Soon page**
+- **User Feedback, Testimonial & Roadmap management**
 
 All of this is done while keeping package dependencies minimal outside of trusted third parties like Filament or Spatie.
 
@@ -217,8 +220,9 @@ Five tools have been included for this:
 - Duster (linting),
 - Larastan (static analysis),
 - PHP Insights (analysis & architecture),
-- Rustywind (Tailwind linting).
-- Roave security advisories
+- Rector (automated refactoring),
+- Rustywind (Tailwind linting),
+- Roave security advisories (prevent insecure package installs)
 
 There are also some default Pest tests for architecture rules as well.
 You may see some overlap or conflicts in recommendations by these tools - if so, please make an issue so I can adjust the config to avoid the conflict.
@@ -259,7 +263,7 @@ These are the next steps you will have to implement yourself for your project as
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
 - **Social Logins**: For each provider you plan on adding, you'll need to add the relevant credentials and configuration for both [Socialite](https://laravel.com/docs/11.x/socialite#configuration) and [Socialstream](https://docs.socialstream.dev/getting-started/configuration#providers). If you'd like to add additional social login providers, please check out the [Socialite Providers](https://socialiteproviders.com/) site.
 - **Feature flags**: By default the `array` driver is used for Pennant feature flags. If you'd like to use the `database` driver instead, make sure to [publish the migrations](https://laravel.com/docs/11.x/pennant#installation) and change the `PENNANT_STORE` environment variable.
-  - **Coming Soon**: To redirect public routes to a "Coming Soon" page before launch, change the `COMING_SOON_ENABLED` environment variable and re-cache your config. This feature is implemented using Pennant for an example implementation. You can delete the middleware, feature definition, and environment variable post-launch. 
+  - **Coming Soon**: To redirect public routes to a "Coming Soon" page before launch, change the `COMING_SOON_ENABLED` environment variable and re-cache your config. This feature is implemented using Pennant for an example implementation. You can delete the middleware, feature definition, and environment variable post-launch.
 
 #### Ongoing Development
 
