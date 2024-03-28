@@ -20,6 +20,7 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use STS\FilamentImpersonate\Tables\Actions\Impersonate;
 
 class UserResource extends Resource
 {
@@ -65,6 +66,8 @@ class UserResource extends Resource
                 // Stub
             ])
             ->actions([
+                Impersonate::make()
+                    ->redirectTo(route('dashboard')),
                 ViewAction::make(),
                 EditAction::make(),
             ])

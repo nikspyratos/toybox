@@ -26,7 +26,8 @@
         "pboivin/filament-peek": "^2.2",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "spatie/laravel-activitylog": "^4.8",
-        "spatie/laravel-sitemap": "^7.2"
+        "spatie/laravel-sitemap": "^7.2",
+        "stechstudio/filament-impersonate": "^3.8"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.10",

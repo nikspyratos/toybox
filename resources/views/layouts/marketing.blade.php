@@ -49,5 +49,6 @@
     </main>
     @include('layouts.marketing.footer')
     @livewireScripts
+    <x-impersonate::banner/>
 </body>
 </html>

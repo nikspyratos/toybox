@@ -8,6 +8,7 @@ use App\Filament\Resources\UserResource;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
+use STS\FilamentImpersonate\Pages\Actions\Impersonate;
 
 class EditUser extends EditRecord
 {
@@ -16,6 +17,8 @@ class EditUser extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
+            Impersonate::make()
+                ->redirectTo(route('dashboard')),
             ViewAction::make(),
             DeleteAction::make(),
         ];
