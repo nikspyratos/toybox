@@ -145,6 +145,73 @@ namespace App\Models{
  * 
  *
  * @property int $id
+ * @property int $user_id
+ * @property string $feedback
+ * @property bool $consented_testimonial
+ * @property string|null $edited_feedback
+ * @property bool $reviewed
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\RoadmapItem> $roadmapItems
+ * @property-read int|null $roadmap_items_count
+ * @property-read \App\Models\User|null $user
+ * @method static \Database\Factories\FeedbackFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback whereConsentedTestimonial($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback whereEditedFeedback($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback whereFeedback($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback whereReviewed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Feedback whereUserId($value)
+ */
+	class Feedback extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $content
+ * @property \App\Enumerations\RoadmapItemStatus $status
+ * @property int $published
+ * @property int $votes
+ * @property int|null $suggester_id
+ * @property int $feedback_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Feedback|null $feedback
+ * @property-read \App\Models\User|null $suggester
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vote> $voteRecords
+ * @property-read int|null $vote_records_count
+ * @method static \Database\Factories\RoadmapItemFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem query()
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereFeedbackId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem wherePublished($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereSuggesterId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereVotes($value)
+ */
+	class RoadmapItem extends \Eloquent implements \App\Models\Interfaces\Votable {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
@@ -161,11 +228,15 @@ namespace App\Models{
  * @property-read int|null $activities_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \JoelButcher\Socialstream\ConnectedAccount> $connectedAccounts
  * @property-read int|null $connected_accounts_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Feedback> $feedback
+ * @property-read int|null $feedback_count
  * @property-read bool $is_admin
  * @property-read string $get_photo_url
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
  * @property-read string $profile_photo_url
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\RoadmapItem> $roadmapItems
+ * @property-read int|null $roadmap_items_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
@@ -187,5 +258,33 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  */
 	class User extends \Eloquent implements \Filament\Models\Contracts\FilamentUser, \Illuminate\Contracts\Auth\MustVerifyEmail {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property bool $vote_up
+ * @property string $votable_type
+ * @property int $votable_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User|null $user
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $votable
+ * @method static \Database\Factories\VoteFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote whereVotableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote whereVotableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Vote whereVoteUp($value)
+ */
+	class Vote extends \Eloquent {}
 }
 

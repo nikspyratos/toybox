@@ -98,6 +98,11 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
         return $this->hasMany(Feedback::class);
     }
 
+    public function roadmapItems(): HasMany
+    {
+        return $this->hasMany(RoadmapItem::class, 'suggester_id');
+    }
+
     protected function casts(): array
     {
         return [

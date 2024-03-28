@@ -7,35 +7,40 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Feedback extends Model
+class Vote extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_id',
-        'feedback',
-        'consented_testimonial',
-        'edited_feedback',
-        'reviewed',
+        'vote_up',
+        'votable_type',
+        'votable_id',
     ];
+
+    public function votable(): MorphTo
+    {
+        return $this->morphTo();
+    }
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function roadmapItems(): HasMany
+    protected static function booted(): void
     {
-        return $this->hasMany(RoadmapItem::class);
+        static::created(static function (Vote $vote) {
+            $vote->votable()->handleVoteUpdate($vote);
+        });
     }
 
     protected function casts(): array
     {
         return [
-            'consented_testimonial' => 'boolean',
-            'reviewed' => 'boolean',
+            'vote_up' => 'boolean',
         ];
     }
 }

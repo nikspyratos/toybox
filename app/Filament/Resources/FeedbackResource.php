@@ -57,6 +57,18 @@ class FeedbackResource extends Resource
                     ->action(function (Feedback $record) {
                         $record->update(['reviewed' => true]);
                     }),
+                Tables\Actions\Action::make('add_to_roadmap')
+                    ->icon('heroicon-m-map')
+                    ->form([
+                        Forms\Components\TextInput::make('title')
+                            ->required(),
+                        Forms\Components\Textarea::make('content')
+                            ->default(fn (Feedback $record): string => $record->feedback),
+                    ])
+                    ->action(function (Feedback $record, array $data) {
+                        $record->roadmapItems()->create(['title' => $data['title'], 'content' => $data['content']]);
+                    }),
+
             ])
             ->bulkActions([
             ]);
