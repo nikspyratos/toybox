@@ -2,6 +2,7 @@
 #https://laraveldaily.com/post/laravel-pint-pre-commit-hooks-github-actions
 phpFiles=$(git diff --cached --name-only --diff-filter=ACM -- '*.php');
 resourceFiles=$(git diff --cached --name-only --diff-filter=ACM -- resources/);
+vendor/bin/rector
 vendor/bin/duster fix --dirty
 #Sort tailwind classes
 rustywind --write resources/
