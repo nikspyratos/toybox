@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bbd4c83be1119aa9d326dfabe048f30",
+    "content-hash": "fe9504fc62d7d211846473d23131df67",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -11544,6 +11544,41 @@
             "time": "2023-01-05T11:28:13+00:00"
         },
         {
+            "name": "driftingly/rector-laravel",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/driftingly/rector-laravel.git",
+                "reference": "47c7de91bb07c0a97df8dd1fe677c6c154608549"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/driftingly/rector-laravel/zipball/47c7de91bb07c0a97df8dd1fe677c6c154608549",
+                "reference": "47c7de91bb07c0a97df8dd1fe677c6c154608549",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0",
+                "rector/rector": "^1.0"
+            },
+            "type": "rector-extension",
+            "autoload": {
+                "psr-4": {
+                    "RectorLaravel\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Rector upgrades rules for Laravel Framework",
+            "support": {
+                "issues": "https://github.com/driftingly/rector-laravel/issues",
+                "source": "https://github.com/driftingly/rector-laravel/tree/1.1.0"
+            },
+            "time": "2024-03-27T16:18:46+00:00"
+        },
+        {
             "name": "fakerphp/faker",
             "version": "v1.23.1",
             "source": {
@@ -14234,6 +14269,62 @@
                 }
             ],
             "time": "2024-03-22T04:17:47+00:00"
+        },
+        {
+            "name": "rector/rector",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rectorphp/rector.git",
+                "reference": "c59507a9090b465d65e1aceed91e5b81986e375b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rectorphp/rector/zipball/c59507a9090b465d65e1aceed91e5b81986e375b",
+                "reference": "c59507a9090b465d65e1aceed91e5b81986e375b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0",
+                "phpstan/phpstan": "^1.10.57"
+            },
+            "conflict": {
+                "rector/rector-doctrine": "*",
+                "rector/rector-downgrade-php": "*",
+                "rector/rector-phpunit": "*",
+                "rector/rector-symfony": "*"
+            },
+            "bin": [
+                "bin/rector"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Instant Upgrade and Automated Refactoring of any PHP code",
+            "keywords": [
+                "automation",
+                "dev",
+                "migration",
+                "refactoring"
+            ],
+            "support": {
+                "issues": "https://github.com/rectorphp/rector/issues",
+                "source": "https://github.com/rectorphp/rector/tree/1.0.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/tomasvotruba",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-03-14T15:04:18+00:00"
         },
         {
             "name": "roave/security-advisories",

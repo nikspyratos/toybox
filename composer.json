@@ -32,6 +32,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.10",
         "barryvdh/laravel-ide-helper": "^3.0",
+        "driftingly/rector-laravel": "^1.1",
         "fakerphp/faker": "^1.23",
         "larastan/larastan": "^2.8",
         "laravel/pint": "^1.13",
@@ -44,6 +45,7 @@
         "pestphp/pest-plugin-drift": "*",
         "pestphp/pest-plugin-laravel": "^2.0",
         "pestphp/pest-plugin-type-coverage": "^2.8",
+        "rector/rector": "^1.0",
         "roave/security-advisories": "dev-latest",
         "spatie/laravel-ignition": "^2.4",
         "tightenco/duster": "^2.2"
