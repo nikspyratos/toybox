@@ -13,7 +13,7 @@
             <!-- Token Name -->
             <div class="col-span-6 sm:col-span-4">
                 <x-label for="name" value="{{ __('Token Name') }}" />
-                <x-input id="name" type="text" class="block mt-1 w-full" wire:model="createApiTokenForm.name" autofocus />
+                <x-input id="name" type="text" class="block mt-1 w-full" wire:model="createApiTokenForm.name" />
                 <x-input-error for="name" class="mt-2" />
             </div>
 

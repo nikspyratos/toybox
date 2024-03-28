@@ -4,7 +4,9 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Any feedback is appreciated!') }}
+        {{ __('Tell us anything you\'d like us to know about the app. Feedback, complaints, suggestions all welcome!') }}
+        <br>
+        {{ __('For support queries, please email to ') }} <a class="text-indigo-600" href="mailto:{{ config('app.contact-email') }}">{{  config('app.contact-email') }}</a>
     </x-slot>
 
     <x-slot name="form">
