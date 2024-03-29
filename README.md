@@ -539,21 +539,6 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 - [All sorts of policies available for free by Basecamp](https://github.com/basecamp/policies)
 - [GetTerms](https://getterms.io/)
 
-## Roadmap
-
-I intend to build out more common SaaS features.
-
-- Generic-ish payments management, modeled after [Laravel Cashier](https://laravel.com/docs/11.x/cashier-paddle), [LemonSqueezy Laravel](https://github.com/lmsqueezy/laravel), etc.
-- Documentation using [LaRecipe](https://larecipe.saleem.dev)
-- Customer feedback
-- Roadmaps
-- Support ticketing
-- Publish announcements/notifications to users in-app (with/without Reverb)
-- Sensible AI default setup for AI related features
-- Maybe rework the T&C docs - Basecamp's ones are free to copy, but highly specific to them.
-- Redo/improve Blog & post styling
-- Rework general app styling with a different UI kit
-
 ## Contributing
 
 These are some features that would be nice to have, but I don't intend on building yet for one reason or another:
