@@ -1,11 +1,11 @@
-# Toybox - A Laravel micro-SaaS starter kit
+# Toybox - A TALL SaaS starter kit
 
 ![Toybox cover image](public/images/toybox-cover.png)
 
 ---
 
 <!-- TOC -->
-* [Toybox - A Laravel micro-SaaS starter kit](#toybox---a-laravel-micro-saas-starter-kit)
+* [Toybox - A TALL SaaS starter kit](#toybox---a-tall-saas-starter-kit)
   * [Support this project](#support-this-project)
   * [Project Status - can you use this yet?](#project-status---can-you-use-this-yet)
   * [Features](#features)
