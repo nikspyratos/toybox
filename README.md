@@ -7,6 +7,7 @@
 <!-- TOC -->
 * [Toybox - A Laravel micro-SaaS starter kit](#toybox---a-laravel-micro-saas-starter-kit)
   * [Support this project](#support-this-project)
+  * [Project Status - can you use this yet?](#project-status---can-you-use-this-yet)
   * [Features](#features)
   * [Components](#components)
   * [Installation/Usage](#installationusage)
@@ -87,7 +88,7 @@ Principles
 - **Don't reinvent the wheel**: Use as much of the official & unofficial Laravel ecosystem where applicable. Use popular (i.e. sustainable, gets regular updates) tools & packages where applicable instead of rewriting boilerplate logic from scratch. We're in Laravel, not JS!
 - **Stability**: Strict types. Automated linting & code analysis
 - **Simplified Scaling**: It's cheaper to scale with load balancing & bigger servers, and with minor manual input instead of full automation.
-- **Local is lekker**: Reducing reliance on third-party services while not reducing capabilities.
+- **Local is lekker**: Sometimes, building your own features is better in the long run than adding more dependencies.
 
 ## Support this project
 
@@ -95,6 +96,21 @@ Principles
 - Sign up to services like OhDear and Paystack with my affiliate links in the [Next Steps](#next-steps---diy) section.
 - I also [consult in the Laravel & payments space](https://nik.software)
 - Post what you've built using the Toybox and tag me!
+
+## Project Status - can you use this yet?
+
+The core of the project - setup, infrastructure, deployment, starter kit and admin panel are all working.
+
+There are a few WIP pieces in the repo that are not yet ready:
+- **Roadmap management**: user-facing UI
+- **Documentation generation**: user-facing UI
+- **Cache improvements** for content pages
+
+Then there are some pieces I'm working on before I'd call Toybox feature-complete:
+- **In-app announcements/notifications**: Contact your users in-app as well as by email, via the admin panel.
+- **Payments**: Toybox doesn't include any payments features by default as people use different gateways for different needs with different flows and data structures. However, I'd like to provide _some_ form of generic payments data support & management, including invoice generation.
+- **UI rework**: I'd like to make the content pages, user portion, and admin panel have consistent style & theme, as well as better layouts for many content pages completely.
+- **AI feature boilerplate**: This will be coming soon once [Sparkle](https://github.com/echolabsdev/sparkle) becomes available.
 
 ## Features
 
