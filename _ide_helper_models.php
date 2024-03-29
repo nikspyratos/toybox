@@ -144,6 +144,35 @@ namespace App\Models{
 /**
  * 
  *
+ * @property string $title
+ * @property string|null $group
+ * @property string $order_in_group
+ * @property string $slug
+ * @property string $content
+ * @property int $visible_in_navigation
+ * @property string $last_updated_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage query()
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereGroup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereLastUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereOrderInGroup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|DocumentationPage whereVisibleInNavigation($value)
+ */
+	class DocumentationPage extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property int $user_id
  * @property string $feedback

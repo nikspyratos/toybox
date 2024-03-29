@@ -15,10 +15,11 @@ class DocumentationPage extends Model
     public static function schema(Blueprint $blueprint): void
     {
         $blueprint->string('title');
-        $blueprint->string('group');
+        $blueprint->string('group')->nullable();
         $blueprint->string('order_in_group');
         $blueprint->string('slug');
         $blueprint->text('content');
+        $blueprint->boolean('visible_in_navigation')->default(true);
         $blueprint->timestamp('last_updated_at');
     }
 

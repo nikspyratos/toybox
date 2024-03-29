@@ -3,7 +3,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    @apply mb-6 font-extrabold tracking-tight leading-none
+    @apply mb-6 font-extrabold tracking-tight leading-none;
+    scroll-margin-top: 84px;
 }
 
 h1 {

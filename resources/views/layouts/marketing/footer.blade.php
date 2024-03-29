@@ -11,6 +11,9 @@
                     <a href="{{ route('blog-posts.index') }}">Blog</a>
                 </li>
                 <li>
+                    <a href="{{ route('docs.index') }}">Docs</a>
+                </li>
+                <li>
                     <a href="mailto:{{ config('app.contact-email') }}">Contact us</a>
                 </li>
             </ul>

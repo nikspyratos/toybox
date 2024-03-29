@@ -43,9 +43,12 @@
     @livewireStyles
 </head>
 <body>
-    @include('layouts.marketing.navigation', ['includeNav' => $includeNav ?? true])
-    <main>
-        @yield('content')
+    @include('layouts.marketing.navigation')
+    <main class="flex mx-auto max-w-screen-xl">
+        @include('layouts.documentation.sidenav')
+        <div class="w-4/5">
+            @yield('content')
+        </div>
     </main>
     @include('layouts.marketing.footer')
     @livewireScripts

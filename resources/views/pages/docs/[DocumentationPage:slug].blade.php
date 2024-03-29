@@ -16,12 +16,14 @@
 @endsection
 
 @section('content')
-<section class="px-4 pb-4 mx-auto w-3/4 max-screen-xl primary-section">
-    <h1 class="text-center">{{ $documentationPage->title }}</h1>
+<section class="pb-4 mx-auto primary-section">
+    <h1>{{ $documentationPage->title }}</h1>
     <div>
         <span class="ml-4 text-matisse-500">Last updated: {{ $documentationPage->last_updated_at }}</span>
         <div class="mt-4">
-            {!! $documentationPage->content !!}
+            <x-markdown>
+                {!! $documentationPage->content !!}
+            </x-markdown>
         </div>
     </div>
 </section>
