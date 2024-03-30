@@ -56,6 +56,7 @@ There are a few WIP pieces in the repo that are not yet ready:
 Then there are some pieces I'm working on before I'd call Toybox feature-complete:
 - **In-app announcements/notifications**: Contact your users in-app as well as by email, via the admin panel.
 - **Payments**: Toybox doesn't include any payments features by default as people use different gateways for different needs with different flows and data structures. However, I'd like to provide _some_ form of generic payments data support & management, including invoice generation.
+- **GDPR-Compliant Cookie Consent**: By default, Toybox will only use necessary cookies for session data. The cookie banner will be built with this in mind - if you add marketing/personalisation/analytics related cookies, you'll need to change this. See the [recommended providers](/docs/recommendations) to avoid issues. 
 - **UI rework**: I'd like to make the content pages, user portion, and admin panel have consistent style & theme, as well as better layouts for many content pages completely.
 - **AI feature boilerplate**: This will be coming soon once [Sparkle](https://github.com/echolabsdev/sparkle) becomes available.
 - **Documentation**: Split more data out of the main README and more into the main documentation pages.

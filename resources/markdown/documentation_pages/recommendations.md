@@ -16,6 +16,7 @@ For more, search for `awesome-laravel` repos on Github, like [this one](https://
 #### Analytics
 
 [Fathom](https://usefathom.com) and [Plausible](https://plausible.io) are great options. If I had to choose: Fathom has more accessible pricing, and is made with Laravel!
+**Both are also GDPR-compliant and won't require extra cookie consent banner settings.**
 
 #### Backups
 
