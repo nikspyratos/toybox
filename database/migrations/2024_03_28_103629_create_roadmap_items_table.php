@@ -15,7 +15,6 @@ return new class extends Migration
         Schema::create('roadmap_items', function (Blueprint $table) {
             $table->id();
             $table->string('title')->index();
-            $table->string('slug')->index();
             $table->string('status')->index();
             $table->text('content');
             $table->boolean('published');

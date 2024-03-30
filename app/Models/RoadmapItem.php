@@ -19,7 +19,6 @@ class RoadmapItem extends Model implements Votable
 
     protected $fillable = [
         'title',
-        'slug',
         'content',
         'status',
         'published',
@@ -63,11 +62,6 @@ class RoadmapItem extends Model implements Votable
         }
 
         $this->save();
-    }
-
-    public function getLiveUrl(): string
-    {
-        return route('roadmap.show', ['RoadmapItem' => $this]);
     }
 
     #[Override]
