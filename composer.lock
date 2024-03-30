@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfdb9389a5eb856ffd28b74c9e63eebe",
+    "content-hash": "6e1bb7272444c5378822f4ae2e53c6e2",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7832,6 +7832,84 @@
                 }
             ],
             "time": "2024-03-08T22:28:17+00:00"
+        },
+        {
+            "name": "spatie/laravel-cookie-consent",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-cookie-consent.git",
+                "reference": "da22c92f0d7824577dfc7044262944efa0a8bcbc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/da22c92f0d7824577dfc7044262944efa0a8bcbc",
+                "reference": "da22c92f0d7824577dfc7044262944efa0a8bcbc",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cookie": "^10.0|^11.0",
+                "illuminate/support": "^10.0|^11.0",
+                "illuminate/view": "^10.0|^11.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.9"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.9",
+                "orchestra/testbench": "^8.0|^9.0",
+                "pestphp/pest": "^2.34"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\CookieConsent\\CookieConsentServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\CookieConsent\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Willem Van Bockstal",
+                    "email": "willem@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make your Laravel app comply with the crazy EU cookie law",
+            "homepage": "https://github.com/spatie/cookie-consent",
+            "keywords": [
+                "comply",
+                "cookie",
+                "cookie-consent",
+                "eu",
+                "law",
+                "spatie"
+            ],
+            "support": {
+                "source": "https://github.com/spatie/laravel-cookie-consent/tree/3.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2024-03-08T12:14:18+00:00"
         },
         {
             "name": "spatie/laravel-markdown",

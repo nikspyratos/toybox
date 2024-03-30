@@ -50,5 +50,6 @@
     @include('layouts.marketing.footer')
     @livewireScripts
     <x-impersonate::banner/>
+    @include('cookie-consent::index')
 </body>
 </html>
