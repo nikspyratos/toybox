@@ -9,7 +9,9 @@ use App\Filament\Resources\RoadmapItemResource\Pages;
 use App\Helpers\EnumHelper;
 use App\Models\RoadmapItem;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\SelectColumn;
@@ -32,6 +34,22 @@ class RoadmapItemResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->required()
+                    ->live(onBlur: true)
+                    ->autocomplete(false)
+                    ->afterStateUpdated(
+                        static function (string $state, Set $set) {
+                            $slug = $set('slug', str($state)->slug()->toString());
+                            $increments = 0;
+                            while (RoadmapItem::whereSlug($slug)->exists()) {
+                                $slug = $set('slug', str($state . '-' . $increments)->slug()->toString());
+                                $increments++;
+                            }
+
+                            return $slug;
+                        }
+                    ),
+                TextInput::make('slug')
                     ->required(),
                 Forms\Components\Textarea::make('content')
                     ->required()

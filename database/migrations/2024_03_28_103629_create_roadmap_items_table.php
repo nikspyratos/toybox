@@ -14,9 +14,10 @@ return new class extends Migration
     {
         Schema::create('roadmap_items', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title')->index();
+            $table->string('slug')->index();
+            $table->string('status')->index();
             $table->text('content');
-            $table->string('status');
             $table->boolean('published');
             $table->unsignedInteger('votes')->default(0);
             $table->foreignIdFor(User::class, 'suggester_id')->nullable();

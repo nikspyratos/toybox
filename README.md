@@ -47,7 +47,7 @@ Principles
 The core of the project - setup, infrastructure, deployment, starter kit and admin panel are all working.
 
 There are a few WIP pieces in the repo that are not yet ready:
-- **Roadmap management**: user-facing UI
+- **Roadmap management**: UI done, voting & comments next
 - **Cache improvements** for content pages
 
 Then there are some pieces I'm working on before I'd call Toybox feature-complete:

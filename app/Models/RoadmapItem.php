@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Enumerations\RoadmapItemStatus;
 use App\Models\Interfaces\Votable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,6 +19,7 @@ class RoadmapItem extends Model implements Votable
 
     protected $fillable = [
         'title',
+        'slug',
         'content',
         'status',
         'published',
@@ -30,6 +32,11 @@ class RoadmapItem extends Model implements Votable
         'status' => RoadmapItemStatus::UNPLANNED,
         'published' => false,
     ];
+
+    public function scopePublished(Builder $builder): void
+    {
+        $builder->where('published', true);
+    }
 
     public function suggester(): BelongsTo
     {
@@ -56,6 +63,11 @@ class RoadmapItem extends Model implements Votable
         }
 
         $this->save();
+    }
+
+    public function getLiveUrl(): string
+    {
+        return route('roadmap.show', ['RoadmapItem' => $this]);
     }
 
     #[Override]

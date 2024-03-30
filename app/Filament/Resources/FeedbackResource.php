@@ -6,7 +6,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FeedbackResource\Pages;
 use App\Models\Feedback;
+use App\Models\RoadmapItem;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -63,12 +66,32 @@ class FeedbackResource extends Resource
                     ->icon('heroicon-m-map')
                     ->form([
                         Forms\Components\TextInput::make('title')
+                            ->required()
+                            ->live(onBlur: true)
+                            ->autocomplete(false)
+                            ->afterStateUpdated(
+                                static function (string $state, Set $set) {
+                                    $slug = $set('slug', str($state)->slug()->toString());
+                                    $increments = 0;
+                                    while (RoadmapItem::whereSlug($slug)->exists()) {
+                                        $slug = $set('slug', str($state . '-' . $increments)->slug()->toString());
+                                        $increments++;
+                                    }
+
+                                    return $slug;
+                                }
+                            ),
+                        TextInput::make('slug')
                             ->required(),
                         Forms\Components\Textarea::make('content')
                             ->default(static fn (Feedback $feedback): string => $feedback->feedback),
                     ])
                     ->action(static function (Feedback $feedback, array $data): void {
-                        $feedback->roadmapItems()->create(['title' => $data['title'], 'content' => $data['content']]);
+                        $feedback->roadmapItems()->create([
+                            'title' => $data['title'],
+                            'slug' => $data['slug'],
+                            'content' => $data['content'],
+                        ]);
                     }),
 
             ])

@@ -206,6 +206,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $title
+ * @property string $slug
  * @property string $content
  * @property \App\Enumerations\RoadmapItemStatus $status
  * @property int $published
@@ -221,12 +222,14 @@ namespace App\Models{
  * @method static \Database\Factories\RoadmapItemFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem published()
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem query()
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereContent($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereFeedbackId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem wherePublished($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereSuggesterId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|RoadmapItem whereTitle($value)

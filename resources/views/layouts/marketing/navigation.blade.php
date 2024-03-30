@@ -31,6 +31,7 @@
                             'home' => 'Home',
                             'blog-posts.index' => 'Blog',
                             'docs.index' => 'Docs',
+                            'roadmap.index' => 'Roadmap',
                         ];
                     @endphp
                     @foreach ($navigationRouteNames as $navigationRouteName => $title)

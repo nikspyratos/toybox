@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.1.0.
+ * Generated for Laravel 11.1.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -5060,7 +5060,7 @@ namespace Illuminate\Support\Facades {
                     /**
          * Set the previous / legacy encryption keys that should be utilized if decryption fails.
          *
-         * @param array $key
+         * @param array $keys
          * @return \Illuminate\Encryption\Encrypter 
          * @static 
          */        public static function previousKeys($keys)
