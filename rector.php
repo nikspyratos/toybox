@@ -6,6 +6,7 @@ use Rector\CodingStyle\Rector\ArrowFunction\StaticArrowFunctionRector;
 use Rector\CodingStyle\Rector\Closure\StaticClosureRector;
 use Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector;
 use Rector\Config\RectorConfig;
+use Rector\Naming\Rector\ClassMethod\RenameParamToMatchTypeRector;
 use RectorLaravel\Set\LaravelSetList;
 
 return RectorConfig::configure()
@@ -21,6 +22,7 @@ return RectorConfig::configure()
     ->withPhpSets(php83: true)
     ->withSkip([
         PostIncDecToPreIncDecRector::class,
+        RenameParamToMatchTypeRector::class, // This breaks many DI things in Laravel/Filament
     ])
     ->withRules([
         //        StaticArrowFunctionRector
