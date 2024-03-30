@@ -20,11 +20,11 @@ class ManageFeedback extends ManageRecords
         return [
             'all' => Tab::make(),
             'pending_review' => Tab::make()
-                ->modifyQueryUsing(static fn (Builder $builder) => $builder->where('reviewed', false)),
+                ->modifyQueryUsing(static fn (Builder $query) => $query->where('reviewed', false)),
             'reviewed' => Tab::make()
-                ->modifyQueryUsing(static fn (Builder $builder) => $builder->where('reviewed', true)),
+                ->modifyQueryUsing(static fn (Builder $query) => $query->where('reviewed', true)),
             'testimonial' => Tab::make()
-                ->modifyQueryUsing(static fn (Builder $builder) => $builder->where('consented_testimonial', true)->where('reviewed', true)),
+                ->modifyQueryUsing(static fn (Builder $query) => $query->where('consented_testimonial', true)->where('reviewed', true)),
         ];
     }
 
