@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Http\Middleware\ComingSoon;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Folio\Folio;
 use Override;
@@ -28,7 +27,6 @@ class FolioServiceProvider extends ServiceProvider
             ->uri('/')
             ->middleware([
                 '*' => [
-                    ComingSoon::class,
                 ],
             ]);
     }

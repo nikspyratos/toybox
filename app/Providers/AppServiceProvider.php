@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Models\BlogPost;
 use App\Models\User;
-use App\Observers\BlogPostObserver;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -62,7 +60,6 @@ class AppServiceProvider extends ServiceProvider
 
     public function bootEvent(): void
     {
-        BlogPost::observe(BlogPostObserver::class);
     }
 
     public function bootRoute(): void

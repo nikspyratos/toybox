@@ -22,7 +22,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectUsersTo(AppServiceProvider::HOME);
         $middleware->throttleApi();
         $middleware->appendToGroup('web', [
-            ComingSoon::class
         ]);
     })
     ->withExceptions(static function (Exceptions $exceptions) : void {
