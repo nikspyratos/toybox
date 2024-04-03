@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.1.1.
+ * Generated for Laravel 11.2.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -4461,23 +4461,25 @@ namespace Illuminate\Support\Facades {
          * Retrieve the given key's value.
          *
          * @param string $key
+         * @param mixed $default
          * @return mixed 
          * @static 
-         */        public static function get($key)
+         */        public static function get($key, $default = null)
         {
                         /** @var \Illuminate\Log\Context\Repository $instance */
-                        return $instance->get($key);
+                        return $instance->get($key, $default);
         }
                     /**
          * Retrieve the given key's hidden value.
          *
          * @param string $key
+         * @param mixed $default
          * @return mixed 
          * @static 
-         */        public static function getHidden($key)
+         */        public static function getHidden($key, $default = null)
         {
                         /** @var \Illuminate\Log\Context\Repository $instance */
-                        return $instance->getHidden($key);
+                        return $instance->getHidden($key, $default);
         }
                     /**
          * Retrieve only the values of the given keys.
@@ -17638,7 +17640,7 @@ namespace Illuminate\Support\Facades {
                     /**
          * Resolve asset paths using the provided resolver.
          *
-         * @param callable|null $urlResolver
+         * @param callable|null $resolver
          * @return \Illuminate\Foundation\Vite 
          * @static 
          */        public static function createAssetPathsUsing($resolver)
@@ -22681,36 +22683,6 @@ namespace Illuminate\View {
          */        public static function response($callback)
         {
                         return \Illuminate\View\View::response($callback);
-        }
-            }
-    }
-
-namespace Illuminate\Database\Schema {
-            /**
-     * 
-     *
-     */        class Blueprint {
-                    /**
-         * 
-         *
-         * @see \Orbit\OrbitServiceProvider::boot()
-         * @param string $name
-         * @return bool 
-         * @static 
-         */        public static function hasColumn($name)
-        {
-                        return \Illuminate\Database\Schema\Blueprint::hasColumn($name);
-        }
-                    /**
-         * 
-         *
-         * @see \Orbit\OrbitServiceProvider::boot()
-         * @param string $name
-         * @return \Illuminate\Database\Schema\ColumnDefinition|null 
-         * @static 
-         */        public static function orbitGetColumn($name)
-        {
-                        return \Illuminate\Database\Schema\Blueprint::orbitGetColumn($name);
         }
             }
     }
