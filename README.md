@@ -44,34 +44,20 @@ Principles
 
 ## Project Status - can you use this yet?
 
-The core of the project - setup, infrastructure, deployment, starter kit and admin panel are all working.
-
-There are a few WIP pieces in the repo that are not yet ready:
-- **Roadmap management**: UI done, voting next
-- **Cache improvements** for content pages
-
-Then there are some pieces I'm working on before I'd call Toybox feature-complete:
-- **In-app announcements/notifications**: Contact your users in-app as well as by email, via the admin panel.
-- **Payments**: Toybox doesn't include any payments features by default as people use different gateways for different needs with different flows and data structures. However, I'd like to provide _some_ form of generic payments data support & management, including invoice generation.
-- **UI rework**: I'd like to make the content pages, user portion, and admin panel have consistent style & theme, as well as better layouts for many content pages completely.
-- **AI feature boilerplate**: This will be coming soon once [Sparkle](https://github.com/echolabsdev/sparkle) becomes available.
-- **Documentation**: Split more data out of the main README and more into the main documentation pages.
+Toybox is currently stable.
 
 ## Features
 
 - **Self-initialising, self-provisioning, self-deploying** project using bash scripts.
-- **Admin panel** with a CMS & utilities, a great starting point for managing your application.
-- **Content/Marketing pages** set up with a [Landwind-based](https://github.com/themesberg/landwind) landing page, with sensible SEO defaults, social meta tags, sitemap generation, and Article Schema.org data.
+- **Admin panel** with Filament, great starting point for managing your application.
 - **Terms of Service and Privacy Policy** derived from [Basecamp](https://github.com/basecamp/policies)
 - **Security enhancements** included from [Securing Laravel](https://securinglaravel.com/)
 - **Laravel ecosystem included** - auth scaffolding, websockets, performance monitoring, webserver runtime, API authentication, feature flags, social login
-- **Documentation pages built-in (WIP)** with Folio and Orbit
-- **User Impersonation**
-- **Coming Soon page**
 - **Cookie Consent banner**
-- **User Feedback, Testimonial & Roadmap management (WIP)**
 
 All of this is done while keeping package dependencies minimal outside of trusted third parties like Filament or Spatie.
+
+There were a few more features in the past, but for the aims of the project they were removed. Check the `feature-freeze-240403` branch. This will have a CMS, blog, Orbit-based documentation generation, testimonials and roadmap management.
 
 ## Components
 
@@ -228,6 +214,7 @@ These are the next steps you will have to implement yourself for your project as
 - **Social Logins**: For each provider you plan on adding, you'll need to add the relevant credentials and configuration for both [Socialite](https://laravel.com/docs/11.x/socialite#configuration) and [Socialstream](https://docs.socialstream.dev/getting-started/configuration#providers). If you'd like to add additional social login providers, please check out the [Socialite Providers](https://socialiteproviders.com/) site.
 - **Feature flags**: By default the `array` driver is used for Pennant feature flags. If you'd like to use the `database` driver instead, make sure to [publish the migrations](https://laravel.com/docs/11.x/pennant#installation) and change the `PENNANT_STORE` environment variable.
   - **Coming Soon**: To redirect public routes to a "Coming Soon" page before launch, change the `COMING_SOON_ENABLED` environment variable and re-cache your config. This feature is implemented using Pennant for an example implementation. You can delete the middleware, feature definition, and environment variable post-launch.
+- **Payments**: Payments-related code is currently not included in Toybox. The main reason for this is that many users might want to support different kinds of providers or billing models. See the recommendations section below for some packages for Lemon Squeezy, Paddle, or Stripe.
 
 #### Ongoing Development
 
@@ -489,7 +476,7 @@ You can do most of what is described below with the [infrastructure](#infrastruc
     - If you stick with SQLite, one of its limitations is that it only allows one write at a time. This is fine until a certain traffic scale, but you can use something like [Marmot](https://maxpert.github.io/marmot/intro) to run multiple SQLite nodes and have them replicated to each other. Note however at this time that you would have to run migrations manually for each node as a separate connection, as Marmot doesn't replicate schema changes to other nodes.
 - **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
 - **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.
-- **Content**: The included content pages - landing, blog, terms/privacy policy, etc. - are intended as a starting point. As your app grows, it may make more sense to move these pages to a separate CMS rather than include them in your application.
+- **Content**: The included content pages - landing, terms/privacy policy, etc. - are intended as a starting point. As your app grows, it may make more sense to move these pages to a separate CMS rather than include them in your application.
 
 If you need _even more_ than that:
 
@@ -547,8 +534,6 @@ These are some features that would be nice to have, but I don't intend on buildi
 - FrankenPHP binary build
 - PWA support
 - Dockerfile
-- Auto-generate table of contents for blog posts
-- Blog RSS feed
 - Confirmed working Windows environment solution: I don't work on Windows, and while Herd may be a first prize solution, I do want a free setup recommendation to have for Windows devs.
 - Let me know if any new file changes need to be added to the Jetstream Teams installer.
 - Convert some of the install scripts to be Prompts-based (or hybrid with Prompts)
