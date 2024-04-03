@@ -67,13 +67,13 @@ There were a few more features in the past, but for the aims of the project they
 - **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 - **Application**: [Laravel](https://laravel.com) (duh)
     - **Admin Panel**: [Filament](https://filamentphp.com/)
-    - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Folio](https://laravel.com/docs/11.x/folio) for content pages. [Orbit](https://github.com/ryangjchandler/orbit for docs pages. [Laravel Jetstream](https://jetstream.laravel.com) for authentication, session management, 2FA and much more ([Socialstream](https://docs.socialstream.dev/) included to augment Jetstream with social logins). Some features may also use Filamnent components.
+    - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Folio](https://laravel.com/docs/11.x/folio) for content pages. [Laravel Jetstream](https://jetstream.laravel.com) for authentication, session management, 2FA and much more ([Socialstream](https://docs.socialstream.dev/) included to augment Jetstream with social logins). Some features may also use Filamnent components.
     - **API**: [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum)
     - **Testing**: [PestPHP](https://pestphp.com/)
     - **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/11.x/pulse) and [Laravel Telescope](https://laravel.com/docs/11.x/telescope)
     - **Linting, Code Quality, Static Analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibility.
 - **CI/CD**: Good old Bash scripts.
-- **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, ActivityLog, Cache, Queue, Pulse & Telescope have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
+- **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, Cache, Queue, Pulse & Telescope have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
 
 ## Installation/Usage
 
@@ -212,14 +212,11 @@ These are the next steps you will have to implement yourself for your project as
     - For some projects you probably won't even need the landing page provided, so go ahead and yank it out!
 - **License**: If your project is closed-source, you might want to remove the `LICENSE.md` file included in the repo.
 - **Social Logins**: For each provider you plan on adding, you'll need to add the relevant credentials and configuration for both [Socialite](https://laravel.com/docs/11.x/socialite#configuration) and [Socialstream](https://docs.socialstream.dev/getting-started/configuration#providers). If you'd like to add additional social login providers, please check out the [Socialite Providers](https://socialiteproviders.com/) site.
-- **Feature flags**: By default the `array` driver is used for Pennant feature flags. If you'd like to use the `database` driver instead, make sure to [publish the migrations](https://laravel.com/docs/11.x/pennant#installation) and change the `PENNANT_STORE` environment variable.
-  - **Coming Soon**: To redirect public routes to a "Coming Soon" page before launch, change the `COMING_SOON_ENABLED` environment variable and re-cache your config. This feature is implemented using Pennant for an example implementation. You can delete the middleware, feature definition, and environment variable post-launch.
 - **Payments**: Payments-related code is currently not included in Toybox. The main reason for this is that many users might want to support different kinds of providers or billing models. See the recommendations section below for some packages for Lemon Squeezy, Paddle, or Stripe.
 
 #### Ongoing Development
 
 - **Live validation**: Remember to use [Precognition](https://laravel.com/docs/11.x/precognition#using-alpine) to bring live validation to your forms. 
-- **Laravel Activity log**: Consult the [documentation](https://spatie.be/docs/laravel-activitylog/v4/introduction) to begin logging user activity for analytics.
 
 ### Production
 
@@ -289,6 +286,8 @@ For more, search for `awesome-laravel` repos on Github, like [this one](https://
 #### Analytics
 
 [Fathom](https://usefathom.com) and [Plausible](https://plausible.io) are great options. If I had to choose: Fathom has more accessible pricing, and is made with Laravel!
+
+For tracking user actions in your app, [Spatie Activity Log](https://spatie.be/docs/laravel-activitylog/v4/introduction) is great.
 
 #### Backups
 

@@ -7,7 +7,6 @@ namespace App\Enumerations;
 enum Database: string
 {
     case MAIN = 'database';
-    case ACTIVITY_LOG = 'activities';
     case CACHE = 'cache';
     case PULSE = 'pulse';
     case QUEUE = 'queue';

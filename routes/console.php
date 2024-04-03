@@ -22,4 +22,3 @@ Artisan::command('inspire', function (): void {
 })->purpose('Display an inspiring quote');
 
 Schedule::command('telescope:prune')->dailyAt('00:00');
-Schedule::command('sitemap:generate')->dailyAt('06:00');

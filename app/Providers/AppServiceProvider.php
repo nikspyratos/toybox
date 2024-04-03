@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Pennant\Feature;
 use Override;
 
 class AppServiceProvider extends ServiceProvider
@@ -43,8 +42,6 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
             $this->app->register(TelescopeServiceProvider::class);
         }
-
-        Feature::define('coming-soon', static fn (?User $user): bool => ! $user?->is_admin && config('app.coming_soon_enabled'));
 
         $this->bootAuth();
         $this->bootEvent();
