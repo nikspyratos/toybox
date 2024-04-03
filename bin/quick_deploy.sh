@@ -11,7 +11,6 @@ php artisan schedule:clear-cache
 php artisan optimize
 php artisan icons:cache
 php artisan filament:cache-components
-php artisan app:cache-doc-nav-links
 php artisan octane:reload
 sudo supervisorctl start queue
 ENDSSH
