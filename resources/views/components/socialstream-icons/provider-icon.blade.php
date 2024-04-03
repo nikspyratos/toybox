@@ -5,34 +5,34 @@
             @break
 
         @case (JoelButcher\Socialstream\Providers::facebook())
-            <x-socialstream-icons.facebook {{$attributes}} />
+            <x-socialstream-icons.facebook {{ $attributes }} />
             @break
 
         @case (JoelButcher\Socialstream\Providers::github())
-            <x-socialstream-icons.github {{$attributes}} />
+            <x-socialstream-icons.github {{ $attributes }} />
             @break
 
         @case (JoelButcher\Socialstream\Providers::gitlab())
-            <x-socialstream-icons.gitlab {{$attributes}} />
+            <x-socialstream-icons.gitlab {{ $attributes }} />
             @break
 
         @case (JoelButcher\Socialstream\Providers::google())
-            <x-socialstream-icons.google {{$attributes}} />
+            <x-socialstream-icons.google {{ $attributes }} />
             @break
 
         @case (JoelButcher\Socialstream\Providers::linkedin())
         @case (JoelButcher\Socialstream\Providers::linkedinOpenId())
-            <x-socialstream-icons.linkedin {{$attributes}} />
+            <x-socialstream-icons.linkedin {{ $attributes }} />
             @break
 
         @case (JoelButcher\Socialstream\Providers::slack())
-            <x-socialstream-icons.slack {{$attributes}} />
+            <x-socialstream-icons.slack {{ $attributes }} />
             @break
 
         @case (JoelButcher\Socialstream\Providers::twitterOAuth1())
         @case (JoelButcher\Socialstream\Providers::twitterOAuth2())
         @case (JoelButcher\Socialstream\Providers::twitter())
-            <x-socialstream-icons.twitter {{$attributes}} />
+            <x-socialstream-icons.twitter {{ $attributes }} />
             @break
     @endswitch
 </div>

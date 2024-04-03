@@ -1,5 +1,5 @@
 <div class="mt-6 mb-2 space-y-6">
-    @if(! empty(\JoelButcher\Socialstream\Socialstream::providers()))
+    @if (! empty(\JoelButcher\Socialstream\Socialstream::providers()))
         <div class="flex relative items-center">
             <div class="flex-grow border-t border-gray-400 dark:border-gray-500"></div>
             <span class="flex-shrink px-6 text-gray-400 dark:text-gray-500">
