@@ -10,7 +10,6 @@ use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use JoelButcher\Socialstream\HasConnectedAccounts;
@@ -19,24 +18,19 @@ use Lab404\Impersonate\Models\Impersonate;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 //teams_use_placeholder
-use Laravel\Pennant\Concerns\HasFeatures;
 use Laravel\Sanctum\HasApiTokens;
 use Override;
-use Spatie\Activitylog\LogOptions;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 {
     use HasApiTokens;
     use HasConnectedAccounts;
     use HasFactory;
-    use HasFeatures;
     use HasProfilePhoto {
         HasProfilePhoto::profilePhotoUrl as getPhotoUrl;
     }
     use Impersonate;
     //teams_trait_placeholder
-    use LogsActivity;
     use Notifiable;
     use SetsProfilePhotoFromUrl;
     use TwoFactorAuthenticatable;
@@ -90,21 +84,6 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
     public function getFilamentAvatarUrl(): ?string
     {
         return null;
-    }
-
-    public function getActivitylogOptions(): LogOptions
-    {
-        return LogOptions::defaults()->logFillable();
-    }
-
-    public function feedback(): HasMany
-    {
-        return $this->hasMany(Feedback::class);
-    }
-
-    public function roadmapItems(): HasMany
-    {
-        return $this->hasMany(RoadmapItem::class, 'suggester_id');
     }
 
     #[Override]
