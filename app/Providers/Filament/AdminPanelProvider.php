@@ -23,7 +23,6 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Override;
-use Pboivin\FilamentPeek\FilamentPeekPlugin;
 use pxlrbt\FilamentEnvironmentIndicator\EnvironmentIndicatorPlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -60,7 +59,6 @@ class AdminPanelProvider extends PanelProvider
                         'staging' => Color::Orange,
                         default => Color::Blue,
                     }),
-                FilamentPeekPlugin::make(),
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([

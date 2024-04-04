@@ -217,6 +217,7 @@ These are the next steps you will have to implement yourself for your project as
 #### Ongoing Development
 
 - **Live validation**: Remember to use [Precognition](https://laravel.com/docs/11.x/precognition#using-alpine) to bring live validation to your forms. 
+- **Testing**: Toybox includes [Missing Livewire Assertions](https://github.com/christophrumpel/missing-livewire-assertions), so make sure to use it!
 
 ### Production
 
@@ -407,7 +408,7 @@ For upgrading Laravel, see [Laravel Shift](https://laravelshift.com/).
 - Filament is intended to be used for UI where possible. Consult the documentation for details.
 - [Tailwind UI](https://tailwindui.com/) is a great premium resource, and includes many site templates.
 - [Alpine Components](https://alpinejs.dev/components) is the premier Alpine component kit.
-- [WireUI](https://livewire-wireui.com/) is a Livewire-based component kit.
+- [WireUI](https://v1.wireui.dev/) is a Livewire-based component kit.
 - [Pines](https://devdojo.com/pines) is an Alpine-based component kit.
 - [Blade UI Kit](https://blade-ui-kit.com) is another component kit for the TALL stack.
 - [Mary UI](https://www.mary-ui.com) is a Tailwind component kit.

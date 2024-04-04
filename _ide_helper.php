@@ -18477,196 +18477,6 @@ namespace Laravel\Octane\Facades {
             }
     }
 
-namespace Laravel\Pennant {
-            /**
-     * 
-     *
-     * @method static void discover(string $namespace = 'App\\Features', string|null $path = null)
-     * @method static void define(string $feature, mixed $resolver = null)
-     * @method static array defined()
-     * @method static array stored()
-     * @method static void activateForEveryone(string|array $feature, mixed $value = true)
-     * @method static void deactivateForEveryone(string|array $feature)
-     * @method static void purge(string|array|null $features = null)
-     * @method static \Laravel\Pennant\Contracts\Driver getDriver()
-     * @method static void macro(string $name, object|callable $macro)
-     * @method static void mixin(object $mixin, bool $replace = true)
-     * @method static bool hasMacro(string $name)
-     * @method static void flushMacros()
-     * @method static mixed macroCall(string $method, array $parameters)
-     * @method static \Laravel\Pennant\PendingScopedFeatureInteraction for(mixed $scope)
-     * @method static array load(string|array $features)
-     * @method static array loadMissing(string|array $features)
-     * @method static mixed value(string $feature)
-     * @method static array values(array $features)
-     * @method static array all()
-     * @method static bool active(string $feature)
-     * @method static bool allAreActive(array $features)
-     * @method static bool someAreActive(array $features)
-     * @method static bool inactive(string $feature)
-     * @method static bool allAreInactive(array $features)
-     * @method static bool someAreInactive(array $features)
-     * @method static mixed when(string $feature, \Closure $whenActive, \Closure|null $whenInactive = null)
-     * @method static mixed unless(string $feature, \Closure $whenInactive, \Closure|null $whenActive = null)
-     * @method static void activate(string|array $feature, mixed $value = true)
-     * @method static void deactivate(string|array $feature)
-     * @method static void forget(string|array $features)
-     * @see \Laravel\Pennant\FeatureManager
-     */        class Feature {
-                    /**
-         * Get a Pennant store instance.
-         *
-         * @param string|null $store
-         * @return \Laravel\Pennant\Drivers\Decorator 
-         * @throws \InvalidArgumentException
-         * @static 
-         */        public static function store($store = null)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->store($store);
-        }
-                    /**
-         * Get a Pennant store instance by name.
-         *
-         * @param string|null $name
-         * @return \Laravel\Pennant\Drivers\Decorator 
-         * @throws \InvalidArgumentException
-         * @static 
-         */        public static function driver($name = null)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->driver($name);
-        }
-                    /**
-         * Create an instance of the array driver.
-         *
-         * @return \Laravel\Pennant\Drivers\ArrayDriver 
-         * @static 
-         */        public static function createArrayDriver()
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->createArrayDriver();
-        }
-                    /**
-         * Create an instance of the database driver.
-         *
-         * @return \Laravel\Pennant\Drivers\DatabaseDriver 
-         * @static 
-         */        public static function createDatabaseDriver($config, $name)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->createDatabaseDriver($config, $name);
-        }
-                    /**
-         * Serialize the given scope for storage.
-         *
-         * @param mixed $scope
-         * @return string|null 
-         * @static 
-         */        public static function serializeScope($scope)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->serializeScope($scope);
-        }
-                    /**
-         * Specify that the Eloquent morph map should be used when serializing.
-         *
-         * @param bool $value
-         * @return \Laravel\Pennant\FeatureManager 
-         * @static 
-         */        public static function useMorphMap($value = true)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->useMorphMap($value);
-        }
-                    /**
-         * Flush the driver caches.
-         *
-         * @return void 
-         * @static 
-         */        public static function flushCache()
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        $instance->flushCache();
-        }
-                    /**
-         * Set the default scope resolver.
-         *
-         * @param \Laravel\Pennant\(callable(string):  mixed)  $resolver
-         * @return void 
-         * @static 
-         */        public static function resolveScopeUsing($resolver)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        $instance->resolveScopeUsing($resolver);
-        }
-                    /**
-         * Get the default store name.
-         *
-         * @return string 
-         * @static 
-         */        public static function getDefaultDriver()
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->getDefaultDriver();
-        }
-                    /**
-         * Set the default store name.
-         *
-         * @param string $name
-         * @return void 
-         * @static 
-         */        public static function setDefaultDriver($name)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        $instance->setDefaultDriver($name);
-        }
-                    /**
-         * Unset the given store instances.
-         *
-         * @param array|string|null $name
-         * @return \Laravel\Pennant\FeatureManager 
-         * @static 
-         */        public static function forgetDriver($name = null)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->forgetDriver($name);
-        }
-                    /**
-         * Forget all of the resolved store instances.
-         *
-         * @return \Laravel\Pennant\FeatureManager 
-         * @static 
-         */        public static function forgetDrivers()
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->forgetDrivers();
-        }
-                    /**
-         * Register a custom driver creator Closure.
-         *
-         * @param string $driver
-         * @return \Laravel\Pennant\FeatureManager 
-         * @static 
-         */        public static function extend($driver, $callback)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->extend($driver, $callback);
-        }
-                    /**
-         * Set the container instance used by the manager.
-         *
-         * @param \Illuminate\Container\Container $container
-         * @return \Laravel\Pennant\FeatureManager 
-         * @static 
-         */        public static function setContainer($container)
-        {
-                        /** @var \Laravel\Pennant\FeatureManager $instance */
-                        return $instance->setContainer($container);
-        }
-            }
-    }
-
 namespace Laravel\Pulse\Facades {
             /**
      * 
@@ -20289,6 +20099,234 @@ namespace Livewire\Features\SupportTesting {
      *
      * @mixin \Illuminate\Testing\TestResponse
      */        class Testable {
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertPropertyWired()
+         * @param string $property
+         * @static 
+         */        public static function assertPropertyWired($property)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertPropertyWired($property);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertPropertyNotWired()
+         * @param string $property
+         * @static 
+         */        public static function assertPropertyNotWired($property)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertPropertyNotWired($property);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertPropertyEntangled()
+         * @param string $property
+         * @static 
+         */        public static function assertPropertyEntangled($property)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertPropertyEntangled($property);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertPropertyNotEntangled()
+         * @param string $property
+         * @static 
+         */        public static function assertPropertyNotEntangled($property)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertPropertyNotEntangled($property);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodWired()
+         * @param string $method
+         * @static 
+         */        public static function assertMethodWired($method)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodWired($method);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodNotWired()
+         * @param string $method
+         * @static 
+         */        public static function assertMethodNotWired($method)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodNotWired($method);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodWiredToAction()
+         * @param string $methodName
+         * @param string $action
+         * @static 
+         */        public static function assertMethodWiredToAction($methodName, $action)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodWiredToAction($methodName, $action);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodNotWiredToAction()
+         * @param string $methodName
+         * @param string $action
+         * @static 
+         */        public static function assertMethodNotWiredToAction($methodName, $action)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodNotWiredToAction($methodName, $action);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodWiredToForm()
+         * @param string $method
+         * @static 
+         */        public static function assertMethodWiredToForm($method)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodWiredToForm($method);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodNotWiredToForm()
+         * @param string $method
+         * @static 
+         */        public static function assertMethodNotWiredToForm($method)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodNotWiredToForm($method);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodWiredToEvent()
+         * @param string $method
+         * @param string $event
+         * @static 
+         */        public static function assertMethodWiredToEvent($method, $event)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodWiredToEvent($method, $event);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodNotWiredToEvent()
+         * @param string $method
+         * @param string $event
+         * @static 
+         */        public static function assertMethodNotWiredToEvent($method, $event)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodNotWiredToEvent($method, $event);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodWiredToEventWithoutModifiers()
+         * @param string $method
+         * @param string $event
+         * @static 
+         */        public static function assertMethodWiredToEventWithoutModifiers($method, $event)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodWiredToEventWithoutModifiers($method, $event);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertMethodNotWiredToEventWithoutModifiers()
+         * @param string $method
+         * @param string $event
+         * @static 
+         */        public static function assertMethodNotWiredToEventWithoutModifiers($method, $event)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertMethodNotWiredToEventWithoutModifiers($method, $event);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertContainsLivewireComponent()
+         * @param string $component
+         * @static 
+         */        public static function assertContainsLivewireComponent($component)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertContainsLivewireComponent($component);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertDoesNotContainLivewireComponent()
+         * @param string $component
+         * @static 
+         */        public static function assertDoesNotContainLivewireComponent($component)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertDoesNotContainLivewireComponent($component);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertContainsBladeComponent()
+         * @param string $componentNeedleClass
+         * @static 
+         */        public static function assertContainsBladeComponent($componentNeedleClass)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertContainsBladeComponent($componentNeedleClass);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertDoesNotContainBladeComponent()
+         * @param string $componentNeedleClass
+         * @static 
+         */        public static function assertDoesNotContainBladeComponent($componentNeedleClass)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertDoesNotContainBladeComponent($componentNeedleClass);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertSeeBefore()
+         * @param mixed $valueBefore
+         * @param mixed $valueAfter
+         * @static 
+         */        public static function assertSeeBefore($valueBefore, $valueAfter)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertSeeBefore($valueBefore, $valueAfter);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertDoNotSeeBefore()
+         * @param mixed $valueBefore
+         * @param mixed $valueAfter
+         * @static 
+         */        public static function assertDoNotSeeBefore($valueBefore, $valueAfter)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertDoNotSeeBefore($valueBefore, $valueAfter);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertFileDownloadedContains()
+         * @param mixed $content
+         * @static 
+         */        public static function assertFileDownloadedContains($content)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertFileDownloadedContains($content);
+        }
+                    /**
+         * 
+         *
+         * @see \Christophrumpel\MissingLivewireAssertions\CustomLivewireAssertionsMixin::assertFileDownloadedNotContains()
+         * @param mixed $content
+         * @static 
+         */        public static function assertFileDownloadedNotContains($content)
+        {
+                        return \Livewire\Features\SupportTesting\Testable::assertFileDownloadedNotContains($content);
+        }
                     /**
          * 
          *
@@ -26606,7 +26644,6 @@ namespace  {
             class EloquentSerialize extends \AnourValar\EloquentSerialize\Facades\EloquentSerializeFacade {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class Octane extends \Laravel\Octane\Facades\Octane {}
-            class Feature extends \Laravel\Pennant\Feature {}
             class Pulse extends \Laravel\Pulse\Facades\Pulse {}
             class Socialite extends \Laravel\Socialite\Facades\Socialite {}
             class Livewire extends \Livewire\Livewire {}

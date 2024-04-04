@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd3448ae3ffc0a86ee5e8c3dc506bc87",
+    "content-hash": "ebd59a6a7e610dbf3504ca25ac5443a1",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3256,82 +3256,6 @@
             "time": "2024-04-01T13:36:49+00:00"
         },
         {
-            "name": "laravel/pennant",
-            "version": "v1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/pennant.git",
-                "reference": "401e9051a3a600296c81c3733b52949c60750f02"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pennant/zipball/401e9051a3a600296c81c3733b52949c60750f02",
-                "reference": "401e9051a3a600296c81c3733b52949c60750f02",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^10.0|^11.0",
-                "illuminate/container": "^10.0|^11.0",
-                "illuminate/contracts": "^10.0|^11.0",
-                "illuminate/database": "^10.0|^11.0",
-                "illuminate/queue": "^10.0|^11.0",
-                "illuminate/support": "^10.0|^11.0",
-                "php": "^8.1",
-                "symfony/finder": "^6.0|^7.0"
-            },
-            "require-dev": {
-                "laravel/octane": "^1.4|^2.0",
-                "orchestra/testbench": "^8.0|^9.0",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^9.0|^10.4"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Pennant\\PennantServiceProvider"
-                    ],
-                    "aliases": {
-                        "Feature": "Laravel\\Pennant\\Feature"
-                    }
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Laravel\\Pennant\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "A simple, lightweight library for managing feature flags.",
-            "homepage": "https://github.com/laravel/pennant",
-            "keywords": [
-                "feature",
-                "flags",
-                "laravel",
-                "pennant"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/pennant/issues",
-                "source": "https://github.com/laravel/pennant"
-            },
-            "time": "2024-03-04T22:18:21+00:00"
-        },
-        {
             "name": "laravel/prompts",
             "version": "v0.1.17",
             "source": {
@@ -5111,60 +5035,6 @@
             "time": "2024-01-17T16:50:36+00:00"
         },
         {
-            "name": "nicmart/tree",
-            "version": "0.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nicmart/Tree.git",
-                "reference": "8d02952acc9779a2c14f7a9c4ac1650c3dacb545"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nicmart/Tree/zipball/8d02952acc9779a2c14f7a9c4ac1650c3dacb545",
-                "reference": "8d02952acc9779a2c14f7a9c4ac1650c3dacb545",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0"
-            },
-            "require-dev": {
-                "ergebnis/composer-normalize": "^2.31.0",
-                "ergebnis/license": "^2.4.0",
-                "ergebnis/php-cs-fixer-config": "^6.13.0",
-                "fakerphp/faker": "^1.23.0",
-                "infection/infection": "~0.26.19",
-                "phpunit/phpunit": "^9.6.14",
-                "psalm/plugin-phpunit": "~0.18.4",
-                "vimeo/psalm": "^5.16.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tree\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolò Martini",
-                    "email": "nicmartnic@gmail.com"
-                },
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "A basic but flexible php tree data structure and a fluent tree builder implementation.",
-            "support": {
-                "issues": "https://github.com/nicmart/Tree/issues",
-                "source": "https://github.com/nicmart/Tree/tree/0.8.0"
-            },
-            "time": "2023-12-02T13:24:56+00:00"
-        },
-        {
             "name": "nikic/php-parser",
             "version": "v5.0.2",
             "source": {
@@ -5605,80 +5475,6 @@
                 "source": "https://github.com/paragonie/sodium_compat/tree/v1.20.0"
             },
             "time": "2023-04-30T00:54:53+00:00"
-        },
-        {
-            "name": "pboivin/filament-peek",
-            "version": "v2.2.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pboivin/filament-peek.git",
-                "reference": "0a7dc00df8417da0e06a29eedb6be99586dd8d14"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pboivin/filament-peek/zipball/0a7dc00df8417da0e06a29eedb6be99586dd8d14",
-                "reference": "0a7dc00df8417da0e06a29eedb6be99586dd8d14",
-                "shasum": ""
-            },
-            "require": {
-                "filament/filament": "^3.0",
-                "illuminate/contracts": "^10.0 || ^11.0",
-                "php": "^8.1",
-                "spatie/laravel-package-tools": "^1.15"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.0",
-                "nunomaduro/collision": "^7.9",
-                "nunomaduro/larastan": "^2.0",
-                "orchestra/testbench": "^8.0",
-                "pestphp/pest": "^2.0",
-                "pestphp/pest-plugin-arch": "^2.0",
-                "pestphp/pest-plugin-laravel": "^2.0",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0",
-                "spatie/invade": "^1.1",
-                "symfony/polyfill-php82": "^1.28"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Pboivin\\FilamentPeek\\FilamentPeekServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Pboivin\\FilamentPeek\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Patrick Boivin",
-                    "email": "pboivin@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Full-screen page preview modal for Filament",
-            "homepage": "https://github.com/pboivin/filament-peek",
-            "keywords": [
-                "filament",
-                "laravel",
-                "modal",
-                "plugin",
-                "preview",
-                "previewer"
-            ],
-            "support": {
-                "issues": "https://github.com/pboivin/filament-peek/issues",
-                "source": "https://github.com/pboivin/filament-peek/tree/v2.2.5"
-            },
-            "time": "2024-03-11T13:33:37+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7361,73 +7157,6 @@
             "time": "2024-02-26T18:08:49+00:00"
         },
         {
-            "name": "spatie/browsershot",
-            "version": "4.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/browsershot.git",
-                "reference": "b764ca1683facdc1833ea9ee7d735001606fce2b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/browsershot/zipball/b764ca1683facdc1833ea9ee7d735001606fce2b",
-                "reference": "b764ca1683facdc1833ea9ee7d735001606fce2b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-fileinfo": "*",
-                "ext-json": "*",
-                "php": "^8.2",
-                "spatie/temporary-directory": "^2.0",
-                "symfony/process": "^6.0|^7.0"
-            },
-            "require-dev": {
-                "pestphp/pest": "^1.20",
-                "spatie/image": "^3.3",
-                "spatie/phpunit-snapshot-assertions": "^4.2.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Browsershot\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://github.com/freekmurze",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Convert a webpage to an image or pdf using headless Chrome",
-            "homepage": "https://github.com/spatie/browsershot",
-            "keywords": [
-                "chrome",
-                "convert",
-                "headless",
-                "image",
-                "pdf",
-                "puppeteer",
-                "screenshot",
-                "webpage"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/browsershot/tree/4.0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-04-01T08:19:46+00:00"
-        },
-        {
             "name": "spatie/color",
             "version": "1.5.3",
             "source": {
@@ -7487,134 +7216,6 @@
             "time": "2022-12-18T12:58:32+00:00"
         },
         {
-            "name": "spatie/commonmark-shiki-highlighter",
-            "version": "2.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/commonmark-shiki-highlighter.git",
-                "reference": "7d7c4f5f1b387bc3144f7757a85eef6820776929"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/commonmark-shiki-highlighter/zipball/7d7c4f5f1b387bc3144f7757a85eef6820776929",
-                "reference": "7d7c4f5f1b387bc3144f7757a85eef6820776929",
-                "shasum": ""
-            },
-            "require": {
-                "league/commonmark": "^2.4.2",
-                "php": "^8.0",
-                "spatie/shiki-php": "^2.0",
-                "symfony/process": "^6.0|^7.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.19|^v3.49.0",
-                "phpunit/phpunit": "^9.5",
-                "spatie/phpunit-snapshot-assertions": "^4.2.7",
-                "spatie/ray": "^1.28"
-            },
-            "type": "commonmark-extension",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\CommonMarkShikiHighlighter\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Highlight code blocks with league/commonmark and Shiki",
-            "homepage": "https://github.com/spatie/commonmark-shiki-highlighter",
-            "keywords": [
-                "commonmark-shiki-highlighter",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/commonmark-shiki-highlighter/tree/2.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-02-19T09:14:06+00:00"
-        },
-        {
-            "name": "spatie/crawler",
-            "version": "8.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/crawler.git",
-                "reference": "807d145a3c071dc0e69bb7e6783611e2591f9773"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/crawler/zipball/807d145a3c071dc0e69bb7e6783611e2591f9773",
-                "reference": "807d145a3c071dc0e69bb7e6783611e2591f9773",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.3",
-                "guzzlehttp/psr7": "^2.0",
-                "illuminate/collections": "^10.0|^11.0",
-                "nicmart/tree": "^0.8.0",
-                "php": "^8.1",
-                "spatie/browsershot": "^3.45|^4.0",
-                "spatie/robots-txt": "^2.0",
-                "symfony/dom-crawler": "^6.0|^7.0"
-            },
-            "require-dev": {
-                "pestphp/pest": "^2.0",
-                "spatie/ray": "^1.37"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Crawler\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be"
-                }
-            ],
-            "description": "Crawl all internal links found on a website",
-            "homepage": "https://github.com/spatie/crawler",
-            "keywords": [
-                "crawler",
-                "link",
-                "spatie",
-                "website"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/crawler/issues",
-                "source": "https://github.com/spatie/crawler/tree/8.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-02-15T10:40:48+00:00"
-        },
-        {
             "name": "spatie/invade",
             "version": "2.0.0",
             "source": {
@@ -7672,97 +7273,6 @@
                 }
             ],
             "time": "2023-07-19T18:55:36+00:00"
-        },
-        {
-            "name": "spatie/laravel-activitylog",
-            "version": "4.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-activitylog.git",
-                "reference": "eb6f37dd40af950ce10cf5280f0acfa3e08c3bff"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/eb6f37dd40af950ce10cf5280f0acfa3e08c3bff",
-                "reference": "eb6f37dd40af950ce10cf5280f0acfa3e08c3bff",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "^8.0 || ^9.0 || ^10.0 || ^11.0",
-                "illuminate/database": "^8.69 || ^9.27 || ^10.0 || ^11.0",
-                "illuminate/support": "^8.0 || ^9.0 || ^10.0 || ^11.0",
-                "php": "^8.1",
-                "spatie/laravel-package-tools": "^1.6.3"
-            },
-            "require-dev": {
-                "ext-json": "*",
-                "orchestra/testbench": "^6.23 || ^7.0 || ^8.0 || ^9.0",
-                "pestphp/pest": "^1.20 || ^2.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\Activitylog\\ActivitylogServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Spatie\\Activitylog\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Sebastian De Deyne",
-                    "email": "sebastian@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Tom Witkowski",
-                    "email": "dev.gummibeer@gmail.com",
-                    "homepage": "https://gummibeer.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A very simple activity logger to monitor the users of your website or application",
-            "homepage": "https://github.com/spatie/activitylog",
-            "keywords": [
-                "activity",
-                "laravel",
-                "log",
-                "spatie",
-                "user"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-activitylog/issues",
-                "source": "https://github.com/spatie/laravel-activitylog/tree/4.8.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-03-08T22:28:17+00:00"
         },
         {
             "name": "spatie/laravel-cookie-consent",
@@ -7843,82 +7353,6 @@
             "time": "2024-03-08T12:14:18+00:00"
         },
         {
-            "name": "spatie/laravel-markdown",
-            "version": "2.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-markdown.git",
-                "reference": "76b0d5fe809c61bb4c2208df3f1115a5db0ceb3b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-markdown/zipball/76b0d5fe809c61bb4c2208df3f1115a5db0ceb3b",
-                "reference": "76b0d5fe809c61bb4c2208df3f1115a5db0ceb3b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/cache": "^9.0|^10.0|^11.0",
-                "illuminate/contracts": "^9.0|^10.0|^11.0",
-                "illuminate/support": "^9.0|^10.0|^11.0",
-                "illuminate/view": "^9.0|^10.0|^11.0",
-                "league/commonmark": "^2.4.2",
-                "php": "^8.1",
-                "spatie/commonmark-shiki-highlighter": "^2.3",
-                "spatie/laravel-package-tools": "^1.4.3"
-            },
-            "require-dev": {
-                "brianium/paratest": "^6.2",
-                "nunomaduro/collision": "^5.3|^6.0",
-                "orchestra/testbench": "^6.15|^7.0|^8.0",
-                "pestphp/pest": "^1.22",
-                "phpunit/phpunit": "^9.3",
-                "spatie/laravel-ray": "^1.23",
-                "spatie/pest-plugin-snapshots": "^1.1",
-                "vimeo/psalm": "^4.8"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\LaravelMarkdown\\MarkdownServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\LaravelMarkdown\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A highly configurable markdown renderer and Blade component for Laravel",
-            "homepage": "https://github.com/spatie/laravel-markdown",
-            "keywords": [
-                "Laravel-Markdown",
-                "laravel",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-markdown/tree/2.5.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-02-26T14:24:08+00:00"
-        },
-        {
             "name": "spatie/laravel-package-tools",
             "version": "1.16.4",
             "source": {
@@ -7977,265 +7411,6 @@
                 }
             ],
             "time": "2024-03-20T07:29:11+00:00"
-        },
-        {
-            "name": "spatie/laravel-sitemap",
-            "version": "7.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-sitemap.git",
-                "reference": "4f79443e76a677731edfb4e89fac8816d11e194b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-sitemap/zipball/4f79443e76a677731edfb4e89fac8816d11e194b",
-                "reference": "4f79443e76a677731edfb4e89fac8816d11e194b",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.8",
-                "illuminate/support": "^10.0|^11.0",
-                "nesbot/carbon": "^2.71|^3.0",
-                "php": "^8.2",
-                "spatie/crawler": "^8.0.1",
-                "spatie/laravel-package-tools": "^1.16.1",
-                "symfony/dom-crawler": "^6.3.4|^7.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.6.6",
-                "orchestra/testbench": "^8.14|^9.0",
-                "pestphp/pest": "^2.24",
-                "spatie/pest-plugin-snapshots": "^2.1",
-                "spatie/phpunit-snapshot-assertions": "^5.1.2",
-                "spatie/temporary-directory": "^2.2"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\Sitemap\\SitemapServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Sitemap\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Create and generate sitemaps with ease",
-            "homepage": "https://github.com/spatie/laravel-sitemap",
-            "keywords": [
-                "laravel-sitemap",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-sitemap/tree/7.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2024-02-15T10:50:21+00:00"
-        },
-        {
-            "name": "spatie/robots-txt",
-            "version": "2.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/robots-txt.git",
-                "reference": "dacba2ba159364987392aa1b0002e196c5923970"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/robots-txt/zipball/dacba2ba159364987392aa1b0002e196c5923970",
-                "reference": "dacba2ba159364987392aa1b0002e196c5923970",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "larapack/dd": "^1.0",
-                "phpunit/phpunit": "^8.0 || ^9.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Robots\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Brent Roose",
-                    "email": "brent@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Determine if a page may be crawled from robots.txt and robots meta tags",
-            "homepage": "https://github.com/spatie/robots-txt",
-            "keywords": [
-                "robots-txt",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/robots-txt/issues",
-                "source": "https://github.com/spatie/robots-txt/tree/2.0.3"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-11-22T12:57:35+00:00"
-        },
-        {
-            "name": "spatie/shiki-php",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/shiki-php.git",
-                "reference": "b4bd54222c40b44800aabce0a4382e0c463b5901"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/shiki-php/zipball/b4bd54222c40b44800aabce0a4382e0c463b5901",
-                "reference": "b4bd54222c40b44800aabce0a4382e0c463b5901",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "php": "^7.4|^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^v3.0",
-                "pestphp/pest": "^1.8",
-                "phpunit/phpunit": "^9.5",
-                "spatie/pest-plugin-snapshots": "^1.1",
-                "spatie/ray": "^1.10"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\ShikiPhp\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rias Van der Veken",
-                    "email": "rias@spatie.be",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Highlight code using Shiki in PHP",
-            "homepage": "https://github.com/spatie/shiki-php",
-            "keywords": [
-                "shiki",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/shiki-php/tree/2.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-02-19T09:00:59+00:00"
-        },
-        {
-            "name": "spatie/temporary-directory",
-            "version": "2.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/temporary-directory.git",
-                "reference": "76949fa18f8e1a7f663fd2eaa1d00e0bcea0752a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/76949fa18f8e1a7f663fd2eaa1d00e0bcea0752a",
-                "reference": "76949fa18f8e1a7f663fd2eaa1d00e0bcea0752a",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\TemporaryDirectory\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Vanderbist",
-                    "email": "alex@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Easily create, use and destroy temporary directories",
-            "homepage": "https://github.com/spatie/temporary-directory",
-            "keywords": [
-                "php",
-                "spatie",
-                "temporary-directory"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/temporary-directory/issues",
-                "source": "https://github.com/spatie/temporary-directory/tree/2.2.1"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-12-25T11:46:58+00:00"
         },
         {
             "name": "stechstudio/filament-impersonate",
@@ -8577,73 +7752,6 @@
                 }
             ],
             "time": "2023-05-23T14:45:45+00:00"
-        },
-        {
-            "name": "symfony/dom-crawler",
-            "version": "v7.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "6cb272cbec4dc7a30a853d2931766b03bea92dda"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/6cb272cbec4dc7a30a853d2931766b03bea92dda",
-                "reference": "6cb272cbec4dc7a30a853d2931766b03bea92dda",
-                "shasum": ""
-            },
-            "require": {
-                "masterminds/html5": "^2.6",
-                "php": ">=8.2",
-                "symfony/polyfill-ctype": "~1.8",
-                "symfony/polyfill-mbstring": "~1.0"
-            },
-            "require-dev": {
-                "symfony/css-selector": "^6.4|^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DomCrawler\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Eases DOM navigation for HTML and XML documents",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v7.0.4"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-02-12T11:15:03+00:00"
         },
         {
             "name": "symfony/error-handler",
@@ -11068,16 +10176,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.13.1",
+            "version": "v3.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "2f046cb8e0650d1d08b635c90e15c84d09c6288d"
+                "reference": "241e9bddb04ab42a04a5fe8b2b9654374c864229"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/2f046cb8e0650d1d08b635c90e15c84d09c6288d",
-                "reference": "2f046cb8e0650d1d08b635c90e15c84d09c6288d",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/241e9bddb04ab42a04a5fe8b2b9654374c864229",
+                "reference": "241e9bddb04ab42a04a5fe8b2b9654374c864229",
                 "shasum": ""
             },
             "require": {
@@ -11136,7 +10244,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.13.1"
+                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.13.3"
             },
             "funding": [
                 {
@@ -11148,7 +10256,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-03T11:41:11+00:00"
+            "time": "2024-04-04T02:42:49+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -11389,6 +10497,70 @@
                 }
             ],
             "time": "2024-02-20T07:24:02+00:00"
+        },
+        {
+            "name": "christophrumpel/missing-livewire-assertions",
+            "version": "v2.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/christophrumpel/missing-livewire-assertions.git",
+                "reference": "58374de520c8741106c678265537ace1f38cdde6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/christophrumpel/missing-livewire-assertions/zipball/58374de520c8741106c678265537ace1f38cdde6",
+                "reference": "58374de520c8741106c678265537ace1f38cdde6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0|^9.0|^11.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.4.3"
+            },
+            "require-dev": {
+                "brianium/paratest": "^6.2|^7.4",
+                "livewire/livewire": "^3.0",
+                "orchestra/testbench": "^8.0|^7.4|^9.0",
+                "phpunit/phpunit": "^9.3|^10.5",
+                "spatie/laravel-ray": "^1.9"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Christophrumpel\\MissingLivewireAssertions\\MissingLivewireAssertionsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Christophrumpel\\MissingLivewireAssertions\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Rumpel",
+                    "email": "christoph@christoph-rumpel.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package adds missing livewire test assertions.",
+            "homepage": "https://github.com/christophrumpel/missing-livewire-assertions",
+            "keywords": [
+                "assertions",
+                "christophrumpel",
+                "laravel",
+                "livewire"
+            ],
+            "support": {
+                "issues": "https://github.com/christophrumpel/missing-livewire-assertions/issues",
+                "source": "https://github.com/christophrumpel/missing-livewire-assertions/tree/v2.7.0"
+            },
+            "time": "2024-03-26T20:42:30+00:00"
         },
         {
             "name": "cmgmyr/phploc",
@@ -12710,16 +11882,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.22.2",
+            "version": "v1.22.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "424be4f885f278edddf4ffa2e3dd41dc04279096"
+                "reference": "7aa9a27a0b1158ed5ad4e7175e8d3aee9a818b96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/424be4f885f278edddf4ffa2e3dd41dc04279096",
-                "reference": "424be4f885f278edddf4ffa2e3dd41dc04279096",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/7aa9a27a0b1158ed5ad4e7175e8d3aee9a818b96",
+                "reference": "7aa9a27a0b1158ed5ad4e7175e8d3aee9a818b96",
                 "shasum": ""
             },
             "require": {
@@ -12772,9 +11944,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maximebf/php-debugbar/issues",
-                "source": "https://github.com/maximebf/php-debugbar/tree/v1.22.2"
+                "source": "https://github.com/maximebf/php-debugbar/tree/v1.22.3"
             },
-            "time": "2024-04-03T11:46:22+00:00"
+            "time": "2024-04-03T19:39:26+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -14024,16 +13196,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.27.0",
+            "version": "1.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "86e4d5a4b036f8f0be1464522f4c6b584c452757"
+                "reference": "cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/86e4d5a4b036f8f0be1464522f4c6b584c452757",
-                "reference": "86e4d5a4b036f8f0be1464522f4c6b584c452757",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb",
+                "reference": "cd06d6b1a1b3c75b0b83f97577869fd85a3cd4fb",
                 "shasum": ""
             },
             "require": {
@@ -14065,9 +13237,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.27.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.28.0"
             },
-            "time": "2024-03-21T13:14:53+00:00"
+            "time": "2024-04-03T18:51:33+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -14615,12 +13787,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "8f58125e25237ea649fd369348ca7c2a42337f86"
+                "reference": "55338196704d6dae11257b34c4f5cdde484dfaa9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/8f58125e25237ea649fd369348ca7c2a42337f86",
-                "reference": "8f58125e25237ea649fd369348ca7c2a42337f86",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/55338196704d6dae11257b34c4f5cdde484dfaa9",
+                "reference": "55338196704d6dae11257b34c4f5cdde484dfaa9",
                 "shasum": ""
             },
             "conflict": {
@@ -14636,7 +13808,7 @@
                 "alterphp/easyadmin-extension-bundle": ">=1.2,<1.2.11|>=1.3,<1.3.1",
                 "amazing/media2click": ">=1,<1.3.3",
                 "amphp/artax": "<1.0.6|>=2,<2.0.6",
-                "amphp/http": "<1.0.1",
+                "amphp/http": "<=1.7.2|>=2,<=2.1",
                 "amphp/http-client": ">=4,<4.4",
                 "anchorcms/anchor-cms": "<=0.12.7",
                 "andreapollastri/cipi": "<=3.1.15",
@@ -14704,7 +13876,7 @@
                 "codeigniter4/shield": "<1.0.0.0-beta8",
                 "codiad/codiad": "<=2.8.4",
                 "composer/composer": "<1.10.27|>=2,<2.2.23|>=2.3,<2.7",
-                "concrete5/concrete5": "<9.2.7",
+                "concrete5/concrete5": "<9.2.8",
                 "concrete5/core": "<8.5.8|>=9,<9.1",
                 "contao-components/mediaelement": ">=2.14.2,<2.21.1",
                 "contao/contao": ">=4,<4.4.56|>=4.5,<4.9.40|>=4.10,<4.11.7|>=4.13,<4.13.21|>=5.1,<5.1.4",
@@ -14737,7 +13909,7 @@
                 "doctrine/mongodb-odm": "<1.0.2",
                 "doctrine/mongodb-odm-bundle": "<3.0.1",
                 "doctrine/orm": ">=2,<2.4.8|>=2.5,<2.5.1|>=2.8.3,<2.8.4",
-                "dolibarr/dolibarr": "<18.0.2",
+                "dolibarr/dolibarr": "<=19",
                 "dompdf/dompdf": "<2.0.4",
                 "doublethreedigital/guest-entries": "<3.1.2",
                 "drupal/core": ">=6,<6.38|>=7,<7.96|>=8,<10.1.8|>=10.2,<10.2.2",
@@ -15352,7 +14524,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-02T19:04:21+00:00"
+            "time": "2024-04-03T22:04:54+00:00"
         },
         {
             "name": "sebastian/cli-parser",
