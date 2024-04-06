@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 export DEBIAN_FRONTEND=noninteractive
-echo "Quick deploy - only code updates, cache restarts and service reloads";sleep 1;
+echo "Quick deploy - only code updates, cache restarts and service reloads"
 source .env
 ssh -i $DEPLOYMENT_SSH_KEY $DEPLOYMENT_USER@$DEPLOYMENT_IP <<ENDSSH
 cd $DEPLOYMENT_PATH
