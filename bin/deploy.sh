@@ -7,8 +7,8 @@ ssh -i $DEPLOYMENT_SSH_KEY $DEPLOYMENT_USER@$DEPLOYMENT_IP <<ENDSSH
 cd $DEPLOYMENT_PATH
 git pull
 composer install --no-interaction --optimize-autoloader --no-dev
-npm install
-npm run build
+bun install
+bun run build
 php artisan optimize:clear
 php artisan schedule:clear-cache
 php artisan optimize

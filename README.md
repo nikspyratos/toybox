@@ -31,9 +31,9 @@ Principles
 - **Self-containment**: With minimal extra commands, you should be able to clone this repo and get something running.
 - **Tiny but mighty**: Minimising the different technologies used, using simpler & standardised alternatives to common tools.
 - **Don't reinvent the wheel**: Use as much of the official & unofficial Laravel ecosystem where applicable. Use popular (i.e. sustainable, gets regular updates) tools & packages where applicable instead of rewriting boilerplate logic from scratch. We're in Laravel, not JS!
-- **Stability**: Strict types. Automated linting & code analysis
+- **Quality code**: Strict types. Automated linting & code analysis
 - **Simplified Scaling**: It's cheaper to scale with load balancing & bigger servers, and with minor manual input instead of full automation.
-- **Local is lekker**: Sometimes, building your own features is better in the long run than adding more dependencies.
+- **Bleeding edge**: Let's play around with the latest tools out there!
 
 ## Support this project
 
@@ -72,6 +72,7 @@ There were a few more features in the past, but for the aims of the project they
     - **Testing**: [PestPHP](https://pestphp.com/)
     - **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/11.x/pulse) and [Laravel Telescope](https://laravel.com/docs/11.x/telescope)
     - **Linting, Code Quality, Static Analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibility.
+    - **Asset bundling**: Bun is supported by default, otherwise this uses a standard Laravel installation of Vite & Tailwind.
 - **CI/CD**: Good old Bash scripts.
 - **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, Cache, Queue, Pulse & Telescope have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
 
@@ -232,7 +233,7 @@ Your first step is to download your project repository from your VCS. Then, run 
 - Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
 - Install PHP (with service config and extensions), Caddy, and Supervisor
 - Install the Octane, queue config for Supervisor
-- Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
+- Setup your app (composer & bun install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
 
 Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
 
@@ -262,9 +263,7 @@ DEPLOYMENT_SSH_KEY=
 To deploy the latest application changes, run `./bin/deploy.sh`. It will:
 
 - SSH into your server using the variables above
-- Run `git pull`, `composer install`, `npm install`, `npm run build`, and `php artisan migrate`.
-
-If you're in a rush/need to throw hotfixes up, `bin/quick_deploy.sh` will only pull new code & reset the optimisation caches.
+- Run `git pull`, `composer install`, `bun install`, `bun run build`, and `php artisan migrate`.
 
 #### Troubleshooting
 

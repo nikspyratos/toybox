@@ -15,12 +15,12 @@ sudo apt install -y php8.3 php8.3-event php8.3-gd php8.3-intl php8.3-curl php8.3
 sudo apt-get install -y
 sudo mkdir /etc/systemd/service
 sudo systemctl daemon-reload
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
+curl -fsSL https://bun.sh/install | bash
 # Application
 echo "Setting up application";sleep 1;
 composer install --no-interaction --optimize-autoloader --no-dev
-npm install
-npm run build
+bun install
+bun run build
 php artisan key:generate
 php artisan migrate --force --seed
 php artisan storage:link

@@ -39,8 +39,8 @@ touch database/telescope.sqlite
 touch database/activities.sqlite
 git config --local include.path ../.gitconfig
 composer update --no-interaction --prefer-dist --optimize-autoloader
-npm update
-npm run build
+bun update
+bun run build
 php artisan ide-helper:eloquent
 cp .env.example .env
 php artisan key:generate
