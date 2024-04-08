@@ -111,14 +111,6 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
-        'activity_db' => [
-            'driver' => 'sqlite',
-            'url' => env('DB_URL'),
-            'database' => env('ACTIVITY_DATABASE', database_path('activities.sqlite')),
-            'prefix' => '',
-            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
-        ],
-
         'cache_db' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),

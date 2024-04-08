@@ -36,7 +36,6 @@ touch database/cache.sqlite
 touch database/queue.sqlite
 touch database/pulse.sqlite
 touch database/telescope.sqlite
-touch database/activities.sqlite
 git config --local include.path ../.gitconfig
 composer update --no-interaction --prefer-dist --optimize-autoloader
 bun update
