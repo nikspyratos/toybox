@@ -283,11 +283,19 @@ This list includes both commercial options and open-source, including packages.
 
 For more, search for `awesome-laravel` repos on Github, like [this one](https://github.com/chiraggude/awesome-laravel).
 
+#### AI (LLMs)
+
+The community-built [OpenAPI PHP SDK](https://github.com/openai-php/client) is robust for building AI into your applications. [Sparkle](https://github.com/echolabsdev/sparkle) is another great tool (coming soon).
+
 #### Analytics
 
 [Fathom](https://usefathom.com) and [Plausible](https://plausible.io) are great options. If I had to choose: Fathom has more accessible pricing, and is made with Laravel!
 
 For tracking user actions in your app, [Spatie Activity Log](https://spatie.be/docs/laravel-activitylog/v4/introduction) is great.
+
+#### API Tools
+
+[Treblle](https://treblle.com) provides a great suite of tools for API observability, security, analytics and more. The Laravel SDK is [here](https://github.com/Treblle/treblle-laravel).
 
 #### Backups
 
