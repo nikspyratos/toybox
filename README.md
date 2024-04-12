@@ -63,7 +63,7 @@ There were a few more features in the past, but for the aims of the project they
 
 - **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
 - **Webserver**: [FrankenPHP](https://frankenphp.dev/)'s [Caddy](https://caddyserver.com/), configured to run through [Laravel Octane](https://laravel.com/docs/11.x/octane) 
-- **Database**: [SQLite](https://sqlite.org)
+- **Database**: [SQLite](https://sqlite.org), [optimised for performance & stability](https://kerkour.com/sqlite-for-servers)
 - **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 - **Application**: [Laravel](https://laravel.com) (duh)
     - **Admin Panel**: [Filament](https://filamentphp.com/)
