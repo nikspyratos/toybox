@@ -62,7 +62,7 @@ There were a few more features in the past, but for the aims of the project they
 ## Components
 
 - **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
-- **Webserver**: [FrankenPHP](https://frankenphp.dev/)'s [Caddy](https://caddyserver.com/), configured to run through [Laravel Octane](https://laravel.com/docs/11.x/octane) 
+- **Webserver**: [FrankenPHP](https://frankenphp.dev/)'s [Caddy](https://caddyserver.com/), configured to run through [Laravel Octane](https://laravel.com/docs/11.x/octane)
 - **Database**: [SQLite](https://sqlite.org), [optimised for performance & stability](https://kerkour.com/sqlite-for-servers)
 - **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 - **Application**: [Laravel](https://laravel.com) (duh)
@@ -138,15 +138,15 @@ Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/lar
 ##### Windows
 
 - Herd is an all-in-one development solution, including database, redis, and other services (if you pay for Pro).
-- WSL2 is still required, as all the scripts in `bin` are built for Linux/Mac. 
+- WSL2 is still required, as all the scripts in `bin` are built for Linux/Mac.
 
 #### Installing Toybox
 
 1. Clone/fork this repository into a new repository.
 2. Run `./bin/init_dev.sh` (remember to do so from WSL2 on Windows). It will:
-   - Set up pre-commit linting, 
-   - Replace template names, 
-   - Conduct Laravel boilerplate setup (package installs, key generate, migrate, etc.). 
+   - Set up pre-commit linting,
+   - Replace template names,
+   - Conduct Laravel boilerplate setup (package installs, key generate, migrate, etc.).
    - The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
    - It will also ask if you would like to install Jetstream Teams, and has a custom installer (`bin/init_teams.sh`) it runs if yes.
 
@@ -217,7 +217,7 @@ These are the next steps you will have to implement yourself for your project as
 
 #### Ongoing Development
 
-- **Live validation**: Remember to use [Precognition](https://laravel.com/docs/11.x/precognition#using-alpine) to bring live validation to your forms. 
+- **Live validation**: Remember to use [Precognition](https://laravel.com/docs/11.x/precognition#using-alpine) to bring live validation to your forms.
 - **Testing**: Toybox includes [Missing Livewire Assertions](https://github.com/christophrumpel/missing-livewire-assertions), so make sure to use it!
 
 ### Production
@@ -384,7 +384,7 @@ There are a few options here, depending on your region. For many countries, [Str
 
 If you're in Africa, [Paystack](https://paystack.com/) is a solid option (affiliate signup: [here](https://nik-software.paystack.com/#/signup)).
 
-For more options, and whether or not you need an MoR, and taxation info see [here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
+For more options, and whether or not you need an MoR, and taxation info see [here](https:/publish.obsidian.md/thecapegreek/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
 
 #### Security
 
@@ -420,7 +420,7 @@ For upgrading Laravel, see [Laravel Shift](https://laravelshift.com/).
 - [Blade UI Kit](https://blade-ui-kit.com) is another component kit for the TALL stack.
 - [Mary UI](https://www.mary-ui.com) is a Tailwind component kit.
 
-For more recommendations, see [here](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Design).
+For more recommendations, see [here](https://publish.obsidian.md/thecapegreek/Perceptions/Learning/Resources/Tech/Design).
 
 #### Websockets
 
@@ -445,11 +445,11 @@ All options are to be used alongside [Laravel Echo](https://laravel.com/docs/11.
 - **Media Management**: Try out [Spatie Media Library](https://spatie.be/docs/laravel-medialibrary/v10/introduction) alongside [Filament's plugin](https://filamentphp.com/plugins/filament-spatie-media-library).
 - **Alternative Eloquent Drivers**: [Sushi](https://github.com/calebporzio/sushi) is an array driver, while [Orbit](https://github.com/ryangjchandler/orbit) is a flat file driver. These can be useful for things like CMSes, or loading data into Filament tables (which rely on the Eloquent query builder) without needing a database-driven model.
 - **Fixture data**: [Squire](https://github.com/squirephp/squire) adds static fixtures (e.g. airport, country code, currency, timezone) available through Eloquent.
-- **Provisioning & Deployment**: There are many tools here, but I'd recommend keeping it simple with one of: Docker, Ansible, or even plain Bash scripts. Otherwise, look at 
+- **Provisioning & Deployment**: There are many tools here, but I'd recommend keeping it simple with one of: Docker, Ansible, or even plain Bash scripts. Otherwise, look at
 - **Application settings**: [Spatie Laravel Settings](https://github.com/spatie/laravel-settings) + [Filament Spatie Settings](https://filamentphp.com/plugins/filament-spatie-settings)
 - **Security**: Consider adding [Spatie's CSP package](https://github.com/spatie/laravel-csp).
 
-For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://writing.nikspyratos.com/Perceptions/Learning/Resources/Tech/Laravel).
+For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://publish.obsidian.md/thecapegreek/Perceptions/Learning/Resources/Tech/Laravel).
 
 For more tutorials, packages and more, make sure to look at [Laravel News](https://laravel-news.com/).
 
@@ -474,7 +474,7 @@ This package is a starting point, but as your project scales, you may need to ad
 
 You can do most of what is described below with the [infrastructure](#infrastructure) tools recommended.
 
-- **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows. For Toybox, the memory & upload limits are set in `public/index.php`. 
+- **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows. For Toybox, the memory & upload limits are set in `public/index.php`.
 - **Caching & Content Delivery Network (CDN)**: Cache frequent application responses with the tools in the [Cache section](#cache). Sign up for a service like [Cloudflare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/) to take the edge off of some of your traffic and protect from DDoS attacks.
 - **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
 - **Horizontal scale**: Spin more servers up, and stick a load balancer in front of them. Again managed services for this exist, or you can spin up a generic server with Forge/Ploi and use that for it. Just remember to [modify your scheduled tasks to only run on one server](https://laravel.com/docs/11.x/scheduling#running-tasks-on-one-server).
@@ -497,7 +497,7 @@ While this isn't really within the scope of this project, I think it's still val
 
 The following is a non-exhaustive, and potentially outdated list of recommendations.
 
-For more resources, such as for launching, advertising, sales, marketing, communities, and incorporating a business, [see here](https://writing.nikspyratos.com/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Indie+Hacking+-+Solopreneurship+-+Startups+-+Founders).
+For more resources, such as for launching, advertising, sales, marketing, communities, and incorporating a business, [see here](https:/publish.obsidian.md/thecapegreek/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Indie+Hacking+-+Solopreneurship+-+Startups+-+Founders).
 
 ### Helpdesk/Support
 
