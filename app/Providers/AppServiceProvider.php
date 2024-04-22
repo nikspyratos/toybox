@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
     #[Override]
     public function register(): void
     {
-        // Stub
+        $this->bootDatabase();
     }
 
     /**
@@ -46,6 +47,24 @@ class AppServiceProvider extends ServiceProvider
         $this->bootAuth();
         $this->bootEvent();
         $this->bootRoute();
+    }
+
+    public function bootDatabase(): void
+    {
+        $connections = ['sqlite', 'cache_db', 'pulse_db', 'queue_db', 'telescope_db'];
+        foreach ($connections as $connection) {
+            DB::connection($connection)
+                ->statement(
+                    '
+                PRAGMA synchronous = NORMAL;
+                PRAGMA mmap_size = 134217728; -- 128 megabytes
+                PRAGMA cache_size = 1000000000;
+                PRAGMA foreign_keys = true;
+                PRAGMA busy_timeout = 5000;
+                PRAGMA temp_store = memory;
+                '
+                );
+        }
     }
 
     public function bootAuth(): void
