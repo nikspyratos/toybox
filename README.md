@@ -23,6 +23,8 @@ The Toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 
 Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward, or the [scripts](bin) will give you something to work with.
 
+Alternatively if you're looking for _more_ functionality out of your boilerplate, take a look at Sergey Karakhanyan's [Larafast](https://larafast.com/).
+
 > This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. This is also not intended for "professional" commercial use, i.e. for freelance clients - it's intended for use by indie developer-entrepreneurs.
 
 Principles
