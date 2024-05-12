@@ -140,6 +140,8 @@ Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/lar
 - Herd is an all-in-one development solution, including database, redis, and other services (if you pay for Pro).
 - WSL2 is still required, as all the scripts in `bin` are built for Linux/Mac.
 
+Note: If using Herd, you won't be able to use Horizon and Pail, as they require the `pcntl` extension which does not work on Windows. If you really need these tools, you'll need a WSL2/Docker/VM based development environment.
+
 #### Installing Toybox
 
 1. Clone/fork this repository into a new repository.

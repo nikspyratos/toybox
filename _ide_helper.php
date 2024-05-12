@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.6.0.
+ * Generated for Laravel 11.7.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -19946,6 +19946,16 @@ namespace Illuminate\Http {
          * @see \Laravel\Jetstream\JetstreamServiceProvider::boot()
          * @param mixed $message
          * @static 
+         */        public static function warningBanner($message)
+        {
+                        return \Illuminate\Http\RedirectResponse::warningBanner($message);
+        }
+                    /**
+         * 
+         *
+         * @see \Laravel\Jetstream\JetstreamServiceProvider::boot()
+         * @param mixed $message
+         * @static 
          */        public static function dangerBanner($message)
         {
                         return \Illuminate\Http\RedirectResponse::dangerBanner($message);
@@ -25685,6 +25695,57 @@ namespace  {
             {
                                 /** @var \Illuminate\Database\Query\Builder $instance */
                                 return $instance->orWhereJsonDoesntContain($column, $value);
+            }
+                            /**
+             * Add a "where JSON overlaps" clause to the query.
+             *
+             * @param string $column
+             * @param mixed $value
+             * @param string $boolean
+             * @param bool $not
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */            public static function whereJsonOverlaps($column, $value, $boolean = 'and', $not = false)
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->whereJsonOverlaps($column, $value, $boolean, $not);
+            }
+                            /**
+             * Add an "or where JSON overlaps" clause to the query.
+             *
+             * @param string $column
+             * @param mixed $value
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */            public static function orWhereJsonOverlaps($column, $value)
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->orWhereJsonOverlaps($column, $value);
+            }
+                            /**
+             * Add a "where JSON not overlap" clause to the query.
+             *
+             * @param string $column
+             * @param mixed $value
+             * @param string $boolean
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */            public static function whereJsonDoesntOverlap($column, $value, $boolean = 'and')
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->whereJsonDoesntOverlap($column, $value, $boolean);
+            }
+                            /**
+             * Add an "or where JSON not overlap" clause to the query.
+             *
+             * @param string $column
+             * @param mixed $value
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */            public static function orWhereJsonDoesntOverlap($column, $value)
+            {
+                                /** @var \Illuminate\Database\Query\Builder $instance */
+                                return $instance->orWhereJsonDoesntOverlap($column, $value);
             }
                             /**
              * Add a clause that determines if a JSON path exists to the query.

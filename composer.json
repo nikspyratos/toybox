@@ -16,7 +16,6 @@
         "laravel/framework": "^11.0",
         "laravel/jetstream": "^5.0",
         "laravel/octane": "^2.3",
-        "laravel/pail": "^1.1",
         "laravel/pulse": "^1.0",
         "laravel/reverb": "@beta",
         "laravel/sanctum": "^4.0",
