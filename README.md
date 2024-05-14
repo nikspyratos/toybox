@@ -23,7 +23,7 @@ The Toybox has a bit of everything - a grand tour of the Laravel PHP world, so t
 
 Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward, or the [scripts](bin) will give you something to work with.
 
-Alternatively if you're looking for _more_ functionality out of your boilerplate, take a look at Sergey Karakhanyan's [Larafast](https://larafast.com/).
+Alternatively if you're looking for _more_ functionality out of your boilerplate, take a look at Sergey Karakhanyan's [Larafast](https://larafast.com?aff=n8OOn).
 
 > This project is intended mostly for use as a solo Laravel developer who wants to rapidly develop and deploy indie SaaS projects. This is not intended for junior developers - having worked with the modern Laravel ecosystem is ideal to use this project. This is also not intended for "professional" commercial use, i.e. for freelance clients - it's intended for use by indie developer-entrepreneurs.
 
@@ -40,7 +40,7 @@ Principles
 ## Support this project
 
 - [Buy me a coffee](https://tip-jar.co.za/@thecapegreek)
-- Sign up to services like OhDear and Paystack with my affiliate links in the [Next Steps](#next-steps---diy) section.
+- Use my affiliate links for Larafast, OhDear and Paystack (found all over this README).
 - I also [consult in the Laravel & payments space](https://nik.software)
 - Post what you've built using the Toybox and tag me!
 
