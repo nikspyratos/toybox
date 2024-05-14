@@ -422,7 +422,8 @@ For upgrading Laravel, see [Laravel Shift](https://laravelshift.com/).
 - [WireUI](https://v1.wireui.dev/) is a Livewire-based component kit.
 - [Pines](https://devdojo.com/pines) is an Alpine-based component kit.
 - [Blade UI Kit](https://blade-ui-kit.com) is another component kit for the TALL stack.
-- [Mary UI](https://www.mary-ui.com) is a Tailwind component kit.
+- [Mary UI](https://www.mary-ui.com) is a Tailwind component kit, based on DaisyUI.
+  - DaisyUI also has some premium templates available [here](https://daisyui.com/store/?aff=n8OOn).
 
 For more recommendations, see [here](https://publish.obsidian.md/thecapegreek/Perceptions/Learning/Resources/Tech/Design).
 
