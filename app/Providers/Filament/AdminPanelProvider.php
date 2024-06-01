@@ -54,6 +54,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 EnvironmentIndicatorPlugin::make()
+                    ->visible(static fn (): bool => auth()->user()->is_admin)
                     ->color(static fn (): array => match (app()->environment()) {
                         'production' => Color::Red,
                         'staging' => Color::Orange,
