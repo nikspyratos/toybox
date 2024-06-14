@@ -17,9 +17,7 @@
 * [Contributing](#contributing)
 <!-- TOC -->
 
-My [TALL stack](https://tallstack.dev/) boilerplate for Laravel SaaS builders.
-
-The Toybox has a bit of everything - a grand tour of the Laravel PHP world, so to speak. Let's have some fun!
+Toybox is an enhanced [TALL stack](https://www.tallstack.dev) installer for Laravel, aimed for experienced developers and solopreneurs.
 
 Even if you don't need another boilerplate, perhaps the list of [recommended services](#next-steps---diy) will still give you a path forward, or the [scripts](bin) will give you something to work with.
 
@@ -29,8 +27,8 @@ Alternatively if you're looking for _more_ functionality out of your boilerplate
 
 Principles
 
-- **Free, both ways**: There's no need to pay anything for this - I build it because I use it! You can also do whatever you'd like.
-- **Self-containment**: With minimal extra commands, you should be able to clone this repo and get something running.
+- **Free, both ways**: There's no need to pay anything for this - I built it because I use it! You can also do whatever you'd like.
+- **Self-containment**: With minimal extra requirements, you should be able to clone this repo and get something running.
 - **Tiny but mighty**: Minimising the different technologies used, using simpler & standardised alternatives to common tools.
 - **Don't reinvent the wheel**: Use as much of the official & unofficial Laravel ecosystem where applicable. Use popular (i.e. sustainable, gets regular updates) tools & packages where applicable instead of rewriting boilerplate logic from scratch. We're in Laravel, not JS!
 - **Quality code**: Strict types. Automated linting & code analysis
@@ -44,39 +42,39 @@ Principles
 - I also [consult in the Laravel & payments space](https://nik.software)
 - Post what you've built using the Toybox and tag me!
 
-## Project Status - can you use this yet?
+## Project Status
 
-Toybox is currently stable.
+Toybox has been completely transformed from a template into a Bash-based install script. It is currently in a beta state.
+
+This was done to reduce the maintenance requirements of including ever-changing framework files, while still keeping what makes the project useful.
+
+For some core files it's more prudent to replace them outright, but this is kept to a minimum (namely the User model and Filament AdminPanelProvider). 
 
 ## Features
 
 - **Self-initialising, self-provisioning, self-deploying** project using bash scripts.
 - **Admin panel** with Filament, great starting point for managing your application.
 - **Terms of Service and Privacy Policy** derived from [Basecamp](https://github.com/basecamp/policies)
-- **Security enhancements** included from [Securing Laravel](https://securinglaravel.com/)
-- **Laravel ecosystem included** - auth scaffolding, websockets, performance monitoring, webserver runtime, API authentication, feature flags, social login
-- **Cookie Consent banner**
+- **Laravel ecosystem included** - auth scaffolding, performance monitoring, webserver runtime, API authentication, social login
+- **Basic Landing page**, including a **Cookie Consent banner**
 
 All of this is done while keeping package dependencies minimal outside of trusted third parties like Filament or Spatie.
 
-There were a few more features in the past, but for the aims of the project they were removed. Check the `feature-freeze-240403` branch. This will have a CMS, blog, Orbit-based documentation generation, testimonials and roadmap management.
-
 ## Components
 
-- **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
+- **Target OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
 - **Webserver**: [FrankenPHP](https://frankenphp.dev/)'s [Caddy](https://caddyserver.com/), configured to run through [Laravel Octane](https://laravel.com/docs/11.x/octane)
-- **Database**: [SQLite](https://sqlite.org), [optimised for performance & stability](https://kerkour.com/sqlite-for-servers)
+- **Database**: [SQLite](https://sqlite.org), [optimised for performance & stability](https://nik.software/sqlite-optimisations-in-laravel/)
 - **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 - **Application**: [Laravel](https://laravel.com) (duh)
     - **Admin Panel**: [Filament](https://filamentphp.com/)
     - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Folio](https://laravel.com/docs/11.x/folio) for content pages. [Laravel Jetstream](https://jetstream.laravel.com) for authentication, session management, 2FA and much more ([Socialstream](https://docs.socialstream.dev/) included to augment Jetstream with social logins). Some features may also use Filamnent components.
     - **API**: [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum)
     - **Testing**: [PestPHP](https://pestphp.com/)
-    - **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/11.x/pulse) and [Laravel Telescope](https://laravel.com/docs/11.x/telescope)
+    - **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/11.x/pulse)
     - **Linting, Code Quality, Static Analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibility.
-    - **Asset bundling**: Bun is supported by default, otherwise this uses a standard Laravel installation of Vite & Tailwind.
+    - **Asset bundling**: Standard Laravel installation of Vite & Tailwind.
 - **CI/CD**: Good old Bash scripts.
-- **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, Cache, Queue, Pulse & Telescope have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
 
 ## Installation/Usage
 
@@ -120,15 +118,14 @@ zlib
 
 ##### Cross-platform
 
-- [Mailpit](https://github.com/axllent/mailpit) for emails
 - [Rustywind](https://github.com/avencera/rustywind) for Tailwind class order linting.
 - [Pickle](https://github.com/FriendsOfPHP/pickle) for PHP extensions via PECL
 
 ##### macOS
 
 - ([Valet](https://laravel.com/docs/11.x/valet) & [PHPMon](https://phpmon.app/)) OR [Laravel Herd](https://herd.laravel.com/)
-- [DBngin](https://dbngin.com/) for Databases & Redis
-- [Takeout](https://github.com/tighten/takeout) for many more extra services (e.g. ElasticSearch)
+- [DBngin](https://dbngin.com/) for Databases & Redis (Or Herd)
+- [Takeout](https://github.com/tighten/takeout) for many more extra services (e.g. ElasticSearch, Mailhog/Mailpit)
 
 Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/laravel/valet/issues/375). To fix it, edit your `/opt/homebrew/etc/nginx/valet/valet.conf` using one of [simensen's workarounds](https://github.com/laravel/valet/issues/375#issuecomment-1462164188), or just remove the favicon & robot.text handlers entirely.
 
@@ -143,22 +140,23 @@ Note: Favicons with Valet-hosted sites are [a bit broken](https://github.com/lar
 - WSL2 is still required, as all the scripts in `bin` are built for Linux/Mac.
 
 Note: If using Herd, you won't be able to use Horizon and Pail, as they require the `pcntl` extension which does not work on Windows. If you really need these tools, you'll need a WSL2/Docker/VM based development environment.
+Third party packages using Prompts may also fail, as while Prompts has a fallback for Windows, this has to be implemented manually for other OSes.
 
 #### Installing Toybox
 
 1. Clone/fork this repository into a new repository.
-2. Run `./bin/init_dev.sh` (remember to do so from WSL2 on Windows). It will:
-   - Set up pre-commit linting,
-   - Replace template names,
-   - Conduct Laravel boilerplate setup (package installs, key generate, migrate, etc.).
-   - The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
-   - It will also ask if you would like to install Jetstream Teams, and has a custom installer (`bin/init_teams.sh`) it runs if yes.
+2. Make sure you have the necessary dependencies installed
+   1. composer needs to be configured in your PATH so global composer scripts can run.
+3. Run `./init.sh` (remember to do so from WSL2 on Windows). It will:
+    - Ask you for some basic environment variables (repo name, app name, domain).
+    - Run the Laravel installer with pre-defined settings
+    - Install additional packages, modify environment files and settings, and configure the app to run as intended.
 
-Note: By default `init_dev.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile.prod, `templates/octane.conf` and `templates/reverb.conf` with the correct username, once `init_dev.sh` is finished.
+Note: By default `init.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile.prod, `templates/octane.conf` and `templates/reverb.conf` with the correct username, once `init.sh` is finished.
 
 Once the script completes, you can commit the changes to the edited files.
 
-For details, look in [bin/init_dev.sh](bin/init_dev.sh).
+For details, look in [init.sh](init.sh).
 
 The sections below outline the recommended way to work with Toybox on your local system. Please note the included Caddyfile.prod is intended for production use and Caddyfile.dev for local testing..
 
@@ -234,16 +232,16 @@ This assumes you're starting from scratch on an unmanaged Ubuntu server with an 
 
 Your first step is to download your project repository from your VCS. Then, run `./bin/provision_prod.sh` from the project directory. It will:
 
-- Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init_dev.sh`).
+- Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init.sh`).
 - Install PHP (with service config and extensions), Caddy, and Supervisor
 - Install the Octane, queue config for Supervisor
-- Setup your app (composer & bun install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
+- Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
 
 Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
 
 If you're using websockets, you will also want to manually copy the `templates/reverb.conf` config over for Supervisor to run reverb for you.
 
-For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
+For more details, look in [templates/bin/provision_prod.sh](templates/bin/provision_prod.sh).
 
 #### Manual steps
 
@@ -262,7 +260,7 @@ DEPLOYMENT_USER=
 DEPLOYMENT_SSH_KEY=
 ```
 
-`DEPLOYMENT_PATH` should already be set up from when you ran `init_dev.sh`. If not, please edit it to the appropriate value.
+`DEPLOYMENT_PATH` should already be set up from when you ran `init.sh`. If not, please edit it to the appropriate value.
 
 To deploy the latest application changes, run `./bin/deploy.sh`. It will:
 
@@ -453,6 +451,7 @@ All options are to be used alongside [Laravel Echo](https://laravel.com/docs/11.
 - **Provisioning & Deployment**: There are many tools here, but I'd recommend keeping it simple with one of: Docker, Ansible, or even plain Bash scripts. Otherwise, look at
 - **Application settings**: [Spatie Laravel Settings](https://github.com/spatie/laravel-settings) + [Filament Spatie Settings](https://filamentphp.com/plugins/filament-spatie-settings)
 - **Security**: Consider adding [Spatie's CSP package](https://github.com/spatie/laravel-csp).
+- **Testing**:
 
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://publish.obsidian.md/thecapegreek/Perceptions/Learning/Resources/Tech/Laravel).
 
@@ -468,23 +467,25 @@ This boilerplate relies heavily on FilamentPHP for the admin panel building. Thi
 ### Design
 
 - **Application Colours**: Generate matching application colours with [Coolors](https://coolors.co/), and generate Tailwind palettes from those with [UIColors.app](https://uicolors.app/create).
-- **Logo**: Change the contents of [resources/views/vendor/filament-panels/components/logo.blade.php](resources/views/vendor/filament-panels/components/logo.blade.php) to reference your logo image. For favicon generation from the logo, [Real Favicon Generator](https://realfavicongenerator.net/) will create all the images as well as all the HTML you need.
+- **Logo**: You can follow [this guide](https://filamentphp.com/docs/3.x/panels/themes#adding-a-logo) to change the logo on your Filament panel. For favicon generation from the logo, [Real Favicon Generator](https://realfavicongenerator.net/) will create all the images as well as all the HTML you need.
 - **Images**: Once you've set up your project, you can delete the default logos & images in `public/images`.
 
 ---
 
 ## How to scale
 
-This package is a starting point, but as your project scales, you may need to add some more pieces to keep it stable & safe.
+This project is a starting point, but as your app scales, you may need to add some more pieces to keep it stable & safe.
 
 You can do most of what is described below with the [infrastructure](#infrastructure) tools recommended.
 
 - **Vertical scale**: Put simply, for some time, it can just be easier to increase the size of your server as your resource demand grows. For Toybox, the memory & upload limits are set in `public/index.php`.
 - **Caching & Content Delivery Network (CDN)**: Cache frequent application responses with the tools in the [Cache section](#cache). Sign up for a service like [Cloudflare](https://www.cloudflare.com/) or [Fastly](https://www.fastly.com/) to take the edge off of some of your traffic and protect from DDoS attacks.
 - **Separation of concerns**: You may notice some parts of your application require more resources than others. For example, your database needs tons of storage, or your Redis instance takes a lot of RAM. In this case, it can be smarter to switch to either a managed service (e.g. RDS for managed DB, SQS for queues), or spin up a generic server specifically to use that tool.
+  - Toybox does this for your database by default. It separate the cache, queue, and Pulse tables into their own separate SQLite databases, and configures your app to use those connections. This will ease the write/read load in your primary database. [A guide on this can be found here](https://nik.software/sqlite-optimisations-in-laravel).
 - **Horizontal scale**: Spin more servers up, and stick a load balancer in front of them. Again managed services for this exist, or you can spin up a generic server with Forge/Ploi and use that for it. Just remember to [modify your scheduled tasks to only run on one server](https://laravel.com/docs/11.x/scheduling#running-tasks-on-one-server).
     - This can also be manually done with Caddy with its [load balancing](https://caddyserver.com/docs/caddyfile/directives/reverse_proxy#load-balancing) configuration.
     - Laravel Reverb can be scaled [with Redis](https://laravel.com/docs/11.x/reverb#scaling)
+    - Laravel Pulse can also use [Redis for the ingest](https://laravel.com/docs/11.x/pulse#ingest)
     - If you stick with SQLite, one of its limitations is that it only allows one write at a time. This is fine until a certain traffic scale, but you can use something like [Marmot](https://maxpert.github.io/marmot/intro) to run multiple SQLite nodes and have them replicated to each other. Note however at this time that you would have to run migrations manually for each node as a separate connection, as Marmot doesn't replicate schema changes to other nodes.
 - **Self hosting**: Some non-app modules of your business might be cheaper to self-host. For example: CMS, Metabase, Websockets. Be careful with this however, as there can be some hidden catch of complexity/cost involved that can make it more attractive to go for the managed service.
 - **Serverless**: There are two modes of thinking with serverless: pay to make the scale problems go away, or use it for infrequent, burstable task loads that don't need to be in your main app.
@@ -543,12 +544,9 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 These are some features that would be nice to have, but I don't intend on building yet for one reason or another:
 
-- FrankenPHP binary build
+- Introduce some server hardening on the prod provisioning script
 - PWA support
 - Dockerfile
-- Confirmed working Windows environment solution: I don't work on Windows, and while Herd may be a first prize solution, I do want a free setup recommendation to have for Windows devs.
-- Let me know if any new file changes need to be added to the Jetstream Teams installer.
-- Convert some of the install scripts to be Prompts-based (or hybrid with Prompts)
 
 ---
 

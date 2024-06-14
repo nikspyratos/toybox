@@ -1,0 +1,27 @@
+    public function register(): void
+    {
+        DB::connection($connection)
+            ->statement(
+                '
+            PRAGMA synchronous = NORMAL;
+            PRAGMA mmap_size = 134217728; -- 128 megabytes
+            PRAGMA cache_size = 1000000000;
+            PRAGMA foreign_keys = true;
+            PRAGMA busy_timeout = 5000;
+            PRAGMA temp_store = memory;
+            '
+            );
+    }
+
+    public function boot(): void
+    {
+        if (! $this->app->isProduction()) {
+            Model::preventLazyLoading();
+        }
+
+        $isAdminCallback = static fn (User $user) => $user->is_admin;
+        Gate::define('viewPulse', $isAdminCallback);
+        Gate::define('viewTelescope', $isAdminCallback);
+
+        RateLimiter::for('api', static fn (Request $request) => Limit::perMinute(60)->by($request->user()?->id ?: $request->ip()));
+    }
