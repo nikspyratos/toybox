@@ -44,7 +44,9 @@ Principles
 
 ## Project Status
 
-Toybox has been completely transformed from a template into a Bash-based install script. It is currently in a beta state.
+It is currently in a beta state.
+
+Toybox has been completely transformed from a template into a Bash-based install script. It needs a bit more testing to get it over the line. 
 
 This was done to reduce the maintenance requirements of including ever-changing framework files, while still keeping what makes the project useful.
 
