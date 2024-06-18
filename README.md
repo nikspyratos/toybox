@@ -1,6 +1,6 @@
 # Toybox - A TALL SaaS starter kit
 
-![Toybox cover image](public/images/toybox-cover.png)
+![Toybox cover image](templates/public/images/toybox-cover.png)
 
 ---
 
