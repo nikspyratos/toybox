@@ -18,6 +18,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+**/.DS_STORE
 
 rr
 .rr.yaml
