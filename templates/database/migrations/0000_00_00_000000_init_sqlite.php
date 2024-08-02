@@ -9,15 +9,16 @@ return new class extends Migration
 {
     public function up(): void
     {
-        $connections = ['sqlite', 'cache_db', 'pulse_db', 'queue_db'];
-        foreach ($connections as $connection) {
-            DB::connection($connection)
-                ->statement(
-                    '
+        foreach (config('database.connections') as $connection) {
+            if ($connection['driver'] === 'sqlite') {
+                DB::connection($connection)
+                    ->statement(
+                        '
                 PRAGMA journal_mode = WAL;
                 COMMIT;
                 '
-                );
+                    );
+            }
         }
     }
 

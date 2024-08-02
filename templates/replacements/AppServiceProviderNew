@@ -1,16 +1,20 @@
     public function register(): void
     {
-        DB::connection($connection)
-            ->statement(
-                '
-            PRAGMA synchronous = NORMAL;
-            PRAGMA mmap_size = 134217728; -- 128 megabytes
-            PRAGMA cache_size = 1000000000;
-            PRAGMA foreign_keys = true;
-            PRAGMA busy_timeout = 5000;
-            PRAGMA temp_store = memory;
-            '
-            );
+        foreach (config('database.connections') as $connection) {
+            if ($connection['driver'] === 'sqlite') {
+                DB::connection($connection)
+                    ->statement(
+                        '
+                    PRAGMA synchronous = NORMAL;
+                    PRAGMA mmap_size = 134217728; -- 128 megabytes
+                    PRAGMA cache_size = 1000000000;
+                    PRAGMA foreign_keys = true;
+                    PRAGMA busy_timeout = 5000;
+                    PRAGMA temp_store = memory;
+                    '
+                    );
+            }
+        }
     }
 
     public function boot(): void
