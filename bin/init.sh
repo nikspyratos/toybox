@@ -15,11 +15,11 @@ sed -i.bak "s/REVERB_HOST=/REVERB_HOST=https:\/\/$app_domain/g" .env.prod.exampl
 sed -i.bak "s/APP_URL=/APP_URL=https:\/\/$app_domain/g" .env.prod.example
 # For production provisioning & deployment
 sed -i.bak "s/DEPLOYMENT_PATH=/DEPLOYMENT_PATH=$prod_app_path/g" .env.example
-sed -i.bak "s/toybox-laravel.test/$app_domain/g" Caddyfile.prod
-sed -i.bak "s/APP_PATH/$prod_app_path/g" Caddyfile.prod
-sed -i.bak "s/APP_PATH/$prod_app_path/g" templates/octane.conf
-sed -i.bak "s/APP_PATH/$prod_app_path/g" templates/reverb.conf
-sed -i.bak "s/APP_PATH/$prod_app_path/g" templates/queue.conf
+sed -i.bak "s/toybox-laravel.test/$app_domain/g" Caddyfile
+sed -i.bak "s/APP_PATH/$prod_app_path/g" Caddyfile
+sed -i.bak "s/APP_PATH/$prod_app_path/g" octane.conf
+sed -i.bak "s/APP_PATH/$prod_app_path/g" reverb.conf
+sed -i.bak "s/APP_PATH/$prod_app_path/g" queue.conf
 # Local setup
 touch database/database.sqlite
 touch database/cache.sqlite
