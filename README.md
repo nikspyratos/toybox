@@ -1,6 +1,6 @@
 # Toybox - A TALL SaaS starter kit
 
-![Toybox cover image](templates/public/images/toybox-cover.png)
+![Toybox cover image](public/images/toybox-cover.png)
 
 ---
 
@@ -42,41 +42,36 @@ Principles
 - I also [consult in the Laravel & payments space](https://nik.software)
 - Post what you've built using the Toybox and tag me!
 
-## Project Status
+## Project Status - can you use this yet?
 
-It is currently in a beta state.
-
-Toybox has been completely transformed from a template into a Bash-based install script. It needs a bit more testing to get it over the line. 
-
-This was done to reduce the maintenance requirements of including ever-changing framework files, while still keeping what makes the project useful.
-
-For some core files it's more prudent to replace them outright, but this is kept to a minimum (namely the User model and Filament AdminPanelProvider). 
+Toybox is currently stable.
 
 ## Features
 
 - **Self-initialising, self-provisioning, self-deploying** project using bash scripts.
 - **Admin panel** with Filament, great starting point for managing your application.
 - **Terms of Service and Privacy Policy** derived from [Basecamp](https://github.com/basecamp/policies)
-- **Laravel ecosystem included** - auth scaffolding, performance monitoring, webserver runtime, API authentication, social login
+- **Security enhancements** included from [Securing Laravel](https://securinglaravel.com/)
+- **Laravel ecosystem included** - auth scaffolding, websockets, performance monitoring, webserver runtime, API authentication, feature flags, social login
 - **Basic Landing page**, including a **Cookie Consent banner**
 
 All of this is done while keeping package dependencies minimal outside of trusted third parties like Filament or Spatie.
 
 ## Components
 
-- **Target OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
+- **OS**: [Ubuntu 22.04 LTS](https://ubuntu.com/)
 - **Webserver**: [FrankenPHP](https://frankenphp.dev/)'s [Caddy](https://caddyserver.com/), configured to run through [Laravel Octane](https://laravel.com/docs/11.x/octane)
 - **Database**: [SQLite](https://sqlite.org), [optimised for performance & stability](https://nik.software/sqlite-optimisations-in-laravel/)
-- **Websockets**: [Laravel Reverb](https://reverb.laravel.com)
 - **Application**: [Laravel](https://laravel.com) (duh)
     - **Admin Panel**: [Filament](https://filamentphp.com/)
     - **UI**: [Livewire](https://livewire.laravel.com) (including [Alpine.js](https://alpinejs.dev/)). [Laravel Folio](https://laravel.com/docs/11.x/folio) for content pages. [Laravel Jetstream](https://jetstream.laravel.com) for authentication, session management, 2FA and much more ([Socialstream](https://docs.socialstream.dev/) included to augment Jetstream with social logins). Some features may also use Filamnent components.
     - **API**: [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum)
     - **Testing**: [PestPHP](https://pestphp.com/)
-    - **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/11.x/pulse)
+    - **Observability/Metrics**: [Laravel Pulse](https://laravel.com/docs/11.x/pulse) and [Laravel Telescope](https://laravel.com/docs/11.x/telescope)
     - **Linting, Code Quality, Static Analysis**: [Duster](https://github.com/tighten/duster) for linting, with Pint configuration compatible with PHP Insights. [Rustywind](https://github.com/avencera/rustywind) for Tailwind classes. for Tailwind classes. [Larastan](https://github.com/nunomaduro/larastan), [PHP Insights](https://phpinsights.com/) with custom configuration focused on compatibility.
-    - **Asset bundling**: Standard Laravel installation of Vite & Tailwind.
+    - **Asset bundling**: Bun is supported by default, otherwise this uses a standard Laravel installation of Vite & Tailwind.
 - **CI/CD**: Good old Bash scripts.
+- **Cache, queues, etc.**: For some "easy" scaling and portability with SQLite and database drivers, Cache, Queue, Pulse & Telescope have their own separate SQLite database connections. This should theoretically avoid any potential write issues if one of the databases needs more frequent writes than others, and makes the app a little more portable (e.g. you can retain your cache as easily as copying a file when moving server).
 
 ## Installation/Usage
 
@@ -120,6 +115,7 @@ zlib
 
 ##### Cross-platform
 
+- [Mailpit](https://github.com/axllent/mailpit) for emails
 - [Rustywind](https://github.com/avencera/rustywind) for Tailwind class order linting.
 - [Pickle](https://github.com/FriendsOfPHP/pickle) for PHP extensions via PECL
 
@@ -147,18 +143,17 @@ Third party packages using Prompts may also fail, as while Prompts has a fallbac
 #### Installing Toybox
 
 1. Clone/fork this repository into a new repository.
-2. Make sure you have the necessary dependencies installed
-   1. composer needs to be configured in your PATH so global composer scripts can run.
-3. Run `./init.sh` (remember to do so from WSL2 on Windows). It will:
-    - Ask you for some basic environment variables (repo name, app name, domain).
-    - Run the Laravel installer with pre-defined settings
-    - Install additional packages, modify environment files and settings, and configure the app to run as intended.
+2. Run `./bin/init.sh` (remember to do so from WSL2 on Windows). It will:
+   - Set up pre-commit linting,
+   - Replace template names,
+   - Conduct Laravel boilerplate setup (package installs, key generate, migrate, etc.).
+   - The script will ask you for some basic environment variables (app name, domain, database name) and edit your `.env` accordingly.
 
 Note: By default `init.sh` assumes your production server username is `ubuntu`. If it is not, you need to replace `ubuntu` in your Caddyfile.prod, `templates/octane.conf` and `templates/reverb.conf` with the correct username, once `init.sh` is finished.
 
 Once the script completes, you can commit the changes to the edited files.
 
-For details, look in [init.sh](init.sh).
+For details, look in [bin/init.sh](bin/init.sh).
 
 The sections below outline the recommended way to work with Toybox on your local system. Please note the included Caddyfile.prod is intended for production use and Caddyfile.dev for local testing..
 
@@ -237,13 +232,13 @@ Your first step is to download your project repository from your VCS. Then, run 
 - Ask you for some basic environment variables (database credentials) and edit your `.env` accordingly. App name, domain & database name will be used from the values in your `.env` (i.e. from when you ran `init.sh`).
 - Install PHP (with service config and extensions), Caddy, and Supervisor
 - Install the Octane, queue config for Supervisor
-- Setup your app (composer & npm install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
+- Setup your app (composer & bun install, key generate, migrate, install crontab, etc.). All you need to do is modify your `.env` as needed.
 
 Once this is done, update your local `.env`'s `DEPLOYMENT_PATH` and Caddyfile's `APP_PATH` as prompted by the output. This is to enable the `deploy.sh` script to work and to keep your Caddyfile in line with the production version.
 
 If you're using websockets, you will also want to manually copy the `templates/reverb.conf` config over for Supervisor to run reverb for you.
 
-For more details, look in [templates/bin/provision_prod.sh](templates/bin/provision_prod.sh).
+For more details, look in [bin/provision_prod.sh](bin/provision_prod.sh).
 
 #### Manual steps
 
@@ -388,7 +383,7 @@ There are a few options here, depending on your region. For many countries, [Str
 
 If you're in Africa, [Paystack](https://paystack.com/) is a solid option (affiliate signup: [here](https://nik-software.paystack.com/#/signup)).
 
-For more options, and whether or not you need an MoR, and taxation info see [here](https:/publish.obsidian.md/thecapegreek/Perceptions/Ambition+-+Careers+-+Entrepreneurship/Resources/Payment+Gateways).
+For more options, and whether or not you need an MoR, and taxation info see [here](https://nik.software/building-global-wealth-from-south-africa-the-complete-guide/#to-mor-or-not-mor).
 
 #### Security
 
@@ -453,8 +448,7 @@ All options are to be used alongside [Laravel Echo](https://laravel.com/docs/11.
 - **Provisioning & Deployment**: There are many tools here, but I'd recommend keeping it simple with one of: Docker, Ansible, or even plain Bash scripts. Otherwise, look at
 - **Application settings**: [Spatie Laravel Settings](https://github.com/spatie/laravel-settings) + [Filament Spatie Settings](https://filamentphp.com/plugins/filament-spatie-settings)
 - **Security**: Consider adding [Spatie's CSP package](https://github.com/spatie/laravel-csp).
-- **Testing**:
-
+- **Websockets**: For apps needing realtime functionality, run `php artisan install:broadcasting` to install Laravel Reverb.
 For more niche suggestions and general Laravel resources, check out my [Laravel links page](https://publish.obsidian.md/thecapegreek/Perceptions/Learning/Resources/Tech/Laravel).
 
 For more tutorials, packages and more, make sure to look at [Laravel News](https://laravel-news.com/).
@@ -469,14 +463,14 @@ This boilerplate relies heavily on FilamentPHP for the admin panel building. Thi
 ### Design
 
 - **Application Colours**: Generate matching application colours with [Coolors](https://coolors.co/), and generate Tailwind palettes from those with [UIColors.app](https://uicolors.app/create).
-- **Logo**: You can follow [this guide](https://filamentphp.com/docs/3.x/panels/themes#adding-a-logo) to change the logo on your Filament panel. For favicon generation from the logo, [Real Favicon Generator](https://realfavicongenerator.net/) will create all the images as well as all the HTML you need.
+- **Logo**: Change the contents of [resources/views/vendor/filament-panels/components/logo.blade.php](resources/views/vendor/filament-panels/components/logo.blade.php) to reference your logo image. For favicon generation from the logo, [Real Favicon Generator](https://realfavicongenerator.net/) will create all the images as well as all the HTML you need.
 - **Images**: Once you've set up your project, you can delete the default logos & images in `public/images`.
 
 ---
 
 ## How to scale
 
-This project is a starting point, but as your app scales, you may need to add some more pieces to keep it stable & safe.
+This package is a starting point, but as your project scales, you may need to add some more pieces to keep it stable & safe.
 
 You can do most of what is described below with the [infrastructure](#infrastructure) tools recommended.
 
@@ -546,9 +540,9 @@ I don't know too much in this space other than [Xero](https://www.xero.com).
 
 These are some features that would be nice to have, but I don't intend on building yet for one reason or another:
 
-- Introduce some server hardening on the prod provisioning script
 - PWA support
 - Dockerfile
+- Confirmed working Windows environment solution: I don't work on Windows, and while Herd may be a first prize solution, I do want a free setup recommendation to have for Windows devs.
 
 ---
 
