@@ -13,7 +13,7 @@ prodAppPath="\/home\/ubuntu\/$(basename $repoName)"
 # Install Laravel & packages, update composer config
 composer global require laravel/installer
 npm install -g rustywind
-laravel new $repoName --git --database=sqlite --jet --stack-livewire --dark --api --verification --pest -n
+laravel new $repoName --git --database=sqlite --jet --stack=livewire --dark --api --verification --pest -n
 php $appDir/artisan install:broadcasting -n
 compose require livewire/livewire filament/filament pxlrbt/filament-environment-indicator stechstudio/filament-impersonate laravel/folio laravel/octane laravel/pulse laravel/sanctum laravel/socialite joelbutcher/socialstream spatie/laravel-cookie-consent
 composer require --dev barryvdh/laravel-debugbar barryvdh/laravel-ide-helper pestphp/pest-plugin-laravel pestphp/pest-plugin-type-coverage christophrumpel/missing-livewire-assertions driftingly/rector-laravel larastan/larastan nunomaduro/phpinsights rector/rector roave/security-advisories tightenco/duster
