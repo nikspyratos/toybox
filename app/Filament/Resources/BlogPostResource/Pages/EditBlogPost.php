@@ -21,6 +21,24 @@ class EditBlogPost extends EditRecord
 
     protected function getRedirectUrl(): string
     {
-        return $this->getResource()::getUrl('edit', ['record' => $this->getRecord()]);
+        return self::getResource()::getUrl('edit', ['record' => $this->getRecord()]);
+    }
+
+    protected function getPreviewModalView(): ?string
+    {
+        return 'pages.blog.[BlogPost:slug]';
+    }
+
+    protected function getPreviewModalDataRecordKey(): ?string
+    {
+        return 'content';
+    }
+
+    protected function mutatePreviewModalData(array $data): array
+    {
+        $data['blogPost'] = $this->getRecord();
+        $data['blogPost']->published_at = now();
+
+        return $data;
     }
 }

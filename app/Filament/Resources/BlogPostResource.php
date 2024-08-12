@@ -63,8 +63,10 @@ class BlogPostResource extends Resource
                         ->afterStateUpdated(
                             function ($state, Set $set) {
                                 $slug = $set('slug', str($state)->slug()->toString());
+                                $increments = 0;
                                 while (BlogPost::whereSlug($slug)->exists()) {
-                                    $slug = $set('slug', str($state)->slug()->toString());
+                                    $slug = $set('slug', str($state . '-' . $increments)->slug()->toString());
+                                    $increments++;
                                 }
 
                                 return $slug;

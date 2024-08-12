@@ -64,7 +64,7 @@ class User extends Authenticatable implements FilamentUser, MustVerifyEmail
 
     public function isAdmin(): Attribute
     {
-        return Attribute::get(get: fn () => $this->role === Role::ADMIN);
+        return Attribute::get(get: fn () => in_array($this->role, [Role::ADMIN, Role::SUPER_ADMIN]));
     }
 
     #[Override]

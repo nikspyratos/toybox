@@ -54,7 +54,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 EnvironmentIndicatorPlugin::make()
-                    ->visible(static fn (): bool => auth()->user()->is_admin)
+                    ->visible(static fn (): bool => auth()->check() ?? auth()->user()->is_admin)
                     ->color(static fn (): array => match (app()->environment()) {
                         'production' => Color::Red,
                         'staging' => Color::Orange,
@@ -81,16 +81,12 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->navigationGroups([
-                NavigationGroup::make()
-                    ->label('App Health')
-                    ->icon('heroicon-o-cpu-chip')
-                    ->collapsed(),
             ])
             ->navigationItems([
                 NavigationItem::make('Pulse')
-                    ->group('App Health')
                     ->url('/pulse')
                     ->openUrlInNewTab()
+                    ->icon('heroicon-o-cpu-chip')
                     ->visible((bool) config('pulse.enabled')),
             ])
             ->sidebarCollapsibleOnDesktop()

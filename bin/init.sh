@@ -18,14 +18,14 @@ sed -i.bak "s/DEPLOYMENT_PATH=/DEPLOYMENT_PATH=$prod_app_path/g" .env.example
 sed -i.bak "s/toybox-laravel.test/$app_domain/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" octane.conf
-sed -i.bak "s/APP_PATH/$prod_app_path/g" reverb.conf
-sed -i.bak "s/APP_PATH/$prod_app_path/g" queue.conf
-# Local setup
-touch database/database.sqlite
+sed -i.bak "s/APP_PATH/$prod_app_path/gtouch database/database.sqlite
 touch database/cache.sqlite
 touch database/queue.sqlite
 touch database/pulse.sqlite
-touch database/telescope.sqlite
+touch database/telescope.sqlite" reverb.conf
+sed -i.bak "s/APP_PATH/$prod_app_path/g" queue.conf
+# Local setup
+
 git config --local include.path ../.gitconfig
 composer update --no-interaction --prefer-dist --optimize-autoloader
 bun update
