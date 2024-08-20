@@ -18,7 +18,8 @@ sed -i.bak "s/DEPLOYMENT_PATH=/DEPLOYMENT_PATH=$prod_app_path/g" .env.example
 sed -i.bak "s/toybox-laravel.test/$app_domain/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" Caddyfile
 sed -i.bak "s/APP_PATH/$prod_app_path/g" octane.conf
-sed -i.bak "s/APP_PATH/$prod_app_path/gtouch database/database.sqlite
+sed -i.bak "s/APP_PATH/$prod_app_path/g" reverb.conf
+touch database/database.sqlite
 touch database/cache.sqlite
 touch database/queue.sqlite
 touch database/pulse.sqlite
