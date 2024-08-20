@@ -22,7 +22,8 @@ sed -i.bak "s/APP_PATH/$prod_app_path/gtouch database/database.sqlite
 touch database/cache.sqlite
 touch database/queue.sqlite
 touch database/pulse.sqlite
-touch database/telescope.sqlite" reverb.conf
+touch database/telescope.sqlite"
+sed -i.bak "s/APP_PATH/$prod_app_path/g" reverb.conf
 sed -i.bak "s/APP_PATH/$prod_app_path/g" queue.conf
 # Local setup
 
