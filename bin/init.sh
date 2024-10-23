@@ -48,7 +48,8 @@ rm CNAME
 echo "
 Done! See above for any potential errors.
 TODO for you:
-- Build your landing page! And make sure to add `@include('cookie-consent::index')` to the bottom of the HTML body for the cookie consent banner. Otherwise, remove the `spatie/laravel-cookie-consent` package.
+- Build your landing page!
 - If you'd like to add websockets/realtime functionality, run `php artisan install:broadcasting -n` to install Laravel Reverb. If not, delete the `reverb.conf` file.
 - If this is a private project, delete the `LICENSE.md` file.
+- If you're in the EU or serving EU customers, add a cookie consent banner/config.
 "

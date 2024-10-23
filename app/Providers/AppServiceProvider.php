@@ -22,12 +22,13 @@ class AppServiceProvider extends ServiceProvider
                 DB::connection($connectionName)
                     ->statement(
                         '
-                    PRAGMA synchronous = NORMAL;
-                    PRAGMA mmap_size = 134217728; -- 128 megabytes
-                    PRAGMA cache_size = 1000000000;
-                    PRAGMA foreign_keys = true;
-                    PRAGMA busy_timeout = 5000;
-                    PRAGMA temp_store = memory;
+                        PRAGMA synchronous = NORMAL;
+                        PRAGMA mmap_size = 134217728; -- 128 megabytes
+                        PRAGMA cache_size = 1000000000;
+                        PRAGMA foreign_keys = ON;
+                        PRAGMA incremental_vacuum;
+                        PRAGMA busy_timeout = 5000;
+                        PRAGMA temp_store = MEMORY;
                     '
                     );
             }

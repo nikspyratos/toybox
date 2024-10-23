@@ -29,25 +29,25 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\User|null $author
  * @method static \Database\Factories\BlogPostFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost published()
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost query()
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereAuthorId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereContent($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost wherePublishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereSeoDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereTags($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|BlogPost withoutTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost published()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereAuthorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereSeoDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereTags($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|BlogPost withoutTrashed()
  */
 	class BlogPost extends \Eloquent {}
 }
@@ -73,24 +73,24 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\User|null $user
  * @method static \Database\Factories\ConnectedAccountFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount query()
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereAvatarPath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereExpiresAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereNickname($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereProvider($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereProviderId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereRefreshToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereSecret($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereTelephone($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|ConnectedAccount whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereAvatarPath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereExpiresAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereNickname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereProvider($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereProviderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereRefreshToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereSecret($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereTelephone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|ConnectedAccount whereUserId($value)
  */
 	class ConnectedAccount extends \Eloquent {}
 }
@@ -103,7 +103,7 @@ namespace App\Models{
  * @property string $name
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
- * @property mixed|null $password
+ * @property string|null $password
  * @property string|null $remember_token
  * @property string|null $two_factor_secret
  * @property string|null $two_factor_recovery_codes
@@ -122,22 +122,22 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
- * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|User newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|User query()
- * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePhotoPath($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereRole($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorConfirmedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorRecoveryCodes($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereTwoFactorSecret($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereProfilePhotoPath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRole($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorConfirmedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorRecoveryCodes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorSecret($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
  */
 	class User extends \Eloquent implements \Filament\Models\Contracts\FilamentUser, \Illuminate\Contracts\Auth\MustVerifyEmail {}
 }

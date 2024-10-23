@@ -24,7 +24,6 @@
         "pboivin/filament-peek": "*",
         "pxlrbt/filament-environment-indicator": "^2.0",
         "simonhamp/the-og": "^0.5.6",
-        "spatie/laravel-cookie-consent": "^3.3",
         "stechstudio/filament-impersonate": "^3.13"
     },
     "require-dev": {
