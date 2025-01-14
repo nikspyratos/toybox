@@ -13,6 +13,18 @@ toybox-laravel.test {
     file_server
     php_server
     reverse_proxy 127.0.0.1:8080
+    max_conns_per_host 15
+
+    header / {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Frame-Options SAMEORIGIN # Or DENY to stop all frame loads
+        X-Content-Type-Options nosniff
+        -Server # Disable server tokens
+    }
+
+    body {
+        max_size 100mb # Keep in mind for file uploads
+    }
 
     log {
         output file APP_PATH/storage/logs/caddy-access.log
