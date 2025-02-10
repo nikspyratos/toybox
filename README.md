@@ -1,3 +1,9 @@
+# Toybox is archived
+
+With the advent of Laravel Cloud, and starter kits with more dedicated support (like Wave and Larafast) alongside the first party ones, I feel like this project has served its purpose.
+
+For me, the most useful parts of this project were the simplified server setup. I may come back with a set of simple tools in a new project that will serve the same purpose. I'd sitll heartily recommend Forge, Ploi, Cloud and others, but I do believe there is value in having _simplified_ (i.e. no Docker, Ansible, etc) and _independent_ (no 3rd party service) infrastructure tooling for simple apps.
+
 # Toybox - A TALL SaaS starter kit
 
 ![Toybox cover image](public/images/toybox-cover.png)
